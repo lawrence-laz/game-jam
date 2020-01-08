@@ -1,0 +1,170 @@
+Say health potion or something to eat
+Make it more apparent what client wants
+Don't come as often, when player doesn't have anything to give
+Increase chances of certain clients at right scenario
+Light candle with glowing orb
+[DONE] Scare away bandit with spider
+It's more interesting to have items and sell them, than to say I don't have anything and wait (obvious, but not)
+1 click should buy and drag item at once.
+Hide dragon head from lizard.
+Thief should be more clear on what he wants and what will happen
+There should be a better indication when you buy something and dont have gold
+Pigeon should express it better that he will stop the thief
+People like getting gifts (maybe make it a birthday)
+Giving an item should automatically proceed with conversation
+Make an achievement for making chicken happy (give crown)
+
+
+
+EREBUS:
+Dont let items fall
+Rough movement
+make it possible to choose what to buy instead of random 
+it's not apparent what cat wants
+avoid failure state, where you can just drop everything\
+multiple uses for items, avoid cat etc
+sale area, avoid dropping items
+negotiate prices!
+
+------------
+Actual written quests, you need to manioulate items to progress
+It requires connections or gold to get things done
+
+COding stuff:
+[DONE] - Implement conversation as coroutine state machine
+[NOPE, IEnumerator cannot out variables] - Method to get response is out bool, out Item.
+[] - Decide what to do and call appropriate coroutine.
+
+
+disable item collider when dragging, enable immediately when released.
+"Breathing" animation should shrink horizontally when sctrecthing vertically.
+[DONE] Remake all client logic cleanly, like with the Blacksmith.
+
+People seem to enjoy selling stuff to whitey. More characters should appreciate the player.
+client idea: goat magician who buys mana potions and strange items and offers some magic 
+that can backfire or make you rich (give rare strange items).
+
+Cow shouldn't offer staff twice when you don't have the gold.
+Right after you buy metal cow probably shouldn't come again as long as you don't have 
+money for staff.
+
+50 characters, each with its "ending" and an achievement.
+Bandit shouldn't show up for some turn when you support royal guards.
+[DONE]And royal guards should react differently seconds time they come for help, to indicate
+[DONE]that there was progress and items weren't wasted.
+
+Someone asks to repair items, you take it, someone else offers to fix it.
+
+make some items have effects, like coffe, and you could by them and maybe combine them.
+
+
+Client ideas:
+* ant worker
+* hedhehog
+* toad
+* horse
+* monkey (king?)
+* bee?
+[DONE] fox
+* wolf
+* rat
+* boar
+* giraffe
+* tiger
+* sloth
+* lobster or crab
+* Turtle
+* rabbit
+Antelopes – snort[1]
+Badgers – growl[2]
+Bats – screech[3]
+Bears – roar, growl
+Bees – buzz[4]
+Big cats (tigers, lions, jaguars & leopards) – roar,[5] growl,[6] snarl[7]
+Bitterns – boom[8]
+Cats – mew, meow, purr, hiss[9]
+Chickens – cluck (female; OP: cha-caw, bah-gawk [10]); crow [11] (male; OP: cock-a-doodle-doo)
+Chimpanzees – scream
+Chinchillas – squeak[12]
+Cicadas – chirp[13]
+Cattle/Cows – moo
+Crickets – chirp
+Crows – caw, cah[14]
+Curlews – pipe[15]
+Deer – bellow (buck)[9] bleat (doe, fawn)
+Dogs/wolves – bark, howl, growl, bay (OP: arf, bow-wow, ruff, woof, yap)
+Dolphins – click[16]
+Donkeys/asses – hee-haw[17] also bray
+Ducks – quack
+Eagles – screech[18]
+Elephants – trumpet
+Elk – bugle (male),[19] bleat (calves)[20]
+Ferrets – dook[21]
+Frogs/toads – croak (OP: ribbit)
+Giraffes – bleat[22]
+Geese – honk, hiss[9]
+Grasshoppers – chirp[23]
+Guinea pigs – squeak[24]
+Hamsters – squeak[25]
+Hermit crabs – chirp[26]
+Horses – neigh, whinny, nicker
+Hippopotamuses – growl[9]
+Hyenas – laugh
+Linnets – chuckle[27]
+Magpies – chatter[28]
+Mice/rats – squeak
+Monkeys – scream
+Moose – bellow[29]
+Mosquitos – buzz, whine[30][31]
+Okapis – cough, bellow[32]
+Oxen – moo[33]
+Owls – hoot, hiss[9]
+Parrots – squawk, talking
+Peacocks – scream[34]
+Pigs/hogs – grunt, oink,[9][35] snort,[36] squeal
+Pigeons – coo[9]
+Prairie dogs – bark[37]
+Rabbits/Hares – squeak[38]
+Raccoons – trill[39]
+Ravens – caw[33]
+Rhinoceroses – bellow[9]
+Rooks – caw[33]
+Seals – bark[40]
+Sheep/goats/lambs – bleat, baa[9]
+Snakes – hiss[9]
+Songbirds – chirrup, chirp, tweet, sing, warble (larks / warblers / wrens),[33][41] twitter (sparrows)[42]
+Swans – cry,[33] hiss[9]
+Tapirs – squeak[43]
+Tarantulas – hiss[9]
+Tokay geckos – croak[44]
+Turkeys – gobble[9]
+Vultures – scream[33]
+Walruses – groan[9]
+Whales – sing[9]
+
+
+Maybe vampire saga should be a bigger story with more characters, where all are 
+bats and turn into vampires upon arriving?
+
+Some items are illegal and you'll be fined if guard sees you displaying them
+But some other characters are interested in illegal items and pay good money!
+
+Some sounds should be comming from the outside. Maybe when you help royal guards
+and thief comes, he should hear guards nearby and try to run away without takink anything?
+
+
+ALchemy guy should give spider or other useless stuff, that are useful in a very specific
+scenario.
+
+
+Add an egg, that hatches into something.
+
+Feedback: The only criticisms I have are that it was a bit slow to get started (you have to interact with 4 or 5 customers before things start happening) and if you drop an item in front of the counter, you can’t seem to get it back, which sucked.
+
+Lizward should give more different items than just the orb.
+
+Goat should allow for more items to buy at once
+lizward should ask for epic weapons,not items
+
+As time goes on, walking speed should increase.
+

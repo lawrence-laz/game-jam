@@ -1,0 +1,31 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="TurnOnPhone1_data" version="1.3.0" audacityversion="2.1.3" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="689.0625000000" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="Audio Track" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="46880">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000e15.au" len="28096" min="-0.374922" max="0.375908" rms="0.139745"/>
+				</waveblock>
+				<waveblock start="28096">
+					<simpleblockfile filename="e00008e3.au" len="18784" min="-0.386294" max="0.392583" rms="0.139775"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Audio Track" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="46880">
+				<waveblock start="0">
+					<simpleblockfile filename="e00008bf.au" len="28096" min="-0.377278" max="0.375198" rms="0.139805"/>
+				</waveblock>
+				<waveblock start="28096">
+					<simpleblockfile filename="e00001c4.au" len="18784" min="-0.383278" max="0.389432" rms="0.139876"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

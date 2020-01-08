@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84220c99d5cad98418f72ce978790941, type: 3}
+  m_Name: ZuckCure
+  m_EditorClassIdentifier: 
+  PostsText:
+  - {fileID: 11400000, guid: 0b0b4ca12539dbc4491286a1cad8a1d3, type: 2}
+  PostsImage: []
+  EnablesEvents:
+  - {fileID: 11400000, guid: b219bdac002bf404c9c9efd41fa23078, type: 2}
+  CoinEffects:
+  - CoinName: ZuckCoin
+    VelocityChangeAmount: 5
+    FadeOutSpeed: 5
+  Probability: 50

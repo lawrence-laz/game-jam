@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2019.2/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.2/system/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_Ludum Dare 45.-1138981152.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Demigiant" t="Include">
+          <e p="DOTween" t="Include">
+            <e p="Modules" t="Include">
+              <e p="DOTweenModuleAudio.cs" t="Include" />
+              <e p="DOTweenModulePhysics.cs" t="Include" />
+              <e p="DOTweenModulePhysics2D.cs" t="Include" />
+              <e p="DOTweenModuleSprite.cs" t="Include" />
+              <e p="DOTweenModuleUI.cs" t="Include" />
+              <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+              <e p="DOTweenModuleUtils.cs" t="Include" />
+            </e>
+            <e p="readme.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Libs" t="Include">
+          <e p="Base" t="Include">
+            <e p="Editor" t="Include">
+              <e p="PlayerPrefsMenu.cs" t="Include" />
+              <e p="UIMenu.cs" t="Include" />
+            </e>
+            <e p="Effects" t="Include">
+              <e p="CameraFacingBillboard.cs" t="Include" />
+              <e p="SpriteFlash.cs" t="Include" />
+              <e p="StartOnlyConfig.cs" t="Include" />
+            </e>
+            <e p="Extensions" t="Include">
+              <e p="ActionExtensions.cs" t="Include" />
+              <e p="CollidersExtensions.cs" t="Include" />
+              <e p="ComponentExtensions.cs" t="Include" />
+              <e p="FloatExtensions.cs" t="Include" />
+              <e p="GameObjectExtensions.cs" t="Include" />
+              <e p="IEnumerableExtensions.cs" t="Include" />
+              <e p="LayerMaskExtensions.cs" t="Include" />
+              <e p="MonoBehaviourExtensions.cs" t="Include" />
+              <e p="StringExtensions.cs" t="Include" />
+              <e p="TransformExtensions.cs" t="Include" />
+            </e>
+            <e p="GameLogic" t="Include">
+              <e p="AudioSource" t="Include">
+                <e p="AudioSourceEffectsBehaviour.cs" t="Include" />
+                <e p="PlayRandomAudioClipBehaviour.cs" t="Include" />
+              </e>
+              <e p="ConditionBehaviour.cs" t="Include" />
+              <e p="ConditionBehaviourExtensions.cs" t="Include" />
+              <e p="IsVisibleConditionBehaviour.cs" t="Include" />
+              <e p="RandomDelayEventBehaviour.cs" t="Include" />
+              <e p="SceneLoadingBehaviour.cs" t="Include" />
+              <e p="SingleEventBehaviour.cs" t="Include" />
+              <e p="Singleton.cs" t="Include" />
+            </e>
+            <e p="Input" t="Include">
+              <e p="InputX.cs" t="Include" />
+              <e p="MouseLook.cs" t="Include" />
+            </e>
+            <e p="UI" t="Include">
+              <e p="QuitButtonBehaviour.cs" t="Include" />
+              <e p="ScreenFade.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Ludum Dare 45.sln" t="IncludeFlat" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

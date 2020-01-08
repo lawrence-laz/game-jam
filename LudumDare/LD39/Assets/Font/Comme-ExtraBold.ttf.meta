@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: b6f062ac1a7b32d499a85fcaf9087544
+timeCreated: 1501437316
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Comme
+  fontNames:
+  - Comme
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

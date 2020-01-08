@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f0c2f3de14b094890785ed3e4414cb, type: 3}
+  m_Name: Steve Jobs
+  m_EditorClassIdentifier: 
+  Name: Steve Jobs
+  ProfilePic: {fileID: 21300000, guid: 32ed49d173180c744b7d7ef119716c12, type: 3}

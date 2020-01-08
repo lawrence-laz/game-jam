@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84220c99d5cad98418f72ce978790941, type: 3}
+  m_Name: Cryptoalipse
+  m_EditorClassIdentifier: 
+  PostsText: []
+  PostsImage: []
+  EnablesEvents: []
+  CoinEffects:
+  - CoinName: ByteCoin
+    VelocityChangeAmount: -5
+    FadeOutSpeed: 99999
+  - CoinName: LightCoin
+    VelocityChangeAmount: -5
+    FadeOutSpeed: 999999
+  - CoinName: M$Coin
+    VelocityChangeAmount: -5
+    FadeOutSpeed: 100000000
+  - CoinName: GoogolCoin
+    VelocityChangeAmount: -5
+    FadeOutSpeed: 9999
+  - CoinName: EmojiCoin
+    VelocityChangeAmount: -5
+    FadeOutSpeed: 9999999
+  - CoinName: ShitCoin
+    VelocityChangeAmount: -5
+    FadeOutSpeed: 9999999
+  - CoinName: PeoplesCoin
+    VelocityChangeAmount: -5
+    FadeOutSpeed: 1e+9
+  - CoinName: ZuckCoin
+    VelocityChangeAmount: -5
+    FadeOutSpeed: 9999999
+  Probability: 0

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1395fca285c484428cbad899d7f6706, type: 3}
+  m_Name: GooglSearchImprove
+  m_EditorClassIdentifier: 
+  Author: {fileID: 11400000, guid: b8e4e795d6918f84bbb1ab1cb9b25297, type: 2}
+  Text: 'We implemented new A.I to write search querries for you.
+
+    #GoogolCoin'

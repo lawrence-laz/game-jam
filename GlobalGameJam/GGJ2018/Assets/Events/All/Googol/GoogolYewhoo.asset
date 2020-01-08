@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84220c99d5cad98418f72ce978790941, type: 3}
+  m_Name: GoogolYewhoo
+  m_EditorClassIdentifier: 
+  PostsText:
+  - {fileID: 11400000, guid: 82a143b58046bcf41b45ae8090bb3d27, type: 2}
+  PostsImage: []
+  EnablesEvents: []
+  CoinEffects:
+  - CoinName: GoogolCoin
+    VelocityChangeAmount: -8
+    FadeOutSpeed: 20
+  Probability: 20

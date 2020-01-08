@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1395fca285c484428cbad899d7f6706, type: 3}
+  m_Name: WheatInHalt
+  m_EditorClassIdentifier: 
+  Author: {fileID: 11400000, guid: 92d1242589dc89f4982a9e6cb212c631, type: 2}
+  Text: 'Drought. All wheat production in halt.
+
+    Doesn''t seem good for #SpaghettCoin.
+
+
+    #share #like #subscribe
+
+    #share #like #subscribe
+
+    #share #like #subscribe
+
+    #share #like #subscribe
+
+    #share #like #subscribe
+
+    #share #like #subscribe
+
+    #share #like #subscribe
+
+    #share #like #subscribe'

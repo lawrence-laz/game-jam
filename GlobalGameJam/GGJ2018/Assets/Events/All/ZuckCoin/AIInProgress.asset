@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84220c99d5cad98418f72ce978790941, type: 3}
+  m_Name: AIInProgress
+  m_EditorClassIdentifier: 
+  PostsText: []
+  PostsImage:
+  - {fileID: 11400000, guid: c82ea6d46ed715f4f83622de5031604e, type: 2}
+  EnablesEvents:
+  - {fileID: 11400000, guid: 8ca1a20fb7ecfe943b79a142725e7603, type: 2}
+  CoinEffects: []
+  Probability: 5

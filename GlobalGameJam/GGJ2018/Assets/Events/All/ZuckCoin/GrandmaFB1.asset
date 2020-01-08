@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84220c99d5cad98418f72ce978790941, type: 3}
+  m_Name: GrandmaFB1
+  m_EditorClassIdentifier: 
+  PostsText:
+  - {fileID: 11400000, guid: d001f1f46d808434cb59773711b08291, type: 2}
+  PostsImage: []
+  EnablesEvents:
+  - {fileID: 11400000, guid: 897b156b388942648b85c3f7b442a38e, type: 2}
+  CoinEffects:
+  - CoinName: ZuckCoin
+    VelocityChangeAmount: 10
+    FadeOutSpeed: 5
+  Probability: 1
