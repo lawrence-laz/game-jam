@@ -7,7 +7,6 @@ public class Spikes : MonoBehaviour
     public TileObject TileObject { get; set; }
     public TurnManager TurnManager { get; set; }
     public SpriteRenderer SpriteRenderer { get; set; }
-    public GameOver GameOver { get; set; }
 
     public Sprite OnSprite;
     public Sprite OffSprite;
@@ -21,12 +20,17 @@ public class Spikes : MonoBehaviour
         TurnManager = FindObjectOfType<TurnManager>();
         TurnManager.OnTurnEnded.AddListener(OnTurnEnded);
         SpriteRenderer = GetComponent<SpriteRenderer>();
-        GameOver = FindObjectOfType<GameOver>();
+        UpdateSprite();
     }
 
     private void OnTurnEnded()
     {
         On = !On;
+        UpdateSprite();
+    }
+
+    private void UpdateSprite()
+    {
         SpriteRenderer.sprite = On ? OnSprite : OffSprite;
     }
 
@@ -37,9 +41,9 @@ public class Spikes : MonoBehaviour
             return;
         }
 
-        if (steppedBy.Any(x => x.tag == "Player" || x.GetComponent<Hostage>() != null))
+        foreach (var gameObject in steppedBy.GetComponents<Death>())
         {
-            GameOver.Invoke();
+            gameObject.Die();
         }
     }
 }

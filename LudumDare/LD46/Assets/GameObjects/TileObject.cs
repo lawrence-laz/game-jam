@@ -8,7 +8,6 @@ public class SteppedOnEvent : UnityEvent<GameObject[]> { }
 
 public class TileObject : MonoBehaviour
 {
-    public TurnManager TurnManager { get; set; }
     public Map Map { get; set; }
     public Death Death { get; set; }
 
@@ -16,8 +15,6 @@ public class TileObject : MonoBehaviour
 
     private void Start()
     {
-        TurnManager = FindObjectOfType<TurnManager>();
-        //TurnManager.OnTurnEnded.AddListener(OnTurnEnded);
         Map = FindObjectOfType<Map>();
     }
 

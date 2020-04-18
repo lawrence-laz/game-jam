@@ -24,6 +24,18 @@ public static class Utils
         return component != null;
     }
 
+    public static IEnumerable<T> GetComponents<T>(this IEnumerable<GameObject> gameObjects)
+    {
+        foreach (var gameObject in gameObjects)
+        {
+            var component = gameObject.GetComponent<T>();
+            if (component != null)
+            {
+                yield return component;
+            }
+        }
+    }
+
     public static bool TryGet<T>(this IEnumerable<GameObject> gameObjects, out T component)
     {
         if (!gameObjects.Any())

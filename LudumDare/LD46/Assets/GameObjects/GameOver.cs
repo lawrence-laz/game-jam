@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
-    public void Invoke()
+    private void Start()
     {
         Debug.Log("OUch"); // TODO:
         FindObjectOfType<SceneLoadingBehaviour>().RestartScene();
