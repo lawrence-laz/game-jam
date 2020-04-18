@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Hostage : MonoBehaviour
 {
@@ -12,17 +13,24 @@ public class Hostage : MonoBehaviour
     {
         Move = GetComponent<Move>();
         TurnManager = FindObjectOfType<TurnManager>();
+        TurnManager.OnTurnStarted.AddListener(OnTurnStarted);
         TurnManager.OnTurnEnded.AddListener(OnTurnEnded);
         Map = FindObjectOfType<Map>();
     }
 
-    private void OnTurnEnded()
+    private void OnTurnStarted()
     {
         if (TransformToFollow == null) return;
 
         if (Map.Get(NextPosition)?.tag == "Player") return;
 
         Move.MoveTo(NextPosition);
+    }
+
+    private void OnTurnEnded()
+    {
+        if (TransformToFollow == null) return;
+
         NextPosition = TransformToFollow.position;
     }
 

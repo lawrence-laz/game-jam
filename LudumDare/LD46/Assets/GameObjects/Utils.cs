@@ -57,9 +57,9 @@ public static class Utils
         return false;
     }
 
-    public static Vector2[] LineTo(this Vector3 start, Vector3 end) => ((Vector2)start).LineTo(end);
+    public static Vector2[] LineTo(this Vector3 start, Vector3 end, bool diagonalAllowed = false) => ((Vector2)start).LineTo(end, diagonalAllowed);
 
-    public static Vector2[] LineTo(this Vector2 start, Vector2 end)
+    public static Vector2[] LineTo(this Vector2 start, Vector2 end, bool diagonalAllowed = false)
     {
         var points = new List<Vector2>();
         var dx = Mathf.Abs((int)end.x - (int)start.x);
@@ -76,26 +76,52 @@ public static class Utils
 
             e2 = error * 2;
 
-            if (e2 >= dy)
+            if (diagonalAllowed)
             {
-                if (start.x == end.x)
+                if (e2 >= dy)
                 {
-                    break;
-                }
-                error += dy;
-                start.x += sx;
-            }
-
-            if (e2 <= dx)
-            {
-                if (start.y == end.y)
-                {
-                    break;
+                    if (start.x == end.x)
+                    {
+                        break;
+                    }
+                    error += dy;
+                    start.x += sx;
                 }
 
-                error += dx;
-                start.y += sy;
+                if (e2 <= dx)
+                {
+                    if (start.y == end.y)
+                    {
+                        break;
+                    }
+
+                    error += dx;
+                    start.y += sy;
+                }
             }
+            else
+            {
+                if (e2 - dy > dx - e2)
+                {
+                    if (start.x == end.x)
+                    {
+                        break;
+                    }
+                    error += dy;
+                    start.x += sx;
+                }
+                else
+                {
+                    if (start.y == end.y)
+                    {
+                        break;
+                    }
+
+                    error += dx;
+                    start.y += sy;
+                }
+            }
+
         }
 
         return points.ToArray();

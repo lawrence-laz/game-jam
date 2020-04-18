@@ -58,8 +58,8 @@ namespace Libs.Base.GameLogic
 
             load = DOTween.Sequence()
                 .AppendInterval(0.5f)
-                .AppendCallback(() => ScreenFade.Instance.FadeOut())
-                .AppendInterval(1)
+                .AppendCallback(() => ScreenFade.Instance.FadeOut(.5f))
+                .AppendInterval(0.5f)
                 .AppendCallback(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,7 @@ public class SimpleEnemy : MonoBehaviour
     public Death Death { get; set; }
 
     public Vector3 NextStep { get; set; }
+    public Transform Target { get; set; }
     public bool IsTriggered { get; set; }
 
     public UnityEvent OnTriggered;
@@ -55,28 +57,74 @@ public class SimpleEnemy : MonoBehaviour
 
     private void OnTurnEnded()
     {
-        if (!IsTriggered && transform.position.x != Hero.transform.position.x && transform.position.y != Hero.transform.position.y)
+        if (!IsTriggered)
         {
+            // Looking for target
+            LookForTarget();
             return;
         }
-
-        var path = transform.position.LineTo(Hero.transform.position).Skip(1).ToArray();
-        if (path.Length == 0)
+        else if (TryGetPath(Target, out var path))
         {
-            return;
-        }
-        if (path.All(point => Map.IsTraversible(point)))
-        {
+            // Trying to follow target
             NextStep = path[0];
-            if (!IsTriggered)
-            {
-                IsTriggered = true;
-                OnTriggered.Invoke(); // TODO: add triggered animation
-            }
         }
         else
         {
+            // Lost target
             IsTriggered = false;
+            Target = null;
+            LookForTarget();
+        }
+    }
+
+    private void LookForTarget()
+    {
+        var targets = new List<Transform>() { Hero.transform };
+        targets.AddRange(FindObjectsOfType<Hostage>().Select(x => x.transform));
+        foreach (var target in targets)
+        {
+            if (!TryTrigger(target, out var path))
+            {
+                continue;
+            }
+
+            IsTriggered = true;
+            Target = target;
+            OnTriggered.Invoke(); // TODO: add triggered animation
+
+            NextStep = path[0];
+        }
+        return;
+    }
+
+    public bool TryTrigger(Transform target, out Vector2[] path)
+    {
+        if (transform.position.x != target.position.x && transform.position.y != target.position.y)
+        {
+            path = null;
+            return false;
+        }
+
+        return TryGetPath(target, out path);
+    }
+
+    public bool TryGetPath(Transform target, out Vector2[] path)
+    {
+        path = transform.position.LineTo(target.position).Skip(1).ToArray();
+        if (path.Length == 0)
+        {
+            path = null;
+            return false;
+        }
+
+        if (path.All(point => Map.IsTraversible(point)))
+        {
+            return true;
+        }
+        else
+        {
+            path = null;
+            return false;
         }
     }
 
@@ -84,7 +132,7 @@ public class SimpleEnemy : MonoBehaviour
     {
         if (IsTriggered && Hero.transform.position != transform.position)
         {
-            if (Map.GetAll(NextStep).Any(x => x.tag == "Enemy"))
+            if (Map.GetAll(NextStep).Any(x => x.tag == "Enemy" && x.GetComponent<BombEnemy>() == null))
             {
                 return;
             }

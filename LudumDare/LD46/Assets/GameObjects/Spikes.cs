@@ -1,6 +1,4 @@
-﻿using Libs.Base.GameLogic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
@@ -10,8 +8,12 @@ public class Spikes : MonoBehaviour
 
     public Sprite OnSprite;
     public Sprite OffSprite;
+    public Sprite ReadySprite;
 
     public bool On;
+    public int Ticks;
+    public const int Period = 3;
+    private const int TicksBeforeActivating = Period - 1;
 
     private void Start()
     {
@@ -20,18 +22,25 @@ public class Spikes : MonoBehaviour
         TurnManager = FindObjectOfType<TurnManager>();
         TurnManager.OnTurnEnded.AddListener(OnTurnEnded);
         SpriteRenderer = GetComponent<SpriteRenderer>();
+
+        On = Ticks % Period == 0 ? true : false;
         UpdateSprite();
     }
 
     private void OnTurnEnded()
     {
-        On = !On;
+        On = ++Ticks % Period == 0 ? true : false;
         UpdateSprite();
     }
 
     private void UpdateSprite()
     {
-        SpriteRenderer.sprite = On ? OnSprite : OffSprite;
+        var periodRemainder = Ticks % Period;
+        SpriteRenderer.sprite = periodRemainder == 0
+            ? OnSprite
+            : periodRemainder == TicksBeforeActivating
+                ? ReadySprite
+                : OffSprite;
     }
 
     private void OnStepped(GameObject[] steppedBy)

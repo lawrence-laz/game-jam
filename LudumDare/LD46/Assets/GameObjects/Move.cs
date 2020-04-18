@@ -32,6 +32,15 @@ public class Move : MonoBehaviour
             return false; // Do cannot walk here animation
         }
 
+        var objects = Map.GetAll(newPosition);
+        if (objects.TryGet<Box>(out var box))
+        {
+            if (!box.TryPush(offset))
+            {
+                return false;
+            }
+        }
+
         return true;
     }
 }

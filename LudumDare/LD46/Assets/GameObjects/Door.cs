@@ -16,22 +16,25 @@ public class Door : MonoBehaviour
 
     private void OnStepped(GameObject[] steppedBy)
     {
-        if (steppedBy.Any(x => x.tag == "Player"))
+        if (steppedBy.TryGet<Hero>(out var hero))
         {
-            if (steppedBy.TryGet<Hero>(out var hero))
+            foreach (var hostage in hero.Hostages)
             {
-                if (FindObjectsOfType<Hostage>().All(x => hero.Hostages.Contains(x)))
-                {
-                    Debug.Log("Next level"); // TODO
-                    FindObjectOfType<TurnManager>().enabled = false;
-                    SceneLoader.LoadScene();
-                }
-                else 
-                {
-                    Debug.Log("Save your friends"); // TODO
-                }
+                hostage.enabled = false;
+                Destroy(hostage.gameObject); // TODO: nice effect.
             }
+            hero.Hostages.Clear();
 
+            if (!FindObjectsOfType<Hostage>().Where(x => x.enabled).Any())
+            {
+                Debug.Log("Next level"); // TODO
+                FindObjectOfType<TurnManager>().enabled = false;
+                SceneLoader.LoadScene();
+            }
+            else
+            {
+                Debug.Log("Save your friends"); // TODO
+            }
         }
     }
 }
