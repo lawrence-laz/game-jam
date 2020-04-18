@@ -10,6 +10,7 @@ public class SimpleEnemy : MonoBehaviour
     public Map Map { get; set; }
     public TileObject TileObject { get; set; }
     public GameOver GameOver { get; set; }
+    public Death Death { get; set; }
 
     public Vector3 NextStep { get; set; }
     public bool IsTriggered { get; set; }
@@ -27,11 +28,16 @@ public class SimpleEnemy : MonoBehaviour
         TileObject = GetComponent<TileObject>();
         TileObject.OnStepped.AddListener(OnStepped);
         GameOver = FindObjectOfType<GameOver>();
+        Death = GetComponent<Death>();
     }
 
     private void OnStepped(GameObject[] steppedBy)
     {
-        if (steppedBy.Any(x => x.tag == "Player" || x.GetComponent<Hostage>() != null))
+        if (steppedBy.Any(x => x.tag == "Player"))
+        {
+            Death.Die();
+        }
+        else if (steppedBy.Any(x => x.GetComponent<Hostage>() != null))
         {
             GameOver.Invoke();
         }
@@ -77,8 +83,12 @@ public class SimpleEnemy : MonoBehaviour
     {
         if (IsTriggered && Hero.transform.position != transform.position)
         {
-            var offset = (NextStep - transform.position).normalized;
-            Move.MoveBy(offset);
+            if (Map.GetAll(NextStep).Any(x => x.tag == "Enemy"))
+            {
+                return;
+            }
+
+            Move.MoveTo(NextStep);
         }
     }
 }

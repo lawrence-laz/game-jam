@@ -10,6 +10,7 @@ public class TileObject : MonoBehaviour
 {
     public TurnManager TurnManager { get; set; }
     public Map Map { get; set; }
+    public Death Death { get; set; }
 
     public SteppedOnEvent OnStepped;
 

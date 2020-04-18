@@ -1272,39 +1272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hostages: []
---- !u!1 &1925132085 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6534053491202429475, guid: 26f57b0c8ac1fff49b4a5c241e544cf8,
-    type: 3}
-  m_PrefabInstance: {fileID: 6534053493043019030}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1925132086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925132085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa9b047329e50904b8c9e6aa97d80150, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1925132087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925132085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8017fb1f2f05ade4994de047061a1cad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnTriggered:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &2080428237
 PrefabInstance:
   m_ObjectHideFlags: 0
