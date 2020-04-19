@@ -6,11 +6,13 @@ public class Spikes : MonoBehaviour
     public TileObject TileObject { get; set; }
     public TurnManager TurnManager { get; set; }
     public SpriteRenderer SpriteRenderer { get; set; }
+    public AudioSource AudioSource { get; set; }
 
     public Sprite[] OnSprites;
     public Sprite OffSprite;
     public Sprite ReadySprite;
     public Sprite AlmostReadySprite;
+    public static bool PlayedSoundThisTurn = true;
 
     public bool On;
     public int Ticks;
@@ -26,6 +28,7 @@ public class Spikes : MonoBehaviour
         TurnManager = FindObjectOfType<TurnManager>();
         TurnManager.OnTurnEnded.AddListener(OnTurnEnded);
         SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        AudioSource = GetComponent<AudioSource>();
 
         On = Ticks % Period == 0 ? true : false;
         UpdateSprite();
@@ -42,8 +45,13 @@ public class Spikes : MonoBehaviour
         var periodRemainder = Ticks % Period;
         if (periodRemainder == 0)
         {
+            if (!PlayedSoundThisTurn)
+            {
+                AudioSource.Play();
+                PlayedSoundThisTurn = true;
+            }
             PlayOnAnimation();
-        }   
+        }
         else
         {
             SpriteRenderer.sprite = periodRemainder == _ticksBeforeActivating ? ReadySprite : AlmostReadySprite;

@@ -74,6 +74,7 @@ public class TurnManager : MonoBehaviour
 
     public void MakeTurn()
     {
+        Spikes.PlayedSoundThisTurn = false;
         if (!TurnInProgress)
         {
             TurnInProgress = true;

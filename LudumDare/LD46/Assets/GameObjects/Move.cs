@@ -26,9 +26,10 @@ public class Move : MonoBehaviour
     private void Animate()
     {
         _animation?.Kill();
+        transform.localScale = Vector3.one;
         _animation = DOTween.Sequence()
-            .Append(transform.DOBlendableScaleBy(Vector3.down * 0.5f, TurnManager.TurnDuration / 2))
-            .Append(transform.DOBlendableScaleBy(Vector3.up * 0.5f, TurnManager.TurnDuration / 2))
+            .Append(transform.DOBlendableScaleBy(Vector3.down * 0.15f, TurnManager.TurnDuration / 2))
+            .Append(transform.DOBlendableScaleBy(Vector3.up * 0.15f, TurnManager.TurnDuration / 2))
             .Play();
     }
 

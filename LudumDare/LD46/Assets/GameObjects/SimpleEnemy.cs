@@ -21,6 +21,7 @@ public class SimpleEnemy : MonoBehaviour
     public Sprite[] AnimationSprites;
     public UnityEvent OnTriggered;
     public GameObject TriggerEffectPrefab;
+    public UnityEvent OnAttacked;
 
     private Sequence _animation;
 
@@ -56,6 +57,7 @@ public class SimpleEnemy : MonoBehaviour
     {
         if (steppedBy.Any(x => x.tag == "Player" || x.GetComponent<Box>() != null))
         {
+            steppedBy.FirstOrDefault(x => x.tag == "Player")?.GetComponent<AudioSource>()?.Play();
             Death.Die();
         }
         else if (steppedBy.Any(x => x.GetComponent<Hostage>() != null))
@@ -65,15 +67,6 @@ public class SimpleEnemy : MonoBehaviour
                 hostage.GetComponent<Death>().Die();
             }
         }
-    }
-
-    private void Update()
-    {
-        //var path = transform.position.LineTo(Hero.transform.position);
-        //for (int i = 1; i < path.Length; i++)
-        //{
-        //    Debug.DrawLine(path[i - 1], path[i]);
-        //}
     }
 
     private void OnTurnEnded()

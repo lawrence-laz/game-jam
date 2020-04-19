@@ -67,6 +67,10 @@ public class Death : MonoBehaviour
         {
             Destroy(gameObject);
             var obj = Instantiate(DeadPrefab, TileObject.Position, Quaternion.identity);
+            if (obj.TryGetComponent<AudioSource>(out var audio))
+            {
+                audio.pitch += Random.Range(-0.1f, 0.1f);
+            }
             if (obj.TryGetComponent<TileObject>(out var deadTile))
             {
                 deadTile.Position = TileObject.Position;
