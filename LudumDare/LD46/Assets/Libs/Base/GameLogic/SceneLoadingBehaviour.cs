@@ -16,6 +16,18 @@ namespace Libs.Base.GameLogic
             {
                 RestartScene();
             }
+            else if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+            {
+                var music = FindObjectOfType<Music>();
+                if (music != null)
+                {
+                    Destroy(music.gameObject);
+                }
+                ScreenFade.Instance.FadeOut();
+                DOTween.Sequence()
+                .AppendInterval(1)
+                .AppendCallback(() => Application.Quit());
+            }
         }
 
         [ContextMenu("LoadScene")]

@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level11_bomb-lure.unity
     guid: 1165bf7ad014c084b9066f2920b6d666
+  - enabled: 1
+    path: Assets/Scenes/level12_lure-spikes.unity
+    guid: 89d1b87038f5d1341bffc964112465f4
   m_configObjects: {}
