@@ -1,11 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hostage : MonoBehaviour
 {
     public TurnManager TurnManager { get; set; }
     public Move Move { get; set; }
-    public Transform TransformToFollow { get; set; }
+    public TileObject TargetToFollow { get; set; }
     public Vector2 NextPosition { get; set; }
     public Map Map { get; set; }
 
@@ -20,7 +19,7 @@ public class Hostage : MonoBehaviour
 
     private void OnTurnStarted()
     {
-        if (TransformToFollow == null) return;
+        if (TargetToFollow == null) return;
 
         if (Map.Get(NextPosition)?.tag == "Player") return;
 
@@ -29,14 +28,14 @@ public class Hostage : MonoBehaviour
 
     private void OnTurnEnded()
     {
-        if (TransformToFollow == null) return;
+        if (TargetToFollow == null) return;
 
-        NextPosition = TransformToFollow.position;
+        NextPosition = TargetToFollow.Position;
     }
 
-    public void Follow(Transform transform)
+    public void Follow(TileObject target)
     {
-        TransformToFollow = transform;
-        NextPosition = TransformToFollow.position;
+        TargetToFollow = target;
+        NextPosition = TargetToFollow.Position;
     }
 }

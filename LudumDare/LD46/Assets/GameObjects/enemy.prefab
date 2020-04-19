@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8017fb1f2f05ade4994de047061a1cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationSprites:
+  - {fileID: 21300000, guid: d71234ff319505246943e58f169dc066, type: 3}
+  - {fileID: 21300000, guid: dda62130a9ba59b489fa29b913314926, type: 3}
   OnTriggered:
     m_PersistentCalls:
       m_Calls: []

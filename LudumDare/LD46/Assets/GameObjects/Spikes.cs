@@ -10,6 +10,7 @@ public class Spikes : MonoBehaviour
     public Sprite[] OnSprites;
     public Sprite OffSprite;
     public Sprite ReadySprite;
+    public Sprite AlmostReadySprite;
 
     public bool On;
     public int Ticks;
@@ -45,7 +46,7 @@ public class Spikes : MonoBehaviour
         }   
         else
         {
-            SpriteRenderer.sprite = periodRemainder == _ticksBeforeActivating ? ReadySprite : OffSprite;
+            SpriteRenderer.sprite = periodRemainder == _ticksBeforeActivating ? ReadySprite : AlmostReadySprite;
         }
     }
 

@@ -22,7 +22,7 @@ public class Map : MonoBehaviour
         if (tile != null) return tile;
 
         return FindObjectsOfType<TileObject>()
-            .Where(x => (Vector2)x.transform.position == position)
+            .Where(x => x.Position == position)
             .FirstOrDefault()
             ?.gameObject;
     }
@@ -36,15 +36,21 @@ public class Map : MonoBehaviour
 
         if (tile != null) yield return tile;
 
-        foreach (var gameObject in FindObjectsOfType<TileObject>().Where(x => (Vector2)x.transform.position == position).Select(x => x.gameObject))
+        foreach (var obj in FindObjectsOfType<TileObject>().Where(x => x.Position == position).Select(x => x.gameObject))
         {
-            yield return gameObject;
+            yield return obj;
         }
     }
 
-    public bool IsTraversible(Vector2 position)
+    public bool IsTraversible(Vector2 position, GameObject source = null)
     {
-        var gameObject = Get(position + new Vector2(0, -.1f));
-        return gameObject == null || !gameObject.name.StartsWith("wall");
+        var gameObjects = GetAll(position);
+        foreach (var obj in gameObjects)
+        {
+            if (obj.name.StartsWith("wall")) return false;
+            if ((source?.tag == "Enemy" || source?.GetComponent<Box>() != null) && obj.GetComponent<Box>() != null) return false;
+        }
+
+        return true;
     }
 }

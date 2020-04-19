@@ -10,6 +10,14 @@ namespace Libs.Base.GameLogic
         public string SceneName = "";
         public int SceneOffset = 1;
 
+        private void Update()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.R))
+            {
+                RestartScene();
+            }
+        }
+
         [ContextMenu("LoadScene")]
         public void LoadScene()
         {
@@ -19,7 +27,6 @@ namespace Libs.Base.GameLogic
             }
             else
             {
-
                 if (load != null)
                     return;
 

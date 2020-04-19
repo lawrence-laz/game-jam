@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,12 +12,16 @@ public class SimpleEnemy : MonoBehaviour
     public Map Map { get; set; }
     public TileObject TileObject { get; set; }
     public Death Death { get; set; }
+    public SpriteRenderer SpriteRenderer { get; set; }
 
     public Vector3 NextStep { get; set; }
     public Transform Target { get; set; }
     public bool IsTriggered { get; set; }
 
+    public Sprite[] AnimationSprites;
     public UnityEvent OnTriggered;
+
+    private Sequence _animation;
 
     private void Start()
     {
@@ -29,6 +34,21 @@ public class SimpleEnemy : MonoBehaviour
         TileObject = GetComponent<TileObject>();
         TileObject.OnStepped.AddListener(OnStepped);
         Death = GetComponent<Death>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
+
+        _animation = DOTween.Sequence()
+            .AppendCallback(() => SpriteRenderer.sprite = AnimationSprites[0])
+            .AppendInterval(0.1f)
+            .AppendCallback(() => SpriteRenderer.sprite = AnimationSprites[1])
+            .SetLoops(-1, LoopType.Yoyo);
+    }
+
+    private void OnDestroy()
+    {
+        if (_animation != null)
+        {
+            _animation.Kill();
+        }
     }
 
     private void OnStepped(GameObject[] steppedBy)
@@ -99,7 +119,9 @@ public class SimpleEnemy : MonoBehaviour
 
     public bool TryTrigger(Transform target, out Vector2[] path)
     {
-        if (transform.position.x != target.position.x && transform.position.y != target.position.y)
+        var targetTile = target.GetComponent<TileObject>();
+
+        if (TileObject.Position.x != targetTile.Position.x && TileObject.Position.y != targetTile.Position.y)
         {
             path = null;
             return false;
@@ -110,14 +132,15 @@ public class SimpleEnemy : MonoBehaviour
 
     public bool TryGetPath(Transform target, out Vector2[] path)
     {
-        path = transform.position.LineTo(target.position).Skip(1).ToArray();
+        var targetTile = target.GetComponent<TileObject>();
+        path = TileObject.Position.LineTo(targetTile.Position).Skip(1).ToArray();
         if (path.Length == 0)
         {
             path = null;
             return false;
         }
 
-        if (path.All(point => Map.IsTraversible(point)))
+        if (path.All(point => Map.IsTraversible(point, gameObject)))
         {
             return true;
         }
@@ -130,7 +153,7 @@ public class SimpleEnemy : MonoBehaviour
 
     private void OnTurnStarted()
     {
-        if (IsTriggered && Hero.transform.position != transform.position)
+        if (IsTriggered && Hero.TileObject.Position != TileObject.Position)
         {
             if (Map.GetAll(NextStep).Any(x => x.tag == "Enemy" && x.GetComponent<BombEnemy>() == null))
             {

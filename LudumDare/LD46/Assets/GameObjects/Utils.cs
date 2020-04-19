@@ -4,12 +4,14 @@ using UnityEngine;
 
 public static class Utils
 {
-    public static IEnumerable<Vector2> Around(this Transform transform)
+    public static IEnumerable<Vector2> Around(this Vector3 position) => ((Vector2)position).Around();
+
+    public static IEnumerable<Vector2> Around(this Vector2 position)
     {
-        yield return (Vector2)transform.position + Vector2.up;
-        yield return (Vector2)transform.position + Vector2.down;
-        yield return (Vector2)transform.position + Vector2.left;
-        yield return (Vector2)transform.position + Vector2.right;
+        yield return position + Vector2.up;
+        yield return position + Vector2.down;
+        yield return position + Vector2.left;
+        yield return position + Vector2.right;
     }
 
     public static bool TryGetComponentSafe<T>(this GameObject gameObject, out T component)
