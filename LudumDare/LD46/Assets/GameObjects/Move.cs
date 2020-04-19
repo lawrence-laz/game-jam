@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using Libs.Base.Extensions;
+using UnityEngine.Events;
 
 public class Move : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Move : MonoBehaviour
     public TurnManager TurnManager { get; set; }
     public TileObject TileObject { get; set; }
     public SpriteRenderer SpriteRenderer { get; set; }
+    public UnityEvent OnMove;
 
     private Sequence _animation;
 
@@ -30,6 +32,7 @@ public class Move : MonoBehaviour
         _animation = DOTween.Sequence()
             .Append(transform.DOBlendableScaleBy(Vector3.down * 0.15f, TurnManager.TurnDuration / 2))
             .Append(transform.DOBlendableScaleBy(Vector3.up * 0.15f, TurnManager.TurnDuration / 2))
+            .AppendCallback(() => OnMove.Invoke())
             .Play();
     }
 
