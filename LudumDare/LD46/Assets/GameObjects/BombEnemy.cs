@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using Libs.Base.Effects;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BombEnemy : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class BombEnemy : MonoBehaviour
     public Death Death { get; set; }
     public SpriteFlash SpriteFlash { get; set; }
     public TurnManager TurnManager { get; set; }
+
+    public UnityEvent OnExplode;
 
     private Sequence _animation;
 
@@ -34,9 +37,10 @@ public class BombEnemy : MonoBehaviour
 
     private void OnStepped(GameObject[] steppedBy)
     {
+        OnExplode.Invoke();
         SpriteFlash.Blink();
         var duration = 0.5f;
-        TurnManager.AnimationDelay = duration + 1.2f;
+        TurnManager.AnimationDelay = duration + .1f;
         _animation?.Kill();
         _animation = DOTween.Sequence()
             .AppendInterval(duration)

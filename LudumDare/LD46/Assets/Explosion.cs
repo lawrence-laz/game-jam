@@ -11,13 +11,31 @@ public class Explosion : MonoBehaviour
         Map = FindObjectOfType<Map>();
         TileObject = GetComponent<TileObject>();
 
-        var objects = Map.GetAll(transform.position).ToArray();
-
-        foreach (var affected in objects)
+        if (Map.GetAll(transform.position).TryGet<Box>(out var _))
         {
-            if (affected.TryGetComponent<Death>(out var death) && death.enabled)
+            var objects = Map.GetAll(transform.position).ToArray();
+
+            foreach (var affected in objects)
             {
-                death.Die();
+                if (affected.TryGetComponent<Death>(out var death) && death.enabled)
+                {
+                    death.Die();
+                }
+            }
+
+            return;
+        }
+
+        foreach (var explosionPosition in transform.position.Around().Append(transform.position))
+        {
+            var objects = Map.GetAll(explosionPosition).ToArray();
+
+            foreach (var affected in objects)
+            {
+                if (affected.TryGetComponent<Death>(out var death) && death.enabled)
+                {
+                    death.Die();
+                }
             }
         }
     }

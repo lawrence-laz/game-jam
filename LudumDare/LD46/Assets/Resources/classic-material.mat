@@ -27,6 +27,7 @@ Material:
     - _Br: 8
     - _Contrast: 1
     - _ScansColor: 0.861
+    - _Split: 0
     - _VertsColor: 0.776
     - _VertsColor2: 0.78499997
     m_Colors:

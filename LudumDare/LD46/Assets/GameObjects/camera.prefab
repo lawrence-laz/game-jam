@@ -139,6 +139,7 @@ MonoBehaviour:
   Contrast: 1
   Brightness: 8
   ScanColor: 0.861
+  Split: 0
 --- !u!114 &2435697190907183832
 MonoBehaviour:
   m_ObjectHideFlags: 0

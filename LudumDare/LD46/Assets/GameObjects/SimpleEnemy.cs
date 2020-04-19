@@ -54,7 +54,7 @@ public class SimpleEnemy : MonoBehaviour
 
     private void OnStepped(GameObject[] steppedBy)
     {
-        if (steppedBy.Any(x => x.tag == "Player"))
+        if (steppedBy.Any(x => x.tag == "Player" || x.GetComponent<Box>() != null))
         {
             Death.Die();
         }

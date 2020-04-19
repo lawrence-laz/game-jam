@@ -8,6 +8,7 @@
         _Contrast("Contrast", Float) = 0
         _Br("Brightness", Float) = 0
         _ScansColor("Scans color", Float) = 0.5
+        _Split("Split", Float) = 3
     }
     SubShader
     {
@@ -50,11 +51,14 @@
             uniform float _Contrast;
             uniform float _Br;
             uniform float _ScansColor;
+            uniform float _Split;
 
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 color = tex2D(_MainTex, i.uv);
                 float2 ps = i.src_pos.xy * _ScreenParams.xy / i.src_pos.w;
+
+                float step = i.uv / _ScreenParams.xy;
 
                 int pp = (int)ps.x % 4;
 
@@ -69,6 +73,9 @@
                 if ((int)ps.y % 3 == 0) muls *= float4(_ScansColor, _ScansColor, _ScansColor, 1);
 
                 color = color * muls;
+
+                color += tex2D(_MainTex, i.uv + step * _Split) * 0.01 * _Split;
+                color += tex2D(_MainTex, i.uv - step * _Split) * 0.01 * _Split;
 
                 return color;
             }

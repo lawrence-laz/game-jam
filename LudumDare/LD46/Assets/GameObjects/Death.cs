@@ -44,7 +44,14 @@ public class Death : MonoBehaviour
             sequence = sequence.AppendCallback(() =>
             {
                 Thread.Sleep(50);
-                ScreenShake.SlightShake();
+                if (gameObject.GetComponent<BombEnemy>() == null)
+                {
+                    ScreenShake.SlightShake();
+                }
+                else
+                {
+                    ScreenShake.AverageShake();
+                }
             });
         }
         else

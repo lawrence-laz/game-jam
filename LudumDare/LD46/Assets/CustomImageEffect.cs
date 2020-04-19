@@ -9,6 +9,7 @@ public class CustomImageEffect : MonoBehaviour
     [Range(-3, 20)] public float Contrast = 0.0f;
     [Range(-200, 200)] public float Brightness = 0.0f;
     [Range(0, 1)] public float ScanColor;
+    public float Split = 5;
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
@@ -17,6 +18,7 @@ public class CustomImageEffect : MonoBehaviour
         Effect.SetFloat("_Contrast", Contrast);
         Effect.SetFloat("_Br", Brightness);
         Effect.SetFloat("_ScansColor", ScanColor);
+        Effect.SetFloat("_Split", Split);
         Graphics.Blit(source, destination, Effect);
     }
 }

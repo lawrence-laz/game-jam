@@ -33,7 +33,7 @@ namespace Libs.Base.GameLogic
                 ScreenFade.Instance.FadeOut();
                 load = DOTween.Sequence()
                     .AppendInterval(1)
-                    .AppendCallback(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + SceneOffset));
+                    .AppendCallback(() => SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + SceneOffset) % SceneManager.sceneCountInBuildSettings));
             }
         }
 
