@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
@@ -6,14 +7,16 @@ public class Spikes : MonoBehaviour
     public TurnManager TurnManager { get; set; }
     public SpriteRenderer SpriteRenderer { get; set; }
 
-    public Sprite OnSprite;
+    public Sprite[] OnSprites;
     public Sprite OffSprite;
     public Sprite ReadySprite;
 
     public bool On;
     public int Ticks;
     public const int Period = 3;
-    private const int TicksBeforeActivating = Period - 1;
+
+    private const int _ticksBeforeActivating = Period - 1;
+    private Sequence _onAnimation;
 
     private void Start()
     {
@@ -36,11 +39,30 @@ public class Spikes : MonoBehaviour
     private void UpdateSprite()
     {
         var periodRemainder = Ticks % Period;
-        SpriteRenderer.sprite = periodRemainder == 0
-            ? OnSprite
-            : periodRemainder == TicksBeforeActivating
-                ? ReadySprite
-                : OffSprite;
+        if (periodRemainder == 0)
+        {
+            PlayOnAnimation();
+        }   
+        else
+        {
+            SpriteRenderer.sprite = periodRemainder == _ticksBeforeActivating ? ReadySprite : OffSprite;
+        }
+    }
+
+    private void PlayOnAnimation()
+    {
+        if (_onAnimation != null)
+        {
+            _onAnimation.Kill();
+        }
+
+        _onAnimation = DOTween.Sequence();
+        foreach (var onFrame in OnSprites)
+        {
+            _onAnimation.AppendCallback(() => SpriteRenderer.sprite = onFrame)
+                .AppendInterval(0.050f);
+        }
+        _onAnimation.Play();
     }
 
     private void OnStepped(GameObject[] steppedBy)
