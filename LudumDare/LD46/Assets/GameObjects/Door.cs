@@ -1,11 +1,14 @@
 ﻿using Libs.Base.GameLogic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
     public TileObject TileObject { get; set; }
     public SceneLoadingBehaviour SceneLoader { get; set; }
+
+    public UnityEvent OnOpenned;
 
     private void Start()
     {
@@ -27,7 +30,7 @@ public class Door : MonoBehaviour
 
             if (!FindObjectsOfType<Hostage>().Where(x => x.enabled).Any())
             {
-                Debug.Log("Next level"); // TODO
+                OnOpenned.Invoke();
                 FindObjectOfType<TurnManager>().enabled = false;
                 SceneLoader.LoadScene();
             }
