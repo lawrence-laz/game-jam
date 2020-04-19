@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1570429541955320858}
   - component: {fileID: 6097484317564871532}
   - component: {fileID: 4036049529485714476}
+  - component: {fileID: 2435697190907183832}
   m_Layer: 0
   m_Name: camera
   m_TagString: MainCamera
@@ -138,3 +139,15 @@ MonoBehaviour:
   Contrast: 1
   Brightness: 8
   ScanColor: 0.861
+--- !u!114 &2435697190907183832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570429541955320862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e88cdd5dd314dea439ed147e4e736566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

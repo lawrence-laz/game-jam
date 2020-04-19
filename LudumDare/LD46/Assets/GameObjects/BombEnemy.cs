@@ -1,10 +1,13 @@
 ﻿using DG.Tweening;
+using Libs.Base.Effects;
 using UnityEngine;
 
 public class BombEnemy : MonoBehaviour
 {
     public TileObject TileObject { get; set; }
     public Death Death { get; set; }
+    public SpriteFlash SpriteFlash { get; set; }
+    public TurnManager TurnManager { get; set; }
 
     private Sequence _animation;
 
@@ -13,6 +16,8 @@ public class BombEnemy : MonoBehaviour
         TileObject = GetComponent<TileObject>();
         TileObject.OnStepped.AddListener(OnStepped);
         Death = GetComponent<Death>();
+        SpriteFlash = GetComponent<SpriteFlash>();
+        TurnManager = FindObjectOfType<TurnManager>();
 
         _animation = DOTween.Sequence()
             .Append(transform.DOShakePosition(0.2f, 0.05f, 1, 0))
@@ -29,6 +34,13 @@ public class BombEnemy : MonoBehaviour
 
     private void OnStepped(GameObject[] steppedBy)
     {
-        Death.Die();
+        SpriteFlash.Blink();
+        var duration = 1;
+        TurnManager.AnimationDelay = duration + 1.2f;
+        _animation?.Kill();
+        _animation = DOTween.Sequence()
+            .AppendInterval(duration)
+            .AppendCallback(() => Death.Die())
+            .Play();
     }
 }

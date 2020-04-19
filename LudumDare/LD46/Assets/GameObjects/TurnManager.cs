@@ -9,6 +9,7 @@ public class TurnManager : MonoBehaviour
     public float TurnStarted { get; set; }
     public float TurnDuration { get; set; } = .1f;
     public float HoldDelay { get; set; }
+    public float AnimationDelay { get; set; } = 0;
 
     public UnityEvent OnTurnStarted;
     public UnityEvent OnTurnEnded;
@@ -28,9 +29,10 @@ public class TurnManager : MonoBehaviour
 
         if (TurnInProgress)
         {
-            if (Time.time >= TurnStarted + TurnDuration + HoldDelay)
+            if (Time.time >= TurnStarted + Mathf.Max(TurnDuration + HoldDelay, AnimationDelay))
             {
                 TurnInProgress = false;
+                AnimationDelay = 0;
             }
             else
             {

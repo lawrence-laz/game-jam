@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace Libs.Base.Effects
 {
@@ -7,6 +8,8 @@ namespace Libs.Base.Effects
         private Shader _defaultShader;
         private Shader _whiteShader;
         private SpriteRenderer _renderer;
+
+        private Sequence _animation;
 
         private void OnEnable()
         {
@@ -25,6 +28,18 @@ namespace Libs.Base.Effects
         {
             _renderer.material.shader = _defaultShader;
             _renderer.color = Color.white;
+        }
+
+        public void Blink()
+        {
+            _animation?.Kill();
+
+            _animation = DOTween.Sequence()
+                .AppendCallback(WhiteSprite)
+                .AppendInterval(0.1f)
+                .AppendCallback(NormalSprite)
+                .AppendInterval(0.1f)
+                .SetLoops(4);
         }
     }
 }
