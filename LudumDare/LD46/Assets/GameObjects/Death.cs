@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using Libs.Base.Effects;
+using System.Threading;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class Death : MonoBehaviour
 {
     public SpriteRenderer SpriteRenderer { get; set; }
     public TileObject TileObject { get; set; }
+    public TurnManager TurnManager { get; set; }
 
     public GameObject DeadPrefab;
     public UnityEvent OnDeath;
@@ -13,6 +17,7 @@ public class Death : MonoBehaviour
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TileObject = GetComponent<TileObject>();
+        TurnManager = FindObjectOfType<TurnManager>();
     }
 
     private void Update()
@@ -24,12 +29,23 @@ public class Death : MonoBehaviour
     public void Die()
     {
         enabled = false;
-        Destroy(gameObject);
-        OnDeath.Invoke();
-        var obj = Instantiate(DeadPrefab, TileObject.Position, Quaternion.identity);
-        if (obj.TryGetComponent<TileObject>(out var deadTile))
+        if (TryGetComponent<SpriteFlash>(out var flash))
         {
-            deadTile.Position = TileObject.Position;
+            flash.WhiteSprite();
         }
+        
+        DOTween.Sequence()
+            .AppendInterval(TurnManager.TurnDuration / 4)
+            .AppendCallback(() => Thread.Sleep(90))
+            .AppendCallback(() =>
+            {
+                Destroy(gameObject);
+                OnDeath.Invoke();
+                var obj = Instantiate(DeadPrefab, TileObject.Position, Quaternion.identity);
+                if (obj.TryGetComponent<TileObject>(out var deadTile))
+                {
+                    deadTile.Position = TileObject.Position;
+                }
+            });
     }
 }

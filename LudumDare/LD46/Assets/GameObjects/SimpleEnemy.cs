@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -55,6 +56,7 @@ public class SimpleEnemy : MonoBehaviour
     {
         if (steppedBy.Any(x => x.tag == "Player"))
         {
+            //Thread.Sleep(1000);
             Death.Die();
         }
         else if (steppedBy.Any(x => x.GetComponent<Hostage>() != null))

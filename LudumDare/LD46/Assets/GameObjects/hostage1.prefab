@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2891407393945761164}
   - component: {fileID: 4590942457087375746}
   m_Layer: 0
-  m_Name: hostage
+  m_Name: hostage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5fa3dcf4a6c074a8b6e1e12543e0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpSprites:
+  - {fileID: 21300000, guid: 30648102ec334f4429eacdeaa0f85e52, type: 3}
+  - {fileID: 21300000, guid: c2c5fdb147939114f8ac774a2aed4b52, type: 3}
+  - {fileID: 21300000, guid: 6dc92568c7f054e42beb44c79571b56d, type: 3}
+  - {fileID: 21300000, guid: 51b18ce315b754c4b9b00f0ded32f380, type: 3}
+  - {fileID: 21300000, guid: b4bd7bdaf2a0e0b488478fda4ebee112, type: 3}
 --- !u!114 &2891407393945761167
 MonoBehaviour:
   m_ObjectHideFlags: 0

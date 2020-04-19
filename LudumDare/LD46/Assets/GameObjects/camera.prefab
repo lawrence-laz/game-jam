@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1570429541955320861}
   - component: {fileID: 1570429541955320858}
   - component: {fileID: 6097484317564871532}
+  - component: {fileID: 4036049529485714476}
   m_Layer: 0
   m_Name: camera
   m_TagString: MainCamera
@@ -119,3 +120,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeColor: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
   defaultDuration: 1
+--- !u!114 &4036049529485714476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570429541955320862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa146dfc01be9c4685e4bda5ce9b611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effect: {fileID: 2100000, guid: 4ab5140c09ca9b74a8473f01e5b54869, type: 2}
+  Force: 0.224
+  Force2: 0.215
+  Contrast: 1
+  Brightness: 8
+  ScanColor: 0.861
