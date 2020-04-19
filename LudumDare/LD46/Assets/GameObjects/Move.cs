@@ -1,11 +1,13 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using Libs.Base.Extensions;
 
 public class Move : MonoBehaviour
 {
     public Map Map { get; set; }
     public TurnManager TurnManager { get; set; }
     public TileObject TileObject { get; set; }
+    public SpriteRenderer SpriteRenderer { get; set; }
 
     private Sequence _animation;
 
@@ -14,6 +16,7 @@ public class Move : MonoBehaviour
         Map = FindObjectOfType<Map>();
         TurnManager = FindObjectOfType<TurnManager>();
         TileObject = GetComponent<TileObject>();
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -37,6 +40,7 @@ public class Move : MonoBehaviour
     public void MoveBy(Vector2 offset)
     {
         var newPosition = TileObject.Position + offset;
+        UpdateSpriteDirection(offset);
         transform.DOMove(newPosition, TurnManager.TurnDuration);
         Animate();
         TileObject.Position = newPosition;
@@ -45,10 +49,26 @@ public class Move : MonoBehaviour
 
     public void MoveTo(Vector2 position)
     {
+        var offset = position - (Vector2)transform.position;
+        UpdateSpriteDirection(offset);
+
         transform.DOMove(position, TurnManager.TurnDuration);
         Animate();
         TileObject.Position = position;
         //transform.position = position;
+    }
+
+    public void UpdateSpriteDirection(Vector2 offset)
+    {
+        if (GetComponent<Box>() != null)
+        {
+            return;
+        }
+
+        if (offset.x != 0)
+        {
+            SpriteRenderer.transform.SetScaleX(offset.x > 0 ? 1f : -1f);
+        }
     }
 
     public bool CanMove(Vector2 offset)
@@ -67,6 +87,8 @@ public class Move : MonoBehaviour
                 return false;
             }
         }
+
+        UpdateSpriteDirection(offset);
 
         return true;
     }

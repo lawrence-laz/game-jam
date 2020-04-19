@@ -10,7 +10,7 @@ namespace Libs.Base.Effects
 
         private void OnEnable()
         {
-            _renderer = GetComponent<SpriteRenderer>();
+            _renderer = GetComponentInChildren<SpriteRenderer>();
             _defaultShader = _renderer.material.shader;
             _whiteShader = Shader.Find("GUI/Text Shader");
         }

@@ -64,7 +64,7 @@ namespace Libs.Base.GameLogic
             FindObjectOfType<TurnManager>().enabled = false;
 
             load = DOTween.Sequence()
-                .AppendInterval(0.8f)
+                .AppendInterval(UnityEngine.Input.GetKeyDown(KeyCode.R) ? 0f : 0.8f)
                 .AppendCallback(() => ScreenFade.Instance.FadeOut(.3f))
                 .AppendInterval(0.2f)
                 .AppendCallback(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));

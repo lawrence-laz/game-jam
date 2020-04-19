@@ -25,7 +25,7 @@ public class Spikes : MonoBehaviour
         TileObject.OnStepped.AddListener(OnStepped);
         TurnManager = FindObjectOfType<TurnManager>();
         TurnManager.OnTurnEnded.AddListener(OnTurnEnded);
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         On = Ticks % Period == 0 ? true : false;
         UpdateSprite();

@@ -15,7 +15,7 @@ public class Death : MonoBehaviour
 
     private void Start()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         TileObject = GetComponent<TileObject>();
         TurnManager = FindObjectOfType<TurnManager>();
     }
@@ -44,12 +44,10 @@ public class Death : MonoBehaviour
         else
         {
             sequence = sequence.AppendCallback(() => TurnManager.enabled = false)
-                .AppendInterval(TurnManager.TurnDuration * 2);
+                .AppendInterval(TurnManager.TurnDuration * 1.5f);
         }
         sequence.AppendCallback(() =>
         {
-            Destroy(gameObject);
-            OnDeath.Invoke();
             var obj = Instantiate(DeadPrefab, TileObject.Position, Quaternion.identity);
             if (obj.TryGetComponent<TileObject>(out var deadTile))
             {

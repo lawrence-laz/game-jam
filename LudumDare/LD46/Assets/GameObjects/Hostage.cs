@@ -22,7 +22,7 @@ public class Hostage : MonoBehaviour
         TurnManager.OnTurnStarted.AddListener(OnTurnStarted);
         TurnManager.OnTurnEnded.AddListener(OnTurnEnded);
         Map = FindObjectOfType<Map>();
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
         StaticSprite = SpriteRenderer.sprite;
 
         _animation = DOTween.Sequence();
