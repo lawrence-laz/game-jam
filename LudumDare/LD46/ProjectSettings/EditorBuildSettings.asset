@@ -45,8 +45,14 @@ EditorBuildSettings:
     path: Assets/Scenes/level10.5_push-first-host.unity
     guid: f4855f104d1f6894fa8589ba60a852eb
   - enabled: 1
-    path: Assets/Scenes/level11_bomb-lure.unity
+    path: Assets/Scenes/level10.6_push-bomb.unity
+    guid: 543883f89576a2746856810faf71b99d
+  - enabled: 1
+    path: Assets/Scenes/level11.0_bomb-lure.unity
     guid: 1165bf7ad014c084b9066f2920b6d666
+  - enabled: 1
+    path: Assets/Scenes/level11.1_lure-spikes2.unity
+    guid: 754d498acdf3db149a7816b0874cfa74
   - enabled: 1
     path: Assets/Scenes/level12_lure-spikes.unity
     guid: 89d1b87038f5d1341bffc964112465f4

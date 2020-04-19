@@ -18,7 +18,7 @@ public class Box : MonoBehaviour
     {
         var targetPosition = TileObject.Position + offset;
         var targetObjects = Map.GetAll(targetPosition);
-        if (Map.IsTraversible(targetPosition, gameObject) /*&& !targetObjects.Any(x => x.tag == "Enemy" && x.GetComponent<BombEnemy>() == null)*/)
+        if (Map.IsTraversible(targetPosition, gameObject) && targetObjects.All(x => x.GetComponent<Door>() == null) /*&& !targetObjects.Any(x => x.tag == "Enemy" && x.GetComponent<BombEnemy>() == null)*/)
         {
             Move.MoveBy(offset);
 
