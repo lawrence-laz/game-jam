@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2891407393945761167}
   - component: {fileID: 2891407393945761164}
   - component: {fileID: 4590942457087375746}
+  - component: {fileID: 3092751579267195579}
   m_Layer: 0
   m_Name: hostage1
   m_TagString: Untagged
@@ -98,6 +99,19 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3092751579267195579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891407393945761152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10c45007908b95999a8dba0edf6d3a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0.745283, g: 0, b: 0, a: 1}
 --- !u!1 &9049712633089200469
 GameObject:
   m_ObjectHideFlags: 0

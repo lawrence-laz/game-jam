@@ -5,6 +5,8 @@ namespace Libs.Base.Effects
 {
     public class SpriteFlash : MonoBehaviour
     {
+        public Color Color = Color.white;
+
         private Shader _defaultShader;
         private Shader _whiteShader;
         private SpriteRenderer _renderer;
@@ -21,7 +23,7 @@ namespace Libs.Base.Effects
         public void WhiteSprite()
         {
             _renderer.material.shader = _whiteShader;
-            _renderer.color = Color.white;
+            _renderer.color = Color;
         }
 
         public void NormalSprite()
@@ -36,9 +38,9 @@ namespace Libs.Base.Effects
 
             _animation = DOTween.Sequence()
                 .AppendCallback(WhiteSprite)
-                .AppendInterval(0.1f)
+                .AppendInterval(0.05f)
                 .AppendCallback(NormalSprite)
-                .AppendInterval(0.1f)
+                .AppendInterval(0.05f)
                 .SetLoops(4);
         }
     }

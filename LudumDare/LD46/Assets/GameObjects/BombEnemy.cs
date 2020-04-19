@@ -35,7 +35,7 @@ public class BombEnemy : MonoBehaviour
     private void OnStepped(GameObject[] steppedBy)
     {
         SpriteFlash.Blink();
-        var duration = 1;
+        var duration = 0.5f;
         TurnManager.AnimationDelay = duration + 1.2f;
         _animation?.Kill();
         _animation = DOTween.Sequence()

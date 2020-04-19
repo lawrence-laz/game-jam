@@ -24,8 +24,11 @@ EditorBuildSettings:
     path: Assets/Scenes/level6_box-spikes.unity
     guid: bae94edc4a6e8cd47961faf5ee6a287f
   - enabled: 1
-    path: Assets/Scenes/level7_box-push.unity
+    path: Assets/Scenes/level7.0_box-push.unity
     guid: 0dd48b97c75ba954a84d040c828a7fe0
+  - enabled: 1
+    path: Assets/Scenes/level7.5_short_box_en_spik.unity
+    guid: 5eabb861c8204c144b553abe6baf2c0c
   - enabled: 1
     path: Assets/Scenes/level8_first-time-2-host.unity
     guid: 1aa843bc5c8164c4bbb7f77e3cf5ef0b
@@ -33,12 +36,12 @@ EditorBuildSettings:
     path: Assets/Scenes/level9_box-2-hosts.unity
     guid: 52b431cc9f101604aa9ec40162b43062
   - enabled: 1
-    path: Assets/Scenes/Xlevel40_easy-double-kill.unity
-    guid: 668c5cb870774b1449c60b593bfaf25a
-  - enabled: 1
-    path: Assets/Scenes/level70_spikes-complex.unity
-    guid: 3cf873b24a4491a45beda8e350597d6c
-  - enabled: 1
-    path: Assets/Scenes/level10_bomb-first-time.unity
+    path: Assets/Scenes/level10.0_bomb-first-time.unity
     guid: 71ad7489892f600429208cc638b730f2
+  - enabled: 1
+    path: Assets/Scenes/level10.5_push-first-host.unity
+    guid: f4855f104d1f6894fa8589ba60a852eb
+  - enabled: 1
+    path: Assets/Scenes/level11_bomb-lure.unity
+    guid: 1165bf7ad014c084b9066f2920b6d666
   m_configObjects: {}
