@@ -21,6 +21,7 @@ public class SimpleEnemy : MonoBehaviour
 
     public Sprite[] AnimationSprites;
     public UnityEvent OnTriggered;
+    public GameObject TriggerEffectPrefab;
 
     private Sequence _animation;
 
@@ -113,6 +114,7 @@ public class SimpleEnemy : MonoBehaviour
             IsTriggered = true;
             Target = target;
             OnTriggered.Invoke(); // TODO: add triggered animation
+            Instantiate(TriggerEffectPrefab, transform.position, Quaternion.identity);
 
             NextStep = path[0];
         }

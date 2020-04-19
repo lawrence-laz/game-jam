@@ -33,19 +33,29 @@ public class Death : MonoBehaviour
         {
             flash.WhiteSprite();
         }
-        
-        DOTween.Sequence()
-            .AppendInterval(TurnManager.TurnDuration / 4)
-            .AppendCallback(() => Thread.Sleep(90))
-            .AppendCallback(() =>
+
+        var sequence = DOTween.Sequence()
+            .AppendInterval(TurnManager.TurnDuration / 4);
+
+        if (gameObject.tag != "Player" && GetComponent<Hostage>() == null)
+        {
+            sequence = sequence.AppendCallback(() => Thread.Sleep(50));
+        }
+        else
+        {
+            sequence = sequence.AppendCallback(() => TurnManager.enabled = false)
+                .AppendInterval(TurnManager.TurnDuration * 2);
+        }
+        sequence.AppendCallback(() =>
+        {
+            Destroy(gameObject);
+            OnDeath.Invoke();
+            var obj = Instantiate(DeadPrefab, TileObject.Position, Quaternion.identity);
+            if (obj.TryGetComponent<TileObject>(out var deadTile))
             {
-                Destroy(gameObject);
-                OnDeath.Invoke();
-                var obj = Instantiate(DeadPrefab, TileObject.Position, Quaternion.identity);
-                if (obj.TryGetComponent<TileObject>(out var deadTile))
-                {
-                    deadTile.Position = TileObject.Position;
-                }
-            });
+                deadTile.Position = TileObject.Position;
+            }
+        })
+        .Play();
     }
 }

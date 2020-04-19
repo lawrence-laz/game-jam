@@ -5,12 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class Map : MonoBehaviour
 {
-    public Tilemap Tilemap { get; set; }
-
-    private void Start()
-    {
-        Tilemap = FindObjectOfType<Tilemap>();
-    }
+    private Tilemap _tileMap;
+    public Tilemap Tilemap => _tileMap ?? (_tileMap = FindObjectOfType<Tilemap>());
 
     public GameObject Get(Vector2 position)
     {

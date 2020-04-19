@@ -27,6 +27,8 @@ public class Hero : MonoBehaviour
             .Append(transform.DOBlendableScaleBy(Vector3.up * _animationStrength, .4f))
             .Join(transform.DOBlendableLocalMoveBy(Vector3.up * _animationStrength, .4f))
             .SetLoops(-1);
+
+        AskHostagesToFollow();
     }
 
     private void OnDestroy()
@@ -35,6 +37,11 @@ public class Hero : MonoBehaviour
     }
 
     private void OnTurnEnded()
+    {
+        AskHostagesToFollow();
+    }
+
+    private void AskHostagesToFollow()
     {
         foreach (var position in TileObject.Position.Around())
         {

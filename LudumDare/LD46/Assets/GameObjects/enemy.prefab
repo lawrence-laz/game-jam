@@ -131,6 +131,8 @@ MonoBehaviour:
   OnTriggered:
     m_PersistentCalls:
       m_Calls: []
+  TriggerEffectPrefab: {fileID: 5609484475491121296, guid: a4ff261a1b1c9dc4b946fdc2ef6084aa,
+    type: 3}
 --- !u!114 &827644161381663908
 MonoBehaviour:
   m_ObjectHideFlags: 0

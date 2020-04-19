@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829efee20284f2cc0af28522d2a93d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeColor: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 1}
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
   defaultDuration: 1
 --- !u!114 &4036049529485714476
 MonoBehaviour:

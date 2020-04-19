@@ -64,9 +64,9 @@ namespace Libs.Base.GameLogic
             FindObjectOfType<TurnManager>().enabled = false;
 
             load = DOTween.Sequence()
-                .AppendInterval(0.5f)
-                .AppendCallback(() => ScreenFade.Instance.FadeOut(.5f))
-                .AppendInterval(0.5f)
+                .AppendInterval(0.8f)
+                .AppendCallback(() => ScreenFade.Instance.FadeOut(.3f))
+                .AppendInterval(0.2f)
                 .AppendCallback(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
         }
     }
