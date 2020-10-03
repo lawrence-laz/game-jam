@@ -7,6 +7,9 @@ public class Face : MonoBehaviour
     [Header("Faces")]
     public GameObject Default;
     public GameObject VeryExcided;
+    public GameObject Intense;
+    public GameObject Sleep;
+    public GameObject GameOver;
 
     public void ResetFace()
     {

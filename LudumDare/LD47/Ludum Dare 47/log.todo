@@ -20,8 +20,10 @@ cardgame - life simulator
 
 ☐ a limited amount of points per day after you run out of the the cards go back to the deck and get reshuffled, a new day starts
 
-☐ drawing additional card costs 1 point
+☐ drawing additional card costs 1 point energy point, hungry and bored?
+    Explain that doing nothins is boring
 
+    ☐ If you have more than 3 cards shake screen side to side saying no and sound nuhuh
 
 ☐ on start of sleep all cards are shuffled
 ☐ on end of sleep you draw 3 new cards
@@ -36,6 +38,8 @@ cardgame - life simulator
 ✔ each effect and stat change should happen separately and sequentially @done(20-10-03 09:42)
 ☐ each change should trigger character reaction and facial expression change
 
+☐ when stat low should change facial expression
+
 ☐ card: cofee
 
 ☐ camera slightly moves around as you move mouse
@@ -44,3 +48,27 @@ cardgame - life simulator
 
 ☐ card:punch
 
+☐ Ideas for name: Routine: The Card Game
+
+☐ randomize initial stats to make it more fun to replay
+
+☐ not sleeping at night increases stress
+
+☐ add notifications for effects like above
+
+☐ hover card animation
+☐ while card active, hand moves down with all cards <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+☐ outside
+☐ office
+☐ actual deck
+☐ Change pointer to sandclock while card is in progress and disable cursor script
+
+☐ when you click to play again the player just stands up like othing happened :D
+
+☐ If you have punch then randomly a bandit can after current card stop being active
+    this is a timed event you have to put out punch card quickly.
+
+
+☐ time of day

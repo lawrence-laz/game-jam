@@ -7,16 +7,23 @@ public class Cursor : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0) && TryGetGameObjectUnderCursor(out var target) && target.CompareTag("Card"))
+        if (Input.GetMouseButtonDown(0) && TryGetGameObjectUnderCursor(out var target))
         {
-            DraggingObject = target;
+            if (target.CompareTag("Card"))
+            {
+                DraggingObject = target;
+            }
+            else if (target.TryGetComponent(out Deck deck))
+            {
+                deck.DrawCard();
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (DraggingObject != null && DraggingObject.TryGetComponent(out Card card) && TryGetGameObjectUnderCursor(out target, ~LayerMask.GetMask("Card")))
+            if (DraggingObject != null && DraggingObject.TryGetComponent(out Card card) /*&& TryGetGameObjectUnderCursor(out target, ~LayerMask.GetMask("Card"))*/)
             {
-                card.PlaceOn(target);
+                card.PlaceOn(default);
             }
 
             DraggingObject = default;

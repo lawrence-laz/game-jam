@@ -1,9 +1,9 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-public class HungerCardEffect : MonoBehaviour
+public class ExerciseCard : MonoBehaviour
 {
-    public float RestoreHungerBy = 1f / (3 * 2);
+    public float RestoreStress = 1f / (3 * 2);
 
     public Card Card { get; set; }
 
@@ -27,11 +27,9 @@ public class HungerCardEffect : MonoBehaviour
         var stats = FindObjectOfType<Stats>();
         var clock = FindObjectOfType<Clock>();
 
-        return DOTween.To(
-            () => stats.Hunger,
-            x => stats.Hunger = x,
-            RestoreHungerBy / Card.EnergyCost,
-            clock.StepDuration)
+        return DOTween.Sequence()
+            .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, RestoreStress / Card.EnergyCost, 0.1f))
+            .Append(DOTween.To(() => stats.Hunger, x => stats.Hunger = x, -Stats.HungerPerHour * 2, 0.1f)) // Exercise makes you hungry faster.
             .SetRelative(true);
     }
 }
