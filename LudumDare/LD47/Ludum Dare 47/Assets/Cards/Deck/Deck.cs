@@ -15,6 +15,7 @@ public class Deck : MonoBehaviour
         foreach (var card in FindObjectsOfType<Card>())
         {
             card.transform.position = transform.position + cardHeight * index++;
+            card.transform.rotation = Quaternion.identity;
         }
     }
 }

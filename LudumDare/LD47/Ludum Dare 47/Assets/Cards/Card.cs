@@ -7,6 +7,8 @@ using UnityEngine.Events;
 
 public class Card : MonoBehaviour
 {
+    public readonly Vector3 ActiveCardPosition = new Vector3(-0.065f, 0.702f, -7.453f);
+    public readonly Quaternion ActiveCardRotation = Quaternion.Euler(30f, 1.871f, 0f);
     private readonly Vector3 _graveyardPosition = new Vector3(100, 100, 0);
 
     public int EnergyCost = 8;
@@ -16,8 +18,11 @@ public class Card : MonoBehaviour
 
     public UnityEvent OnActivated;
     public UnityEvent OnActivationFinished;
+    public GameObject[] OnActivatedEffects;
     public List<Func<Tween>> OnActivationStepTween = new List<Func<Tween>>();
     public UnityEventGameObject OnPlaced;
+
+    private List<GameObject> _effects = new List<GameObject>();
 
     public void Activate()
     {
@@ -29,6 +34,20 @@ public class Card : MonoBehaviour
         OnActivated.Invoke();
 
         var sequence = DOTween.Sequence();
+
+        sequence.Append(transform.DOMove(ActiveCardPosition, 0.5f))
+            .Join(transform.DORotateQuaternion(ActiveCardRotation, 0.5f));
+
+        if (OnActivatedEffects.Length > 0)
+        {
+            sequence.AppendCallback(() =>
+            {
+                foreach (var effect in OnActivatedEffects)
+                {
+                    _effects.Add(Instantiate(effect, GameObject.FindWithTag("Player").transform));
+                }
+            });
+        }
 
         for (int i = 0; i < Duration; i++)
         {
@@ -52,9 +71,21 @@ public class Card : MonoBehaviour
             }
         }
 
+        sequence.AppendCallback(() =>
+        {
+            foreach (var effect in _effects)
+            {
+                Destroy(effect);
+            }
+            _effects.Clear();
+        });
+
         sequence.Append(transform.DOMove(_graveyardPosition, clock.StepDuration));
 
-        sequence.AppendCallback(() => OnActivationFinished.Invoke());
+        sequence.AppendCallback(() =>
+        {
+            OnActivationFinished.Invoke();
+        });
 
         sequence.Play();
     }

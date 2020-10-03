@@ -7,7 +7,7 @@ cardgame - life simulator
 ☐ money, energy, etc.
 ☐ card: find a job, which introduces new cards "go to work"
 ☐ stat: entertained
-☐ cards: "play games"
+✔ cards: "play games" @done(20-10-03 08:52)
 ☐ a portrait of a person with emotions and so on
 ☐ background could change based on location
 ☐ different types of cards, like a card type that changes location, 
@@ -28,3 +28,15 @@ cardgame - life simulator
 
 
 ☐ alarm to wake up early?
+
+
+☐ take a power nap, if tired there is a chance you will crash and fall fully asleep.
+
+
+✔ each effect and stat change should happen separately and sequentially @done(20-10-03 09:42)
+☐ each change should trigger character reaction and facial expression change
+
+☐ card: cofee
+
+☐ camera slightly moves around as you move mouse
+

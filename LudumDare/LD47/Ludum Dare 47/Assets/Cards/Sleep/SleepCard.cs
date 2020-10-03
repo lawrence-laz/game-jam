@@ -22,6 +22,7 @@ public class SleepCard : MonoBehaviour
     private void OnActivationFinished()
     {
         FindObjectOfType<Clock>().ResetStepDuration();
+        FindObjectOfType<Deck>().Reshuffle();
     }
 
     private void OnPlaced(GameObject target)
