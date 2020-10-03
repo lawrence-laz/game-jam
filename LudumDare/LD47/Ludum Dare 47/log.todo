@@ -3,7 +3,7 @@ cardgame - life simulator
 ☐ they are shuffled
 ☐ once all of the cards are used up, they go back to the deck, reshuffle and you draw again
 ☐ life simulator
-☐ play sleep card
+✔ play sleep card @done(20-10-03 11:50)
 ☐ money, energy, etc.
 ☐ card: find a job, which introduces new cards "go to work"
 ☐ stat: entertained
@@ -39,4 +39,8 @@ cardgame - life simulator
 ☐ card: cofee
 
 ☐ camera slightly moves around as you move mouse
+
+☐ card:exercise increases health, maybe adds card strong punch?
+
+☐ card:punch
 
