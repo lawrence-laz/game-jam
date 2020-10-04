@@ -62,12 +62,12 @@ public class OtherEffects : MonoBehaviour
 
             var face = FindObjectOfType<Face>();
             var bossCall = DOTween.Sequence()
-                .AppendCallback(() => Debug.Log("Phone ringing!"))
+                .AppendCallback(() => FindObjectOfType<SoundMaster>().Play(FindObjectOfType<SoundMaster>().AngryBoss))
                 .AppendInterval(1)
                 .AppendCallback(() => face.SetFace(face.BossCall))
                 .AppendInterval(3)
                 .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, -0.6f, 0.1f).SetRelative(true))
-                .AppendCallback(() => FindObjectOfType<Tooltip>().ImportantNote = "Increased <color=red>stress</color> due to mising work.")
+                .AppendCallback(() => FindObjectOfType<Tooltip>().ImportantNote = "Increased <color=red>stress</color> due to missing work.")
                 .AppendInterval(1f)
                 .AppendCallback(() => face.ResetFace())
                 .Pause();

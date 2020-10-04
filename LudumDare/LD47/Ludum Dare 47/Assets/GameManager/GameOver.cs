@@ -12,6 +12,9 @@ public class GameOver : MonoBehaviour
 
     private void OnGameOver()
     {
+        FindObjectOfType<SoundMaster>().Play(FindObjectOfType<SoundMaster>().GameOver);
+        FindObjectOfType<Music>()?.GetComponent<AudioSource>()?.Stop();
+
         var player = GameObject.FindGameObjectWithTag("Player");
         var face = player.GetComponent<Face>();
         face.SetFace(face.GameOver);

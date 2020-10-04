@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FunCardEffect : MonoBehaviour
 {
-    public float RestoreFunBy = .5f;
+    public const float RestoreFunBy = .5f;
 
     public Card Card { get; set; }
 
@@ -19,6 +19,7 @@ public class FunCardEffect : MonoBehaviour
     private void OnActivated()
     {
         FindObjectOfType<Clock>().StepDuration = 1f;
+        FindObjectOfType<SoundMaster>().Play(FindObjectOfType<SoundMaster>().Gaming);
     }
 
     private void OnActivationFinished()

@@ -37,6 +37,8 @@ public class CoffeeCard : MonoBehaviour
         var face = player.GetComponent<Face>();
         face.SetFace(face.ShakyHappy);
 
+        FindObjectOfType<SoundMaster>().Play(FindObjectOfType<SoundMaster>().Drink);
+
         return DOTween.Sequence()
             .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, -IncreasesStress, 0.1f))
             .Append(DOTween.To(() => stats.Energy, x => stats.Energy = x, IncreasesEnergy, 0.1f))

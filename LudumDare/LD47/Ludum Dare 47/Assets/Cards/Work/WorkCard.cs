@@ -40,6 +40,8 @@ public class WorkCard : MonoBehaviour
         var face = player.GetComponent<Face>();
         face.SetFace(face.Focused);
 
+        FindObjectOfType<SoundMaster>().Play(FindObjectOfType<SoundMaster>().Keyboard);
+
         return DOTween.Sequence()
             .Append(DOTween.To(() => stats.Fun, x => stats.Fun = x, -0.3333333f / Card.Duration, 0.1f))
             .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, -IncreasesStress / Card.Duration, 0.1f))

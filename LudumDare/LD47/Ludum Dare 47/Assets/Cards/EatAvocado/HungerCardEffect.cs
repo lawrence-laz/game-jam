@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HungerCardEffect : MonoBehaviour
 {
-    public float RestoreHungerBy = 1f / (3 * 1.5f);
+    public const float RestoreHungerBy = 1f / (3 * 1.5f);
 
     public Card Card { get; set; }
 
@@ -25,6 +25,8 @@ public class HungerCardEffect : MonoBehaviour
     {
         var face = FindObjectOfType<Face>();
         face.SetFace(face.Eating);
+
+        FindObjectOfType<SoundMaster>().Play(FindObjectOfType<SoundMaster>().Eating);
     }
 
     private void OnPlaced(GameObject target)

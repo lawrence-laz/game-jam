@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Calendar = FindObjectOfType<Calendar>();
         Calendar.OnNewDay.AddListener(OnNewDay);
+        DOTween.SetTweensCapacity(400, 400);
     }
 
     public static bool IsSomethingInProgress()

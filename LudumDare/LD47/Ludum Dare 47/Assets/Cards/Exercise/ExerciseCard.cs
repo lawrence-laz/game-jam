@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ExerciseCard : MonoBehaviour
 {
-    public float RestoreStress = 1f / (3 * 2);
+    public const float RestoreStress = 1f / (3 * 1.5f);
 
     public Card Card { get; set; }
 
@@ -23,6 +23,8 @@ public class ExerciseCard : MonoBehaviour
     {
         var stats = FindObjectOfType<Stats>();
         var clock = FindObjectOfType<Clock>();
+
+        FindObjectOfType<SoundMaster>().Play(FindObjectOfType<SoundMaster>().Exercise);
 
         return DOTween.Sequence()
             .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, RestoreStress / Card.EnergyCost, 0.1f))

@@ -38,6 +38,11 @@ public class DayNight : MonoBehaviour
         OutsideLight.color = Color.Lerp(Night.LightColor, Day.LightColor, lerp);
         OutsideLight.intensity = Mathf.Lerp(Night.LightIntensity, Day.LightIntensity, lerp);
 
-        RoomLight.enabled = Clock.IsDark && !Sleeping.activeInHierarchy;
+        bool newEnabledStatus = Clock.IsDark && !Sleeping.activeInHierarchy;
+        if (newEnabledStatus != RoomLight.enabled)
+        {
+            FindObjectOfType<SoundMaster>().PlayOnce(FindObjectOfType<SoundMaster>().LightSwitch);
+        }
+        RoomLight.enabled = newEnabledStatus;
     }
 }

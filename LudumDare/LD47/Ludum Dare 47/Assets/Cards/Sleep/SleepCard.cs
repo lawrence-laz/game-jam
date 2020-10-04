@@ -47,6 +47,7 @@ public class SleepCard : MonoBehaviour
             {
                 var face = player.GetComponent<Face>();
                 face.SetFace(face.Sleep);
+                FindObjectOfType<SoundMaster>().Play(FindObjectOfType<SoundMaster>().Snoring);
             })
             .Append(player.transform.DOLocalMoveY(2, 1))
             .SetRelative(true)

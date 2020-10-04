@@ -69,6 +69,12 @@ public class SceneLoadingBehaviour : MonoBehaviour
         if (load != null)
             return;
 
+        var music = FindObjectOfType<Music>()?.GetComponent<AudioSource>();
+        if (music?.isPlaying == false)
+        {
+            music.Play();
+        }
+
         DOTween.KillAll();
         load = DOTween.Sequence()
             .AppendInterval(UnityEngine.Input.GetKeyDown(KeyCode.R) ? 0f : 0.8f)

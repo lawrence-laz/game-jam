@@ -69,7 +69,9 @@ public class Deck : MonoBehaviour
 
             var card = GetNextCard();
 
-            return hand.AddToHand(card.transform);
+            return DOTween.Sequence()
+                .AppendCallback(() => FindObjectOfType<SoundMaster>().Play(FindObjectOfType<SoundMaster>().DrawCard))
+                .Join(hand.AddToHand(card.transform));
         }
 
         return null;
