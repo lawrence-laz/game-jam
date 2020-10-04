@@ -8,6 +8,8 @@ public class OtherEffects : MonoBehaviour
     public Clock Clock { get; private set; }
     public Calendar Calendar { get; private set; }
 
+    public bool WorkdAccountedForToday => _lastWorkAccountedDay == Calendar.Day;
+
     private int _lastWorkAccountedDay = 1;
 
     private void Start()
