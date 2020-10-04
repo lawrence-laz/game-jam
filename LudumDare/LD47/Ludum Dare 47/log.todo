@@ -1,29 +1,26 @@
-☐  Add music?
-
-☐ add sounds
-    ☐ draw card sound @started(20-10-04 22:37)
-    ☐ "hmm" after the card is drawn
-    ☐ light switch on/off @started(20-10-04 22:37)
-    Cards activation sounds:
-        ☐ eating sound
-        ☐ keyboard typing sounds @started(20-10-04 22:37)
-        ☐ office kind of sound
-        ☐ video gaming sounds @started(20-10-04 22:57)
-        ☐ exercise sounds @started(20-10-04 22:37)
-        ☐ sleep sound @started(20-10-04 22:37)
-        ☐ coffee dring sound @started(20-10-04 22:37)
-        ☐ sound on stat increase @started(20-10-04 22:37)
-        ☐ gameover soundeffect @started(20-10-04 22:37)
-        ☐ boss call @started(20-10-04 22:50)
-    ☐ new day sound
-    ☐ night ambience @started(20-10-04 22:37)
-    ☐ day ambience
 
 
-after done:
-    ☐ prepare itch page.
 
 Archive:
+  ✔  Add music? @done(20-10-05 01:50)
+  ✔ add sounds @done(20-10-05 01:50)
+  ✔ draw card sound @started(20-10-04 22:37) @done(20-10-05 01:50) @lasted(3h13m41s)
+  ✘ "hmm" after the card is drawn @cancelled(20-10-05 01:50)
+  ✔ light switch on/off @started(20-10-04 22:37) @done(20-10-05 01:50) @lasted(3h13m44s)
+  ✔ eating sound @done(20-10-05 01:50) @project(Cards activation sounds)
+  ✔ keyboard typing sounds @started(20-10-04 22:37) @done(20-10-05 01:50) @lasted(3h13m51s) @project(Cards activation sounds)
+  ✘ office kind of sound @cancelled(20-10-05 01:50) @project(Cards activation sounds)
+  ✔ video gaming sounds @started(20-10-04 22:57) @done(20-10-05 01:50) @lasted(2h53m53s) @project(Cards activation sounds)
+  ✔ exercise sounds @started(20-10-04 22:37) @done(20-10-05 01:50) @lasted(3h13m54s) @project(Cards activation sounds)
+  ✔ sleep sound @started(20-10-04 22:37) @done(20-10-05 01:50) @lasted(3h13m55s) @project(Cards activation sounds)
+  ✔ coffee dring sound @started(20-10-04 22:37) @done(20-10-05 01:50) @lasted(3h13m55s) @project(Cards activation sounds)
+  ✔ sound on stat increase @started(20-10-04 22:37) @done(20-10-05 01:50) @lasted(3h13m56s) @project(Cards activation sounds)
+  ✔ gameover soundeffect @started(20-10-04 22:37) @done(20-10-05 01:50) @lasted(3h13m58s) @project(Cards activation sounds)
+  ✔ boss call @started(20-10-04 22:50) @done(20-10-05 01:50) @lasted(3h57s) @project(Cards activation sounds)
+  ✘ new day sound @cancelled(20-10-05 01:50)
+  ✘ night ambience @started(20-10-04 22:37) @cancelled(20-10-05 01:50) @wasted(3h14m)
+  ✘ day ambience @cancelled(20-10-05 01:51)
+  ✔ prepare itch page. @done(20-10-05 01:51) @project(after done)
   ✘ postprocessing effects. @cancelled(20-10-04 21:33)
   ✔ Decorate environment @done(20-10-04 21:13)
   ✘ add little icon on cards where energy is and then on energy stat to associate @cancelled(20-10-04 20:47)
