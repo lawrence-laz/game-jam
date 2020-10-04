@@ -72,6 +72,7 @@ public class Cursor : MonoBehaviour
                     .Append(card.transform.DOMove(Vector3.down * 2, 0.3f).SetRelative(true).SetEase(Ease.InCubic))
                     .Join(card.transform.DORotate(Vector3.forward * 450, 0.4f, RotateMode.LocalAxisAdd).SetRelative(true).SetEase(Ease.OutCubic))
                     .Append(FindObjectOfType<Deck>().DrawCard())
+                    .AppendCallback(() => FindObjectOfType<Tooltip>().ImportantNote = "Skipping cards makes me <color=red>bored</color>.")
                     .Append(DOTween.To(() => stats.Fun, x => stats.Fun = x, -1f / 4, 0.2f).SetRelative(true))
                     .Play();
             }

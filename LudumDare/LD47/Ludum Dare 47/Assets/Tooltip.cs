@@ -6,7 +6,7 @@ public class Tooltip : MonoBehaviour
     [SerializeField]
     private string _importantNote;
     public string StandardNote;
-    public float ImportantNoteDuration = 8f;
+    public const float ImportantNoteDuration = 5f;
  
     public string ImportantNote 
     {
