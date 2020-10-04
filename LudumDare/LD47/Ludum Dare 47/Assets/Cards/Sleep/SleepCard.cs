@@ -19,8 +19,12 @@ public class SleepCard : MonoBehaviour
     private Tween OnActivationStep()
     {
         var stats = FindObjectOfType<Stats>();
+        var clock = FindObjectOfType<Clock>();
 
-        return DOTween.To(() => stats.Hunger, x => stats.Hunger = x, -Stats.HungerPerHour * 0.5f, 0.1f).SetRelative(true);
+        return DOTween.Sequence()
+            .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, 0.2f / Card.Duration, 0.1f))
+            .Append(DOTween.To(() => stats.Hunger, x => stats.Hunger = x, -Stats.HungerPerHour * 0.5f, 0.1f))
+            .SetRelative(true);
     }
 
     private void OnActivated()
@@ -31,6 +35,10 @@ public class SleepCard : MonoBehaviour
         var stats = FindObjectOfType<Stats>();
 
         var sleepAmount = Mathf.Clamp(Stats.MaxEnergyPoints - stats.Energy + 1, 0, Stats.MaxEnergyPoints);
+
+        // Limiting sleep length to 10.
+        sleepAmount = Mathf.Min(sleepAmount, 10);
+
         Card.EnergyCost = -sleepAmount; // Wake up on full energy.
 
         Card.BeforeActivationTween.Add(DOTween.Sequence()
@@ -69,9 +77,6 @@ public class SleepCard : MonoBehaviour
 
     private void OnPlaced(GameObject target)
     {
-        //if (target.GetComponent<PlayArea>() != null)
-        //{
-        //}
-            Card.Activate();
+        Card.Activate();
     }
 }

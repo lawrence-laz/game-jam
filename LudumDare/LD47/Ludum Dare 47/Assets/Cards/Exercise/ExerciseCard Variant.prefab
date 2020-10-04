@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49a77c2b2701274f99f053c99ce6f6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RestoreStress: 0.16666667
+  RestoreStress: 0.5
 --- !u!1001 &1638079301078065107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 5425937448317396329, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_Name
-      value: ExerciseCard Variant
+      value: ExerciseCard
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396330, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -48,37 +48,37 @@ PrefabInstance:
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.4842852
+      value: -0.9271609
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.448
+      value: 0.3624277
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.29
+      value: -8.565685
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.009394735
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.016326861
+      value: -0.030959243
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.14667593
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9998667
+      value: 0.9886554
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -93,12 +93,22 @@ PrefabInstance:
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 1.871
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.78361005
       objectReference: {fileID: 0}
     - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -116,6 +126,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4394066593287033323, guid: 87ce502106880d546bdac2bd05d9224f,
         type: 3}
+    - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: Description
+      value: Workout (<color=#1A9375>Relax</color>, <color=red>Hunger</color>)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fddacc2653295b4586e268ca9d8c734, type: 3}
 --- !u!1 &6771000611306420922 stripped

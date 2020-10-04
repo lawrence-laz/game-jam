@@ -1,74 +1,127 @@
-cardgame - life simulator
-☐ you draw cards
-☐ they are shuffled
-☐ once all of the cards are used up, they go back to the deck, reshuffle and you draw again
-☐ life simulator
-✔ play sleep card @done(20-10-03 11:50)
-☐ money, energy, etc.
-☐ card: find a job, which introduces new cards "go to work"
-☐ stat: entertained
-✔ cards: "play games" @done(20-10-03 08:52)
-☐ a portrait of a person with emotions and so on
-☐ background could change based on location
-☐ different types of cards, like a card type that changes location, 
-☐ another type: that does some action
-☐ there is no artificial gameover: the game over is when you actually die
-☐ stress: factor
-☐ stat: fit
-☐ card: punch (defend from muggers, or you can punch your boss (relieves stress a lot, but you get fired))
+1
+2
+3
+4
+5
+6
+7
+8
+9
 
+☐ add sounds
+    ☐ draw card sound
+    ☐ "hmm" after the card is drawn
+    ☐ light switch on/off
+    ☐ Cards activation sounds:
+        ☐ eating sound
+        ☐ keyboard typing sounds
+        ☐ office kind of sound
+        ☐ video gaming sounds
+        ☐ exercise sounds
+        ☐ sleep sound
+        ☐ coffee dring sound
+        ☐ sound on stat increase
+        ☐ gameover soundeffect
+        ☐ boss call
+    ☐ new day sound
+    ☐ night ambience
+    ☐ day ambience
 
-☐ a limited amount of points per day after you run out of the the cards go back to the deck and get reshuffled, a new day starts
+☐ Decorate environment
 
-☐ drawing additional card costs 1 point energy point, hungry and bored?
-    Explain that doing nothins is boring
+☐ INcrease chances of work card during work hours.
+☐ Balance
+    ☐ Job shouldn't be as stressful, but more boring? Unless it's at night
+        ??? It's already a boring killer? Need more play testing.
+    ☐ There could be more varied options to trade off stats and then player would choose 
+        which to drop hoping to get the needed one.
+    ✔ sleep should reduce stress a bit? @done(20-10-04 17:33)
 
-    ☐ If you have more than 3 cards shake screen side to side saying no and sound nuhuh
-
-☐ on start of sleep all cards are shuffled
-☐ on end of sleep you draw 3 new cards
-
-
-☐ alarm to wake up early?
-
-
-☐ take a power nap, if tired there is a chance you will crash and fall fully asleep.
-
-
-✔ each effect and stat change should happen separately and sequentially @done(20-10-03 09:42)
-☐ each change should trigger character reaction and facial expression change
-
-☐ when stat low should change facial expression
-
-☐ card: cofee
-
-☐ camera slightly moves around as you move mouse
-
-☐ card:exercise increases health, maybe adds card strong punch?
-
-☐ card:punch
-
+☐ visual effect on stat bar once increasing or decreasting (change color is enough)
+☐ add little icon on cards where energy is and then on energy stat to associate
+☐ postprocessing effects.
+✔ this way a new card is drawn, always have 2 @done(20-10-04 17:34)
+✘ different types of cards, like a card type that changes location (could add just as a visual effect) @cancelled(20-10-04 17:34)
+☐ Explain that doing nothins is boring and drawing 3rd card makes you bored
+✘ If you have more than 3 cards shake screen side to side saying no and sound nuhuh @cancelled(20-10-04 17:34)
+☐ take a power nap, if tired there is a chance you will crash and fall fully asleep. ???
+✘ Fix when energy runs out. maybe don't allow doing something if not enough energy? @cancelled(20-10-04 17:34)
+✔ when stat low should change facial expression @done(20-10-04 17:34)
+✔ eating expression @done(20-10-04 17:34)
+☐ Add occasional negative cards, like: get ill?
+✔ not sleeping between 00AM and 06AM makes player stressed @done(20-10-04 17:34)
+☐ camera slightly moves around as you move mouse @started(20-10-04 17:34)
 ☐ Ideas for name: Routine: The Card Game
-
-☐ randomize initial stats to make it more fun to replay
-
-☐ not sleeping at night increases stress
-
-☐ add notifications for effects like above
-
-☐ hover card animation
-☐ while card active, hand moves down with all cards <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
-☐ outside
-☐ office
-☐ actual deck
+☐ randomize initial stats to make it more fun to replay ??? like all 75%, but one is 50%? ??????
+☐ add notifications for effects like stress from not sleeping at night.
+☐ Make sure all sprites look good in dark
+☐ add light flickering on death
+☐ ##### add menu
+☐ #### add game over screen
+☐  Add music?
+☐ light switch sound
 ☐ Change pointer to sandclock while card is in progress and disable cursor script
-
 ☐ when you click to play again the player just stands up like othing happened :D
 
-☐ If you have punch then randomly a bandit can after current card stop being active
+☐ prepare itch page.
+
+Archive:
+  ✔ GAME OVER REASON @started(20-10-04 16:26) @done(20-10-04 17:32) @lasted(1h6m23s)
+  ✔ implement restart on fail @started(20-10-04 16:33) @done(20-10-04 17:32) @lasted(59m26s)
+  ✔ hover card animation @started(20-10-04 16:09) @done(20-10-04 16:26) @lasted(17m3s)
+  ✔ update coffe text to actual increase @started(20-10-04 16:03) @done(20-10-04 16:09) @lasted(6m17s)
+  ✔ if no more cards left -> reshuffle (this is after you can throw away sleep) @done(20-10-04 16:02)
+  ✔ add card descriptions on hover. Very simple "Coffee: +Energy -Relaxed" @started(20-10-04 15:32) @done(20-10-04 15:58) @lasted(26m7s)
+  ✘ skipping work gets you fired and increases stress a lot @cancelled(20-10-04 15:32)
+    You have to play a card that day if you received it. Does not get received on weekends.
+  ✔ Add calendar to show day count, off-days are red, no need to go to work @done(20-10-04 15:32)
+    Work card will be disabled
+    Otherwise the work card has high chance to be drawn in the morning on a working day
+  ✔ Add todo list on the right: @started(20-10-04 15:02) @done(20-10-04 15:31) @lasted(29m52s)
+    sleep during night
+    don't skip work
+    be happy?
+  ✘ background could change based on location ?? @cancelled(20-10-04 15:02)
+  ✔ change effect to same as at night when hungry @done(20-10-04 14:53)
+  ✔ fix numbers on deck @started(20-10-04 14:42) @done(20-10-04 14:53) @lasted(11m15s)
+  ✔ boss just calls and shouts, increase stress, nothing else happens. @done(20-10-04 14:41)
+    On work hours ended check if you went to work, otherwise there is a chance you
+    will get a call. Could be just a hidden card, which is usually never in deck
+  ✘ card: punch (defend from muggers, or you can punch your boss (relieves stress a lot, but you get fired)) @cancelled(20-10-04 14:41)
+    maybe could be fun, but too much work to introduce new features?
+  ✔ you can throw away a card, but it's boring @started(20-10-04 11:34) @done(20-10-04 11:52) @lasted(18m34s)
+  ✔ you draw cards @done(20-10-04 05:27)
+  ✔ they are shuffled @done(20-10-04 05:27)
+  ✘ once all of the cards are used up, they go back to the deck, reshuffle and you draw again @cancelled(20-10-04 05:27)
+    Cards are shuffled after sleep.
+  ✔ life simulator @done(20-10-04 05:27)
+  ✔ play sleep card @done(20-10-03 11:50)
+  ✔ energy, and other stats @done(20-10-04 05:27)
+  ✔ card: find a job, which introduces new cards "go to work" @done(20-10-04 05:28)
+    No find job, just go to work.
+  ✔ stat: entertained @done(20-10-04 05:28)
+    bored/Amused
+  ✔ cards: "play games" @done(20-10-03 08:52)
+  ✔ a portrait of a person with emotions and so on @done(20-10-04 05:28)
+  ✔ another type: that does some action @done(20-10-04 05:29)
+  ✔ stress: factor @done(20-10-04 05:29)
+  ✘ stat: fit @cancelled(20-10-04 05:29)
+  ✔ a limited amount of points per day after you run out of the the cards go back to the deck and get reshuffled, a new day starts @done(20-10-04 05:29)
+    sleep on energy zero
+  ✔ drawing additional card costs 1 point energy point, hungry and bored? @done(20-10-04 05:29)
+  ✔ on end of sleep you draw 2 new cards @done(20-10-04 05:27)
+  ✔ each effect and stat change should happen separately and sequentially @done(20-10-03 09:42)
+  ✔ each change should trigger character reaction and facial expression change @done(20-10-04 05:30)
+  ✔ card: cofee @done(20-10-04 02:02)
+  ✔ card:exercise increases health, maybe adds card strong punch? @done(20-10-04 05:31)
+    decreases stress
+  ✘ card:punch @cancelled(20-10-04 05:31)
+    too much effort for new features
+  ✔ not sleeping at night increases stress @started(20-10-04 05:43) @done(20-10-04 06:40) @lasted(57m24s)
+  ✔ while card active, hand moves down with all cards @done(20-10-04 02:49)
+  ✘ outside @cancelled(20-10-04 06:08)
+  ✘ office @cancelled(20-10-04 06:08)
+  ✔ actual deck @done(20-10-04 06:08)
+  ✘ If you have punch then randomly a bandit can after current card stop being active @cancelled(20-10-04 06:08)
     this is a timed event you have to put out punch card quickly.
-
-
-☐ time of day
+  ✔ time of day @done(20-10-04 06:08)

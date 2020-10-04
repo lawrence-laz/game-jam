@@ -1,13 +1,46 @@
-﻿using System.Linq;
+﻿using DG.Tweening;
+using System.Linq;
 using UnityEngine;
 
 public class Cursor : MonoBehaviour
 {
     public GameObject DraggingObject;
 
+    public Tooltip Tooltip { get; private set; }
+
+    private void Start()
+    {
+        Tooltip = FindObjectOfType<Tooltip>();
+    }
+
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0) && TryGetGameObjectUnderCursor(out var target))
+        TryGetGameObjectUnderCursor(out var target);
+
+        if (target != null)
+        {
+            if (target.TryGetComponent(out Card card))
+            {
+                Tooltip.StandardNote = card.Description;
+
+                var hoverAnimation = card.GetComponentInParent<CardHoverAnimation>();
+                if (hoverAnimation != null)
+                {
+                    hoverAnimation.IsHovered = true;
+                }
+            }
+            else
+            {
+                Tooltip.StandardNote = null;
+            }
+        }
+
+        if (Card.Animation != null && Card.Animation.IsActive() && !Card.Animation.IsComplete())
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0) && target != null)
         {
             if (target.CompareTag("Card"))
             {
@@ -15,7 +48,8 @@ public class Cursor : MonoBehaviour
             }
             else if (target.TryGetComponent(out Deck deck))
             {
-                deck.DrawCard();
+                //Card.Animation = deck.DrawCard();
+                Debug.Log("Drawing from deck manually is disabled");
             }
         }
 
@@ -27,6 +61,20 @@ public class Cursor : MonoBehaviour
             }
 
             DraggingObject = default;
+        }
+        else if (Input.GetMouseButtonUp(1) && target != null)
+        {
+            if (target.TryGetComponent(out Card card))
+            {
+                FindObjectOfType<Hand>().RemoveFromHand(card.transform);
+                var stats = FindObjectOfType<Stats>();
+                Card.Animation = DOTween.Sequence()
+                    .Append(card.transform.DOMove(Vector3.down * 2, 0.3f).SetRelative(true).SetEase(Ease.InCubic))
+                    .Join(card.transform.DORotate(Vector3.forward * 450, 0.4f, RotateMode.LocalAxisAdd).SetRelative(true).SetEase(Ease.OutCubic))
+                    .Append(FindObjectOfType<Deck>().DrawCard())
+                    .Append(DOTween.To(() => stats.Fun, x => stats.Fun = x, -1f / 4, 0.2f).SetRelative(true))
+                    .Play();
+            }
         }
 
         if (DraggingObject)

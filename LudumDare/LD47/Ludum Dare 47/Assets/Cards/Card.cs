@@ -15,6 +15,13 @@ public class Card : MonoBehaviour
     public int Duration => Mathf.Abs(EnergyCost);
 
     public TextMesh TimeCostText;
+    public string CustomTimeCostText;
+
+    public static Card Active;
+    public static Tween Animation;
+    
+    [TextArea]
+    public string Description;
 
     public UnityEvent OnActivated;
     public UnityEvent OnActivationFinished;
@@ -27,7 +34,9 @@ public class Card : MonoBehaviour
 
     public void Activate()
     {
-        Debug.Log($"Played card {gameObject.name}.");
+        //Debug.Log($"Played card {gameObject.name}.");
+
+        Active = this;
 
         var clock = FindObjectOfType<Clock>();
         var stats = FindObjectOfType<Stats>();
@@ -35,6 +44,7 @@ public class Card : MonoBehaviour
         OnActivated.Invoke();
 
         var sequence = DOTween.Sequence();
+        Animation = sequence;
 
         sequence.Append(transform.DOMove(ActiveCardPosition, 0.5f))
             .Join(transform.DORotateQuaternion(ActiveCardRotation, 0.5f))
@@ -58,7 +68,7 @@ public class Card : MonoBehaviour
 
         for (int i = 0; i < Duration; i++)
         {
-            Debug.Log($"will remove {EnergyCost / Duration} energy.");
+            //Debug.Log($"will remove {EnergyCost / Duration} energy.");
 
             sequence
                 .Append(clock.IncreaseHours(1))
@@ -94,7 +104,11 @@ public class Card : MonoBehaviour
                 FindObjectOfType<Hand>().RemoveFromHand(transform);
                 OnActivationFinished.Invoke();
             })
-            .Join(FindObjectOfType<Hand>().ShowHand());
+            .Join(FindObjectOfType<Hand>().ShowHand())
+            .AppendCallback(() =>
+            {
+                FindObjectOfType<Hand>().MakeSure2Cards();
+            });
 
         sequence.Play();
     }
@@ -106,6 +120,8 @@ public class Card : MonoBehaviour
 
     private void Start()
     {
-        TimeCostText.text = EnergyCost.ToString().Replace('-', '+');
+        TimeCostText.text = string.IsNullOrWhiteSpace(CustomTimeCostText)
+            ? EnergyCost.ToString().Replace('-', '+')
+            : CustomTimeCostText;
     }
 }

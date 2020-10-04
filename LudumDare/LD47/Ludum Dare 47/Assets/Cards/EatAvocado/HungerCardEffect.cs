@@ -3,26 +3,36 @@ using UnityEngine;
 
 public class HungerCardEffect : MonoBehaviour
 {
-    public float RestoreHungerBy = 1f / (3 * 2);
+    public float RestoreHungerBy = 1f / (3 * 1.5f);
 
     public Card Card { get; set; }
 
     private void Start()
     {
         Card = GetComponent<Card>();
-        Card.OnActivationStepTween.Add(OnActivated);
+        Card.OnActivationStepTween.Add(OnActivationStep);
         Card.OnPlaced.AddListener(OnPlaced);
+        Card.OnActivated.AddListener(OnActivated);
+        Card.OnActivationFinished.AddListener(OnFinished);
+    }
+
+    private void OnFinished()
+    {
+        FindObjectOfType<Face>().ResetFace();
+    }
+
+    private void OnActivated()
+    {
+        var face = FindObjectOfType<Face>();
+        face.SetFace(face.Eating);
     }
 
     private void OnPlaced(GameObject target)
     {
-        //if (target.GetComponent<PlayArea>() != null)
-        //{
-        //}
-            Card.Activate();
+        Card.Activate();
     }
 
-    private Tween OnActivated()
+    private Tween OnActivationStep()
     {
         var stats = FindObjectOfType<Stats>();
         var clock = FindObjectOfType<Clock>();
@@ -31,7 +41,7 @@ public class HungerCardEffect : MonoBehaviour
             () => stats.Hunger,
             x => stats.Hunger = x,
             RestoreHungerBy / Card.EnergyCost,
-            clock.StepDuration)
+            0.1f)
             .SetRelative(true);
     }
 }

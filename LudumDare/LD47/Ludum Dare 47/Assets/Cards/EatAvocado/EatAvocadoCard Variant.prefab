@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4260134045879516136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8171527899345450047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70c31a1c518bf748bdf1e14381f6ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RestoreHungerBy: 0.16666667
 --- !u!1001 &4191677013131481430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7,10 +20,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3564651054384852053, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.623
+      objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396329, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_Name
-      value: EatAvocadoCard Variant
+      value: EatAvocadoCard (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396330, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -35,17 +53,17 @@ PrefabInstance:
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.885
+      value: -0.264
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.296
+      value: 3.98
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.969
+      value: -8.543
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -55,7 +73,7 @@ PrefabInstance:
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.016326861
+      value: 0.043096244
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -65,7 +83,7 @@ PrefabInstance:
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9998667
+      value: 0.999071
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -80,17 +98,33 @@ PrefabInstance:
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 1.871
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.78360987
+      objectReference: {fileID: 0}
     - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: EnergyCost
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: Description
+      value: Eat (<color=#1A9375>Satiety</color>)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fddacc2653295b4586e268ca9d8c734, type: 3}
+--- !u!1 &8171527899345450047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5425937448317396329, guid: 7fddacc2653295b4586e268ca9d8c734,
+    type: 3}
+  m_PrefabInstance: {fileID: 4191677013131481430}
+  m_PrefabAsset: {fileID: 0}

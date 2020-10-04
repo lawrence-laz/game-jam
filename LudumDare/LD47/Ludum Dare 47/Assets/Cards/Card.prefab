@@ -50,7 +50,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0227d656c4307f548970707095dec3e0, type: 3}
+  - {fileID: 2100000, guid: dadf0b94ef7617349b87fd608a789306, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -423,6 +423,10 @@ MonoBehaviour:
   OnActivated:
     m_PersistentCalls:
       m_Calls: []
+  OnActivationFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  OnActivatedEffects: []
   OnPlaced:
     m_PersistentCalls:
       m_Calls: []

@@ -28,10 +28,7 @@ public class FunCardEffect : MonoBehaviour
 
     private void OnPlaced(GameObject target)
     {
-        //if (target.GetComponent<PlayArea>() != null)
-        //{
-        //}
-            Card.Activate();
+        Card.Activate();
     }
 
     private Tween OnActivationStep()
@@ -40,7 +37,8 @@ public class FunCardEffect : MonoBehaviour
         var clock = FindObjectOfType<Clock>();
 
         return DOTween.Sequence()
-            .Append(DOTween.To(() => stats.Fun, x => stats.Fun = x, RestoreFunBy / Card.EnergyCost, 0.1f))
+            .Append(DOTween.To(() => stats.Fun, x => stats.Fun = x, RestoreFunBy / Card.Duration, 0.1f))
+            .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, clock.IsNight ? 0.1f : 0.3f / Card.Duration, 0.1f))
             .Append(DOTween.To(() => stats.Hunger, x => stats.Hunger = x, -Stats.HungerPerHour, 0.1f))
             .SetRelative(true);
     }

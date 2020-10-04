@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
@@ -65,6 +66,12 @@ public class Stats : MonoBehaviour
         //Hunger -= Time.deltaTime / SecondsToStarving;
 
         UpdateSliders();
+        UpdateFace();
+    }
+
+    private void UpdateFace()
+    {
+        //throw new NotImplementedException();
     }
 
     private void UpdateSliders()

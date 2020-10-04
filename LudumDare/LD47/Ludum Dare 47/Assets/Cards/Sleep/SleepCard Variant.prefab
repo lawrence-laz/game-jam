@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 5425937448317396329, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_Name
-      value: SleepCard Variant
+      value: SleepCard
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396330, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.745
+      value: 1.97
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -58,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8
+      value: -7.713
       objectReference: {fileID: 0}
     - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
         type: 3}
@@ -99,6 +99,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: EnergyCost
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: Description
+      value: Sleep (<color=#1A9375>Energy</color>, <color=#1A9375>Relax</color>)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: CustomTimeCostText
+      value: +10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fddacc2653295b4586e268ca9d8c734, type: 3}

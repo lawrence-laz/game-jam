@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3684019737228900113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6372290937136997094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79b0a591c0b884488bbcfa4ad2f9734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IncreasesStress: 0.25
+  IncreasesEnergy: 4
+--- !u!1001 &1378701290859612047
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5425937448317396329, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_Name
+      value: CoffeeCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396330, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396331, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396332, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8286175a13e422044aaab08ff3288b0f, type: 2}
+    - target: {fileID: 5425937448317396333, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4178125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19090955
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.016326861
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9998667
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 1.871
+      objectReference: {fileID: 0}
+    - target: {fileID: 5425937448317396334, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: EnergyCost
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: Description
+      value: Coffee (<color=#1A9375>Energy</color>, <color=red>Stress</color>)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494364273194558581, guid: 7fddacc2653295b4586e268ca9d8c734,
+        type: 3}
+      propertyPath: CustomTimeCostText
+      value: +5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7fddacc2653295b4586e268ca9d8c734, type: 3}
+--- !u!1 &6372290937136997094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5425937448317396329, guid: 7fddacc2653295b4586e268ca9d8c734,
+    type: 3}
+  m_PrefabInstance: {fileID: 1378701290859612047}
+  m_PrefabAsset: {fileID: 0}

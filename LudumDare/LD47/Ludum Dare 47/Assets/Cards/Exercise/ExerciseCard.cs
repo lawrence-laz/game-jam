@@ -16,10 +16,7 @@ public class ExerciseCard : MonoBehaviour
 
     private void OnPlaced(GameObject target)
     {
-        //if (target.GetComponent<PlayArea>() != null)
-        //{
-        //}
-            Card.Activate();
+        Card.Activate();
     }
 
     private Tween OnActivated()

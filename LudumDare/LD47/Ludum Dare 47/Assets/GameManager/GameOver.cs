@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    public GameObject GameOverUI;
+
     private void Start()
     {
         FindObjectOfType<GameManager>().OnGameOver.AddListener(OnGameOver);
@@ -31,6 +33,8 @@ public class GameOver : MonoBehaviour
                 .Join(card.transform.DOMoveY(-3, 1).SetDelay(index * 0.2f))
                 .Join(card.transform.DOLocalRotate(Vector3.forward * Random.Range(-15, 15), 0.6f));
         }
+
+        sequence.AppendCallback(() => GameOverUI.SetActive(true));
 
         sequence
             .SetRelative(true)
