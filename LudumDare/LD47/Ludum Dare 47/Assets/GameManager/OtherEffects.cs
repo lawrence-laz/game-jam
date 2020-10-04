@@ -10,7 +10,7 @@ public class OtherEffects : MonoBehaviour
 
     public bool WorkdAccountedForToday => _lastWorkAccountedDay == Calendar.Day;
 
-    private int _lastWorkAccountedDay = 1;
+    private int _lastWorkAccountedDay = 0;
 
     private void Start()
     {

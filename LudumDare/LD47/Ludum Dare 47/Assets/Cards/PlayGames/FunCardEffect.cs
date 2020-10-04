@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FunCardEffect : MonoBehaviour
 {
-    public float RestoreFunBy = .75f;
+    public float RestoreFunBy = .5f;
 
     public Card Card { get; set; }
 
@@ -38,7 +38,7 @@ public class FunCardEffect : MonoBehaviour
 
         return DOTween.Sequence()
             .Append(DOTween.To(() => stats.Fun, x => stats.Fun = x, RestoreFunBy / Card.Duration, 0.1f))
-            .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, clock.IsNight ? 0.1f : 0.3f / Card.Duration, 0.1f))
+            .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, clock.IsNight ? 0.1f : 0.2f / Card.Duration, 0.1f))
             .Append(DOTween.To(() => stats.Hunger, x => stats.Hunger = x, -Stats.HungerPerHour, 0.1f))
             .SetRelative(true);
     }

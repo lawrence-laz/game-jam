@@ -69,6 +69,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ChangeSpeedToNormal()
+    {
+        Time.timeScale = 1;
+        _debugSpeed = true;
+    }
+
+    public void ChangeSpeedToFast()
+    {
+        Time.timeScale = 6;
+        _debugSpeed = true;
+    }
+
     bool _debugSpeed = false;
 
     private void Update()
