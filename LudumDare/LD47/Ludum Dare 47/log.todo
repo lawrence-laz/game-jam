@@ -1,12 +1,4 @@
-1
-2
-3
-4
-5
-6
-7
-8
-9
+☐  Add music?
 
 ☐ add sounds
     ☐ draw card sound
@@ -28,44 +20,48 @@
     ☐ day ambience
 
 ☐ Decorate environment
-
+☐ add instructions
 ☐ INcrease chances of work card during work hours.
 ☐ Balance
     ☐ Job shouldn't be as stressful, but more boring? Unless it's at night
         ??? It's already a boring killer? Need more play testing.
     ☐ There could be more varied options to trade off stats and then player would choose 
         which to drop hoping to get the needed one.
-    ✔ sleep should reduce stress a bit? @done(20-10-04 17:33)
 
-☐ visual effect on stat bar once increasing or decreasting (change color is enough)
 ☐ add little icon on cards where energy is and then on energy stat to associate
 ☐ postprocessing effects.
-✔ this way a new card is drawn, always have 2 @done(20-10-04 17:34)
-✘ different types of cards, like a card type that changes location (could add just as a visual effect) @cancelled(20-10-04 17:34)
 ☐ Explain that doing nothins is boring and drawing 3rd card makes you bored
-✘ If you have more than 3 cards shake screen side to side saying no and sound nuhuh @cancelled(20-10-04 17:34)
-☐ take a power nap, if tired there is a chance you will crash and fall fully asleep. ???
-✘ Fix when energy runs out. maybe don't allow doing something if not enough energy? @cancelled(20-10-04 17:34)
-✔ when stat low should change facial expression @done(20-10-04 17:34)
-✔ eating expression @done(20-10-04 17:34)
-☐ Add occasional negative cards, like: get ill?
-✔ not sleeping between 00AM and 06AM makes player stressed @done(20-10-04 17:34)
-☐ camera slightly moves around as you move mouse @started(20-10-04 17:34)
-☐ Ideas for name: Routine: The Card Game
-☐ randomize initial stats to make it more fun to replay ??? like all 75%, but one is 50%? ??????
-☐ add notifications for effects like stress from not sleeping at night.
-☐ Make sure all sprites look good in dark
-☐ add light flickering on death
-☐ ##### add menu
-☐ #### add game over screen
-☐  Add music?
-☐ light switch sound
-☐ Change pointer to sandclock while card is in progress and disable cursor script
-☐ when you click to play again the player just stands up like othing happened :D
+☐ add menu
 
-☐ prepare itch page.
+nice to haves:
+    ☐ add light flickering on death
+
+Additional ideas:
+    ☐ Add occasional negative cards, like: get ill?
+    ☐ take a power nap, if tired there is a chance you will crash and fall fully asleep. ???
+
+after done:
+    ☐ prepare itch page.
 
 Archive:
+  ✔ maybe shouldn't start on players time, just minutes? @started(20-10-04 19:08) @done(20-10-04 19:09) @lasted(1m3s)
+  ✘ visual effect on stat bar once increasing or decreasting (change color is enough) @cancelled(20-10-04 19:07)
+  ✔ Ideas for name: @done(20-10-04 19:01)
+  ✔ add notifications for effects like stress from not sleeping at night. @started(20-10-04 18:45) @done(20-10-04 18:59) @lasted(14m19s)
+  ✘ randomize initial stats to make it more fun to replay ??? like all 75%, but one is 50%? ?????? @cancelled(20-10-04 18:44)
+  ✔ Make sure all sprites look good in dark @done(20-10-04 18:45)
+  ✔ #### add game over screen @done(20-10-04 18:45)
+  ✘ Change pointer to sandclock while card is in progress and disable cursor script @cancelled(20-10-04 18:44)
+  ✘ when you click to play again the player just stands up like othing happened :D @cancelled(20-10-04 18:44)
+  ✔ sleep should reduce stress a bit? @done(20-10-04 17:33)
+  ✔ this way a new card is drawn, always have 2 @done(20-10-04 17:34)
+  ✘ different types of cards, like a card type that changes location (could add just as a visual effect) @cancelled(20-10-04 17:34)
+  ✘ If you have more than 3 cards shake screen side to side saying no and sound nuhuh @cancelled(20-10-04 17:34)
+  ✘ Fix when energy runs out. maybe don't allow doing something if not enough energy? @cancelled(20-10-04 17:34)
+  ✔ when stat low should change facial expression @done(20-10-04 17:34)
+  ✔ eating expression @done(20-10-04 17:34)
+  ✔ not sleeping between 00AM and 06AM makes player stressed @done(20-10-04 17:34)
+  ✔ camera slightly moves around as you move mouse @started(20-10-04 17:34) @done(20-10-04 17:48) @lasted(14m54s)
   ✔ GAME OVER REASON @started(20-10-04 16:26) @done(20-10-04 17:32) @lasted(1h6m23s)
   ✔ implement restart on fail @started(20-10-04 16:33) @done(20-10-04 17:32) @lasted(59m26s)
   ✔ hover card animation @started(20-10-04 16:09) @done(20-10-04 16:26) @lasted(17m3s)

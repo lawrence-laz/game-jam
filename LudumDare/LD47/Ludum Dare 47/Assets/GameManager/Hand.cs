@@ -65,6 +65,7 @@ public class Hand : MonoBehaviour
     public Tween MakeSure2Cards()
     {
         var cardsToDraw = 2 - GetCardCount();
+
         if (cardsToDraw <= 0)
         {
             return null;

@@ -12,7 +12,7 @@ public class Clock : MonoBehaviour
     public Transform HoursArrow;
     public Transform MinutesArrow;
 
-    public TimeSpan Time { get; set; } = DateTime.Now.TimeOfDay;
+    public TimeSpan Time { get; set; } = TimeSpan.FromHours(6) + TimeSpan.FromMinutes(DateTime.Now.TimeOfDay.Minutes);
     public bool IsDark => Time.Hours > 20 || Time.Hours < 6;
     public bool IsNight => Time.Hours >= 0 && Time.Hours < 6;
     public bool IsWorkHours => Time.Hours >= 7 && Time.Hours <= 15;

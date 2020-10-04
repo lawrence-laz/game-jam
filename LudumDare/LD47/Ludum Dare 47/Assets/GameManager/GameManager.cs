@@ -57,15 +57,15 @@ public class GameManager : MonoBehaviour
         if (_debugSpeed)
         {
             return;
-        }    
+        }
 
         if (Calendar.Day == 2)
         {
-            Time.timeScale = 1.4f;
+            Time.timeScale = 1.5f;
         }
         else
         {
-            Time.timeScale = Mathf.Min(7, Calendar.Day);
+            Time.timeScale = Mathf.Min(7, Calendar.Day * 1.5f);
         }
     }
 

@@ -3,10 +3,24 @@ using UnityEngine.UI;
 
 public class Tooltip : MonoBehaviour
 {
-    public string ImportantNote;
+    [SerializeField]
+    private string _importantNote;
     public string StandardNote;
+    public float ImportantNoteDuration = 8f;
+ 
+    public string ImportantNote 
+    {
+        get => _importantNote;
+        set
+        {
+            _importantNoteAddedAt = Time.unscaledTime;
+            _importantNote = value;
+        }
+    }
 
     public Text Text { get; private set; }
+
+    private float _importantNoteAddedAt;
 
     private void Start()
     {
@@ -15,6 +29,11 @@ public class Tooltip : MonoBehaviour
 
     private void Update()
     {
+        if ((Time.unscaledTime - _importantNoteAddedAt) >= ImportantNoteDuration)
+        {
+            _importantNote = null;
+        }
+
         Text.text = string.IsNullOrWhiteSpace(ImportantNote) ? StandardNote : ImportantNote;
     }
 }

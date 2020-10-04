@@ -272,6 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 234549194}
   - component: {fileID: 234549195}
+  - component: {fileID: 657653915}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -351,6 +352,24 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &657653915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234549193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ebc7bc0205d2848854220189deee9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LowColorForeground: {r: 0.9176471, g: 0.20784315, b: 0.37254903, a: 0}
+  HighColorForeground: {r: 0.03529412, g: 0.7843138, b: 0.5176471, a: 0}
+  LowColorBackground: {r: 0.28235295, g: 0.04705883, b: 0.050980397, a: 0}
+  HighColorBackground: {r: 0.019607844, g: 0.15294118, b: 0.13333334, a: 0}
+  Foreground: {fileID: 514938607}
+  Background: {fileID: 1094801508}
 --- !u!1 &304377165
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +382,7 @@ GameObject:
   - component: {fileID: 304377169}
   - component: {fileID: 304377168}
   - component: {fileID: 304377167}
+  - component: {fileID: 304377170}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -470,6 +490,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &304377170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304377165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd9af9bcd740704086e6b13820f33cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &355603375
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +977,7 @@ GameObject:
   - component: {fileID: 742461389}
   - component: {fileID: 742461388}
   - component: {fileID: 742461387}
+  - component: {fileID: 742461390}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -1051,7 +1084,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 742461388}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 742461390}
+        m_MethodName: RestartScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &742461390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742461385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58884bc108a37a3438022602da7971e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: 
+  SceneOffset: 0
 --- !u!1 &758024025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1326985135}
   - component: {fileID: 1326985136}
+  - component: {fileID: 2072329325}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1601,6 +1660,24 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2072329325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326985134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ebc7bc0205d2848854220189deee9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LowColorForeground: {r: 0.9176471, g: 0.20784315, b: 0.37254903, a: 0}
+  HighColorForeground: {r: 0.03529412, g: 0.7843138, b: 0.5176471, a: 0}
+  LowColorBackground: {r: 0.28235295, g: 0.04705883, b: 0.050980397, a: 0}
+  HighColorBackground: {r: 0.019607844, g: 0.15294118, b: 0.13333334, a: 0}
+  Foreground: {fileID: 671535206}
+  Background: {fileID: 938745695}
 --- !u!1 &1365171328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2342,6 +2419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2029783510}
   - component: {fileID: 2029783511}
+  - component: {fileID: 2103597430}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -2421,6 +2499,24 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2103597430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029783509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ebc7bc0205d2848854220189deee9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LowColorForeground: {r: 0.9176471, g: 0.20784315, b: 0.37254903, a: 0}
+  HighColorForeground: {r: 0.03529412, g: 0.7843138, b: 0.5176471, a: 0}
+  LowColorBackground: {r: 0.28235295, g: 0.04705883, b: 0.050980397, a: 0}
+  HighColorBackground: {r: 0.019607844, g: 0.15294118, b: 0.13333334, a: 0}
+  Foreground: {fileID: 1543645472}
+  Background: {fileID: 658089625}
 --- !u!1 &2089695872
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,6 +2527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2089695873}
   - component: {fileID: 2089695874}
+  - component: {fileID: 1514644308}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -2510,6 +2607,24 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1514644308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089695872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ebc7bc0205d2848854220189deee9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LowColorForeground: {r: 0.9176471, g: 0.20784315, b: 0.37254903, a: 0}
+  HighColorForeground: {r: 0.03529412, g: 0.7843138, b: 0.5176471, a: 0}
+  LowColorBackground: {r: 0.28235295, g: 0.04705883, b: 0.050980397, a: 0}
+  HighColorBackground: {r: 0.019607844, g: 0.15294118, b: 0.13333334, a: 0}
+  Foreground: {fileID: 75507186}
+  Background: {fileID: 87464765}
 --- !u!1 &2145110618
 GameObject:
   m_ObjectHideFlags: 0

@@ -107,7 +107,11 @@ public class Card : MonoBehaviour
             .Join(FindObjectOfType<Hand>().ShowHand())
             .AppendCallback(() =>
             {
-                FindObjectOfType<Hand>().MakeSure2Cards();
+                var drawTween = FindObjectOfType<Hand>().MakeSure2Cards();
+                if (drawTween != null)
+                {
+                    Card.Animation = drawTween;
+                }
             });
 
         sequence.Play();

@@ -55,7 +55,7 @@ public class OtherEffects : MonoBehaviour
         {
             _lastWorkAccountedDay = Calendar.Day;
             Debug.Log("Call from boss!!!");
-            Debug.Break();
+            //Debug.Break();
             // TODO: Add chance.
 
             var face = FindObjectOfType<Face>();
@@ -65,6 +65,7 @@ public class OtherEffects : MonoBehaviour
                 .AppendCallback(() => face.SetFace(face.BossCall))
                 .AppendInterval(3)
                 .Append(DOTween.To(() => stats.Stress, x => stats.Stress = x, -0.6f, 0.1f).SetRelative(true))
+                .AppendCallback(() => FindObjectOfType<Tooltip>().ImportantNote = "Increased <color=red>stress</color> due to mising work.")
                 .AppendInterval(1f)
                 .AppendCallback(() => face.ResetFace())
                 .Pause();
@@ -89,6 +90,10 @@ public class OtherEffects : MonoBehaviour
                 if (!Clock.IsNight || Sleeping.activeInHierarchy)
                 {
                     tween.Kill();
+                }
+                else
+                {
+                    FindObjectOfType<Tooltip>().ImportantNote = "Increased <color=red>stress</color> due to sleepless night.";
                 }
             });
 

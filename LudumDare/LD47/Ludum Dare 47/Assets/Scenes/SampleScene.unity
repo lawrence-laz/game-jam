@@ -454,24 +454,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.487583, y: 4.5785074, z: 1}
   m_Center: {x: 0.09972358, y: 1.7892537, z: 0}
---- !u!1 &304377165 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 304377165, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7,
-    type: 3}
-  m_PrefabInstance: {fileID: 7153639978125397360}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &304377170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304377165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd9af9bcd740704086e6b13820f33cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &355603378 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 355603378, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7,
@@ -1034,26 +1016,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsHovered: 0
---- !u!1 &742461385 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 742461385, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7,
-    type: 3}
-  m_PrefabInstance: {fileID: 7153639978125397360}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &742461390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742461385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58884bc108a37a3438022602da7971e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: 
-  SceneOffset: 0
 --- !u!43 &791233188
 Mesh:
   m_ObjectHideFlags: 0
@@ -3168,7 +3130,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 664038770, guid: 6bcc901e046eed14b825248027cbc54d, type: 3}
       propertyPath: Materials.Array.size
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 664038770, guid: 6bcc901e046eed14b825248027cbc54d, type: 3}
       propertyPath: Materials.Array.data[3]
@@ -3197,7 +3159,7 @@ PrefabInstance:
     - target: {fileID: 664038770, guid: 6bcc901e046eed14b825248027cbc54d, type: 3}
       propertyPath: Materials.Array.data[9]
       value: 
-      objectReference: {fileID: 2100000, guid: c76e7392bae4f9a4b9f88a0cc537af5c, type: 2}
+      objectReference: {fileID: 2100000, guid: 381f4b26b19b2274283064cd225e98d7, type: 2}
     - target: {fileID: 664038770, guid: 6bcc901e046eed14b825248027cbc54d, type: 3}
       propertyPath: Materials.Array.data[10]
       value: 
@@ -3949,6 +3911,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 657653915, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: LowColorForeground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 657653915, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: HighColorForeground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 657653915, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: LowColorBackground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 657653915, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: HighColorBackground.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 671535205, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3957,33 +3935,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 742461387, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+    - target: {fileID: 1514644308, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: LowColorForeground.a
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 742461387, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+    - target: {fileID: 1514644308, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: HighColorForeground.a
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 742461387, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
+    - target: {fileID: 1514644308, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: LowColorBackground.a
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 742461387, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 742461390}
-    - target: {fileID: 742461387, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 742461387, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1491485362, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 1514644308, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: HighColorBackground.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1543645471, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3992,6 +3958,38 @@ PrefabInstance:
     - target: {fileID: 1543645471, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072329325, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: LowColorForeground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072329325, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: HighColorForeground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072329325, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: LowColorBackground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2072329325, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: HighColorBackground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103597430, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: LowColorForeground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103597430, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: HighColorForeground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103597430, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: LowColorBackground.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103597430, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7, type: 3}
+      propertyPath: HighColorBackground.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7153639978157797408, guid: fd2d7bc51c61e9f43bf0e63a3b5fd2d7,
         type: 3}
