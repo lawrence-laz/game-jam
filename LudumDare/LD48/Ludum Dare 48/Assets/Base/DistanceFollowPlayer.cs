@@ -5,6 +5,7 @@ public class DistanceFollowPlayer : MonoBehaviour
     public float StayWithinDistance;
     public float Speed;
     public float Accelleration;
+    public Vector2 Offset;
 
     private Transform _player;
     private float _currentSpeed = 0;
@@ -16,7 +17,7 @@ public class DistanceFollowPlayer : MonoBehaviour
         _body = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (_player == null)
         {
@@ -27,6 +28,7 @@ public class DistanceFollowPlayer : MonoBehaviour
         MoveTowardsPlayer();
     }
 
+    private Vector3 _followVelocity = Vector3.zero;
     private void MoveTowardsPlayer()
     {
         if (_body != null)
@@ -35,11 +37,13 @@ public class DistanceFollowPlayer : MonoBehaviour
         }
         else
         {
-            var position = transform.position;
-            var z = position.z;
-            position = Vector2.MoveTowards(transform.position, _player.position, _currentSpeed * Time.deltaTime);
-            position.z = z;
-            transform.position = position;
+            var target = _player.position + (Vector3)Offset;
+            target.z = transform.position.z;
+            transform.position = Vector3.SmoothDamp(transform.position, target, ref _followVelocity, 0.5f, Speed, Time.smoothDeltaTime); //Vector2.MoveTowards(transform.position, _player.position, _currentSpeed * Time.smoothDeltaTime);
+
+            //var target = _player.position;
+            //target.z = transform.position.z;
+            //transform.DOMove(target, 1);
         }
     }
 
@@ -49,7 +53,7 @@ public class DistanceFollowPlayer : MonoBehaviour
         var thisPosition = (Vector2)transform.position;
         var distance = (playerPosition - thisPosition).magnitude;
         _currentSpeed = distance > StayWithinDistance 
-            ? Mathf.MoveTowards(_currentSpeed, Mathf.Lerp(0, Speed, Mathf.InverseLerp(StayWithinDistance, StayWithinDistance + 1, distance)) , Accelleration * Time.deltaTime) 
+            ? Mathf.MoveTowards(_currentSpeed, Mathf.Lerp(0, Speed, Mathf.InverseLerp(StayWithinDistance, StayWithinDistance + 1, distance)) , Accelleration * Time.smoothDeltaTime) 
             : 0;
     }
 }

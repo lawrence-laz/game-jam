@@ -31,8 +31,8 @@ public class SellMinerals : MonoBehaviour
     {
         DOTween.Sequence()
             .AppendCallback(() => _button.enabled = false)
-            .Append(DOTween.To(() => _credits.Value, x => _credits.Value = x, _credits.Value + GetProfit(), 1))
-            .Join(DOTween.To(() => _storage.CurrentValue, x => _storage.CurrentValue = x, 0, 1))
+            .Append(DOTween.To(() => _credits.Value, x => _credits.Value = x, _credits.Value + GetProfit(), .2f))
+            .Join(DOTween.To(() => _storage.CurrentValue, x => _storage.CurrentValue = x, 0, .2f))
             .AppendCallback(() => _button.enabled = true)
             .Play();
     }

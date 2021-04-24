@@ -6,7 +6,7 @@ public class Health : Value
     public float MaxValue;
     public float CurrentValue;
 
-    public float RelativeVelocityDamageThreshold = 0.2f;
+    public float RelativeVelocityDamageThreshold;
     public GameObject CollisionFx;
 
     public UnityEvent OnDead;

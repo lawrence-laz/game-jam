@@ -1,7 +1,21 @@
 ☐ Laser for mining and fighting.
-☐ Pirates with shooting slow missiles that player tries to dodege.
-☐ Buying a simple laser.
+✔ Pirates with shooting slow missiles that player tries to dodege. @done(21-04-24 18:59)
+✔ Buying a simple laser. @done(21-04-24 18:58)
+☐ Pirates try to steal your resources (?)
 ☐ More storage + sprite showing that?
 ☐ More health + sprite showing some sort of shield?
 ☐ More fuel + sprite showing canister on the sides? Maybe an external attachment of fuel with like x10 amount of regular, but hitting it makes you explode.
-☐ 
+
+
+☐ tutorial start where you lift off pickup a thing and land
+
+☐ 1.2 velocity should be ok for collision
+
+☐ mini map or at least a radar with directions to known space stations? or the closest space station? maybe a map?
+
+
+☐ level for defending the space station against pirates. gives a reward, maybe any item from the shop?
+
+
+☐ a map could be a good way to indicate where to go for the player.
+    also it would display how the player goes deeper and deeper into space.

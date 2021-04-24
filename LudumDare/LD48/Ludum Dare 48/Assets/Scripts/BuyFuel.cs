@@ -34,8 +34,8 @@ public class BuyFuel : MonoBehaviour
 
         DOTween.Sequence()
             .AppendCallback(() => _button.enabled = false)
-            .Append(DOTween.To(() => _credits.Value, x => _credits.Value = x, _credits.Value - GetPrice(), 1))
-            .Join(DOTween.To(() => _fuel.CurrentValue, x => _fuel.CurrentValue = x, _fuel.CurrentValue + fixValue, 1))
+            .Append(DOTween.To(() => _credits.Value, x => _credits.Value = x, _credits.Value - GetPrice(), 0.2f))
+            .Join(DOTween.To(() => _fuel.CurrentValue, x => _fuel.CurrentValue = x, _fuel.CurrentValue + fixValue, 0.2f))
             .AppendCallback(() => _button.enabled = true)
             .Play();
     }

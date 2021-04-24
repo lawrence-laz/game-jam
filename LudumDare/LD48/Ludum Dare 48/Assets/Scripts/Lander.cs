@@ -12,6 +12,7 @@ public class Lander : MonoBehaviour
 
     private Rigidbody2D _body;
     private FixedJoint2D _joint;
+    private Health _health;
 
     public void Detach()
     {
@@ -29,6 +30,13 @@ public class Lander : MonoBehaviour
     {
         _body = GetComponentInParent<Rigidbody2D>();
         _joint = GetComponentInParent<FixedJoint2D>();
+        _health = GetComponentInParent<Health>();
+        _health.OnDead.AddListener(OnDead);
+    }
+
+    private void OnDead()
+    {
+        enabled = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -54,6 +62,11 @@ public class Lander : MonoBehaviour
 
     private void Attach(Collider2D target)
     {
+        if (_health.CurrentValue <= 0)
+        {
+            return;
+        }
+
         Target = target.gameObject;
         IsLanded = true;
         _body.velocity = Vector2.zero;

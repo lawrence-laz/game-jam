@@ -1,5 +1,5 @@
 ﻿using DG.Tweening;
-using Libs.Base.UI;
+using DG.Tweening.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -45,13 +45,20 @@ namespace Libs.Base.GameLogic
                 ScreenFade.Instance.FadeOut();
                 load = DOTween.Sequence()
                     .AppendInterval(1)
-                    .AppendCallback(() => SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + SceneOffset) % SceneManager.sceneCountInBuildSettings));
+                    .AppendCallback(() =>
+                    {
+                        DOTween.KillAll(false);
+                        Destroy(FindObjectOfType<DOTweenComponent>().gameObject);
+                        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + SceneOffset) % SceneManager.sceneCountInBuildSettings);
+                    });
             }
         }
 
         [ContextMenu("LoadSceneAsync")]
         public void LoadSceneAsync()
         {
+            DOTween.KillAll(false);
+            Destroy(FindObjectOfType<DOTweenComponent>().gameObject);
             SceneManager.LoadSceneAsync(SceneName);
         }
 
@@ -65,7 +72,12 @@ namespace Libs.Base.GameLogic
             ScreenFade.Instance.FadeOut();
             load = DOTween.Sequence()
                 .AppendInterval(1)
-                .AppendCallback(() => SceneManager.LoadScene(name));
+                .AppendCallback(() =>
+                {
+                    DOTween.KillAll(false);
+                    Destroy(FindObjectOfType<DOTweenComponent>().gameObject);
+                    SceneManager.LoadScene(name);
+                });
         }
 
         public void RestartScene()
@@ -77,7 +89,12 @@ namespace Libs.Base.GameLogic
                 .AppendInterval(UnityEngine.Input.GetKeyDown(KeyCode.R) ? 0f : 0.8f)
                 .AppendCallback(() => ScreenFade.Instance.FadeOut(.3f))
                 .AppendInterval(0.2f)
-                .AppendCallback(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+                .AppendCallback(() =>
+                {
+                    DOTween.KillAll(false);
+                    Destroy(FindObjectOfType<DOTweenComponent>().gameObject);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                });
         }
     }
 }

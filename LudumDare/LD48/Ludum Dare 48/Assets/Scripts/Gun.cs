@@ -11,11 +11,13 @@ public class Gun : MonoBehaviour
     private float _nextBulletShootAt;
     private Transform _nozzle;
     private Lander _lander;
+    private Renderer _renderer;
 
     private void Start()
     {
         _nozzle = transform.Find("nozzle");
         _lander = transform.parent.GetComponentInChildren<Lander>();
+        _renderer = GetComponent<Renderer>();
     }
 
     private void Update()
@@ -30,6 +32,11 @@ public class Gun : MonoBehaviour
 
     private void ShootBullet()
     {
+        if (!_renderer.isVisible)
+        {
+            return;
+        }
+
         if (!IsShooting || Time.time < _nextBulletShootAt)
         {
             return;
@@ -37,6 +44,14 @@ public class Gun : MonoBehaviour
 
         _nextBulletShootAt = Time.time + 1f / FireRate;
         var bullet = Instantiate(BulletPrefab, _nozzle.position, transform.rotation);
+        var parentLayer = transform.parent.gameObject.layer;
+
+        bullet.layer = parentLayer == LayerMask.NameToLayer("Player")
+            ? LayerMask.NameToLayer("PlayerBullets")
+            : parentLayer == LayerMask.NameToLayer("Enemies")
+            ? LayerMask.NameToLayer("EnemyBullets")
+            : LayerMask.NameToLayer("Default");
+
         bullet.transform.up = transform.up;
         bullet.GetComponent<Rigidbody2D>().velocity = transform.up * BulletSpeed;
         bullet.GetComponent<Bullet>().ShotBy = gameObject;
