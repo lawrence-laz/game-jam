@@ -14,11 +14,13 @@ public class ValueGauge : MonoBehaviour
     public float BlinkFrequency; // Times per second.
 
     private Disc _gauge;
+    private AudioSource _audio;
     private Sequence _blinking;
 
     private void Start()
     {
         _gauge = GetComponent<Disc>();
+        _audio = GetComponentInParent<AudioSource>();
     }
 
     private void Update()
@@ -44,9 +46,12 @@ public class ValueGauge : MonoBehaviour
                 .Append(DOTween.To(() => _gauge.Color, x => _gauge.Color = x, Blink, 1f / BlinkFrequency / 2))
                 .SetLoops(-1, LoopType.Yoyo)
                 .Play();
+
+            _audio.Play();
         }
         else if (_blinking != null && (value.NormalizedValue < BlinkFrom || value.NormalizedValue > BlinkTo))
         {
+            _audio.Stop();
             _blinking.Kill();
             _blinking = null;
             _gauge.Color = Full;

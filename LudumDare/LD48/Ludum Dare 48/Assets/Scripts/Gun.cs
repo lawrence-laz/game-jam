@@ -5,19 +5,23 @@ public class Gun : MonoBehaviour
     public float FireRate; // Bullets per second.
     public float BulletSpeed;
     public GameObject BulletPrefab;
-
+    
     public bool IsShooting;
 
     private float _nextBulletShootAt;
     private Transform _nozzle;
     private Lander _lander;
     private Renderer _renderer;
+    private Health _health;
+    private AudioSource _audioSource;
 
     private void Start()
     {
         _nozzle = transform.Find("nozzle");
         _lander = transform.parent.GetComponentInChildren<Lander>();
         _renderer = GetComponent<Renderer>();
+        _health = GetComponentInParent<Health>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -32,6 +36,11 @@ public class Gun : MonoBehaviour
 
     private void ShootBullet()
     {
+        if (_health != null && _health.CurrentValue <= 0)
+        {
+            return;
+        }
+
         if (!_renderer.isVisible)
         {
             return;
@@ -55,5 +64,6 @@ public class Gun : MonoBehaviour
         bullet.transform.up = transform.up;
         bullet.GetComponent<Rigidbody2D>().velocity = transform.up * BulletSpeed;
         bullet.GetComponent<Bullet>().ShotBy = gameObject;
+        _audioSource.PlayOneShot(_audioSource.clip);
     }
 }

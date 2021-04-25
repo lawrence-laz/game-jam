@@ -4,6 +4,7 @@ public class PlayRandomAudioCLip : MonoBehaviour
 {
     public AudioClip[] RandomAudioClip;
     public Vector2 RandomPitch;
+    public bool PlayOnAwake = true;
 
     private AudioSource _audio;
     private float _startingPitch;
@@ -12,6 +13,10 @@ public class PlayRandomAudioCLip : MonoBehaviour
     {
         _audio = GetComponent<AudioSource>();
         _startingPitch = _audio.pitch;
+        if (PlayOnAwake)
+        {
+            Play();
+        }
     }
 
     public void Play()

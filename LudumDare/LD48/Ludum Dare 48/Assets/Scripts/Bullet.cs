@@ -1,4 +1,6 @@
+using Libs.Base.Effects;
 using Libs.Base.Extensions;
+using System.Threading;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -7,10 +9,17 @@ public class Bullet : MonoBehaviour
     public float Damage = 2;
     public GameObject ExplosionFx;
     public GameObject SimpleHitFx;
+    public AudioClip HitSound;
+    private AudioSource _audio;
+
+    private void Start()
+    {
+        _audio = GetComponentInChildren<AudioSource>();
+    }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (ShotBy.DoesShareHierarchy(collision.gameObject))
+        if (collision != null && ShotBy != null && ShotBy.DoesShareHierarchy(collision.gameObject))
         {
             return;
         }
@@ -28,8 +37,7 @@ public class Bullet : MonoBehaviour
                 }
             }
         }
-
-        if (collision.TryGetComponent<Asteroid>(out var asteroid)
+        else if (collision.TryGetComponent<Asteroid>(out var asteroid)
             || collision.gameObject.TryGetComponentInParent(out asteroid))
         {
             asteroid.CurrentValue -= Damage;
@@ -39,17 +47,34 @@ public class Bullet : MonoBehaviour
                 asteroid.BigExposion = true;
             }
         }
+        else
+        {
+            ScreenShake.Get().ShortShake(); ;
+        }
 
-        Destroy(gameObject);
+        if (collision.TryGetComponent<SpriteFlash>(out var flash))
+        {
+            flash.Blink();
+        }
+
+        Thread.Sleep(10);
+        Destroy(gameObject, 0.5f);
         HitEffect(transform.position);
     }
     private void Explode(Vector3 position)
     {
+        ScreenShake.Get().MediumShake();
         Instantiate(ExplosionFx, position, Quaternion.identity);
     }
 
     private void HitEffect(Vector3 position)
     {
+        if (_audio != null)
+        {
+            _audio.PlayOneShot(HitSound);
+            _audio.transform.parent = null;
+        }
+
         if (SimpleHitFx == null)
         {
             return;

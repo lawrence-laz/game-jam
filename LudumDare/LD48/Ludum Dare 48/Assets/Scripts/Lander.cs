@@ -100,10 +100,11 @@ public class Lander : MonoBehaviour
         var ideal = (transform.position - landingTarget.position).normalized;
         var current = transform.up;
 
-        if (Vector2.Angle(ideal, current) <= AcceptableLandingAngle)
+        if (Vector2.Angle(ideal, current) <= AcceptableLandingAngle || landingTarget.GetComponent<SpaceStation>() != null || landingTarget.GetComponentInParent<SpaceStation>() != null)
         {
             return true;
         }
+        else
         {
             Debug.Log($"Incorrect landing angle between {current} and {ideal}: {Vector2.Angle(ideal, current)} <= {AcceptableLandingAngle}");
             return false;

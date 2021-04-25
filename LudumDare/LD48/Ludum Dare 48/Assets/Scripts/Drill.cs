@@ -8,6 +8,7 @@ public class Drill : MonoBehaviour
 
     private Lander _lander;
     private Storage _storage;
+    private AudioSource _audio;
 
     private void Start()
     {
@@ -17,6 +18,8 @@ public class Drill : MonoBehaviour
         gameObject.SetActive(false);
         _storage = transform.parent.GetComponentInChildren<Storage>();
         transform.parent.GetComponent<Health>().OnDead.AddListener(OnDead);
+
+        _audio = GetComponent<AudioSource>();
     }
 
     private void OnDead()
@@ -26,6 +29,11 @@ public class Drill : MonoBehaviour
 
     private void Update()
     {
+        if (_audio.isPlaying && !IsDrilling)
+            _audio.Stop();
+        else if (!_audio.isPlaying && IsDrilling)
+            _audio.Play();
+
         if (IsDrilling)
         {
             if (!_storage.HasSpace)

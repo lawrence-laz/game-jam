@@ -5,6 +5,7 @@ public class Health : Value
 {
     public float MaxValue;
     public float CurrentValue;
+    public AudioClip Collision;
 
     public float RelativeVelocityDamageThreshold;
     public GameObject CollisionFx;
@@ -14,6 +15,12 @@ public class Health : Value
     public override float NormalizedValue => CurrentValue / MaxValue;
 
     private bool _onDeadCalled;
+    private AudioSource _audio;
+
+    private void Start()
+    {
+        _audio = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -42,8 +49,15 @@ public class Health : Value
         if (collision.rigidbody != null)
         {
             damageTaken *= Mathf.Lerp(0.5f, 1f, Mathf.InverseLerp(1, 25, collision.rigidbody.mass));
+            if (Collision != null)
+                _audio.PlayOneShot(Collision);
         }
         CurrentValue -= damageTaken;
+
+        if (transform.CompareTag("Player"))
+        {
+            ScreenShake.Get().MediumShake();
+        }
 
         Debug.Log($"Collision magnitude: {collisionMagnitude}; damage: {damageTaken}");
     }

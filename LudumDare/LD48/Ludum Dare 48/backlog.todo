@@ -1,7 +1,7 @@
 ☐ Laser for mining and fighting.
 ✔ Pirates with shooting slow missiles that player tries to dodege. @done(21-04-24 18:59)
 ✔ Buying a simple laser. @done(21-04-24 18:58)
-☐ Pirates try to steal your resources (?)
+✘ Pirates try to steal your resources (?) @cancelled(21-04-25 22:47)
 ☐ More storage + sprite showing that?
 ☐ More health + sprite showing some sort of shield?
 ☐ More fuel + sprite showing canister on the sides? Maybe an external attachment of fuel with like x10 amount of regular, but hitting it makes you explode.
@@ -18,35 +18,68 @@ more like 0.6
 
 ✔ level for running away from the pirates (pirates should chase for a while and then once you get them off the screen they stop chasing) @done(21-04-25 17:24)
 
-☐ level for mining and upgrading your ship (very simple proc gen)  <--- maybe this could be a free roam level @started(21-04-25 17:25)
+
+
+✔ level for mining and upgrading your ship (very simple proc gen)  <--- maybe this could be a free roam level @started(21-04-25 17:25) @done(21-04-25 22:47) @lasted(5h22m47s)
     just a space station
     random asteroids
     and a bit further away you would have occasional pirates
 
-    ☐ rescue mission in the asteroid belt, don't hit other miner ships
+    ✘ rescue mission in the asteroid belt, don't hit other miner ships @cancelled(21-04-25 22:47)
     
-    ☐ pirate sharp shooter should look into players rigidbody to predict movement.
+    ✘ pirate sharp shooter should look into players rigidbody to predict movement. @cancelled(21-04-25 22:47)
     with laser like gun? display attack direction for a short while.
-    
-    ☐ Transport mission trhough the asteroid field. Control a long ship?
-    
-    ☐ level for defending the space station against the pirates. gives a reward, maybe any item from the shop?
 
-☐ an epic battle with pirate captain
+    ✔ meteors should be moving a bit faster @done(21-04-26 00:12)
+    
+    ✘ Transport mission trhough the asteroid field. Control a long ship? @cancelled(21-04-25 22:47)
+    
+    ✘ level for defending the space station against the pirates. gives a reward, maybe any item from the shop? @cancelled(21-04-25 22:47)
+
+✘ an epic battle with pirate captain @cancelled(21-04-25 22:47)
 
 ✔ three types of asteroids @done(21-04-25 17:34)
 
-☐ cinematics of the solar system between level loads. zoom out from one place, slowly move and zoom in to the other place.
+✘ cinematics of the solar system between level loads. zoom out from one place, slowly move and zoom in to the other place. @cancelled(21-04-25 22:47)
 
+✘ going deeper into space gives more better rocks, but more pirates and less space stations @cancelled(21-04-25 22:48)
 
+✔ blink enemy on hit. @done(21-04-26 00:03)
+
+✔ screenshake @done(21-04-26 00:44)
+
+☐ background
+
+✔ Ambience in the wors case music @done(21-04-25 22:19)
+    ✔ paly @done(21-04-26 00:17)
 
 ☐ Sounds
+    ✔ Beep on low health and low fuel @done(21-04-25 22:47)
+        ✔ play @done(21-04-26 01:03)
+    ✔ beep on enemy detected @done(21-04-25 22:26)
+        ✔ play @done(21-04-26 00:44)
+    ✔ plasma gun sound @done(21-04-25 22:47)
+        ✔ play @done(21-04-26 00:31)
+    ✔ collision soun @done(21-04-25 23:51)
+        ✔ play @done(21-04-26 00:31)
+    ✔ explosion sound @done(21-04-25 23:51)
+        ✔ play @done(21-04-26 00:57)
+    ✔ movement sound @done(21-04-25 23:47)
+        ✔ play @done(21-04-25 23:47)
+    ✔ drill sound @done(21-04-25 23:56)
+        ✔ play @done(21-04-26 00:33)
+    ☐ conversation sound
+        ☐ play
 
-☐ Music
+☐ employee spacestation
+
+✔ freeze shots on hit. @done(21-04-26 00:03)
+
+✘ Music @cancelled(21-04-25 22:37)
 
 ☐ title screen
 
-☐ end screen
+✘ end screen @cancelled(21-04-25 22:48)
 
-☐ a map could be a good way to indicate where to go for the player.
+✔ a map could be a good way to indicate where to go for the player. @done(21-04-25 22:37)
     also it would display how the player goes deeper and deeper into space.
