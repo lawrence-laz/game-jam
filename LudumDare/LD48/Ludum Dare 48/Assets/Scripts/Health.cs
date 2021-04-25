@@ -34,8 +34,15 @@ public class Health : Value
             return;
         }
 
-        Instantiate(CollisionFx, collision.contacts[0].point, Quaternion.identity);
-        var damageTaken = Mathf.Lerp(10, 45, Mathf.InverseLerp(RelativeVelocityDamageThreshold, 5, collisionMagnitude));
+        if (CollisionFx != null)
+        {
+            Instantiate(CollisionFx, collision.contacts[0].point, Quaternion.identity);
+        }
+        var damageTaken = Mathf.Lerp(10, 45, Mathf.InverseLerp(RelativeVelocityDamageThreshold, 8, collisionMagnitude));
+        if (collision.rigidbody != null)
+        {
+            damageTaken *= Mathf.Lerp(0.5f, 1f, Mathf.InverseLerp(1, 25, collision.rigidbody.mass));
+        }
         CurrentValue -= damageTaken;
 
         Debug.Log($"Collision magnitude: {collisionMagnitude}; damage: {damageTaken}");

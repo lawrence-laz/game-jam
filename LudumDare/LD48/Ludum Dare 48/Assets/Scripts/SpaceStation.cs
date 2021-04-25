@@ -9,6 +9,11 @@ public class SpaceStation : MonoBehaviour
     {
         if (who.CompareTag("Player"))
         {
+            if (SpaceStationUI == null)
+            {
+                SpaceStationUI = Camera.main.transform.Find("hud/space-station-menu").gameObject;
+            }
+
             SpaceStationUI.SetActive(true);
         }
     }

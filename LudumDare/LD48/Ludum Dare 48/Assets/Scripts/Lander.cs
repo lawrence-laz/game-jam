@@ -47,6 +47,12 @@ public class Lander : MonoBehaviour
         }
         Debug.Log("Landing trigerred");
 
+        if (collision.GetComponent<DestroyAfterTime>() != null)
+        {
+            // Don't land on temporary props.
+            return;
+        }
+
         if (!IsLandingAngleCorrect(collision.transform))
         {
             return;

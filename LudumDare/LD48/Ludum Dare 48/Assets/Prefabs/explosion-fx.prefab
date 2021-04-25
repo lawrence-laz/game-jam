@@ -4907,7 +4907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ffb36e41fff3c4489f8f9bf34e20ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Duration: 2
+  Duration: 3
   CloseToPlayer: 0
   Distance: 3
 --- !u!1 &5640046631689797997

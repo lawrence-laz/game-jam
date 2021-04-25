@@ -1,11 +1,11 @@
 using Libs.Base.Extensions;
-using System;
 using UnityEngine;
 
 public class Navigation : MonoBehaviour
 {
     public float RotationPower;
     public float MovePower;
+    public float MaxSpeed = 3;
 
     public float TopEnginesPower => _currentMovePower.NegativeAbs();
     public float BotLeftEnginePower => _currentRotationPower.NegativeAbs() / RotationPower + _currentMovePower.PositiveAbs() / MovePower;
@@ -90,6 +90,11 @@ public class Navigation : MonoBehaviour
 
         _body.AddForce(transform.up * _currentMovePower, ForceMode2D.Force);
         _body.AddTorque(_currentRotationPower, ForceMode2D.Force);
+
+        if (_body.velocity.magnitude >= MaxSpeed)
+        {
+            _body.velocity = _body.velocity.normalized * MaxSpeed;
+        }
     }
 
     private void StopThrusters()

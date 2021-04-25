@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/1 tutorial.unity
+    guid: 44bbdf480774489428d48380d24a4925
+  - enabled: 1
+    path: Assets/Scenes/2 first pirates.unity
+    guid: 5ac8b22a3ba7cbe4284ff6e74092756c
   m_configObjects:
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 0a1aef018a6cddd46b6b6369ba1cb0c3, type: 2}

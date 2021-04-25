@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00061917305, y: 0.04799567}
@@ -125,6 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShotBy: {fileID: 0}
+  Damage: 2
+  ExplosionFx: {fileID: 1392088721997709724, guid: ff4851ecfaea13b45bb28a7528625e14, type: 3}
+  SimpleHitFx: {fileID: 0}
 --- !u!50 &7014077046032346459
 Rigidbody2D:
   serializedVersion: 4

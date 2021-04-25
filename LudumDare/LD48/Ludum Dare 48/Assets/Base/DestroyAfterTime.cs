@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyAfterTime : MonoBehaviour
 {
     public float Duration;
+    public bool ScaleOut = true;
 
     [Header("Avoid Destroying")]
     public bool CloseToPlayer = false;
@@ -12,19 +13,41 @@ public class DestroyAfterTime : MonoBehaviour
 
     private Transform _player;
 
+    public void StartManually(float duration, float distance)
+    {
+        CloseToPlayer = true;
+        Duration = duration;
+        Distance = distance;
+        StartCoroutine(DestroyAfterDuration());
+    }
+
     private void OnEnable()
     {
-        StartCoroutine(DestroyAfterDuration());
-        _player = GameObject.FindWithTag("Player").transform;
+        if (Duration != 0 || CloseToPlayer)
+        {
+            StartCoroutine(DestroyAfterDuration());
+        }
+        var playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            _player = playerObject.transform;
+        }
     }
 
     private IEnumerator DestroyAfterDuration()
     {
         do yield return new WaitForSeconds(Duration);
-        while (CloseToPlayer && Distance >= _player.DistanceTo(transform));
+        while (CloseToPlayer && _player != null && Distance >= _player.DistanceTo(transform));
 
-        DOTween.Sequence()
-            .Append(transform.DOScale(0, 1))
-            .AppendCallback(() => Destroy(gameObject));
+        if (ScaleOut)
+        {
+            DOTween.Sequence()
+                .Append(transform.DOScale(0, 1))
+                .AppendCallback(() => Destroy(gameObject));
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
