@@ -59,6 +59,6 @@ public class Health : Value
             ScreenShake.Get().MediumShake();
         }
 
-        Debug.Log($"Collision magnitude: {collisionMagnitude}; damage: {damageTaken}");
+        //Debug.Log($"Collision magnitude: {collisionMagnitude}; damage: {damageTaken}");
     }
 }

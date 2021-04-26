@@ -18,7 +18,7 @@ public class Lander : MonoBehaviour
     {
         _joint.connectedBody = null;
         _joint.enabled = false;
-        Debug.Log("Detached");
+        //Debug.Log("Detached");
         if (Target != null)
         {
             Target.SendMessageUpwards("OnDetach", transform.parent.gameObject, SendMessageOptions.DontRequireReceiver);
@@ -45,7 +45,7 @@ public class Lander : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Landing trigerred");
+        //Debug.Log("Landing trigerred");
 
         if (collision.GetComponent<DestroyAfterTime>() != null)
         {
@@ -58,7 +58,7 @@ public class Lander : MonoBehaviour
             return;
         }
 
-        Debug.Log($"{_body.velocity.magnitude} <= {AcceptableLandingSpeed}");
+        //Debug.Log($"{_body.velocity.magnitude} <= {AcceptableLandingSpeed}");
 
         if (_body.velocity.magnitude <= AcceptableLandingSpeed)
         {
@@ -82,7 +82,7 @@ public class Lander : MonoBehaviour
         _joint.enabled = true;
         target.SendMessageUpwards("OnAttach", transform.parent.gameObject, SendMessageOptions.DontRequireReceiver);
         // _joint.connectedAnchor ?
-        Debug.Log("Attached");
+        //Debug.Log("Attached");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -106,7 +106,7 @@ public class Lander : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Incorrect landing angle between {current} and {ideal}: {Vector2.Angle(ideal, current)} <= {AcceptableLandingAngle}");
+            //Debug.Log($"Incorrect landing angle between {current} and {ideal}: {Vector2.Angle(ideal, current)} <= {AcceptableLandingAngle}");
             return false;
         }
     }

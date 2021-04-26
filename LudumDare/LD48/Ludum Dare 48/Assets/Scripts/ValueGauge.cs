@@ -39,7 +39,7 @@ public class ValueGauge : MonoBehaviour
     {
         if (_blinking == null && value.NormalizedValue >= BlinkFrom && value.NormalizedValue <= BlinkTo)
         {
-            Debug.Log($"Current {value.GetType().Name} value: {value.NormalizedValue}");
+            //Debug.Log($"Current {value.GetType().Name} value: {value.NormalizedValue}");
 
             _blinking = DOTween.Sequence()
                 .Append(DOTween.To(() => _gauge.Color, x => _gauge.Color = x, Empty, 1f / BlinkFrequency / 2))

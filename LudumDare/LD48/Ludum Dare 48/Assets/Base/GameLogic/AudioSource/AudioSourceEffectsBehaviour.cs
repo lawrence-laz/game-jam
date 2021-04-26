@@ -12,13 +12,13 @@ namespace Libs.Base.GameLogic.AudioSource
 
         public void FadeOut(float duration)
         {
-            Debug.Log("FadeOut");
+            //Debug.Log("FadeOut");
             this.StartOrRestartCoroutine(ref fadeCoroutine, FadeCoroutine(0, duration));
         }
 
         public void FadeIn(float duration)
         {
-            Debug.Log("FadeIn");
+            //Debug.Log("FadeIn");
             this.StartOrRestartCoroutine(ref fadeCoroutine, FadeCoroutine(1, duration));
         }
 

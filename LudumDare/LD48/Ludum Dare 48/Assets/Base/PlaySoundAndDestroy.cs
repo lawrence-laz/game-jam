@@ -52,7 +52,7 @@ public class PlaySoundAndDestroy : MonoBehaviour
         {
             Destroy(gameObject);
             BeforeDestroy.Invoke();
-            Debug.Log("Invoked before destroy");
+            //Debug.Log("Invoked before destroy");
         }
     }
 }

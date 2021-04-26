@@ -68,7 +68,7 @@ public class Navigation : MonoBehaviour
         StopThrusters();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdatePhysics();
         UpdateFuel();

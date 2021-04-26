@@ -185,7 +185,7 @@ namespace Libs.Base.Extensions
         {
             var viewportCoords = Camera.main.WorldToViewportPoint(gameObject.transform.position);
 
-            Debug.Log($"{gameObject.name} viewport pos: {viewportCoords}");
+            //Debug.Log($"{gameObject.name} viewport pos: {viewportCoords}");
 
             return viewportCoords.x > 0 && viewportCoords.x < 1.01
                 && viewportCoords.y > 0 && viewportCoords.y < 1.01;

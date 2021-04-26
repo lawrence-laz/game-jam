@@ -1,12 +1,16 @@
-☐ Laser for mining and fighting.
+✘ Laser for mining and fighting. @cancelled(21-04-26 03:09) :(
 ✔ Pirates with shooting slow missiles that player tries to dodege. @done(21-04-24 18:59)
 ✔ Buying a simple laser. @done(21-04-24 18:58)
 ✘ Pirates try to steal your resources (?) @cancelled(21-04-25 22:47)
-☐ More storage + sprite showing that?
-☐ More health + sprite showing some sort of shield?
-☐ More fuel + sprite showing canister on the sides? Maybe an external attachment of fuel with like x10 amount of regular, but hitting it makes you explode.
+✔ More storage + sprite showing that? @done(21-04-26 03:09)
+✔ More health + sprite showing some sort of shield? @done(21-04-26 03:09)
+✔ More fuel + sprite showing canister on the sides? Maybe an external attachment of fuel with like x10 amount of regular, but hitting it makes you explode. @done(21-04-26 03:09)
 
-
+✔ disable all debug info @done(21-04-26 03:21)
+✔ storage tank should be sold empty @done(21-04-26 03:10)
+☐ enemies when shot teleport closer to you :(
+✔ drill sparks @done(21-04-26 03:13)
+☐ title screen
 
 ✔ 1.2 velocity should be ok for collision @done(21-04-24 22:51)
 more like 0.6
@@ -48,12 +52,16 @@ more like 0.6
 
 ✔ screenshake @done(21-04-26 00:44)
 
-☐ background
+✔ background @done(21-04-26 02:13)
 
 ✔ Ambience in the wors case music @done(21-04-25 22:19)
     ✔ paly @done(21-04-26 00:17)
 
-☐ Sounds
+✔ mmon sort order to back @done(21-04-26 01:27)
+
+
+
+✔ Sounds @done(21-04-26 01:27)
     ✔ Beep on low health and low fuel @done(21-04-25 22:47)
         ✔ play @done(21-04-26 01:03)
     ✔ beep on enemy detected @done(21-04-25 22:26)
@@ -68,16 +76,16 @@ more like 0.6
         ✔ play @done(21-04-25 23:47)
     ✔ drill sound @done(21-04-25 23:56)
         ✔ play @done(21-04-26 00:33)
-    ☐ conversation sound
-        ☐ play
+    ✔ conversation sound @done(21-04-26 01:10)
+        ✔ play @done(21-04-26 01:10)
 
-☐ employee spacestation
+✔ employee spacestation @done(21-04-26 02:13)
 
 ✔ freeze shots on hit. @done(21-04-26 00:03)
 
 ✘ Music @cancelled(21-04-25 22:37)
 
-☐ title screen
+
 
 ✘ end screen @cancelled(21-04-25 22:48)
 

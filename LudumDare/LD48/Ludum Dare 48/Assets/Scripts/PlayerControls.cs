@@ -21,8 +21,8 @@ public class PlayerControls : MonoBehaviour
 
     private void HandleNavigation()
     {
-        _navigation.Rotate(Input.GetAxis("Horizontal"));
-        _navigation.Move(Input.GetAxis("Vertical"));
+        _navigation.Rotate(Input.GetKey(KeyCode.A) ? -1 : Input.GetKey(KeyCode.D) ? 1 : 0/* Input.GetAxis("Horizontal")*/);
+        _navigation.Move(Input.GetKey(KeyCode.S) ? -1 : Input.GetKey(KeyCode.W) ? 1 : 0/*Input.GetAxis("Vertical")*/);
     }
 
     private void HandleGun()

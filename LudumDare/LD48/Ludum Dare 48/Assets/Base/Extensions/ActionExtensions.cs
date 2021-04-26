@@ -17,7 +17,7 @@ namespace Libs.Base.Extensions
                 if (handler == null)
                 {
 #if UNITY_EDITOR
-                    Debug.LogWarning("There are null handlers in some event.");
+                    //Debug.LogWarning("There are null handlers in some event.");
 #endif
                     continue;
                 }
@@ -38,7 +38,7 @@ namespace Libs.Base.Extensions
                 if (handler == null)
                 {
 #if UNITY_EDITOR
-                    Debug.LogWarning("There are null handlers in some event.");
+                    //Debug.LogWarning("There are null handlers in some event.");
 #endif
                     continue;
                 }
@@ -59,7 +59,7 @@ namespace Libs.Base.Extensions
                 if (handler == null)
                 {
 #if UNITY_EDITOR
-                    Debug.LogWarning("There are null handlers in some event.");
+                    //Debug.LogWarning("There are null handlers in some event.");
 #endif
                     continue;
                 }

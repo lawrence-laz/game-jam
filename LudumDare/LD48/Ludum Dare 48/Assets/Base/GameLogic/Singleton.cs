@@ -25,7 +25,7 @@ namespace Libs.Base.GameLogic
                             singleton.name = "(singleton) " + typeof(T).ToString();
                             if (!instance.ShouldDestroyOnLoad())
                                 DontDestroyOnLoad(singleton);
-                            Debug.LogWarning("Maybe create instance before hand " + instance.GetType().FullName);
+                            //Debug.LogWarning("Maybe create instance before hand " + instance.GetType().FullName);
                         }
                     }
 
