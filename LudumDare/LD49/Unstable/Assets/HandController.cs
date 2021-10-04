@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HandController : MonoBehaviour
 {
@@ -12,8 +13,10 @@ public class HandController : MonoBehaviour
     public float RotationSpeed = 120;
     public float FollowSpeed = 2;
     public GameObject HitEffect;
-
+    public UnityEvent OnHit;
     public Sequence AttackAnimation;
+    public UnityEvent OnWoosh;
+    public int previousHand = -1;
 
     private void FixedUpdate()
     {
@@ -30,9 +33,19 @@ public class HandController : MonoBehaviour
             if (headRotation > 0)
             {
                 UpdateGrip(RightAttackGrip);
+                if (previousHand == -1)
+                {
+                    previousHand = 1;
+                    OnWoosh.Invoke();
+                }
             }
             else
             {
+                if (previousHand == 1)
+                {
+                    previousHand = -1;
+                    OnWoosh.Invoke();
+                }
                 UpdateGrip(LeftAttackGrip);
             }
         }
@@ -77,6 +90,7 @@ public class HandController : MonoBehaviour
 
         var localPositionTarget = transform.parent.InverseTransformPoint(contact - new Vector3(0.7f, 0.5f, 2.8f));
         var originalPosition = collider.transform.position;
+        collider.GetComponentInChildren<DamageCollision>().gameObject.SetActive(false);
 
         AttackAnimation = DOTween.Sequence()
             .Append(transform.DOLocalMove(localPositionTarget, 0.05f))
@@ -89,6 +103,7 @@ public class HandController : MonoBehaviour
                 Instantiate(HitEffect, contact + offset, Quaternion.identity);
                 FindObjectOfType<ScreenShake>().MediumShake();
                 FindObjectOfType<ScoreManager>().CurrentScore += 1;
+                OnHit.Invoke();
 
                 AttackAnimation = DOTween.Sequence()
                     .Append(transform.DOMove(contact + offset, 0.08f))

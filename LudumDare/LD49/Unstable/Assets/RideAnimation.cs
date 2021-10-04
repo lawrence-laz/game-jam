@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RideAnimation : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class RideAnimation : MonoBehaviour
     public float RoateDuringJump = 0;
     public Vector3 JumpDirection;
     public Transform JumpTransform;
+    public UnityEvent OnJump;
+    public UnityEvent OnLand;
 
     private void Start()
     {
@@ -38,6 +41,8 @@ public class RideAnimation : MonoBehaviour
         {
             RunAnimation.Pause();
 
+            OnJump.Invoke();
+
             JumpAnimation = DOTween.Sequence()
                 .Append(JumpTransform.DOLocalMove(JumpDirection * -JumpHeight * 0.1f, JumpSpeed / 2).SetRelative())
                 .Append(JumpTransform.DOLocalMove(JumpDirection * JumpHeight * 1.1f, JumpSpeed).SetRelative())
@@ -52,6 +57,7 @@ public class RideAnimation : MonoBehaviour
                         return;
                     }
 
+                    OnLand.Invoke();
                     RunAnimation.Play();
                 }).Play();
         }

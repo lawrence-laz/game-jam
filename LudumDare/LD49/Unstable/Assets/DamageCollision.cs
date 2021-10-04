@@ -1,14 +1,17 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DamageCollision : MonoBehaviour
 {
     public float Damage = 45;
+    public UnityEvent OnHit;
+    public bool HasDamaged = false;
 
     private void OnCollisionEnter(Collision collision)
     {
         PlayerController player = null;
-        if (collision.rigidbody?.TryGetComponent(out player) != true)
+        if (collision.rigidbody?.TryGetComponent(out player) != true || HasDamaged)
         {
             return;
         }
@@ -18,11 +21,13 @@ public class DamageCollision : MonoBehaviour
         player.transform.DOLocalRotate(Vector3.forward * Damage * Mathf.Sign(dir), 0.2f).SetRelative();
         //player.transform.Rotate(Vector3.forward * Damage * GetDirection(player.transform, transform), Space.Self);
         FindObjectOfType<ScreenShake>().MediumShake();
+        OnHit.Invoke();
+        HasDamaged = true;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.TryGetComponent<PlayerController>(out var player))
+        if (!other.TryGetComponent<PlayerController>(out var player) || HasDamaged)
         {
             return;
         }
@@ -30,6 +35,8 @@ public class DamageCollision : MonoBehaviour
         player.transform.DOLocalRotate(Vector3.forward * Damage * GetDirection(player.transform, transform), 0.2f).SetRelative();
         //player.transform.Rotate(Vector3.forward * Damage * GetDirection(player.transform, transform), Space.Self);
         FindObjectOfType<ScreenShake>().MediumShake();
+        OnHit.Invoke();
+        HasDamaged = true;
     }
 
     private float GetDirection(Transform player, Transform target)
