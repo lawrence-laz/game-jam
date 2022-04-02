@@ -19,7 +19,7 @@ class Imp extends Phaser.GameObjects.Sprite {
         this.path = null;
 
         scene.time.addEvent({
-            delay: 1000,
+            delay: 500,
             callback: () => this.updateTick(),
             loop: true
         });
@@ -51,7 +51,7 @@ class Imp extends Phaser.GameObjects.Sprite {
             return;
         }
 
-        let impCell = this.grid.getCellForPosition(this.x, this.y);
+        let impCell = this.grid.getCellForPositionRounded(this.x, this.y);
         // debugger;
         if (this.path == null) {
             this.path = this.grid.findPathDijkstra(impCell, new Phaser.Math.Vector2(4, this.grid.height));

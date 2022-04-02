@@ -39,4 +39,19 @@ const swing = (scene, source, targetX, targetY) => {
     hit(scene, source, targetX, targetY, 3);
 }
 
-export { hit, swing };
+const explode = (scene, source, targetX, targetY) => {
+    debugger;
+    let explosion = scene.add.sprite(0, 0, 'explosion1');
+    explosion.x = targetX;
+    explosion.y = targetY;
+    explosion.on('animationcomplete', function (anim, frame) {
+        explosion.destroy();
+      }, explosion);
+    explosion.play('explode');
+
+    hit(scene, source, targetX, targetY, 3);
+    hit(scene, source, targetX, targetY, 3);
+    hit(scene, source, targetX, targetY, 3);
+}
+
+export { hit, swing, explode };

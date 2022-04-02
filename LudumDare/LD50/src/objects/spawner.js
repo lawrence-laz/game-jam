@@ -1,3 +1,4 @@
+import Bomb from './bomb.js';
 import Box from './box.js';
 import Imp from './imp.js';
 import Spikes from './spikes.js';
@@ -29,11 +30,20 @@ class Spawner extends Phaser.GameObjects.Sprite {
         if (roll == 0) {
             this.spawnImp();
         } else if (roll == 1) {
-            this.spawnSpikes();
+            if (Phaser.Math.Between(0, 1) == 0) {
+                this.spawnSpikes();
+            } else {
+                this.spawnBomb();
+            }
         } else {
             this.spawnBox();
         }
 
+    }
+
+    spawnBomb() {
+        let bomb = new Bomb(this.scene, 100, 0);
+        this.spawnObject(bomb);
     }
 
     spawnSpikes() {

@@ -305,7 +305,8 @@ class Grid extends Phaser.GameObjects.Sprite {
                 // TODO: proper game over;
                 return true;
             }
-        } else if (cellObject instanceof Spikes) {
+        } else if (cellObject instanceof Spikes
+            && !(source instanceof Spikes)) {
             return this.tryGetSpiked(source, cellObject, x, y);
         }
     }
@@ -315,6 +316,9 @@ class Grid extends Phaser.GameObjects.Sprite {
             return false;
         } else {
             // Get spiked.
+            if (!spikes.open) {
+                return false;
+            }
             spikes.onHit();
             if (source.onDestroy) {
                 source.onDestroy();
@@ -366,6 +370,14 @@ class Grid extends Phaser.GameObjects.Sprite {
         let cell = new Phaser.Math.Vector2(
             Phaser.Math.FloorTo(x / this.cellSize),
             Phaser.Math.FloorTo(y / this.cellSize));
+
+        return cell;
+    }
+
+    getCellForPositionRounded(x, y) {
+        let cell = new Phaser.Math.Vector2(
+            Phaser.Math.RoundTo(x / this.cellSize),
+            Phaser.Math.RoundTo(y / this.cellSize));
 
         return cell;
     }

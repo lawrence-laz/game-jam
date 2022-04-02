@@ -79,7 +79,8 @@ class Level extends Phaser.Scene {
                     let spikesAlignedPosition = this.grid.getAlignedPosition(spikes.x, spikes.y);
                     let heroAlignedPosition = this.grid.getAlignedPosition(hero.x, hero.y);
                     if (heroAlignedPosition.x == spikesAlignedPosition.x 
-                        && heroAlignedPosition.y < spikesAlignedPosition.y) {
+                        && heroAlignedPosition.y < spikesAlignedPosition.y
+                        && spikes.open) {
                         // You got impaled son.
                         alert("You've got impaled on spikes!");
                         hero.onDestroy();
