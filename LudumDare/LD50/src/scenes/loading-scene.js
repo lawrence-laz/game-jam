@@ -20,6 +20,7 @@ class LoadingScene extends Phaser.Scene {
         this.load.image('left-gate', 'res/images/left-gate.png');
         this.load.image('right-gate', 'res/images/right-gate.png');
         this.load.image('fence', 'res/images/fence.png');
+        this.load.image('spikes', 'res/images/spikes.png');
         this.load.image('left-gate-open', 'res/images/left-gate-open.png');
         this.load.image('right-gate-open', 'res/images/right-gate-open.png');
         this.load.audio('music', './res/sounds/music.wav');
@@ -37,7 +38,7 @@ class LoadingScene extends Phaser.Scene {
             ],
             frameRate: 8,
             repeat: 0,
-            hideOnComplete: true
+            hideOnComplete: true,
         });
 
         // this.playButton = this.add.image(400, 300, 'play-button');

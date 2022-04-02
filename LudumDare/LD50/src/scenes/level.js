@@ -5,6 +5,7 @@ import Box from "../objects/box.js";
 import Grid from "../objects/grid.js";
 import Spawner from "../objects/spawner.js";
 import firstOrDefault from "../utils/first-or-default.js";
+import Spikes from "../objects/spikes.js";
 
 class Level extends Phaser.Scene {
 
@@ -68,6 +69,24 @@ class Level extends Phaser.Scene {
                         return !(x instanceof Hero) && x.name != 'ground'
                     }
                 );
+
+                let spikes = firstOrDefault(
+                    [a, b],
+                    (x) => x instanceof Spikes
+                )
+                
+                if (hero && spikes) {
+                    let spikesAlignedPosition = this.grid.getAlignedPosition(spikes.x, spikes.y);
+                    let heroAlignedPosition = this.grid.getAlignedPosition(hero.x, hero.y);
+                    if (heroAlignedPosition.x == spikesAlignedPosition.x 
+                        && heroAlignedPosition.y < spikesAlignedPosition.y) {
+                        // You got impaled son.
+                        alert("You've got impaled on spikes!");
+                        hero.onDestroy();
+                        hero.destroy();
+                        return;
+                    }
+                }
 
                 if (hero && pushable) {
 

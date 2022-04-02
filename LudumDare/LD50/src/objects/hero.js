@@ -1,4 +1,4 @@
-import hit from "../utils/hit.js";
+import { swing } from "../utils/hit.js";
 
 class Hero extends Phaser.GameObjects.Sprite {
 
@@ -13,6 +13,7 @@ class Hero extends Phaser.GameObjects.Sprite {
         this.grid = grid;
         this.alignTween = false;
         this.setOrigin(0, 0);
+        this.health = 3;
 
         this.cursor = scene.input.keyboard.createCursorKeys();
 
@@ -33,22 +34,14 @@ class Hero extends Phaser.GameObjects.Sprite {
     }
 
     swingSword() {
-        console.log('down');
-        this.woosh.x = this.target.x;
-        this.woosh.y = this.target.y;
-        this.woosh.visible = true;
-        this.woosh.play('woosh');
-        this.woosh.rotation = Phaser.Math.Angle.Between(
-            this.x, this.y,
-            this.target.x, this.target.y);
-        console.log(this.woosh.rotation);
-
-        this.woosh.flipY = Math.abs(this.woosh.rotation) > Phaser.Math.TAU;
-
-        hit(this.scene, this, this.woosh.x, this.woosh.y, 10);
+        swing(this.scene, this, this.target.x, this.target.y);
     }
 
     update(time, delta) {
+
+        if (!this.active) {
+            return;
+        }
 
         this.handleInput(time);
         this.updateTargetPosition();
@@ -57,23 +50,27 @@ class Hero extends Phaser.GameObjects.Sprite {
     }
 
     updateGridCell() {
-        debugger;
         for (var x = 0; x < this.grid.cells.length; ++x)
-        for (var y = 0; y < this.grid.cells[0].length; ++y) {
-            if (this.grid.cells[x][y] instanceof Hero) {
-                this.grid.cells[x][y] = null;
+            for (var y = 0; y < this.grid.cells[0].length; ++y) {
+                if (this.grid.cells[x][y] instanceof Hero) {
+                    this.grid.cells[x][y] = null;
+                }
             }
-        }
 
         let alignedPosition = this.grid.getAlignedPosition(this.x, this.y);
         let heroCell = this.grid.getCellForPosition(
             alignedPosition.x,
             alignedPosition.y);
-        
+
         if (this.grid.cells[heroCell.x][heroCell.y] == null) {
             this.grid.cells[heroCell.x][heroCell.y] = this;
         } else {
-            debugger; // WHAT?
+            if (this.grid.cells[heroCell.x][heroCell.y + 1] == null) {
+                this.grid.cells[heroCell.x][heroCell.y + 1] = this;
+                this.body.setAccelerationY(Math.abs(this.body.acceleration.y));
+            } else {
+                debugger; // WHAT?
+            }
         }
     }
 
@@ -153,6 +150,18 @@ class Hero extends Phaser.GameObjects.Sprite {
             this.target.y = this.y + (this.target.y - this.y) / scale;
         }
 
+    }
+
+    onDestroy() {
+        this.scene.scene.restart();
+    }
+
+    onHit() {
+        this.health -=1;
+        if (this.health <= 0) {
+            alert("You've been killed!");
+            this.onDestroy();
+        }
     }
 }
 
