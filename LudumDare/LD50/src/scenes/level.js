@@ -1,4 +1,3 @@
-import helloWorld from "../hello-world.js";
 import createSpawner from "../objects/spawner.js";
 import Hero from '../objects/hero.js';
 import Box from "../objects/box.js";
@@ -28,21 +27,6 @@ class Level extends Phaser.Scene {
         let music = this.sound.add('music');
         // music.play();
 
-        // this.add.image(400, 300, 'sky');
-
-        // var particles = this.add.particles('red');
-
-        // var emitter = particles.createEmitter({
-        //     speed: 100,
-        //     scale: { start: 1, end: 0 },
-        //     blendMode: 'ADD'
-        // });
-
-        // var logo = this.physics.add.image(400, 100, 'hero');
-        // logo.setVelocity(100, 200);
-        // logo.setBounce(1, 1);
-        // logo.setCollideWorldBounds(true);
-
         this.objects = this.add.group();
 
         this.grid = new Grid(this);
@@ -53,17 +37,7 @@ class Level extends Phaser.Scene {
         this.hero = new Hero(this.grid, this);
         hero = this.hero;
 
-        // let box = new Box(this, 100, 0);
-
-        // this.grid.setCellTo(box, 0, 0);
-
-        // let ground = this.physics.add.sprite(0, 16 * 11, 'ground');
-        // ground.setName('ground');
-        // ground.setCollideWorldBounds(true);
-        // this.objects.add(ground);
-
         this.objects.add(this.hero);
-        // this.objects.add(box);
         this.physics.add.collider(
             this.objects,
             this.objects,
@@ -97,8 +71,6 @@ class Level extends Phaser.Scene {
                         // You got impaled son.
                         hero.convertToCorpse();
                         this.gameOver("Trapped by spikes", hero);
-                        // hero.onDestroy();
-                        // hero.destroy();
                         return;
                     }
                 }
@@ -119,7 +91,7 @@ class Level extends Phaser.Scene {
                         let pushableCell = this.grid.getCellForPosition(pushable.x, pushable.y);
                         if (heroCell == pushableCell) {
                             // Get squished.
-                            // TODO:
+                            // ???
                         }
                     }
                 }
@@ -127,15 +99,6 @@ class Level extends Phaser.Scene {
             null,
             this
         );
-
-        // this.setUpInputHandlers();
-
-        // emitter.startFollow(logo);
-
-        // var text = this.add.text(190, 136, 'Hello, world!', {
-        //     fontFamily: 'font1',
-        // });
-        // var text = helloWorld(this);
 
         this.input.on('pointerdown', function (pointer) {
             // var text = helloWorld(this, pointer.x, pointer.y);
@@ -161,44 +124,10 @@ class Level extends Phaser.Scene {
         });
 
         this.time.delayedCall(500, () => {
-            // this.scene.pause();
             this.scene.start('game-over', { reason, score: this.spawner.currentWaveIndex });
         });
 
-        // this.cameras.main.setZoom(2);
-        // this.cameras.main.midPoint = new Phaser.Math.Vector2(this.hero.x, this.hero.y);
     }
-
-    // setUpInputHandlers() {
-
-    //     this.input.keyboard.addCapture('UP, DOWN, LEFT, RIGHT')
-
-    //     this.input.keyboard.on('keydown-UP', function (event) {
-
-    //         this.playButton.y -= 4;
-
-    //     }, this);
-
-    //     this.input.keyboard.on('keydown-DOWN', function (event) {
-
-    //         this.playButton.y += 4;
-
-    //     }, this);
-
-    //     this.input.keyboard.on('keydown-LEFT', function (event) {
-
-    //         console.log("Moving left");
-    //         this.hero.run(-1);
-
-    //     }, this);
-
-    //     this.input.keyboard.on('keydown-RIGHT', function (event) {
-
-    //         console.log("Moving right");
-    //         this.hero.run(1);
-
-    //     }, this);
-    // }
 }
 
 export default Level;

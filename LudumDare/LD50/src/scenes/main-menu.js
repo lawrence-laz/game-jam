@@ -27,8 +27,6 @@ class MainMenu extends Phaser.Scene {
         this.playButton.setInteractive();
         this.playButton.on('pointerdown', function () {
 
-            // this.scene.pause();
-            // this.scene.run('level');
             this.scene.transition({ target: 'level', duration: 200 });
 
         }, this);

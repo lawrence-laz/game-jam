@@ -1,4 +1,3 @@
-import helloWorld from './hello-world.js';
 import Level from './scenes/level.js';
 import MainMenu from './scenes/main-menu.js';
 import LoadingScene from './scenes/loading-scene.js'

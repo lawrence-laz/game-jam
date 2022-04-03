@@ -272,7 +272,6 @@ class Grid extends Phaser.GameObjects.Sprite {
         if (movingObject instanceof Imp
             && afterY == this.height
             && beforeY == this.height - 1) {
-            // TODO: Maybe health like in TD?
             this.scene.gameOver("The gates were breached!", movingObject)
         }
 
@@ -328,20 +327,6 @@ class Grid extends Phaser.GameObjects.Sprite {
                 
                 cellObject.convertToCorpse();
                 this.scene.gameOver("You got squished!", cellObject);
-                // if (this.scene) {
-                //     // this.scene.cameras.main.startFollow(this.cellObject, true, 0.09, 0.09);
-                //     // this.cameras.main.roundPixels = true;
-
-                //     this.scene.cameras.main.setZoom(2);
-                //     this.scene.cameras.main.midPoint = new Phaser.Math.Vector2(x, y);
-                //     // debugger;
-                // }
-                // Squishidy squish.
-                cellObject.destroy();
-
-                // alert("You got squished!");
-                // this.scene.scene.restart();
-                // TODO: proper game over;
                 return true;
             }
         } else if (cellObject instanceof Spikes

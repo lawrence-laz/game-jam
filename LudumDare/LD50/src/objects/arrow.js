@@ -65,7 +65,6 @@ class Arrow extends Phaser.GameObjects.Sprite {
             duration: 1000,
             alpha: 0,
             onComplete: () => thisArrow.destroy()
-            // callback: () => corpse.destroy()
         });
 
         timeline.play();

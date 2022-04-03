@@ -41,10 +41,6 @@ class Imp extends Phaser.GameObjects.Sprite {
             return;
         }
 
-        // if (this.tryAttack(hero)) {
-        //     return;
-        // }
-
         this.tryGoBeyondFence();
     }
 
@@ -154,11 +150,9 @@ class Imp extends Phaser.GameObjects.Sprite {
                 duration: 5000,
                 alpha: 0,
                 onComplete: () => corpse.destroy()
-                // callback: () => corpse.destroy()
             });
         
             timeline.play();
-            // this.scene.time.delayedCall(2000, () => corpse.destroy());
         }
     }
 

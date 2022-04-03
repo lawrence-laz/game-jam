@@ -25,12 +25,6 @@ class Spikes extends Phaser.GameObjects.Sprite {
             loop: true
         });
 
-        // this.on('animationcomplete', function (anim, frame) {
-        //     this.open = !this.open;
-        //     this.setTexture(this.open ? 'spikes4' : 'spikes1');
-        //     this.play(this.open ? 'spikes-open' : 'spikes-close');
-        // }, this);
-
     }
 
     update(time, delta) {
@@ -52,11 +46,6 @@ class Spikes extends Phaser.GameObjects.Sprite {
         this.setTexture(willBeOpen ? 'spikes4' : 'spikes1');
         this.play(willBeOpen ? 'spikes-open' : 'spikes-close');
 
-        // if (open) {
-        //     this.play("spikes-close");
-        // } else {
-        //     this.play("spikes-open");
-        // }
     }
 
     onHit(source, damage = 1) {

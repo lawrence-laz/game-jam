@@ -18,10 +18,6 @@ class GameOver extends Phaser.Scene {
         let text = this.add.bitmapText(
             5 * 16, 10 * 16, 'font', `Press to restart`);
 
-        // let text = this.add.text(5 * 16, 6 * 16, reason, {
-        //     fontFamily: 'font1',
-        //     align: 'center'
-        // });
         text.setOrigin(0.5);
         text.setFontSize(8);
 

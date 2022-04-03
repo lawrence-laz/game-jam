@@ -251,7 +251,7 @@ class Hero extends Phaser.GameObjects.Sprite {
                 this.grid.cells[heroCell.x][heroCell.y + 1] = this;
                 this.body.setAccelerationY(Math.abs(this.body.acceleration.y));
             } else {
-                // TODO: ??
+                // TODO: This bug still exists, but hopefully it's not game breaking.
                 // debugger; // WHAT?
             }
         }
@@ -320,14 +320,6 @@ class Hero extends Phaser.GameObjects.Sprite {
                 this.body.setVelocityY(this.jumpSpeed);
             }
         }
-
-        // this.input.on('pointerdown', function (pointer) {
-        //     console.log('down');
-
-        //     // var text = helloWorld(this, pointer.x, pointer.y);
-        // }, this);
-
-
     }
 
     updateTargetPosition() {
@@ -358,7 +350,6 @@ class Hero extends Phaser.GameObjects.Sprite {
     }
 
     onDestroy() {
-        // TODO: slow down time and show game over after few moments.
         this.scene.scene.restart();
     }
 

@@ -136,7 +136,6 @@ class LoadingScene extends Phaser.Scene {
             frames: [
                 { key: 'hero1', duration: 3 },
                 { key: 'hero-swing2' },
-                // { key: 'hero-swing1' },
                 { key: 'hero2' },
             ],
             frameRate: 16,
@@ -185,14 +184,12 @@ class LoadingScene extends Phaser.Scene {
             repeat: 0,
         });
 
-        // this.playButton = this.add.image(400, 300, 'play-button');
         // TODO: Change to main-menu before release
         this.scene.start('level');
     }
 
     update() {
     }
-
 }
 
 export default LoadingScene;

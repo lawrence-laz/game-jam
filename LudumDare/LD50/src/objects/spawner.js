@@ -6,9 +6,6 @@ import FlyingImp from './flying-imp.js';
 import Imp from './imp.js';
 import Spikes from './spikes.js';
 
-// TODO: spawn waves/prefabs
-// TODO: spawn/movement speed increase.
-
 class Spawner extends Phaser.GameObjects.Sprite {
 
     constructor(grid, scene, x = 0, y = 0, texture = 'empty') {
@@ -110,9 +107,6 @@ class Spawner extends Phaser.GameObjects.Sprite {
             callback: () => this.trySpawnSomething(),
             loop: true
         });
-
-        // this.spawnFlyingImp();
-        // this.spawnSpikes();
 
     }
 
@@ -244,39 +238,6 @@ class Spawner extends Phaser.GameObjects.Sprite {
         }
 
         this.trySpawnGeneric();
-        return;
-
-        if (Phaser.Math.Between(0, 1) == 0) {
-            return;
-        }
-
-        let flyingImps = this.scene.children.list.filter(child => child instanceof FlyingImp)
-        if (flyingImps.length > 0) {
-            if (Phaser.Math.Between(0, 1) == 0) {
-                this.spawnBox();
-            }
-        }
-
-        let roll = Phaser.Math.Between(0, 3);
-        if (roll == 0) {
-
-            if (flyingImps.length < this.maxFlyingImpsAllowed
-                && Phaser.Math.Between(0, 3) == 0) {
-                this.spawnFlyingImp();
-            } else {
-                // this.spawnImp();
-                this.spawnChubbyImp();
-            }
-        } else if (roll == 1) {
-            if (Phaser.Math.Between(0, 1) == 0) {
-                this.spawnSpikes();
-            } else {
-                this.spawnBomb();
-            }
-        } else {
-            this.spawnBox();
-        }
-
     }
 
     spawnBomb() {
