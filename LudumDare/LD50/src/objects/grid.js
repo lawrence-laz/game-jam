@@ -375,7 +375,7 @@ class Grid extends Phaser.GameObjects.Sprite {
             beforeCell.y += 1;
             objectInGrid = this.cells[beforeCell.x][beforeCell.y];
             if (objectInGrid != object) {
-                return;
+                return false;
             }
         }
 
@@ -388,7 +388,7 @@ class Grid extends Phaser.GameObjects.Sprite {
             targetCell.y += 1;
         }
 
-        this.tryMoveTo(
+        return this.tryMoveTo(
             object,
             beforeCell.x, beforeCell.y,
             targetCell.x, targetCell.y);

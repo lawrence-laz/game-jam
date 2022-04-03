@@ -18,6 +18,11 @@ const hit = (scene, source, x, y, radius, damage = 1) => {
     if (!firstHittable) {
         return;
     }
+
+    if (source instanceof Hero) {
+        scene.sound.play('hit');
+    }
+
     firstHittable.gameObject.onHit(source, damage);
 };
 
@@ -51,6 +56,7 @@ const explode = (scene, source, targetX, targetY) => {
         explosion.destroy();
     }, explosion);
     explosion.play('explode');
+    scene.sound.play('explosion');
 
     hit(scene, source, targetX, targetY, 3);
     hit(scene, source, targetX, targetY, 3);

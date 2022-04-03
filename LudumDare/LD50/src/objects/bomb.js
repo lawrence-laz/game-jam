@@ -27,6 +27,8 @@ class Bomb extends Phaser.GameObjects.Sprite {
             return;
         }
 
+
+        this.scene.sound.play('trigger');
         this.triggered = true;
 
         this.play('bomb-trigger');

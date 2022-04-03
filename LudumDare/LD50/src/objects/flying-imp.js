@@ -57,7 +57,8 @@ class FlyingImp extends Phaser.GameObjects.Sprite {
     tryAttack(hero) {
         let heroPosition = new Phaser.Math.Vector2(hero.x + 8, hero.y + 8);
         let impPosition = new Phaser.Math.Vector2(this.x, this.y);
-        
+
+        this.scene.sound.play('arrow-shot');
         let arrow = new Arrow(this.scene, 0, 0);
         arrow.flyTo(
             impPosition.x + 8, impPosition.y + 16,
@@ -91,12 +92,16 @@ class FlyingImp extends Phaser.GameObjects.Sprite {
 
         this.setTintFill(0xffffff);
 
+        this.scene.sound.play('hit');
         this.scene?.cameras?.main?.shake(50, 0.01);
         this.scene.time.delayedCall(100, () => {
             this.clearTint();
             this.health -= 1;
             if (this.health <= 0) {
                 if (this.scene) {
+                    this.scene.sound.play(Phaser.Math.Between(0, 1) == 0
+                        ? 'enemy-voice1'
+                        : 'enemy-voice2');
                     let corpse = this.scene.add.sprite(this.x, this.y, this.corpseTexture);
                     corpse.setOrigin(0, 0);
                     this.scene.tweens.add({

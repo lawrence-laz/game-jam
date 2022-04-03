@@ -54,6 +54,8 @@ class Arrow extends Phaser.GameObjects.Sprite {
             object.onHit(this, 3);
         }
 
+        this.scene.sound.play('hit');
+
         this.collider.children.delete(this);
 
         var timeline = this.scene.tweens.createTimeline();

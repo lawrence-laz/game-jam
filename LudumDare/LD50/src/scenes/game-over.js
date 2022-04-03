@@ -21,6 +21,8 @@ class GameOver extends Phaser.Scene {
         text.setOrigin(0.5);
         text.setFontSize(8);
 
+        this.sound.play('game-over');
+
         this.allowRestart = false;
         this.restarting = false;
         this.shouldRestart = false;

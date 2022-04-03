@@ -77,6 +77,7 @@ class Imp extends Phaser.GameObjects.Sprite {
                 this.grid.tryMoveTo(this, impCell.x, impCell.y, nextCell.x, nextCell.y);
             } else if (!(nextCell instanceof Imp)) {
                 let nextCellPosition = this.grid.getPositionForCell(nextCell.x, nextCell.y);
+                this.scene.sound.play('hit');
                 swing(this.scene, this, nextCellPosition.x + 8, nextCellPosition.y + 8);
             } else {
                 // Friend imp is occupying my space.
@@ -122,6 +123,10 @@ class Imp extends Phaser.GameObjects.Sprite {
         if (!this.scene) {
             return;
         }
+
+        this.scene.sound.play(Phaser.Math.Between(0, 1) == 0
+            ? 'enemy-voice1'
+            : 'enemy-voice2');
 
         let corpse = this.scene.add.sprite(this.x, this.y, this.corpseTexture);
         corpse.setOrigin(0, 0);
@@ -172,6 +177,7 @@ class Imp extends Phaser.GameObjects.Sprite {
                         return;
                     }
 
+                    this.scene.sound.play('trigger');
                     this.triggered = true;
 
                     this.play('chubby-imp-trigger');

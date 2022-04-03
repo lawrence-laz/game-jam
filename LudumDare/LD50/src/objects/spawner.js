@@ -136,7 +136,7 @@ class Spawner extends Phaser.GameObjects.Sprite {
             return false;
         }
 
-        if (this.currentWave.length == 0) {
+        if (!this.currentWave || this.currentWave.length == 0) {
             // This wave is fully spawned, 
             // waiting for clearance to load next.
             return true;
@@ -168,12 +168,14 @@ class Spawner extends Phaser.GameObjects.Sprite {
             this.currentWave = this.waves[0];
             this.waves.shift();
             this.currentWaveIndex += 1;
+
+            this.scene.sound.play('new-wave');
             let text = this.scene.add.bitmapText(
                 5 * 16, 6 * 16, 'font', `Wave ${this.currentWaveIndex}`);
             text.setOrigin(0.5);
             text.setFontSize(12);
             text.setMaxWidth(10 * 16);
-            this.scene.time.delayedCall(1000, () => text.destroy());
+            this.scene.time.delayedCall(2000, () => text.destroy());
         }
 
         return true;

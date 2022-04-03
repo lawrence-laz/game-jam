@@ -42,6 +42,7 @@ class Box extends Phaser.GameObjects.Sprite {
             this.clearTint();
             this.health -= damage;
             if (this.health <= 0) {
+                this.scene?.sound.play('final-hit');
                 this.destroy();
             }
         }, [], this);

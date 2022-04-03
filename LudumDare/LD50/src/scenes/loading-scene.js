@@ -6,7 +6,7 @@ class LoadingScene extends Phaser.Scene {
     }
 
     preload() {
-        // this.sound.pauseOnBlur = false;
+        this.sound.pauseOnBlur = false;
         this.load.image('play-button', 'res/images/play.png');
         this.load.image('dust1', 'res/images/dust1.png');
         this.load.image('empty', 'res/images/empty.png');
@@ -52,7 +52,26 @@ class LoadingScene extends Phaser.Scene {
         this.load.image('chubby-imp-inverted', 'res/images/chubby-imp-inverted.png');
         this.load.image('left-gate-open', 'res/images/left-gate-open.png');
         this.load.image('right-gate-open', 'res/images/right-gate-open.png');
+        
         this.load.audio('music', './res/sounds/music.wav');
+        this.load.audio('push', './res/sounds/push.wav');
+        this.load.audio('swing', './res/sounds/swing.wav');
+        this.load.audio('arrow-shot', './res/sounds/arrow-shot.wav');
+        this.load.audio('trigger', './res/sounds/trigger.wav');
+        this.load.audio('hit', './res/sounds/hit.wav');
+        this.load.audio('final-hit', './res/sounds/final-hit.wav');
+        this.load.audio('new-wave', './res/sounds/new-wave.wav');
+        this.load.audio('hero-death', './res/sounds/hero-death.wav');
+        this.load.audio('hero-hurt', './res/sounds/hero-hurt.wav');
+        this.load.audio('hurt', './res/sounds/hurt.wav');
+        this.load.audio('jump', './res/sounds/jump.wav');
+        this.load.audio('hero-death', './res/sounds/hero-death.wav');
+        this.load.audio('game-over', './res/sounds/game-over.wav');
+        this.load.audio('explosion', './res/sounds/explosion.wav');
+        this.load.audio('enemy-voice1', './res/sounds/enemy-voice1.wav');
+        this.load.audio('enemy-voice2', './res/sounds/enemy-voice2.wav');
+        this.load.audio('click', './res/sounds/click.wav');
+
         this.load.bitmapFont('font', 'res/fonts/pixel.png', '/res/fonts/pixel.xml');
     }
 

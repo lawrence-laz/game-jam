@@ -85,7 +85,10 @@ class Level extends Phaser.Scene {
                     if (isHeroWithinVerticalThreshold && doesHeroesMovementAlignWithPush) {
                         // Try to push.
                         let horizontalDirection = Math.sign(pushable.x - hero.x);
-                        this.grid.tryMoveOffset(pushable, horizontalDirection);
+                        let pushed = this.grid.tryMoveOffset(pushable, horizontalDirection);
+                        if (pushed) {
+                            this.sound.play('push');
+                        }
                     } else {
                         let heroCell = this.grid.getCellForPosition(hero.x, hero.y);
                         let pushableCell = this.grid.getCellForPosition(pushable.x, pushable.y);

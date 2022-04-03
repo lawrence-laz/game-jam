@@ -189,6 +189,7 @@ class Hero extends Phaser.GameObjects.Sprite {
 
         this.lastSwingAt = this.currentTime;
 
+        this.scene.sound.play('swing');
         this.play('hero-swing').chain({
             key: 'hero-idle',
             repeat: -1
@@ -305,6 +306,7 @@ class Hero extends Phaser.GameObjects.Sprite {
             this.isTryingToJump = true;
             this.jumpCount -= 1;
             this.impactDustEmitter.explode(30, this.x + 8, this.y + 14);
+            this.scene.sound.play('jump');
         } else if (this.body.touching.down || this.body.touching.left || this.body.touching.right) {
             this.jumpCount = 2;
         }
@@ -370,6 +372,12 @@ class Hero extends Phaser.GameObjects.Sprite {
             return;
         }
 
+        if (this.isCorpse) {
+            return;
+        }
+        this.isCorpse = true;
+
+        this.scene.sound.play('hero-death');
         let corpse = this.scene.add.sprite(this.x, this.y, this.corpseTexture);
         corpse.setOrigin(0, 0);
         this.setVisible(false);
@@ -379,14 +387,16 @@ class Hero extends Phaser.GameObjects.Sprite {
 
         this.setTintFill(0xff0000);
 
-
+        this.scene.sound.play('hero-hurt');
         this.scene?.cameras?.main?.shake(100);
+        
         this.scene.time.delayedCall(100, () => {
             this.health -= damage;
             this.setHealthTint();
             this.lastHitOn = this.scene.time.now;
             if (this.health <= 0) {
                 this.convertToCorpse();
+                this.scene.sound.play('hero-death');
                 this.scene.gameOver("You've been slain!", this);
             }
         }, [], this);
