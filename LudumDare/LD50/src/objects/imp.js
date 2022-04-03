@@ -81,7 +81,7 @@ class Imp extends Phaser.GameObjects.Sprite {
                 this.grid.tryMoveTo(this, impCell.x, impCell.y, nextCell.x, nextCell.y);
             } else if (!(nextCell instanceof Imp)) {
                 let nextCellPosition = this.grid.getPositionForCell(nextCell.x, nextCell.y);
-                swing(this.scene, this, nextCellPosition.x, nextCellPosition.y);
+                swing(this.scene, this, nextCellPosition.x + 8, nextCellPosition.y + 8);
             } else {
                 // Friend imp is occupying my space.
             }

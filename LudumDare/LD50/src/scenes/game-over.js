@@ -76,7 +76,7 @@ class GameOver extends Phaser.Scene {
 
     score(number) {
         let text = this.add.bitmapText(
-            5 * 16, 8 * 16, 'font', `Your score: ${number}`);
+            5 * 16, 8 * 16, 'font', `Wave ${number}`);
 
         text.setOrigin(0.5);
         text.setFontSize(8);

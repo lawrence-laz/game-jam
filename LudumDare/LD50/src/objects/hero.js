@@ -363,6 +363,11 @@ class Hero extends Phaser.GameObjects.Sprite {
     }
 
     doGameOver() {
+
+        if (this.gameOver) {
+            return;
+        }
+
         this.gameOver = true;
         this.body.setVelocityX(0);
         this.body.setVelocityY(0);

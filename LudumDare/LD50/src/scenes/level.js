@@ -162,7 +162,7 @@ class Level extends Phaser.Scene {
 
         this.time.delayedCall(500, () => {
             // this.scene.pause();
-            this.scene.start('game-over', { reason, score: this.score });
+            this.scene.start('game-over', { reason, score: this.spawner.currentWaveIndex });
         });
 
         // this.cameras.main.setZoom(2);

@@ -29,11 +29,74 @@ class Spawner extends Phaser.GameObjects.Sprite {
         this.wave2ImpsWithBomb = [
             null, null, this.spawnBomb, null, null, this.spawnImp, this.spawnImp, this.spawnImp, this.spawnImp
         ];
-        
-        this.waves = [
-            // this.wave1JustImps,
-            this.wave2ImpsWithBomb,
+        this.wave3ImpsWithSpikes = [
+            null, null, this.spawnSpikes, this.spawnSpikes, this.spawnSpikes,
+            null, null, this.spawnImp, this.spawnImp, this.spawnImp, this.spawnImp,
+            () => this.genericSpawns.push(this.spawnBomb),
+            () => this.genericSpawns.push(this.spawnBomb),
+            () => this.genericSpawns.push(this.spawnSpikes),
+            () => this.genericSpawns.push(this.spawnBox),
+            () => this.genericSpawns.push(this.spawnBox),
+            () => this.genericSpawns.push(this.spawnBox),
+            () => this.genericSpawns.push(this.spawnBox),
         ];
+        this.wave4FlyingImp = [
+            null, null, this.spawnFlyingImp
+        ];
+        this.wave5GroundAndFlyingImps = [
+            null, null, this.spawnImp, this.spawnImp, this.spawnImp,
+            null, null, this.spawnFlyingImp
+        ];
+        this.wave6ChubbyImp = [
+            null, null, this.spawnBomb, this.spawnBomb, this.spawnBomb,
+            null, null, this.spawnChubbyImp
+        ];
+        this.wave7ArrowRain = [
+            null, null, null,
+            () => this.spawnArrows([
+                [0 * 16 + 8, 0, 0 * 16 + 8, 1],
+                [2 * 16 + 8, 0, 2 * 16 + 8, 1],
+                [4 * 16 + 8, 0, 4 * 16 + 8, 1],
+                [6 * 16 + 8, 0, 6 * 16 + 8, 1],
+                [8 * 16 + 8, 0, 8 * 16 + 8, 1],
+            ]),
+            this.spawnBox,
+            this.spawnFlyingImp, this.spawnFlyingImp
+        ],
+            this.wave8ChubbyParty = [
+                null, null,
+                this.spawnChubbyImp, this.spawnChubbyImp, this.spawnChubbyImp
+            ],
+            this.wave9ArrowRainingCatsAndDogs = [
+                null, null, null,
+                () => this.spawnArrows([
+                    [0 * 16 + 8, 0, 0 * 16 + 8, 1],
+                    [2 * 16 + 8, 0, 2 * 16 + 8, 1],
+                    [4 * 16 + 8, 0, 4 * 16 + 8, 1],
+                    [6 * 16 + 8, 0, 6 * 16 + 8, 1],
+                    [8 * 16 + 8, 0, 8 * 16 + 8, 1],
+                ]),
+                () => this.spawnArrows([
+                    [1 * 16 + 8, 0, 1 * 16 + 8, 1],
+                    [3 * 16 + 8, 0, 3 * 16 + 8, 1],
+                    [5 * 16 + 8, 0, 5 * 16 + 8, 1],
+                    [7 * 16 + 8, 0, 7 * 16 + 8, 1],
+                    [9 * 16 + 8, 0, 9 * 16 + 8, 1],
+                ]),
+                () => this.grid.setUpdateTickDelay(400),
+            ],
+
+            this.waves = [
+                this.wave1JustImps,
+                this.wave2ImpsWithBomb,
+                this.wave3ImpsWithSpikes,
+                this.wave4FlyingImp,
+                this.wave5GroundAndFlyingImps,
+                this.wave6ChubbyImp,
+                this.wave7ArrowRain,
+                this.wave8ChubbyParty,
+                this.wave9ArrowRainingCatsAndDogs,
+            ];
         // ----------------------------------------------------
 
         this.genericSpawns = [
@@ -51,6 +114,10 @@ class Spawner extends Phaser.GameObjects.Sprite {
         // this.spawnFlyingImp();
         // this.spawnSpikes();
 
+    }
+
+    increaseGridSpeed() {
+        this.grid
     }
 
     isWaveCleared() {
@@ -127,9 +194,33 @@ class Spawner extends Phaser.GameObjects.Sprite {
             text.setOrigin(0.5);
             text.setFontSize(12);
             text.setMaxWidth(10 * 16);
-            this.scene.time.delayedCall(1000, () => text.destroy());
+            this.scene.time.delayedCall(2000, () => text.destroy());
         }
 
+        let impsCount = this.scene.children.list
+            .filter(x => x instanceof FlyingImp || x instanceof Imp)
+            .length;
+        let flyingImpsCount = this.scene.children.list
+            .filter(child => child instanceof FlyingImp)
+            .length;
+
+        if (impsCount <= 2) {
+
+            let impSpawners = [this.spawnChubbyImp, this.spawnImp];
+            if (flyingImpsCount == 0) {
+                impSpawners.push(this.spawnFlyingImp);
+            }
+
+            for (var i = 0; i < 3; ++i) {
+
+                let spawnIndex = Phaser.Math.Between(0, impSpawners.length - 1);
+                impSpawners[spawnIndex].call(this);
+                if (impSpawners[spawnIndex] == this.spawnFlyingImp) {
+                    impSpawners.splice(spawnIndex, 1);
+                }
+
+            }
+        }
     }
 
     trySpawnGeneric() {
@@ -147,8 +238,9 @@ class Spawner extends Phaser.GameObjects.Sprite {
 
     trySpawnSomething() {
 
-        if (!this.trySpawnWave()) {
+        if (!this.trySpawnWave() || (this.waves.length == 0 && this.currentWave.length == 0)) {
             this.trySpawnProcedural();
+            this.trySpawnGeneric();
         }
 
         this.trySpawnGeneric();
@@ -215,6 +307,17 @@ class Spawner extends Phaser.GameObjects.Sprite {
         let targetX = Phaser.Math.Between(0, (this.grid.width - 1) * 16);
         let imp = new FlyingImp(this.grid, this.scene, targetX, 0);
         this.spawnObjectFree(imp);
+    }
+
+    spawnArrows(coords) {
+
+        for (var i = 0; i < coords.length; ++i) {
+            this.spawnArrow(
+                coords[i][0],
+                coords[i][1],
+                coords[i][2],
+                coords[i][3]);
+        }
     }
 
     spawnArrow(fromX, fromY, toX, toY) {

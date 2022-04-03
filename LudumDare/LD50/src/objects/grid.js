@@ -31,14 +31,24 @@ class Grid extends Phaser.GameObjects.Sprite {
         scene.add.existing(this)
         scene.events.on('update', this.update, this)
 
-        scene.time.addEvent({
-            delay: 500,
-            callback: () => this.updateTick(),
-            loop: true
-        });
+        this.updateTickEvent;
+        this.setUpdateTickDelay(500);
 
         this.createGates();
 
+    }
+
+    setUpdateTickDelay(delay) {
+
+        if (this.updateTickEvent) {
+            this.updateTickEvent.remove();
+        }
+
+        this.updateTickEvent = this.scene.time.addEvent({
+            delay: delay,
+            callback: () => this.updateTick(),
+            loop: true
+        });
     }
 
     createGates() {

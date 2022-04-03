@@ -9,6 +9,8 @@ class Arrow extends Phaser.GameObjects.Sprite {
         this.speed = 150;
         this.stickToObject;
         this.stickToOffset;
+        this.stuck = false;
+        this.destroying = false;
 
         this.setOrigin(0.8, 0.5);
         scene.add.existing(this)
@@ -35,6 +37,13 @@ class Arrow extends Phaser.GameObjects.Sprite {
     }
 
     stickTo(object) {
+
+        if (this.stuck) {
+            return;
+        }
+
+        this.stuck = true;
+
         this.stickToObject = object;
         this.stickToOffset = new Phaser.Math.Vector2(
             this.x - object.x,
@@ -47,7 +56,19 @@ class Arrow extends Phaser.GameObjects.Sprite {
 
         this.collider.children.delete(this);
 
-        this.scene.time.delayedCall(1000, () => this.destroy());
+        var timeline = this.scene.tweens.createTimeline();
+
+        var thisArrow = this;
+
+        timeline.add({
+            targets: thisArrow,
+            duration: 1000,
+            alpha: 0,
+            onComplete: () => thisArrow.destroy()
+            // callback: () => corpse.destroy()
+        });
+
+        timeline.play();
     }
 
     update(time, delta) {
@@ -60,6 +81,11 @@ class Arrow extends Phaser.GameObjects.Sprite {
             this.x = this.stickToObject.x + this.stickToOffset.x;
             this.y = this.stickToObject.y + this.stickToOffset.y;
         }
+
+        if (this.stuck && (!this.stickToObject || !this.stickToObject.active)) {
+            // Object no longer exists -> not stuck.
+            this.destroy();
+        }
     }
 
     onHit(source) {
@@ -67,6 +93,7 @@ class Arrow extends Phaser.GameObjects.Sprite {
         this.setTintFill(0xffffff);
 
         this.scene?.cameras?.main?.shake(50, 0.01);
+
         this.scene.time.delayedCall(100, () => {
             this.clearTint();
             this.health -= 1;
