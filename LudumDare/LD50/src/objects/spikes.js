@@ -1,3 +1,5 @@
+import Hero from "./hero.js";
+
 class Spikes extends Phaser.GameObjects.Sprite {
 
     constructor(scene, x = 0, y = 0, texture = 'spikes1') {
@@ -11,6 +13,9 @@ class Spikes extends Phaser.GameObjects.Sprite {
         this.body.setCollideWorldBounds(true);
         this.body.setImmovable(true);
         this.body.allowGravity = false;
+        this.body.setSize(14, 10);
+        this.body.offset.x = 1;
+        this.body.offset.y = 6;
         scene.events.on('update', this.update, this)
         this.open = false;
 
@@ -38,9 +43,14 @@ class Spikes extends Phaser.GameObjects.Sprite {
             return;
         }
 
-        this.open = !this.open;
-        this.setTexture(this.open ? 'spikes4' : 'spikes1');
-        this.play(this.open ? 'spikes-open' : 'spikes-close');
+        let willBeOpen = !this.open
+        if (willBeOpen) {
+            this.scene.time.delayedCall(500, () => this.open = willBeOpen, [], this);
+        } else {
+            this.open = willBeOpen;
+        }
+        this.setTexture(willBeOpen ? 'spikes4' : 'spikes1');
+        this.play(willBeOpen ? 'spikes-open' : 'spikes-close');
 
         // if (open) {
         //     this.play("spikes-close");
@@ -49,11 +59,18 @@ class Spikes extends Phaser.GameObjects.Sprite {
         // }
     }
 
-    onHit() {
-        this.health -= 1;
-        if (this.health <= 0) {
-            this.destroy();
-        }
+    onHit(source, damage = 1) {
+        this.setTintFill(0xffffff);
+
+
+        this.scene?.cameras?.main?.shake(50, 0.01);
+        this.scene.time.delayedCall(100, () => {
+            this.clearTint();
+            this.health -= damage;
+            if (this.health <= 0) {
+                this.destroy();
+            }
+        }, [], this);
     }
 }
 

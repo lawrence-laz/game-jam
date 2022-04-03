@@ -22,30 +22,11 @@ class MainMenu extends Phaser.Scene {
 
         }, this);
 
-        this.input.keyboard.on('keydown-DOWN', function (event) {
 
-            this.playButton.y += 4;
-
-        }, this);
-
-        this.input.keyboard.on('keydown-LEFT', function (event) {
-
-            console.log('A left');
-            this.playButton.x -= 4;
-
-        }, this);
-
-        this.input.keyboard.on('keydown-RIGHT', function (event) {
-
-            console.log('A right');
-            this.playButton.x += 4;
-
-        }, this);
 
         this.playButton.setInteractive();
         this.playButton.on('pointerdown', function () {
 
-            console.log('down');
             // this.scene.pause();
             // this.scene.run('level');
             this.scene.transition({ target: 'level', duration: 200 });

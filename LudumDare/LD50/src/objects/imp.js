@@ -1,8 +1,9 @@
-import { swing } from "../utils/hit.js";
+import { explode, swing } from "../utils/hit.js";
+import Hero from "./hero.js";
 
 class Imp extends Phaser.GameObjects.Sprite {
 
-    constructor(grid, scene, x = 0, y = 0, texture = 'imp') {
+    constructor(grid, scene, x = 0, y = 0, texture = 'imp1') {
         super(scene, x, y, texture)
         this.scene = scene;
         this.grid = grid;
@@ -17,6 +18,9 @@ class Imp extends Phaser.GameObjects.Sprite {
         this.health = 3;
         this.isStable = false;
         this.path = null;
+        this.play('imp-idle');
+        this.triggered = false;
+        this.corpseTexture = 'imp-corpse';
 
         scene.time.addEvent({
             delay: 500,
@@ -28,7 +32,7 @@ class Imp extends Phaser.GameObjects.Sprite {
 
     updateTick() {
 
-        if (!this.active) {
+        if (!this.active || !this.isStable) {
             return;
         }
 
@@ -37,9 +41,9 @@ class Imp extends Phaser.GameObjects.Sprite {
             return;
         }
 
-        if (this.tryAttack(hero)) {
-            return;
-        }
+        // if (this.tryAttack(hero)) {
+        //     return;
+        // }
 
         this.tryGoBeyondFence();
     }
@@ -52,9 +56,13 @@ class Imp extends Phaser.GameObjects.Sprite {
         }
 
         let impCell = this.grid.getCellForPositionRounded(this.x, this.y);
-        // debugger;
-        if (this.path == null) {
+        if (true) { // Try to always recalculate path, 
+            // because stuff is constantly changing.
+            // if (this.path == null) {
             this.path = this.grid.findPathDijkstra(impCell, new Phaser.Math.Vector2(4, this.grid.height));
+            if (this.path == null) {
+                return;
+            }
             let currentPosition = this.path.pop();
         }
         if (this.path == null) {
@@ -86,7 +94,7 @@ class Imp extends Phaser.GameObjects.Sprite {
         let impPosition = new Phaser.Math.Vector2(this.x, this.y);
         if (impPosition.distance(heroPosition) < 16 * 1.35) {
             let wooshPosition = impPosition.clone().add(heroPosition.clone().subtract(impPosition).normalize().setLength(8));
-            swing(this.scene, this, wooshPosition.x, wooshPosition.y);
+            swing(this.scene, this, wooshPosition.x, wooshPosition.y, 3);
 
             return true;
         }
@@ -114,11 +122,75 @@ class Imp extends Phaser.GameObjects.Sprite {
         this.flipX = hero.x < this.x;
     }
 
-    onHit() {
-        this.health -= 1;
-        if (this.health <= 0) {
-            this.destroy();
-        }
+    convertToCorpse() {
+        let corpse = this.scene.add.sprite(this.corpseTexture, this.x, this.y);
+        corpse.setOrigin(0, 0);
+        this.scene.tweens.add({
+            targets: corpse,
+            x: this.x,
+            y: 15 * 16,
+            duration: 2000,
+        });
+    }
+
+    onHit(source) {
+
+        this.setTintFill(0xffffff);
+
+        this.scene?.cameras?.main?.shake(50, 0.01);
+        this.scene.time.delayedCall(100, () => {
+            this.clearTint();
+            this.health -= 1;
+            if (this.health <= 0) {
+
+                if (this.isChubby) {
+
+                    if (this.triggered) {
+                        return;
+                    }
+
+                    this.triggered = true;
+
+                    this.play('chubby-imp-trigger');
+
+                    this.scene.time.addEvent({
+                        delay: 1000,
+                        callback: () => {
+
+                            if (!this.active || !this.scene) {
+                                return;
+                            }
+
+                            this.scene?.cameras?.main?.shake(50, 0.02);
+                            let explosionArea = [
+                                new Phaser.Math.Vector2(this.x + 0, this.y + 0),
+                                new Phaser.Math.Vector2(this.x + 16, this.y + 0),
+                                new Phaser.Math.Vector2(this.x + 16, this.y - 16),
+                                new Phaser.Math.Vector2(this.x + 0, this.y - 16),
+                                new Phaser.Math.Vector2(this.x - 16, this.y - 16),
+                                new Phaser.Math.Vector2(this.x - 16, this.y + 0),
+                                new Phaser.Math.Vector2(this.x - 16, this.y + 16),
+                                new Phaser.Math.Vector2(this.x + 0, this.y + 16),
+                                new Phaser.Math.Vector2(this.x + 16, this.y + 16),
+                            ];
+                            for (var i = 0; i < explosionArea.length; ++i) {
+                                let explosionPoint = explosionArea[i];
+                                explode(this.scene, this, explosionPoint.x, explosionPoint.y);
+                            }
+
+                            this.destroy();
+                        }
+                    })
+
+                } else {
+
+                    this.convertToCorpse();
+
+                    this.destroy();
+                }
+
+            }
+        }, [], this);
     }
 }
 

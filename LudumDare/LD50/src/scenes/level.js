@@ -6,6 +6,10 @@ import Grid from "../objects/grid.js";
 import Spawner from "../objects/spawner.js";
 import firstOrDefault from "../utils/first-or-default.js";
 import Spikes from "../objects/spikes.js";
+import Arrow from "../objects/arrow.js";
+import FlyingImp from "../objects/flying-imp.js";
+
+var hero = null;
 
 class Level extends Phaser.Scene {
 
@@ -43,8 +47,10 @@ class Level extends Phaser.Scene {
 
         this.grid = new Grid(this);
         this.spawner = new Spawner(this.grid, this, 0, 0);
+        this.score = 0;
 
         this.hero = new Hero(this.grid, this);
+        hero = this.hero;
 
         let box = new Box(this, 100, 0);
 
@@ -62,29 +68,36 @@ class Level extends Phaser.Scene {
             this.objects,
             function (a, b) {
                 let hero = firstOrDefault([a, b], (x) => x instanceof Hero);
-
                 let pushable = firstOrDefault(
-                    [a, b], 
+                    [a, b],
                     (x) => {
                         return !(x instanceof Hero) && x.name != 'ground'
                     }
                 );
+                let spikes = firstOrDefault([a, b], (x) => x instanceof Spikes);
+                let arrow = firstOrDefault([a, b], (x) => x instanceof Arrow);
+                let flyingImp = firstOrDefault([a, b], (x) => x instanceof FlyingImp);
 
-                let spikes = firstOrDefault(
-                    [a, b],
-                    (x) => x instanceof Spikes
-                )
-                
+                if (arrow && flyingImp) {
+                    return;
+                }
+
+                if (arrow) {
+                    let theOther = a == arrow ? b : a;
+                    arrow.stickTo(theOther);
+                }
+
                 if (hero && spikes) {
                     let spikesAlignedPosition = this.grid.getAlignedPosition(spikes.x, spikes.y);
                     let heroAlignedPosition = this.grid.getAlignedPosition(hero.x, hero.y);
-                    if (heroAlignedPosition.x == spikesAlignedPosition.x 
+                    if (heroAlignedPosition.x == spikesAlignedPosition.x
                         && heroAlignedPosition.y < spikesAlignedPosition.y
                         && spikes.open) {
                         // You got impaled son.
-                        alert("You've got impaled on spikes!");
-                        hero.onDestroy();
-                        hero.destroy();
+                        hero.convertToCorpse();
+                        this.gameOver("Trapped by spikes", hero);
+                        // hero.onDestroy();
+                        // hero.destroy();
                         return;
                     }
                 }
@@ -93,7 +106,7 @@ class Level extends Phaser.Scene {
 
                     let verticalDistance = pushable.y - hero.y;
                     let isHeroWithinVerticalThreshold = verticalDistance < 9 && verticalDistance > -9;
-                    let doesHeroesMovementAlignWithPush = 
+                    let doesHeroesMovementAlignWithPush =
                         Math.sign(hero.body.velocity.x) == Math.sign(pushable.x - hero.x)
                         || Math.sign(hero.body.newVelocity.x) == Math.sign(pushable.x - hero.x);
                     if (isHeroWithinVerticalThreshold && doesHeroesMovementAlignWithPush) {
@@ -124,10 +137,37 @@ class Level extends Phaser.Scene {
         // var text = helloWorld(this);
 
         this.input.on('pointerdown', function (pointer) {
-            console.log('down');
+
 
             // var text = helloWorld(this, pointer.x, pointer.y);
         }, this);
+    }
+
+    gameOver(reason, focusObject) {
+
+        this.hero.doGameOver();
+
+        let camera = this.cameras.main;
+
+        camera.setBounds(0, 0, 10 * 16, 12 * 16);
+        camera.useBounds = true;
+
+        this.cameras.main.startFollow(focusObject, true, 0.09, 0.09);
+
+        this.tweens.add({
+            targets: this.cameras.main,
+            zoom: 2,
+            duration: 100,
+            ease: 'Sine.easeInOut',
+        });
+
+        this.time.delayedCall(500, () => {
+            // this.scene.pause();
+            this.scene.start('game-over', { reason, score: this.score });
+        });
+
+        // this.cameras.main.setZoom(2);
+        // this.cameras.main.midPoint = new Phaser.Math.Vector2(this.hero.x, this.hero.y);
     }
 
     // setUpInputHandlers() {

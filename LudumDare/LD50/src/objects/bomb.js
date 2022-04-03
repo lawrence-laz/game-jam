@@ -29,14 +29,15 @@ class Bomb extends Phaser.GameObjects.Sprite {
 
         this.triggered = true;
 
-        // debugger;
-
         this.play('bomb-trigger');
 
         this.scene.time.addEvent({
-            delay: 1500,
+            delay: 1000,
             callback: () => {
 
+                if (this.scene) {
+                    this.scene.cameras.main.shake(50, 0.02);
+                }
                 let explosionArea = [
                     new Phaser.Math.Vector2(this.x + 0, this.y + 0),
                     new Phaser.Math.Vector2(this.x + 16, this.y + 0),

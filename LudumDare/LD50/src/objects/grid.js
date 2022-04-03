@@ -1,5 +1,6 @@
 import PriorityQueue from "../utils/priority-queue.js";
 import Box from "./box.js";
+import FlyingImp from "./flying-imp.js";
 import Hero from "./hero.js";
 import Imp from "./imp.js";
 import Spikes from "./spikes.js";
@@ -47,12 +48,19 @@ class Grid extends Phaser.GameObjects.Sprite {
                 : i == 5
                     ? 'right-gate'
                     : 'fence';
+            let damagedTexture = i == 4
+                ? 'left-gate-damaged'
+                : i == 5
+                    ? 'right-gate-damaged'
+                    : 'fence-damaged';
             let object = new Box(this.scene, 0, 0, texture);
+            object.damagedTexture = damagedTexture;
             this.setCellTo(object, i, this.height - 1);
             this.scene.objects.add(object);
             object.health = i == 4 || i == 5
-                ? 5
-                : 10;
+                ? 5 * 3
+                : 10 * 3;
+            object.maxHealth = object.health;
             object.setName('fence');
         }
     }
@@ -72,7 +80,11 @@ class Grid extends Phaser.GameObjects.Sprite {
         costSoFar[fromHash] = 0;
         let pathFound = false;
         
+        var calls_b = 0;
         while (!frontier.isEmpty()) {
+
+            calls_b += 1;
+            if (calls_b > 2000) { return null; }
 
             let { item, priority } = frontier.dequeue();
             let current = item;
@@ -95,7 +107,7 @@ class Grid extends Phaser.GameObjects.Sprite {
                     cameFrom[nextHash] = current;
                 }
             }
-            
+
         }
 
         if (!pathFound) {
@@ -104,7 +116,12 @@ class Grid extends Phaser.GameObjects.Sprite {
 
         let path = [];
         let nextCell = to;
+
+        var calls_a = 0;
         while (!nextCell.equals(from)) {
+            calls_a += 1;
+            if (calls_a > 100) { return null; }
+
             path.push(nextCell);
             let nextCallHash = this.hash(nextCell);
             nextCell = cameFrom[nextCallHash];
@@ -242,12 +259,11 @@ class Grid extends Phaser.GameObjects.Sprite {
 
     tryMoveTo(movingObject, beforeX, beforeY, afterX, afterY) {
 
-        if (movingObject instanceof Imp 
+        if (movingObject instanceof Imp
             && afterY == this.height
             && beforeY == this.height - 1) {
             // TODO: Maybe health like in TD?
-            alert('The gates were breached!');
-            this.scene.scene.restart();
+            this.scene.gameOver("The gates were breached!", movingObject)
         }
 
         if (afterX < 0 || afterX >= this.cells.length
@@ -276,6 +292,7 @@ class Grid extends Phaser.GameObjects.Sprite {
                 x: afterPosition.x,
                 y: afterPosition.y,
                 ease: 'Power2',
+                duration: 128,
                 // paused: true
             });
         }
@@ -296,12 +313,24 @@ class Grid extends Phaser.GameObjects.Sprite {
                 // Push the hero.
                 this.tryMoveTo(cellObject, x, y, x, y + 1);
 
-            } else {
+            } else if (!(source instanceof Imp)
+                && !(source instanceof FlyingImp)) {
+                
+                cellObject.convertToCorpse();
+                this.scene.gameOver("You got squished!", cellObject);
+                // if (this.scene) {
+                //     // this.scene.cameras.main.startFollow(this.cellObject, true, 0.09, 0.09);
+                //     // this.cameras.main.roundPixels = true;
 
+                //     this.scene.cameras.main.setZoom(2);
+                //     this.scene.cameras.main.midPoint = new Phaser.Math.Vector2(x, y);
+                //     // debugger;
+                // }
                 // Squishidy squish.
                 cellObject.destroy();
-                alert("You got squished!");
-                this.scene.scene.restart();
+
+                // alert("You got squished!");
+                // this.scene.scene.restart();
                 // TODO: proper game over;
                 return true;
             }
@@ -323,7 +352,11 @@ class Grid extends Phaser.GameObjects.Sprite {
             if (source.onDestroy) {
                 source.onDestroy();
             }
+            if (source.convertToCorpse) {
+                source.convertToCorpse();
+            }
             source.destroy();
+
             return false;
         }
     }

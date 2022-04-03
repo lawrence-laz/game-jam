@@ -2,13 +2,11 @@ import Hero from "../objects/hero.js";
 import Imp from "../objects/imp.js";
 import firstOrDefault from "./first-or-default.js";
 
-const hit = (scene, source, x, y, radius) => {
-    var bodies = scene.physics.overlapCirc(
-        x,
-        y,
-        radius,
-        true,
-        true);
+const hit = (scene, source, x, y, radius, damage = 1) => {
+    var bodies = scene.physics
+        .overlapCirc(x, y, radius, true, true)
+        .sort((a, b) => Phaser.Math.Distance.Between(a.x, a.y, x, y) - Phaser.Math.Distance.Between(b.x, b.y, x, y));
+
     var firstHittable = firstOrDefault(
         bodies,
         body =>
@@ -20,33 +18,38 @@ const hit = (scene, source, x, y, radius) => {
     if (!firstHittable) {
         return;
     }
-    firstHittable.gameObject.onHit();
+    firstHittable.gameObject.onHit(source, damage);
 };
 
-const swing = (scene, source, targetX, targetY) => {
+const swing = (scene, source, targetX, targetY, damage = 1) => {
     let woosh = scene.add.sprite(0, 0, 'woosh1');
     woosh.x = targetX;
     woosh.y = targetY;
     woosh.on('animationcomplete', function (anim, frame) {
         woosh.destroy();
-      }, woosh);
+    }, woosh);
     woosh.play('woosh');
     woosh.rotation = Phaser.Math.Angle.Between(
         source.x, source.y,
         targetX, targetY);
     woosh.flipY = Math.abs(woosh.rotation) > Phaser.Math.TAU;
 
-    hit(scene, source, targetX, targetY, 3);
+    hit(scene, source, targetX, targetY, 3, damage);
 }
 
 const explode = (scene, source, targetX, targetY) => {
-    debugger;
+
+    if (!scene) {
+        console.log('explode with undefined scene');
+        return;
+    }
+
     let explosion = scene.add.sprite(0, 0, 'explosion1');
     explosion.x = targetX;
     explosion.y = targetY;
     explosion.on('animationcomplete', function (anim, frame) {
         explosion.destroy();
-      }, explosion);
+    }, explosion);
     explosion.play('explode');
 
     hit(scene, source, targetX, targetY, 3);
