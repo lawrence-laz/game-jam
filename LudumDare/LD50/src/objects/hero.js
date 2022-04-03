@@ -369,6 +369,11 @@ class Hero extends Phaser.GameObjects.Sprite {
     }
 
     convertToCorpse() {
+
+        if (!this.scene) {
+            return;
+        }
+
         let corpse = this.scene.add.sprite(this.x, this.y, this.corpseTexture);
         corpse.setOrigin(0, 0);
         this.setVisible(false);

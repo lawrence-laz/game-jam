@@ -68,7 +68,6 @@ class Imp extends Phaser.GameObjects.Sprite {
         if (this.path == null) {
             console.log("oh well");
         } else {
-            console.log("heading for the gates!");
 
             if (this.path.length == 0) {
                 this.path = null;
@@ -123,14 +122,44 @@ class Imp extends Phaser.GameObjects.Sprite {
     }
 
     convertToCorpse() {
-        let corpse = this.scene.add.sprite(this.corpseTexture, this.x, this.y);
+
+        if (!this.scene) {
+            return;
+        }
+
+        let corpse = this.scene.add.sprite(this.x, this.y, this.corpseTexture);
         corpse.setOrigin(0, 0);
-        this.scene.tweens.add({
-            targets: corpse,
-            x: this.x,
-            y: 15 * 16,
-            duration: 2000,
-        });
+        corpse.setDepth(-1);
+
+        let hero = this.scene.children.getByName('hero');
+        if (hero != null) {
+
+            let direction = new Phaser.Math.Vector2(
+                this.x - hero.x,
+                this.y - hero.y
+            ).normalize().setLength(5);
+
+            var timeline = this.scene.tweens.createTimeline();
+
+            timeline.add({
+                targets: corpse,
+                x: this.x + direction.x,
+                y: this.y + direction.y,
+                duration: 500,
+                ease: 'Expo.easeOut'
+            });
+        
+            timeline.add({
+                targets: corpse,
+                duration: 5000,
+                alpha: 0,
+                onComplete: () => corpse.destroy()
+                // callback: () => corpse.destroy()
+            });
+        
+            timeline.play();
+            // this.scene.time.delayedCall(2000, () => corpse.destroy());
+        }
     }
 
     onHit(source) {
@@ -179,7 +208,8 @@ class Imp extends Phaser.GameObjects.Sprite {
                             }
 
                             this.destroy();
-                        }
+                        },
+                        callbackScope: this
                     })
 
                 } else {

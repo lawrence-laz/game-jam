@@ -29,7 +29,7 @@ class GameOver extends Phaser.Scene {
         this.restarting = false;
         this.shouldRestart = false;
 
-        this.time.delayedCall(500, () => {
+        this.time.delayedCall(300, () => {
             this.allowRestart = true;
         });
 

@@ -96,14 +96,16 @@ class FlyingImp extends Phaser.GameObjects.Sprite {
             this.clearTint();
             this.health -= 1;
             if (this.health <= 0) {
-                let corpse = this.scene.add.sprite(this.corpseTexture, this.x, this.y);
-                corpse.setOrigin(0, 0);
-                this.scene.tweens.add({
-                    targets: corpse,
-                    x: this.x,
-                    y: 15 * 16,
-                    duration: 2000,
-                });
+                if (this.scene) {
+                    let corpse = this.scene.add.sprite(this.x, this.y, this.corpseTexture);
+                    corpse.setOrigin(0, 0);
+                    this.scene.tweens.add({
+                        targets: corpse,
+                        x: this.x,
+                        y: 15 * 16,
+                        duration: 2000,
+                    });
+                }
 
                 this.destroy();
             }

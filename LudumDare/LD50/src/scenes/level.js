@@ -46,15 +46,16 @@ class Level extends Phaser.Scene {
         this.objects = this.add.group();
 
         this.grid = new Grid(this);
+        this.grid.setDepth(-10);
         this.spawner = new Spawner(this.grid, this, 0, 0);
         this.score = 0;
 
         this.hero = new Hero(this.grid, this);
         hero = this.hero;
 
-        let box = new Box(this, 100, 0);
+        // let box = new Box(this, 100, 0);
 
-        this.grid.setCellTo(box, 0, 0);
+        // this.grid.setCellTo(box, 0, 0);
 
         // let ground = this.physics.add.sprite(0, 16 * 11, 'ground');
         // ground.setName('ground');
@@ -62,7 +63,7 @@ class Level extends Phaser.Scene {
         // this.objects.add(ground);
 
         this.objects.add(this.hero);
-        this.objects.add(box);
+        // this.objects.add(box);
         this.physics.add.collider(
             this.objects,
             this.objects,
@@ -137,8 +138,6 @@ class Level extends Phaser.Scene {
         // var text = helloWorld(this);
 
         this.input.on('pointerdown', function (pointer) {
-
-
             // var text = helloWorld(this, pointer.x, pointer.y);
         }, this);
     }
