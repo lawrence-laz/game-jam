@@ -76,7 +76,7 @@ class LoadingScene extends Phaser.Scene {
         this.load.audio('enemy-voice2', './res/sounds/enemy-voice2.wav');
         this.load.audio('click', './res/sounds/click.wav');
 
-        this.load.bitmapFont('font', 'res/fonts/pixel.png', '/res/fonts/pixel.xml');
+        this.load.bitmapFont('font', 'res/fonts/pixel.png', 'res/fonts/pixel.xml');
     }
 
     create() {
