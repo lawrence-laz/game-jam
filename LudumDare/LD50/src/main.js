@@ -16,7 +16,7 @@ var config = {
     },
     pixelArt: true,
     zoom: 4,
-    scene: [LoadingScene, /*MainMenu,*/ GameOver, Level]
+    scene: [LoadingScene, MainMenu, Level, GameOver]
 };
 
 var game = new Phaser.Game(config);

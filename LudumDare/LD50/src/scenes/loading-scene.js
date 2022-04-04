@@ -6,6 +6,9 @@ class LoadingScene extends Phaser.Scene {
     }
 
     preload() {
+
+        this.createLoadingAnimation();
+
         this.sound.pauseOnBlur = false;
         this.load.image('play-button', 'res/images/play.png');
         this.load.image('dust1', 'res/images/dust1.png');
@@ -52,7 +55,8 @@ class LoadingScene extends Phaser.Scene {
         this.load.image('chubby-imp-inverted', 'res/images/chubby-imp-inverted.png');
         this.load.image('left-gate-open', 'res/images/left-gate-open.png');
         this.load.image('right-gate-open', 'res/images/right-gate-open.png');
-        
+        this.load.image('main-menu', 'res/images/main-menu.png');
+
         this.load.audio('music', './res/sounds/music.wav');
         this.load.audio('push', './res/sounds/push.wav');
         this.load.audio('swing', './res/sounds/swing.wav');
@@ -203,8 +207,60 @@ class LoadingScene extends Phaser.Scene {
             repeat: 0,
         });
 
-        // TODO: Change to main-menu before release
-        this.scene.start('level');
+        this.scene.start('main-menu');
+    }
+
+    createLoadingAnimation() {
+
+        const bars = []
+        const radius = 32
+        const height = radius * 0.5
+        const width = 3
+        const cx = 5 * 16;
+        const cy = 6 * 16;
+        let angle = -90
+
+        for (let i = 0; i < 12; ++i) {
+
+            const { x, y } = Phaser.Math.RotateAround({ x: cx, y: cy - (radius - (height * 0.5)) }, cx, cy, Phaser.Math.DEG_TO_RAD * angle)
+            const bar = this.add.rectangle(x, y, width, height, 0xffffff, 1)
+                .setAngle(angle)
+                .setAlpha(0.2)
+
+            bars.push(bar)
+
+            angle += 30
+        }
+
+        let index = 0
+        const tweens = []
+        this.time.addEvent({
+            delay: 70,
+            loop: true,
+            callback: () => {
+                if (index < tweens.length) {
+                    const tween = tweens[index]
+                    tween.restart()
+                }
+                else {
+                    const bar = bars[index]
+                    const tween = this.tweens.add({
+                        targets: bar,
+                        alpha: 0.2,
+                        duration: 400,
+                        onStart: () => {
+                            bar.alpha = 1
+                        }
+                    })
+
+                    tweens.push(tween)
+                }
+                ++index
+                if (index >= bars.length) {
+                    index = 0
+                }
+            }
+        })
     }
 
     update() {

@@ -10,8 +10,6 @@ class GameOver extends Phaser.Scene {
 
     create(data) {
 
-        // TODO: spawn in text with sounds and tween.
-
         this.deathReason(data.reason);
         this.score(data.score);
 

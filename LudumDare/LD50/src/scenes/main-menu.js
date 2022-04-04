@@ -1,41 +1,51 @@
 class MainMenu extends Phaser.Scene {
 
-    constructor ()
-    {
+    constructor() {
         super('main-menu');
-        this.playButton;
+        this.mainMenuSprite;
     }
 
-    preload ()
-    {
+    preload() {
     }
 
-    create ()
-    {
-        this.playButton = this.add.image(400, 300, 'play-button');
+    create() {
+        this.mainMenuSprite = this.add.image(0, 0, 'main-menu');
+        this.mainMenuSprite.setOrigin(0, 0);
 
-        this.input.keyboard.addCapture('UP, DOWN, LEFT, RIGHT')
+        let title = this.add.bitmapText(
+            5 * 16, 3 * 16, 'font', `Gate\nKeeper`);
+        title.setOrigin(0.5);
+        title.setFontSize(20);
 
-        this.input.keyboard.on('keydown-UP', function (event) {
+        let startText = this.add.bitmapText(
+            5 * 16, 6 * 16, 'font', `Press any key to start . . .`);
+        startText.setOrigin(0.5);
+        startText.setFontSize(8);
+        startText.setMaxWidth(8 * 16);
 
-            this.playButton.y -= 4;
-
+        this.input.on('pointerdown', function (pointer) {
+            this.shouldStart = true;
         }, this);
 
-
-
-        this.playButton.setInteractive();
-        this.playButton.on('pointerdown', function () {
-
-            this.scene.transition({ target: 'level', duration: 200 });
-
+        this.input.keyboard.on('keydown', function (event) {
+            this.startLevelScene();
         }, this);
 
     }
 
-    update ()
-    {
-        this.playButton.rotation += 0.001;
+    startLevelScene() {
+        if (this.restarting) {
+            return;
+        }
+        this.restart = true;
+
+        this.scene.start('level');
+    }
+
+    update() {
+        if (this.shouldStart) {
+            this.startLevelScene();
+        }
     }
 
 }
