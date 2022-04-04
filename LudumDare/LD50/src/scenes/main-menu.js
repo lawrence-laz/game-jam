@@ -9,6 +9,13 @@ class MainMenu extends Phaser.Scene {
     }
 
     create() {
+
+        let music = this.sound.add('music');
+        music.play({
+            loop: true,
+            volume: 0.4
+        });
+
         this.mainMenuSprite = this.add.image(0, 0, 'main-menu');
         this.mainMenuSprite.setOrigin(0, 0);
 

@@ -24,9 +24,6 @@ class Level extends Phaser.Scene {
 
     create() {
 
-        let music = this.sound.add('music');
-        // music.play();
-
         this.objects = this.add.group();
 
         this.grid = new Grid(this);
