@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 385076711589175675}
   - component: {fileID: 385076711589175676}
   - component: {fileID: 385076711589175677}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: a3eb94eeaf1150075879ed114efad7a3, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 0
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 385076711687945520}
   - component: {fileID: 385076711687945535}
   - component: {fileID: 385076711687945521}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,4 +279,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.41702458
