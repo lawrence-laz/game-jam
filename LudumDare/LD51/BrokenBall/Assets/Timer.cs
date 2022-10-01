@@ -9,6 +9,10 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
+        if (IsStarted)
+        {
+            return;
+        }
         IsStarted = true;
         LastTickAt = Time.time;
     }

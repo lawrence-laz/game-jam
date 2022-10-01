@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         Body = GetComponent<Rigidbody2D>();
+        GetComponent<DistanceFollow>().Target = GameObject.Find("Paddle").transform;
     }
 
     private void Update()
@@ -19,6 +20,7 @@ public class Ball : MonoBehaviour
         {
             Body.velocity = Vector2.up * Speed;
             FindObjectOfType<Timer>().StartTimer();
+            Destroy(GetComponent<DistanceFollow>());
         }
         LastVelocity = Body.velocity;
     }
