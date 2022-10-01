@@ -12,6 +12,6 @@ public class Paddle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Body.velocity = Input.GetAxis("Horizontal") * Speed * Vector2.right;
+        Body.velocity = Input.GetAxisRaw("Horizontal") * Speed * Vector2.right;
     }
 }
