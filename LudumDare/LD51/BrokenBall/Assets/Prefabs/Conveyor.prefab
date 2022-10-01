@@ -46,9 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartedAt: 0
-  StepVector: {x: 0, y: 2}
+  StepVector: {x: 0, y: -3}
   SpawnPoint: {fileID: 0}
-  SimpleTileLine: {fileID: 0}
+  IsStarted: 0
+  SpawnPeriodByDistance: 1.5
+  ShouldSpawnUpgrade: 0
+  SimpleTileLine: {fileID: 7665637151881484663, guid: 9135037221fb870f5a2d7384cfe58b51, type: 3}
+  UpgradePrefabs: []
+  LastSpawnDistance: 0
 --- !u!1001 &4122231552289704903
 PrefabInstance:
   m_ObjectHideFlags: 0

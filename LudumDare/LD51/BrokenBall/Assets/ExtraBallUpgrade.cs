@@ -7,5 +7,6 @@ public class ExtraBallUpgrade : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D _)
     {
         var newBall = Instantiate(NewBallPrefab);
+        newBall.GetComponent<Ball>().Launch();
     }
 }

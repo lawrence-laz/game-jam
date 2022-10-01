@@ -32,7 +32,9 @@ public class DistanceFollow : MonoBehaviour
     {
         if (_body != null)
         {
-            _body.MovePosition(Vector2.MoveTowards(_body.position, Target.position, _currentSpeed * Time.deltaTime));
+            var target = Target.position + (Vector3)Offset;
+            _body.MovePosition(target);
+            // _body.MovePosition(Vector2.MoveTowards(_body.position, target, 9999 * Time.deltaTime));
         }
         else
         {

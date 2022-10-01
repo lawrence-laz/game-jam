@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Libs.Base.Extensions;
 using UnityEngine;
 
 public class Conveyor : MonoBehaviour
@@ -11,14 +12,17 @@ public class Conveyor : MonoBehaviour
 
     [Header("Spawner prefabs")]
     public GameObject SimpleTileLine;
+    public GameObject[] UpgradePrefabs;
 
     [Header("Internals")]
     public float LastSpawnDistance = 0;
+    public bool ShouldSpawnUpgrade;
     private Sequence _sequence;
 
     void Start()
     {
         FindObjectOfType<Timer>().OnTenSeconds.AddListener(EveryTenSeconds);
+        FindObjectsOfType<UpgradeSpawner>().GetRandom().AddUpgrade(UpgradePrefabs.GetRandom());
     }
 
     private void Update()
@@ -29,7 +33,13 @@ public class Conveyor : MonoBehaviour
             var currentDistance = transform.position.y;
             if (Mathf.Abs(currentDistance - LastSpawnDistance) >= SpawnPeriodByDistance)
             {
-                Instantiate(SimpleTileLine, SpawnPoint.position, Quaternion.identity, transform);
+                var line = Instantiate(SimpleTileLine, SpawnPoint.position, Quaternion.identity, transform);
+                if (ShouldSpawnUpgrade)
+                {
+                    var spawner = line.GetComponentsInChildren<UpgradeSpawner>().GetRandom();
+                    spawner.AddUpgrade(UpgradePrefabs.GetRandom());
+                    ShouldSpawnUpgrade = false;
+                }
                 LastSpawnDistance = currentDistance;
             }
         }
@@ -38,6 +48,7 @@ public class Conveyor : MonoBehaviour
     private void EveryTenSeconds()
     {
         IsStarted = true;
+        ShouldSpawnUpgrade = true;
         // Debug.Log($"Current time: {Time.time}");
         // Instantiate(SimpleTileLine, SpawnPoint.position, Quaternion.identity, transform);
         // transform.DOLocalMove((Vector3)StepVector, 3).SetRelative(true);

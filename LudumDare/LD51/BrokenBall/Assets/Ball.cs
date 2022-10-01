@@ -18,11 +18,16 @@ public class Ball : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && GetComponent<DistanceFollow>() != null)
         {
-            Body.velocity = Vector2.up * Speed;
-            FindObjectOfType<Timer>().StartTimer();
-            Destroy(GetComponent<DistanceFollow>());
+            Launch();
         }
         LastVelocity = Body.velocity;
+    }
+
+    public void Launch()
+    {
+        Body.velocity = Vector2.up * Speed;
+        FindObjectOfType<Timer>().StartTimer();
+        Destroy(GetComponent<DistanceFollow>());
     }
 
     private void FixedUpdate()

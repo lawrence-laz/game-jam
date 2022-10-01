@@ -240,6 +240,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 14
   Body: {fileID: 5767448166745991426}
+  SqueezedScale: {x: 1.3, y: 0.5}
+  SqueezeLerpBound: 1
 --- !u!70 &4588755510653956434
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
