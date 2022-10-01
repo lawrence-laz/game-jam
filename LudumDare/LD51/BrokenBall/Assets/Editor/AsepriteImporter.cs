@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class AsepriteImporter : AssetPostprocessor
 {
+    public AsepriteImporter()
+    {
+        // Unity.Collections.LowLevel.Unsafe.UnsafeUtility.ForgiveLeaks();
+    }
+
     static void OnPostprocessAllAssets(
     string[] importedAssets,
     string[] deletedAssets,
