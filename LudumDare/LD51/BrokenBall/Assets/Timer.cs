@@ -6,6 +6,7 @@ public class Timer : MonoBehaviour
     public float LastTickAt;
     public bool IsStarted;
     public UnityEvent OnTenSeconds;
+    public UnityEvent OnStarted;
 
     public void StartTimer()
     {
@@ -13,6 +14,7 @@ public class Timer : MonoBehaviour
         {
             return;
         }
+        OnStarted.Invoke();
         IsStarted = true;
         LastTickAt = Time.time;
     }

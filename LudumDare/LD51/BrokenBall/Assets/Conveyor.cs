@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Conveyor : MonoBehaviour
@@ -8,6 +6,8 @@ public class Conveyor : MonoBehaviour
     public float StartedAt = 0;
     public Vector2 StepVector;
     public Transform SpawnPoint;
+
+    private Sequence _sequence;
 
     [Header("Spawner prefabs")]
     public GameObject SimpleTileLine;
@@ -19,7 +19,8 @@ public class Conveyor : MonoBehaviour
 
     private void EveryTenSeconds()
     {
+        Debug.Log($"Current time: {Time.time}");
         Instantiate(SimpleTileLine, SpawnPoint.position, Quaternion.identity, transform);
-        transform.localPosition += (Vector3)StepVector;
+        transform.DOLocalMove((Vector3)StepVector, 3).SetRelative(true);
     }
 }
