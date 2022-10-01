@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -7,6 +8,8 @@ public class Ball : MonoBehaviour
     public float Speed;
     public Rigidbody2D Body;
     public Vector2 LastVelocity;
+    public ParticleSystem Particles;
+    public float PunchStrength = 1;
 
     private void Start()
     {
@@ -16,7 +19,7 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<DistanceFollow>() != null)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && GetComponent<DistanceFollow>() != null)
         {
             Launch();
         }
@@ -50,6 +53,8 @@ public class Ball : MonoBehaviour
         // }
         // normal = normal.normalized;
 
+        Particles.Play();
+
         Vector2 newDirection;
         if (other.gameObject.name == "Paddle")
         {
@@ -72,5 +77,25 @@ public class Ball : MonoBehaviour
             newDirection = newDirection.normalized;
         }
         Body.velocity = newDirection * Speed;
+
+        if (other.gameObject.GetComponent<TileDestroyer>() != null)
+        {
+            Debug.Log("Destroying other: " + other.gameObject.name);
+            Destroy(other.gameObject, 0.4f);
+            other.gameObject.GetComponentInChildren<Collider2D>().enabled = false;
+            var sprite =other.transform.GetComponentInChildren<SpriteRenderer>();
+            var color = sprite.color;
+            color.a = 0;
+            DOTween.Sequence()
+                .Append(other.transform.DOPunchPosition(
+                    punch: transform.DirectionTo(other.transform) * PunchStrength,
+                    duration: 0.6f,
+                    vibrato: 2,
+                    elasticity: 1))
+                .Join(sprite.DOColor(color, 0.3f))
+                // .Join(other.transform.DOLocalRotate(Vector3.forward * 270, 0.2f, RotateMode.LocalAxisAdd))
+                // .Join(other.transform.DOMove(new Vector2(other.transform.position.x, -10), 1))
+                .Play();
+        }
     }
 }

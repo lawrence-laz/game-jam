@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5925446125627279269}
   - component: {fileID: 3426853825311362773}
   - component: {fileID: 6026821136311755674}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,8 @@ GameObject:
   - component: {fileID: 7196036910251799054}
   - component: {fileID: 1273358196571322861}
   - component: {fileID: 3481493371207637916}
-  m_Layer: 0
+  - component: {fileID: 8259065605891701012}
+  m_Layer: 13
   m_Name: SimpleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,6 +261,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeMarker: {fileID: 2493318112440493727}
   UpgradePrefab: {fileID: 0}
+--- !u!114 &8259065605891701012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7196036910251799055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80fa8843e545b647bb289fe295077d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7196036910599993852
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7196036910599993855}
   - component: {fileID: 7196036910599993854}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
