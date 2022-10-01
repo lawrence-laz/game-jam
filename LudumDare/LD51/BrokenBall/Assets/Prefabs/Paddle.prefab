@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5767448165022480943}
   - component: {fileID: 5767448165022480944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5767448166030368573}
   - component: {fileID: 5767448166030368574}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RightCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,9 +178,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5767448166745991424}
   - component: {fileID: 5767448166745991426}
-  - component: {fileID: 5767448166745991425}
   - component: {fileID: 5767448166745991427}
-  m_Layer: 0
+  - component: {fileID: 4588755510653956434}
+  m_Layer: 10
   m_Name: Paddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,38 +226,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!60 &5767448166745991425
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5767448166745991487}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.5856624, y: 0.15207024}
-      - {x: 0, y: 0.19626689}
-      - {x: -0.5449963, y: 0.14432809}
-      - {x: -1.2225142, y: 0.005077094}
-      - {x: -1.099684, y: -0.16594422}
-      - {x: 1.0836873, y: -0.1691435}
-      - {x: 1.2321124, y: 0.0018773973}
 --- !u!114 &5767448166745991427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,8 +238,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea730065a9280e6d8d4fb88dea9e9e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
+  Speed: 14
   Body: {fileID: 5767448166745991426}
+--- !u!70 &4588755510653956434
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767448166745991487}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0022684338, y: 0.00047139803}
+  m_Size: {x: 2.3828135, y: 0.40019467}
+  m_Direction: 1
 --- !u!1 &5767448166956257155
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5767448166956257156}
   - component: {fileID: 5767448166956257157}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

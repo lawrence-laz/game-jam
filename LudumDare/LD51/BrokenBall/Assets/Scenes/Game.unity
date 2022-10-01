@@ -1683,12 +1683,16 @@ PrefabInstance:
       objectReference: {fileID: 1464721286}
     - target: {fileID: 6004648098149430750, guid: 009e0213db88a20ff8a047d16dfe01a0, type: 3}
       propertyPath: StepVector.y
-      value: -1.5
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6004648098149430750, guid: 009e0213db88a20ff8a047d16dfe01a0, type: 3}
       propertyPath: SimpleTileLine
       value: 
       objectReference: {fileID: 7665637151881484663, guid: 9135037221fb870f5a2d7384cfe58b51, type: 3}
+    - target: {fileID: 6004648098149430750, guid: 009e0213db88a20ff8a047d16dfe01a0, type: 3}
+      propertyPath: SpawnPeriodByDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6004648098149430751, guid: 009e0213db88a20ff8a047d16dfe01a0, type: 3}
       propertyPath: m_RootOrder
       value: 11

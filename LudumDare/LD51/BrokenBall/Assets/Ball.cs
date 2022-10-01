@@ -16,13 +16,24 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Body.velocity.magnitude < Speed - 0.1f)
+        if (Input.GetKeyDown(KeyCode.Space) && GetComponent<DistanceFollow>() != null)
         {
             Body.velocity = Vector2.up * Speed;
             FindObjectOfType<Timer>().StartTimer();
             Destroy(GetComponent<DistanceFollow>());
         }
         LastVelocity = Body.velocity;
+    }
+
+    private void FixedUpdate()
+    {
+        if (Mathf.Abs(Body.velocity.normalized.x) > 0.8f)
+        {
+            var diagonalizedVelocity = Body.velocity.normalized;
+            diagonalizedVelocity.y = 1 * Mathf.Sign(diagonalizedVelocity.y);
+            diagonalizedVelocity = diagonalizedVelocity.normalized * Body.velocity.magnitude;
+            Body.velocity = diagonalizedVelocity;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -33,14 +44,23 @@ public class Ball : MonoBehaviour
         //     normal -= other.contacts[i].normal;
         // }
         // normal = normal.normalized;
-        var normal = Vector2.zero;
-        for (var i = 0; i < other.contactCount; ++i)
-        {
-            normal += (Vector2)transform.position - other.contacts[i].point;
-        }
-        normal = normal.normalized;
 
-        var newDirection = Vector2.Reflect(LastVelocity, normal).normalized;
+        Vector2 newDirection;
+        if (other.gameObject.name == "Paddle")
+        {
+            newDirection = other.gameObject.transform.DirectionTo(transform);
+        }
+        else
+        {
+            var normal = Vector2.zero;
+            for (var i = 0; i < other.contactCount; ++i)
+            {
+                normal += (Vector2)transform.position - other.contacts[i].point;
+            }
+            normal = normal.normalized;
+            newDirection = Vector2.Reflect(LastVelocity, normal).normalized;
+        }
+
         if (Mathf.Abs(newDirection.x) > 0.8f)
         {
             newDirection += new Vector2(0, newDirection.y);
