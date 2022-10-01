@@ -15,7 +15,7 @@ public class SubmitHighscore : MonoBehaviour
 
     public void Submit()
     {
-        FindObjectOfType<Highscore>().LogIn(NameField.text, () =>
+        FindObjectOfType<Highscore>().LogIn(NameField.text.PadLeft(3, ' '), () =>
         {
             FindObjectOfType<Highscore>().UploadHighscore(NameField.text, () =>
             {

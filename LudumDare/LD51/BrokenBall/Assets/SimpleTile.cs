@@ -14,5 +14,9 @@ public class SimpleTile : MonoBehaviour
         {
             score.CurrentScore++;
         }
+        else
+        {
+            Debug.Log("Couldn't find scopre object!");
+        }
     }
 }
