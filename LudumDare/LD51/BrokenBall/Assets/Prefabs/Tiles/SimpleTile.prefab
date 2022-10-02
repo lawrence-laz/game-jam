@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 1273358196571322861}
   - component: {fileID: 3481493371207637916}
   - component: {fileID: 8259065605891701012}
+  - component: {fileID: -8839926877877533562}
   m_Layer: 13
   m_Name: SimpleTile
   m_TagString: Untagged
@@ -272,6 +273,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80fa8843e545b647bb289fe295077d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8839926877877533562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7196036910251799055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27a2161849f202a0819f747c908a078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7196036910599993852
@@ -383,6 +396,7 @@ GameObject:
   - component: {fileID: 4468518211791777116}
   - component: {fileID: 2483845268873768204}
   - component: {fileID: 8381789464710899741}
+  - component: {fileID: 8729883079144210316}
   m_Layer: 13
   m_Name: Square (1)
   m_TagString: Untagged
@@ -470,3 +484,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &8729883079144210316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8950348458181291769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04003f7aad9e41d52bb047f0b4449865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorRangeStart: {r: 0.26666668, g: 0, b: 0.03137255, a: 1}
+  ColorRangeEnd: {r: 0.36862746, g: 0, b: 0.047058824, a: 1}

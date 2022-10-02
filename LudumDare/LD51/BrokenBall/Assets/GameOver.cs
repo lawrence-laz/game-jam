@@ -54,7 +54,7 @@ public class GameOver : MonoBehaviour
         }
         FindObjectOfType<Timer>().StopTimer();
         FindObjectOfType<Paddle>().enabled = false;
-        FindObjectOfType<ScreenShake>().MediumShake();
+        // FindObjectOfType<ScreenShake>().MediumShake(); // Camera is busy showing where game over occured. Would need a separate transform.
         FindObjectOfType<GlobalAudio>().Play(GlobalAudio.Instance.LostBall);
         foreach (var rotator in FindObjectsOfType<Rotate>())
         {
