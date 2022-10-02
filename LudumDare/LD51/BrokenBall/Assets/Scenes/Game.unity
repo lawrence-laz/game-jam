@@ -1587,10 +1587,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3002819487742322740, guid: fc79256864d08b344bd30c900babba8a, type: 3}
-      propertyPath: OnTileHit
-      value: 
-      objectReference: {fileID: 8300000, guid: 99f69bffc54b11c378793a04360a56bc, type: 3}
+    - target: {fileID: 385076711589175677, guid: fc79256864d08b344bd30c900babba8a, type: 3}
+      propertyPath: VelocitySqueezeScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc79256864d08b344bd30c900babba8a, type: 3}
 --- !u!1001 &650653479331116057

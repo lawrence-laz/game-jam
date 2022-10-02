@@ -11,6 +11,7 @@ public class Ball : MonoBehaviour
     public Vector2 LastVelocity;
     public ParticleSystem Particles;
     public float PunchStrength = 1;
+    public Vector2 VelocitySqueezeScale;
 
     private void Start()
     {
@@ -20,6 +21,13 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
+        var visuals = transform.Find("Visuals");
+        visuals.localScale = Vector2.Lerp(Vector2.one, VelocitySqueezeScale, Mathf.Clamp01(Body.velocity.magnitude / Speed));
+        visuals.up = Body.velocity.normalized;
+        // var target = (Vector2)transform.position + Body.velocity.normalized;
+        // var angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
+        // transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && GetComponent<DistanceFollow>() != null)
         {
             Launch();
