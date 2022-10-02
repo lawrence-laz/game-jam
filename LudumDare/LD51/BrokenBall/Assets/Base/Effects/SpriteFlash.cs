@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Threading;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Libs.Base.Effects
@@ -12,6 +13,7 @@ namespace Libs.Base.Effects
         private SpriteRenderer _renderer;
 
         private Sequence _animation;
+        private Color _originalColor;
 
         private void OnEnable()
         {
@@ -22,6 +24,7 @@ namespace Libs.Base.Effects
 
         public void WhiteSprite()
         {
+            _originalColor = _renderer.color;
             _renderer.material.shader = _whiteShader;
             _renderer.color = Color;
         }
@@ -29,7 +32,15 @@ namespace Libs.Base.Effects
         public void NormalSprite()
         {
             _renderer.material.shader = _defaultShader;
-            _renderer.color = Color.white;
+            _renderer.color = _originalColor;
+        }
+
+        private void Update()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.F))
+            {
+                Blink();
+            }
         }
 
         public void Blink()
@@ -42,6 +53,21 @@ namespace Libs.Base.Effects
                 .AppendCallback(NormalSprite)
                 .AppendInterval(0.05f)
                 .SetLoops(4);
+        }
+
+        public void Blink(int loops, out Sequence animation)
+        {
+            _animation?.Kill();
+
+            _animation = DOTween.Sequence()
+                .AppendCallback(WhiteSprite)
+                .AppendInterval(0.05f)
+                .AppendCallback(() => Thread.Sleep(50))
+                .AppendCallback(NormalSprite)
+                .AppendInterval(0.05f)
+                .SetLoops(loops);
+
+            animation = _animation;
         }
     }
 }

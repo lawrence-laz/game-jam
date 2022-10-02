@@ -342,6 +342,7 @@ MonoBehaviour:
   Body: {fileID: 5767448166745991426}
   SqueezedScale: {x: 1.3, y: 0.5}
   SqueezeLerpBound: 1
+  HorizontalLimits: {x: -7.2, y: 7.2}
 --- !u!1 &5767448166956257155
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Libs.Base.Effects;
 using UnityEngine;
 
 public class PaddleEnemy : MonoBehaviour
 {
+    public Tween Tween;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.name == "Paddle")
         {
+            transform.DOKill();
+            transform.parent?.DOKill();
+            Tween?.Kill();
+
             var sprites = other.gameObject.GetComponentsInChildren<SpriteRenderer>();
             foreach (var sprite in sprites)
             {
@@ -21,7 +28,7 @@ public class PaddleEnemy : MonoBehaviour
                 spriteFlash.Blink();
             }
 
-            FindObjectOfType<GameOver>().Invoke();
+            FindObjectOfType<GameOver>().InvokeCollidedWithObstacle(other.contacts[0].point);
         }
     }
 }

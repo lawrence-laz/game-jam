@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Libs.Base.Effects;
 using UnityEngine;
 
 public class SimpleTile : MonoBehaviour
@@ -8,6 +9,11 @@ public class SimpleTile : MonoBehaviour
         // Destroy(gameObject);
         if (other.gameObject.GetComponent<Ball>())
         {
+            foreach (var flash in gameObject.GetComponentsInChildren<SpriteFlash>())
+            {
+                flash.Blink();
+            }
+
             var score = FindObjectOfType<Highscore>();
             if (score != null)
             {

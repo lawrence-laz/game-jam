@@ -4956,7 +4956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6456983f09365a0d8bffed5fce77a57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 25
+  Speed: 15
   Body: {fileID: 385076711589175676}
   LastVelocity: {x: 0, y: 0}
   Particles: {fileID: 6286736606445987192}

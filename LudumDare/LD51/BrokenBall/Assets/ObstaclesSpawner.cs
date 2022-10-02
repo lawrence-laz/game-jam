@@ -40,8 +40,9 @@ public class ObstaclesSpawner : MonoBehaviour
         for (var i = 0; i < transform.childCount; ++i)
         {
             Debug.Log("AAAAAAAAAAAAAAAAA");
-            transform.GetChild(i).DOMove(Vector3.down * 15, destroyDuration).SetEase(Ease.InExpo);
-            Destroy(transform.GetChild(i).gameObject, destroyDuration);
+            var tween = transform.GetChild(i).DOMove(Vector3.down * 15, destroyDuration).SetEase(Ease.InExpo).SetId(transform);
+            // transform.GetComponent<PaddleEnemy>().Tween = tween;
+            // Destroy(transform.GetChild(i).gameObject, destroyDuration);
         }
 
         Instantiate(prefabBag.GetRandom(), transform);

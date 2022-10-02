@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using Libs.Base.Effects;
 
 public class Ball : MonoBehaviour
 {
@@ -108,7 +109,9 @@ public class Ball : MonoBehaviour
             var sprite = other.transform.GetComponentInChildren<SpriteRenderer>();
             var color = sprite.color;
             color.a = 0;
+            other.gameObject.GetComponentInChildren<SpriteFlash>().Blink(1, out var blinking);
             DOTween.Sequence()
+                .Append(blinking)
                 .Append(other.transform.DOPunchPosition(
                     punch: transform.DirectionTo(other.transform) * PunchStrength,
                     duration: 0.6f,

@@ -1,4 +1,5 @@
 using System.Threading;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -41,6 +42,27 @@ public class GameOver : MonoBehaviour
         OnGameOver.Invoke();
         // RestartLevel();
         FindObjectOfType<Timer>().StopTimer();
+    }
+
+    public void InvokeCollidedWithObstacle(Vector2 position)
+    {
+        IsGameOver = true;
+        var upgrades = FindObjectsOfType<Upgrade>();
+        foreach (var upgrade in upgrades)
+        {
+            Destroy(upgrade.gameObject);
+        }
+        FindObjectOfType<Timer>().StopTimer();
+        FindObjectOfType<Paddle>().enabled = false;
+        FindObjectOfType<ScreenShake>().MediumShake();
+        FindObjectOfType<GlobalAudio>().Play(GlobalAudio.Instance.LostBall);
+
+        DOTween.Sequence()
+            .Append(Camera.main.transform.DOMove(new Vector3(position.x, position.y, Camera.main.transform.position.z), 0.5f)).SetEase(Ease.OutBounce)
+            .Join(Camera.main.DOOrthoSize(-1, 1f).SetRelative(true))
+            .AppendInterval(1)
+            .AppendCallback(() => OnGameOver.Invoke())
+            .Play();
     }
 
     public void RestartLevel()

@@ -6,6 +6,7 @@ public class Paddle : MonoBehaviour
     public Rigidbody2D Body;
     public Vector2 SqueezedScale;
     public float SqueezeLerpBound = 0.3f;
+    public Vector2 HorizontalLimits;
 
     private float _lastPositionX;
 
@@ -25,8 +26,9 @@ public class Paddle : MonoBehaviour
     private void FixedUpdate()
     {
         var mousePosition = Input.mousePosition;
-        mousePosition.x = Mathf.Clamp(Input.mousePosition.x, 50, Screen.width - 50);
+        mousePosition.x = Mathf.Clamp(Input.mousePosition.x, 40, Screen.width - 40);
         var mousePositionInWorld = Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePositionInWorld.x = Mathf.Clamp(mousePositionInWorld.x, HorizontalLimits.x, HorizontalLimits.y);
         Body.MovePosition(new Vector2(
             mousePositionInWorld.x, 
             Body.position.y));
