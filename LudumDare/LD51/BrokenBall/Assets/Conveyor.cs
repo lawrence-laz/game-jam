@@ -16,8 +16,9 @@ public class Conveyor : MonoBehaviour
 
     [Header("Internals")]
     public float LastSpawnDistance = 0;
-    public bool ShouldSpawnUpgrade;
+    public int ShouldSpawnUpgrade = 0;
     private Sequence _sequence;
+    public int Ticks = 0;
 
     void Start()
     {
@@ -36,11 +37,11 @@ public class Conveyor : MonoBehaviour
             if (Mathf.Abs(currentDistance - LastSpawnDistance) >= SpawnPeriodByDistance)
             {
                 var line = Instantiate(SimpleTileLine, SpawnPoint.position, Quaternion.identity, transform);
-                if (ShouldSpawnUpgrade)
+                if (ShouldSpawnUpgrade > 0)
                 {
                     var spawner = line.GetComponentsInChildren<UpgradeSpawner>().GetRandom();
                     spawner.AddUpgrade(UpgradePrefabs.GetRandom());
-                    ShouldSpawnUpgrade = false;
+                    ShouldSpawnUpgrade--;
                 }
                 LastSpawnDistance = currentDistance;
             }
@@ -49,8 +50,13 @@ public class Conveyor : MonoBehaviour
 
     private void EveryTenSeconds()
     {
+        Ticks++;
         IsStarted = true;
-        ShouldSpawnUpgrade = true;
+        ShouldSpawnUpgrade++;
+        if (Ticks > 2)
+        {
+            ShouldSpawnUpgrade++;
+        }
         if (IsStarted)
         {
             var speedMultiplier = FindObjectOfType<Highscore>().SpeedMultiplier;

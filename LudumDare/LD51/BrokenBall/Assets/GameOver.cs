@@ -21,7 +21,8 @@ public class GameOver : MonoBehaviour
     public void DelayedGameOver()
     {
         var balls = FindObjectsOfType<Ball>();
-        if (balls.Length == 0)
+        var extraBallUpgrades = FindObjectsOfType<ExtraBallUpgrade>();
+        if (balls.Length == 0 && extraBallUpgrades.Length == 0)
         {
             Invoke();
         }

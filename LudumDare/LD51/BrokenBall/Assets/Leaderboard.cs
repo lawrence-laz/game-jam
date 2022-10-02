@@ -12,6 +12,7 @@ public class Leaderboard : MonoBehaviour
     {
         Debug.Log("VISIBLE");
         Reload();
+        InvokeRepeating(nameof(Reload), 5, 5);
     }
 
     public void Reload()

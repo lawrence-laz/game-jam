@@ -4,7 +4,7 @@ using UnityEngine;
 public class Upgrade : MonoBehaviour
 {
     public Vector2 Velocity;
-    
+
 
     void Update()
     {
@@ -13,7 +13,10 @@ public class Upgrade : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        GlobalAudio.Instance.Play(GlobalAudio.Instance.Upgrade);
-        Destroy(gameObject);
+        if (other.gameObject.name == "Paddle")
+        {
+            GlobalAudio.Instance.Play(GlobalAudio.Instance.Upgrade);
+            Destroy(gameObject);
+        }
     }
 }

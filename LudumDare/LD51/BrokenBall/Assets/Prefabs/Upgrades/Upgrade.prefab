@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1804070022841352699}
   - component: {fileID: 3473455902793951399}
   - component: {fileID: -6826740215953760348}
+  - component: {fileID: -406138318295947697}
   m_Layer: 12
   m_Name: Upgrade
   m_TagString: Untagged
@@ -86,6 +87,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-406138318295947697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848474116891253596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2619d3018d62c7458d5ec8a5b75f744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3848474117414777379
 GameObject:
   m_ObjectHideFlags: 0

@@ -91,6 +91,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1804070022841352699, guid: 804009561d00f066aa5507ea8a5103ad, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3848474116891253596, guid: 804009561d00f066aa5507ea8a5103ad, type: 3}
       propertyPath: m_Name
       value: ExtraBallUpgrade
