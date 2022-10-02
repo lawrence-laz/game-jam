@@ -18,6 +18,14 @@ public class ScreenShake : MonoBehaviour
             .Append(Camera.main.transform.DOShakePosition(0.1f, 0.03f));
     }
 
+    public void HitShake()
+    {
+        KillExisting();
+
+        _anim = DOTween.Sequence()
+            .Append(Camera.main.transform.DOShakePosition(0.2f, 0.1f));
+    }
+
     public void MediumShake()
     {
         KillExisting();

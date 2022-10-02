@@ -12,7 +12,21 @@ public class GameOver : MonoBehaviour
         var balls = FindObjectsOfType<Ball>();
         if (!IsGameOver && balls.Length == 0)
         {
+            IsGameOver = true;
+            Invoke(nameof(DelayedGameOver), 0.7f);
+        }
+    }
+
+    public void DelayedGameOver()
+    {
+        var balls = FindObjectsOfType<Ball>();
+        if (balls.Length == 0)
+        {
             Invoke();
+        }
+        else
+        {
+            IsGameOver = false;
         }
     }
 

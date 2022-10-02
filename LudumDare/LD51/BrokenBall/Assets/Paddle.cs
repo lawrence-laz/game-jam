@@ -24,6 +24,11 @@ public class Paddle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Body.MovePosition(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Body.position.y));
+        var mousePosition = Input.mousePosition;
+        mousePosition.x = Mathf.Clamp(Input.mousePosition.x, 50, Screen.width - 50);
+        var mousePositionInWorld = Camera.main.ScreenToWorldPoint(mousePosition);
+        Body.MovePosition(new Vector2(
+            mousePositionInWorld.x, 
+            Body.position.y));
     }
 }

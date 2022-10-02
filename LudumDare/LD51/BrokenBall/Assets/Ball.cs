@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -55,13 +56,26 @@ public class Ball : MonoBehaviour
 
         Particles.Play();
 
+        FindObjectOfType<ScreenShake>().HitShake();
+
         Vector2 newDirection;
         if (other.gameObject.name == "Paddle")
         {
+            GetComponentInChildren<BallAudio>().PlayPaddleHit();
             newDirection = (other.gameObject.transform.DirectionTo(transform) + Vector3.up).normalized;
         }
         else
         {
+            if (other.transform.parent?.name == "Boundaries")
+            {
+                GetComponentInChildren<BallAudio>().PlayBoundaryHit();
+            }
+            else
+            {
+                GetComponentInChildren<BallAudio>().PlayTileHit();
+                RepeatedStutter.DoIt();
+            }
+
             var normal = Vector2.zero;
             for (var i = 0; i < other.contactCount; ++i)
             {
@@ -83,7 +97,7 @@ public class Ball : MonoBehaviour
             Debug.Log("Destroying other: " + other.gameObject.name);
             Destroy(other.gameObject, 0.4f);
             other.gameObject.GetComponentInChildren<Collider2D>().enabled = false;
-            var sprite =other.transform.GetComponentInChildren<SpriteRenderer>();
+            var sprite = other.transform.GetComponentInChildren<SpriteRenderer>();
             var color = sprite.color;
             color.a = 0;
             DOTween.Sequence()
