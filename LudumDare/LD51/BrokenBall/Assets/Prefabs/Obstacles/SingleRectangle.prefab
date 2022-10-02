@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3508851378305286914}
   - component: {fileID: -5516754251451835324}
+  - component: {fileID: -6866739985175518800}
   m_Layer: 0
   m_Name: SingleRectangle
   m_TagString: Untagged
@@ -49,6 +50,20 @@ MonoBehaviour:
   Duration: 2
   SlideFromPosition: {x: 0, y: 13, z: 0}
   SlideInOnEnable: 1
+--- !u!114 &-6866739985175518800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6251713538623233691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7221a71deb734394990a6dbefc360721, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 45
+  rotationAxis: 2
 --- !u!1001 &455798116708251572
 PrefabInstance:
   m_ObjectHideFlags: 0

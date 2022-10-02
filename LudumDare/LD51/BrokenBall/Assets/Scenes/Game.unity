@@ -875,18 +875,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawns1:
   - {fileID: 6251713538623233691, guid: a4c1df9ec7b758418a0dd8f30d3abce4, type: 3}
+  - {fileID: 6251713538623233691, guid: a4c1df9ec7b758418a0dd8f30d3abce4, type: 3}
   Spawns2:
-  - {fileID: 3884143647952287297, guid: c2aadf3dfe75d387eac12197ae94492a, type: 3}
-  Spawns3:
   - {fileID: 4609819909952788621, guid: 87c263a834c10a5df8e79bbf8c80f47f, type: 3}
-  Spawns4:
+  Spawns3:
   - {fileID: 3884143647952287297, guid: c2aadf3dfe75d387eac12197ae94492a, type: 3}
+  Spawns4:
+  - {fileID: 3920479195700619877, guid: c88879f41766fd9458a8868be582f6e9, type: 3}
   Spawns5:
   - {fileID: 3884143647952287297, guid: c2aadf3dfe75d387eac12197ae94492a, type: 3}
   Spawns6:
   - {fileID: 3884143647952287297, guid: c2aadf3dfe75d387eac12197ae94492a, type: 3}
   SpawnsEnd:
+  - {fileID: 222550614976830560, guid: 3165b90c4bc92c1dba474335b52ba83e, type: 3}
   - {fileID: 3884143647952287297, guid: c2aadf3dfe75d387eac12197ae94492a, type: 3}
+  - {fileID: 4609819909952788621, guid: 87c263a834c10a5df8e79bbf8c80f47f, type: 3}
+  - {fileID: 3920479195700619877, guid: c88879f41766fd9458a8868be582f6e9, type: 3}
   SpawnIndex: 0
 --- !u!1 &818905117
 GameObject:
