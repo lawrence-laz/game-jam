@@ -58,7 +58,7 @@ public class Ball : MonoBehaviour
         Vector2 newDirection;
         if (other.gameObject.name == "Paddle")
         {
-            newDirection = other.gameObject.transform.DirectionTo(transform);
+            newDirection = (other.gameObject.transform.DirectionTo(transform) + Vector3.up).normalized;
         }
         else
         {

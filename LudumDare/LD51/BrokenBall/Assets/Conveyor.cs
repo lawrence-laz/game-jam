@@ -29,7 +29,7 @@ public class Conveyor : MonoBehaviour
     {
         if (IsStarted)
         {
-            transform.position += (Vector3)StepVector / 10 * Time.deltaTime;
+            // transform.position += (Vector3)StepVector / 10 * Time.deltaTime;
             var currentDistance = transform.position.y;
             if (Mathf.Abs(currentDistance - LastSpawnDistance) >= SpawnPeriodByDistance)
             {
@@ -49,6 +49,10 @@ public class Conveyor : MonoBehaviour
     {
         IsStarted = true;
         ShouldSpawnUpgrade = true;
+        if (IsStarted)
+        {
+            transform.DOMove(StepVector, 1).SetRelative(true);
+        }
         // Debug.Log($"Current time: {Time.time}");
         // Instantiate(SimpleTileLine, SpawnPoint.position, Quaternion.identity, transform);
         // transform.DOLocalMove((Vector3)StepVector, 3).SetRelative(true);
