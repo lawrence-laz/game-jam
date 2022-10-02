@@ -62,7 +62,7 @@ namespace Libs.Base.Effects
             _animation = DOTween.Sequence()
                 .AppendCallback(WhiteSprite)
                 .AppendInterval(0.05f)
-                .AppendCallback(() => Thread.Sleep(50))
+                .AppendCallback(() => Thread.Sleep(20))
                 .AppendCallback(NormalSprite)
                 .AppendInterval(0.05f)
                 .SetLoops(loops);

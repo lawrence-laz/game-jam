@@ -18,6 +18,8 @@ public class Highscore : MonoBehaviour
     public string LoggedInAs;
     public UnityEventString OnScoreChange;
 
+    public float SpeedMultiplier = 1;
+
     private void Start()
     {
         CurrentScore = 0;

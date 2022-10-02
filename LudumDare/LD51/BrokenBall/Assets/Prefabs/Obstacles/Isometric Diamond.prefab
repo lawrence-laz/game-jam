@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4679364827945920417}
   - component: {fileID: 4679364827945920446}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4679364828008235247}
   - component: {fileID: 4679364828008235245}
   - component: {fileID: 6779831150471649865}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Isometric Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 0.3018868, g: 0, b: 0.035516128, a: 1}
+  m_Color: {r: 0.07450981, g: 0.07450981, b: 0.07450981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -273,8 +273,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 0}
+      key0: {r: 0.4627451, g: 0, b: 0.019607844, a: 1}
+      key1: {r: 0.3584906, g: 0, b: 0.015190216, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

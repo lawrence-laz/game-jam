@@ -31,6 +31,7 @@ public class Timer : MonoBehaviour
         {
             LastTickAt = Time.time;
             OnTenSeconds.Invoke();
+            FindObjectOfType<Highscore>().SpeedMultiplier += 0.2f;
         }
     }
 }

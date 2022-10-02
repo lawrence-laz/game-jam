@@ -22,8 +22,9 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
+        var speedMultiplier = FindObjectOfType<Highscore>().SpeedMultiplier;
         var visuals = transform.Find("Visuals");
-        visuals.localScale = Vector2.Lerp(Vector2.one, VelocitySqueezeScale, Mathf.Clamp01(Body.velocity.magnitude / Speed));
+        visuals.localScale = Vector2.Lerp(Vector2.one, VelocitySqueezeScale, Mathf.Clamp01(Body.velocity.magnitude / Mathf.Max(Speed * speedMultiplier, 50)));
         visuals.up = Body.velocity.normalized;
         // var target = (Vector2)transform.position + Body.velocity.normalized;
         // var angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
@@ -38,7 +39,8 @@ public class Ball : MonoBehaviour
 
     public void Launch()
     {
-        Body.velocity = Vector2.up * Speed;
+        var speedMultiplier = FindObjectOfType<Highscore>().SpeedMultiplier;
+        Body.velocity = Vector2.up * Speed * speedMultiplier;
         FindObjectOfType<Timer>().StartTimer();
         Destroy(GetComponent<DistanceFollow>());
     }
@@ -99,7 +101,9 @@ public class Ball : MonoBehaviour
             newDirection += new Vector2(0, newDirection.y);
             newDirection = newDirection.normalized;
         }
-        Body.velocity = newDirection * Speed;
+
+        var speedMultiplier = FindObjectOfType<Highscore>().SpeedMultiplier;
+        Body.velocity = newDirection * Speed * speedMultiplier;
 
         if (other.gameObject.GetComponent<TileDestroyer>() != null)
         {

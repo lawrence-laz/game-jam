@@ -21,13 +21,13 @@ public class TimerBackground : MonoBehaviour
         {
             // Cover screen from above
             transform.position = FromEven;
-            transform.DOMove(ToEven, 9.9f);
+            transform.DOMove(ToEven, 9.9f).SetEase(Ease.Linear);
         }
         else
         {
             // Uncover screen to bottom
             transform.position = FromOdd;
-            transform.DOMove(ToOdd, 9.9f);
+            transform.DOMove(ToOdd, 9.9f).SetEase(Ease.Linear);
         }
         AnimationIndex++;
     }

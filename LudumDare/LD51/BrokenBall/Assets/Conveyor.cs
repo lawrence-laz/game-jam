@@ -51,7 +51,8 @@ public class Conveyor : MonoBehaviour
         ShouldSpawnUpgrade = true;
         if (IsStarted)
         {
-            transform.DOMove(StepVector, 1).SetRelative(true);
+            var speedMultiplier = FindObjectOfType<Highscore>().SpeedMultiplier;
+            transform.DOMove(StepVector * speedMultiplier, 1).SetRelative(true);
         }
         // Debug.Log($"Current time: {Time.time}");
         // Instantiate(SimpleTileLine, SpawnPoint.position, Quaternion.identity, transform);

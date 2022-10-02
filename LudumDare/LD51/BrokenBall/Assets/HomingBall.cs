@@ -18,7 +18,7 @@ public class HomingBall : MonoBehaviour
         if (Body.velocity.y < 0)
         {
             // Going down, start homing.
-            Body.velocity = Vector2.MoveTowards(Body.velocity, transform.DirectionTo(Paddle) * Body.velocity.magnitude, Time.deltaTime * 30);
+            Body.velocity = Vector2.MoveTowards(Body.velocity, transform.DirectionTo(Paddle) * Mathf.Max(Body.velocity.magnitude, 5), Time.deltaTime * 30);
         }
     }
 }

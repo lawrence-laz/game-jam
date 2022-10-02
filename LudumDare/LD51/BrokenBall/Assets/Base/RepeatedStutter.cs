@@ -11,7 +11,7 @@ public class RepeatedStutter : MonoBehaviour
         }
 
         _lastPlay = Time.time;
-        Thread.Sleep(40);
+        Thread.Sleep(25);
     }
     public static float MinPeriodToReset = 0.1f;
     private static float _lastPlay = 0;

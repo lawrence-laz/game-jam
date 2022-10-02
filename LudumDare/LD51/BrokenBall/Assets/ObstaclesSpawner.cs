@@ -45,6 +45,8 @@ public class ObstaclesSpawner : MonoBehaviour
             // Destroy(transform.GetChild(i).gameObject, destroyDuration);
         }
 
+        SpawnIndex++;
+
         Instantiate(prefabBag.GetRandom(), transform);
     }
 }
