@@ -6,6 +6,7 @@ public class GlobalAudio : Singleton<GlobalAudio>
 {
     public AudioClip GameOver;
     public AudioClip Upgrade;
+    public AudioClip LostBall;
 
     private AudioSource _audio;
 

@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 15
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.78431374, g: 0.46666667, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,7 +93,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3848474116891253596, guid: 804009561d00f066aa5507ea8a5103ad, type: 3}
       propertyPath: m_Name
-      value: ExtraBallUpgrade Variant
+      value: ExtraHominBallUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 3848474116891253597, guid: 804009561d00f066aa5507ea8a5103ad, type: 3}
       propertyPath: m_RootOrder
@@ -167,4 +167,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0d71561dcf44f589697da6b52f7814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewBallPrefab: {fileID: 385076711589175674, guid: fc79256864d08b344bd30c900babba8a, type: 3}
+  NewBallPrefab: {fileID: 5932631147256418658, guid: 1d072f14b02df92c594478f21cbc932f, type: 3}
