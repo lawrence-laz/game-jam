@@ -32,6 +32,11 @@ public class GameOver : MonoBehaviour
 
     public void Invoke()
     {
+        var upgrades = FindObjectsOfType<Upgrade>();
+        foreach (var upgrade in upgrades)
+        {
+            Destroy(upgrade.gameObject);
+        }
         IsGameOver = true;
         OnGameOver.Invoke();
         // RestartLevel();
