@@ -3,16 +3,8 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour
 {
-    public GameObject ReplacementForWhenPaddleIsAlreadyExpanded;
     public Vector2 Velocity;
-
-private void OnEnable() {
-    if (FindObjectOfType<Paddle>().transform.Find("Long").gameObject.activeSelf)
-    {
-        Instantiate(ReplacementForWhenPaddleIsAlreadyExpanded, transform.position, transform.rotation);
-        Destroy(gameObject);
-    }
-}
+    
 
     void Update()
     {

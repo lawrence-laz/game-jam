@@ -433,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 2003776180916695833, guid: 3bb4c6d7025cd540e9d72f8daaecc662, type: 3}
     - target: {fileID: 3848474116891253596, guid: 804009561d00f066aa5507ea8a5103ad, type: 3}
       propertyPath: m_Name
-      value: WiderPaddleUpgrade Variant
+      value: WiderPaddleUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 3848474116891253597, guid: 804009561d00f066aa5507ea8a5103ad, type: 3}
       propertyPath: m_RootOrder
@@ -503,3 +503,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1470bee9920a5707dba10704809498af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReplacementForWhenPaddleIsAlreadyExpanded: {fileID: 2003776180916695833, guid: 3bb4c6d7025cd540e9d72f8daaecc662, type: 3}

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class SimpleTile : MonoBehaviour
@@ -17,5 +18,9 @@ public class SimpleTile : MonoBehaviour
                 Debug.Log("Couldn't find scopre object!");
             }
         }
+    }
+
+    private void OnDestroy() {
+        transform.DOKill();
     }
 }
