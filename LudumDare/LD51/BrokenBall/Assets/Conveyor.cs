@@ -23,6 +23,8 @@ public class Conveyor : MonoBehaviour
     {
         FindObjectOfType<Timer>().OnTenSeconds.AddListener(EveryTenSeconds);
         FindObjectsOfType<UpgradeSpawner>().GetRandom().AddUpgrade(UpgradePrefabs.GetRandom());
+        FindObjectsOfType<UpgradeSpawner>().GetRandom().AddUpgrade(UpgradePrefabs.GetRandom());
+        FindObjectsOfType<UpgradeSpawner>().GetRandom().AddUpgrade(UpgradePrefabs.GetRandom());
     }
 
     private void Update()

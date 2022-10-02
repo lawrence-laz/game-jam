@@ -73,7 +73,17 @@ public class Ball : MonoBehaviour
         if (other.gameObject.name == "Paddle")
         {
             GetComponentInChildren<BallAudio>().PlayPaddleHit();
-            newDirection = (other.gameObject.transform.DirectionTo(transform) + Vector3.up).normalized;
+            var hitDirection = other.gameObject.transform.DirectionTo(transform);
+            newDirection = (hitDirection + Vector3.up).normalized;
+
+            foreach (Transform child in other.transform)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    child.DOKill(complete: true);
+                    child.DOPunchScale(hitDirection, 0.2f, vibrato:5);
+                }
+            }
         }
         else
         {

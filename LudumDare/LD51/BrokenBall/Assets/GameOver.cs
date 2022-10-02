@@ -56,6 +56,10 @@ public class GameOver : MonoBehaviour
         FindObjectOfType<Paddle>().enabled = false;
         FindObjectOfType<ScreenShake>().MediumShake();
         FindObjectOfType<GlobalAudio>().Play(GlobalAudio.Instance.LostBall);
+        foreach (var rotator in FindObjectsOfType<Rotate>())
+        {
+            rotator.enabled = false;
+        }
 
         DOTween.Sequence()
             .Append(Camera.main.transform.DOMove(new Vector3(position.x, position.y, Camera.main.transform.position.z), 0.5f)).SetEase(Ease.OutBounce)
