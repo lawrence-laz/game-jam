@@ -18,7 +18,16 @@ public class Movement : MonoBehaviour
     {
         Direction = Direction.normalized;
         UpdateVelocity();
-        UpdateRotationToFaceVelocity();
+        UpdateRotationToFaceDirection();
+        // UpdateRotationToFaceVelocity();
+    }
+
+    private void UpdateRotationToFaceDirection()
+    {
+        if (_body.velocity.magnitude > Mathf.Epsilon && Direction != Vector2.zero)
+        {
+            _body.MoveRotation(Quaternion.LookRotation(Direction, Vector3.back));
+        }
     }
 
     private void UpdateRotationToFaceVelocity()

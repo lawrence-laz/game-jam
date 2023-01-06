@@ -9,10 +9,10 @@ public class AsepriteImporter : AssetPostprocessor
     }
 
     static void OnPostprocessAllAssets(
-    string[] importedAssets,
-    string[] deletedAssets,
-    string[] movedAssets,
-    string[] movedFromAssetPaths)
+        string[] importedAssets,
+        string[] deletedAssets,
+        string[] movedAssets,
+        string[] movedFromAssetPaths)
     {
         var refresh = false;
 
@@ -23,15 +23,17 @@ public class AsepriteImporter : AssetPostprocessor
 
             var startInfo = new System.Diagnostics.ProcessStartInfo
             {
-                WorkingDirectory = $"{Application.dataPath}/Sprites".Replace('/', '\\'),
+                WorkingDirectory = $"{Application.dataPath}/Sprites",
                 WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal,
-                FileName = "aseprite.exe",
+                FileName = "aseprite",
                 Arguments = "-b spritesheet.aseprite --ignore-layer Background --save-as {slice}.png",
                 RedirectStandardInput = true,
                 RedirectStandardOutput = true,
                 UseShellExecute = false,
 
             };
+
+            // aseprite -b spritesheet.aseprite --ignore-layer Background --save-as {slice}.png
 
             System.Diagnostics.Process.Start(startInfo).WaitForExit();
 

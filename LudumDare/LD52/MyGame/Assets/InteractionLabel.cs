@@ -19,7 +19,13 @@ public class InteractionLabel : MonoBehaviour
         }
         else
         {
-            InteractionText.text = InteractionArea.Target.Text;
+            var labelText = InteractionArea.Target.Text;
+            var interaction = InteractionArea.Target.GetComponent<Interaction>();
+            if (interaction != null)
+            {
+                labelText = $"{interaction.Text} {labelText}";
+            }
+            InteractionText.text = labelText;
             VisualRootObject.SetActive(true);
 
             var targetPosition = (Vector2)InteractionArea.Target.transform.position + PositionOffsetFromTarget;

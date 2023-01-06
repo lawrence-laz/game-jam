@@ -5,22 +5,30 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject ControlledObject;
+    public Interactor Interactor;
 
     private Vector2 _axisInput;
 
     private void Update()
     {
         _axisInput = new Vector2(
-            Input.GetAxis("Horizontal"),
-            Input.GetAxis("Vertical")
+            (Input.GetAxisRaw("Horizontal") + Input.GetAxis("Horizontal")) / 2,
+            (Input.GetAxisRaw("Vertical") + Input.GetAxis("Vertical")) / 2
         );
 
-        ControlMovement();    
+        ControlMovement();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Interactor.TryInteract();
+        }
     }
 
     private void ControlMovement()
     {
         var movement = ControlledObject.GetComponent<Movement>();
-        movement.Direction = _axisInput;
+        movement.Direction = Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0
+            ? Vector2.zero
+            : movement.Direction = _axisInput;
     }
 }
