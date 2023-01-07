@@ -11,9 +11,17 @@ public class Holder : MonoBehaviour
 
     public bool TryPickUp(Pickable pickable)
     {
+        var pickingUpBiggerItem = pickable.Slots > 1;
         if (CurrentSlots + pickable.Slots > MaxSlots)
         {
-            TryDropAll();
+            if (pickingUpBiggerItem)
+            {
+                TryDropAll();
+            }
+            else
+            {
+                return false;
+            }
         }
 
         Items.Add(pickable.gameObject);

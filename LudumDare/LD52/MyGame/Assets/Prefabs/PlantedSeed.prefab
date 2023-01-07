@@ -111,8 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7218401978377357517}
   - component: {fileID: 7218401978377357516}
-  - component: {fileID: 7218401978377357515}
-  - component: {fileID: 7218401978377357514}
+  - component: {fileID: -1641453318036353632}
   m_Layer: 0
   m_Name: PlantedSeed
   m_TagString: Untagged
@@ -148,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63dfe28ab42eac74b89086126366f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: seed
---- !u!114 &7218401978377357515
+  Text: planted seed
+--- !u!114 &-1641453318036353632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,19 +157,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7218401978377357513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cda8f09f50dad23b83c3068d43c44e8, type: 3}
+  m_Script: {fileID: 11500000, guid: fea81a67853c8b1fc98b7a891de7bff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropPrefab: {fileID: 9186706652598420934, guid: 72e3d650d5d2e78cd9ca4a2157aab709, type: 3}
---- !u!114 &7218401978377357514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7218401978377357513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 364bb2a36d4ce9d08a03614895ad9651, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  TargetPrefabs:
+  - {fileID: 9046020917562787369, guid: 1434c7143bda9225aa7a6252301829c9, type: 3}
+  DurationRange: {x: 1, y: 2}

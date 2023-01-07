@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InteractionArea : MonoBehaviour
@@ -5,8 +7,42 @@ public class InteractionArea : MonoBehaviour
     public Label Target;
     public bool TargetCanInteract;
 
+    public List<Collider2D> _colliders = new();
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        _colliders.Add(other);
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
+        RefocusTarget();
+    }
+
+    private void Update()
+    {
+        RefocusTarget();
+    }
+
+    private void RefocusTarget()
+    {
+        Debug.Log(string.Join(
+            "\n",
+            _colliders
+                .OrderBy(collider => Vector2.Distance(collider.transform.parent.position, transform.position))
+                .Select(collider => $"item: {collider.transform.parent.gameObject.name} distance: {Vector2.Distance(collider.transform.parent.position, transform.position)}")));
+
+        var other = _colliders
+            .OrderBy(collider => Vector2.Distance(collider.transform.parent.position, transform.position))
+            .FirstOrDefault();
+
+        if (other == null)
+        {
+            SetTarget(null);
+            TargetCanInteract = false;
+            return;
+        }
+
         var label = other.GetComponent<Label>() ?? other.transform.parent.GetComponentInChildren<Label>();
         if (label == null)
         {
@@ -28,11 +64,13 @@ public class InteractionArea : MonoBehaviour
             return;
         }
 
-        Target = label;
+        SetTarget(label);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        _colliders.Remove(other);
+
         if (Target == null)
         {
             return;
@@ -40,8 +78,27 @@ public class InteractionArea : MonoBehaviour
 
         if (other.transform?.parent == Target.transform || other.transform == Target.transform)
         {
-            Target = null;
+            SetTarget(null);
             TargetCanInteract = false;
+        }
+    }
+
+    private const float SCALE_ON_FOCUS = 1.2f;
+    private void SetTarget(Label target)
+    {
+        if (Target != null)
+        {
+            var oldSprite = Target.GetComponentInChildren<SpriteRenderer>();
+            oldSprite.color = Color.white;
+            oldSprite.transform.localScale *= 1 / SCALE_ON_FOCUS;
+        }
+        Target = target;
+
+        if (Target != null)
+        {
+            var currentSprite = Target.GetComponentInChildren<SpriteRenderer>();
+            // currentSprite.color = Color.blue;
+            currentSprite.transform.localScale *= SCALE_ON_FOCUS;
         }
     }
 }

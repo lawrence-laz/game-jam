@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class InteractionLabel : MonoBehaviour
             }
             else
             {
+                // Debug.Log($"Interactive item: {interactiveItem.gameObject.name}", interactiveItem);
                 var interaction = interactiveItem.GetInvokableInteraction(Interactor);
                 var labelText = GetLabelText(interaction, null);
                 ShowText(labelText, Interactor.transform.position + (Vector3)PositionOffsetFromTarget);
@@ -32,7 +34,8 @@ public class InteractionLabel : MonoBehaviour
         }
         else
         {
-            var interaction = InteractionArea.Target.GetComponent<Interaction>();
+            // Debug.Log($"InteractionArea.Target: {InteractionArea.Target.gameObject.name}", InteractionArea.Target);
+            var interaction = InteractionArea.Target.gameObject.GetInvokableInteraction(Interactor, InteractionArea.Target.gameObject);
             var labelText = GetLabelText(interaction, InteractionArea.Target);
             var targetPosition = (Vector2)InteractionArea.Target.transform.position + PositionOffsetFromTarget;
             ShowText(labelText, targetPosition);
@@ -41,8 +44,8 @@ public class InteractionLabel : MonoBehaviour
 
     private void ShowText(string text, Vector2 position)
     {
-        InteractionText.text = text;
-        VisualRootObject.SetActive(text == string.Empty ? false : true);
+        InteractionText.text = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(text);
+        VisualRootObject.SetActive(text != string.Empty);
         transform.position = new Vector3(position.x, position.y, transform.position.z);
     }
 

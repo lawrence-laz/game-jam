@@ -10,12 +10,11 @@ public class ProcessRecipe
 {
     public string LabelName;
     public GameObject ResultPrefab;
+    public Vector2Int Counts;
 }
 
 public class ProcessInteraction : Interaction
 {
-    public ProcessRecipe[] ProcessRecipes;
-
     public override string Text => "Process {held}";
 
     public override bool CanInvoke(Interactor interactor, GameObject target)
@@ -26,7 +25,8 @@ public class ProcessInteraction : Interaction
             return false;
         }
 
-        var recipe = ProcessRecipes
+        var recipe = FindObjectOfType<Recipes>()
+            .ProcessRecipes
             .FirstOrDefault(recipe => holder
                 .Items.Any(item => item.GetComponent<Label>()?.Text == recipe.LabelName));
         if (recipe == null)
@@ -47,7 +47,8 @@ public class ProcessInteraction : Interaction
             return;
         }
 
-        var recipe = ProcessRecipes
+        var recipe = FindObjectOfType<Recipes>()
+            .ProcessRecipes
             .FirstOrDefault(recipe => holder
                 .Items.Any(item => item.GetComponent<Label>()?.Text == recipe.LabelName));
         if (recipe == null)
@@ -57,10 +58,16 @@ public class ProcessInteraction : Interaction
 
         var item = holder.Items.First(item => item.GetComponent<Label>().Text == recipe.LabelName);
 
+        var count = UnityEngine.Random.Range(recipe.Counts.x, recipe.Counts.y + 1);
+        for (var i = 0; i < count; ++i)
+        {
+            var result = Instantiate(recipe.ResultPrefab);
+            var positionOffset = interactor.transform.DirectionTo(transform) * 0.5f + new Vector3(0, 0.05f, -0.1f) * i;
+            result.transform.position = transform.position + positionOffset;
+            result.EnableAllComponentsInChildren<Collider2D>();
+        }
+
         holder.TryDrop(item.GetComponent<Pickable>());
         Destroy(item);
-        var result = Instantiate(recipe.ResultPrefab);
-        result.transform.position = transform.position;
-        result.EnableAllComponentsInChildren<Collider2D>();
     }
 }

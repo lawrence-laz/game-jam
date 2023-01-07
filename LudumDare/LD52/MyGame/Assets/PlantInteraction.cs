@@ -23,12 +23,18 @@ public class PlantInteraction : Interaction
             return;
         }
 
-        var item = holder.Items.First(item => item.GetComponent<Label>().Text == "seed");
+        var item = holder.Items.FirstOrDefault(item => item.GetComponent<Label>().Text == "seed");
+        if (item == null)
+        {
+            Debug.Log("Why this happens? :/");
+            return;
+        }
 
-        holder.TryDrop(item.GetComponent<Pickable>());
-        Destroy(item);
         var result = Instantiate(PlantedSeedPrefab);
         result.transform.position = transform.position;
         result.EnableAllComponentsInChildren<Collider2D>();
+
+        holder.TryDrop(item.GetComponent<Pickable>());
+        Destroy(item);
     }
 }

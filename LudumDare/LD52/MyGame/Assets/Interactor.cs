@@ -28,7 +28,17 @@ public class Interactor : MonoBehaviour
             return false;
         }
 
-        interaction.Invoke(this, InteractionArea.Target?.gameObject);
+        if (InteractionArea.Target != null && InteractionArea.Target?.gameObject != null)
+        {
+            Debug.Log($"What is this? {gameObject} -> {InteractionArea?.Target?.gameObject}", InteractionArea?.Target?.gameObject);
+            interaction.Invoke(
+                this, 
+                InteractionArea?.Target?.gameObject);
+        }
+        else
+        {
+            interaction.Invoke(this, null);
+        }
 
         return true;
     }

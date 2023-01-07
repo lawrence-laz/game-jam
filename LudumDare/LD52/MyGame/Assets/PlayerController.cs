@@ -18,12 +18,15 @@ public class PlayerController : MonoBehaviour
 
         ControlMovement();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.F))
         {
             if (!Interactor.TryInteract())
             {
-                Interactor.GetComponentInChildren<Holder>().TryDropAll();
             }
+        }
+        else if (Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.Q))
+        {
+            Interactor.GetComponentInChildren<Holder>().TryDropAll();
         }
     }
 

@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 1410552732078314165}
   - component: {fileID: 1250208619}
   - component: {fileID: 1250208620}
+  - component: {fileID: 492591407229545600}
   m_Layer: 0
   m_Name: WheatDrop
   m_TagString: Untagged
@@ -174,3 +175,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: wheat
+--- !u!50 &492591407229545600
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9186706652598420934}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.2
+  m_LinearDrag: 15
+  m_AngularDrag: 10
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
