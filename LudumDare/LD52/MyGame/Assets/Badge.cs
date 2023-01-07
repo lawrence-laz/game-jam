@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Badges
 {
@@ -12,15 +13,15 @@ public class Badge : MonoBehaviour
 {
     public Badges BadgeName;
 
-    private SpriteRenderer _spriteRenderer;
+    private Image _image;
 
     private void Start() {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _image = GetComponent<Image>();
     }
 
     private void Update()
     {
-        _spriteRenderer.color = Get(BadgeName)
+        _image.color = Get(BadgeName)
             ? Color.white
             : Color.black;
     }

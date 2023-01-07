@@ -21,9 +21,14 @@ public class Growth : MonoBehaviour
     {
         if (Time.time >= _willGrowAt)
         {
-            var growth = Instantiate(TargetPrefabs.GetRandom());
-            Destroy(gameObject);
-            growth.transform.position = transform.position;
+            Grow();
         }
+    }
+
+    public void Grow()
+    {
+        var growth = Instantiate(TargetPrefabs.GetRandom());
+        Destroy(gameObject);
+        growth.transform.position = transform.position;
     }
 }

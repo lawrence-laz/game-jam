@@ -27,7 +27,9 @@ public class InteractionArea : MonoBehaviour
     private void RefocusTarget()
     {
         var other = _colliders
-            .OrderBy(collider => Vector2.Distance(collider.transform.parent.position, transform.position))
+            .OrderBy(collider => collider.transform.parent == null
+                ? Vector2.Distance(collider.transform.position, transform.position)
+                : Vector2.Distance(collider.transform.parent.position, transform.position))
             .FirstOrDefault();
 
         if (other == null)
@@ -37,7 +39,7 @@ public class InteractionArea : MonoBehaviour
             return;
         }
 
-        var label = other.GetComponent<Label>() ?? other.transform.parent.GetComponentInChildren<Label>();
+        var label = other.GetComponent<Label>() ?? other.transform.parent?.GetComponentInChildren<Label>();
         if (label == null)
         {
             return;

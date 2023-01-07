@@ -35,7 +35,7 @@ public class SpawnerInteraction : Interaction
         if (!string.IsNullOrEmpty(RequiredGameObjectLabel))
         {
             var holder = interactor.GetComponentInChildren<Holder>();
-            return holder.Items.Any(item => item.GetComponent<Label>().Text == RequiredGameObjectLabel);
+            return holder.Items.Any(item => item.GetComponent<Label>().Is(RequiredGameObjectLabel));
         }
 
         return true;
@@ -75,7 +75,7 @@ public class SpawnerInteraction : Interaction
         if (!string.IsNullOrEmpty(RequiredGameObjectLabel) && DestroyRequiredGameObjectAfterInteraction)
         {
             var holder = interactor.GetComponentInChildren<Holder>();
-            var item = holder.Items.FirstOrDefault(item => item.GetComponent<Label>().Text == RequiredGameObjectLabel);
+            var item = holder.Items.FirstOrDefault(item => item.GetComponent<Label>().Is(RequiredGameObjectLabel));
             holder.TryDrop(item.GetComponent<Pickable>());
             Destroy(item.gameObject);
         }

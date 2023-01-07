@@ -22,14 +22,9 @@ public class Lightning : MonoBehaviour
     public void Strike()
     {
 
-        var target = FindObjectsOfType<Label>()
-            .FirstOrDefault(label => label.Text == "dirt");
-
-        if (target == null)
-        {
-            target = FindObjectsOfType<Label>()
-            .FirstOrDefault(label => label.Text == "wheat");
-        }
+        var target = FindObjectsOfType<Label>().FirstOrDefault(label => label.Is("dirt"))
+            ?? FindObjectsOfType<Label>().FirstOrDefault(label => label.Is("wheat"))
+            ?? FindObjectsOfType<Label>().FirstOrDefault(label => label.Is("chest"));
 
         transform.position = target.transform.position;
         Destroy(target.gameObject);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7657740384320590951}
   - component: {fileID: 7657740384320590950}
   - component: {fileID: 759765544597076774}
+  - component: {fileID: 2126165369205469328}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Untagged
@@ -60,6 +61,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlantedSeedPrefab: {fileID: 7218401978377357513, guid: 66cda3ba237c8fec7a259297e8bfb199, type: 3}
+--- !u!114 &2126165369205469328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657740384320590947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionText: Water
+  GuaranteedDropPrefabs:
+  - {fileID: 1144316297086594507, guid: e9b7eecfc622ffc649c2dfe486400d9d, type: 3}
+  - {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
+  ChanceDropPrefabs: []
+  RequiredGameObjectLabel: bucket with water
+  DestroyAfterInteraction: 0
+  DestroyRequiredGameObjectAfterInteraction: 1
+  InteractionsCount: 1
+  SpriteAfterInteraction: {fileID: 21300000, guid: dceb544653447b4c288361fa3c287081, type: 3}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7657740385397711478
 GameObject:
   m_ObjectHideFlags: 0
