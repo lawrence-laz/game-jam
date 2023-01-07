@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class KeepLocalRotation : MonoBehaviour
 {
-    private Quaternion _originalRotation;
+    public Quaternion OriginalRotation;
 
     private void Start()
     {
-        _originalRotation = transform.rotation;
+        OriginalRotation = transform.rotation;
     }
 
     private void Update()
     {
-        transform.rotation = _originalRotation;
+        transform.rotation = Quaternion.identity;
     }
 }

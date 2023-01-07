@@ -6,12 +6,12 @@ public class PickupInteraction : Interaction
 
     public override bool CanInvoke(Interactor interactor, GameObject target)
     {
-        return target?.GetComponent<Pickable>() != null && !IsHoldingScythe(interactor);
+        return target?.GetComponent<Pickable>() != null && !IsHoldingTool(interactor);
     }
 
     public override void Invoke(Interactor interactor, GameObject target)
     {
-        if (IsHoldingScythe(interactor))
+        if (IsHoldingTool(interactor))
         {
             return;
         }
@@ -21,8 +21,8 @@ public class PickupInteraction : Interaction
         holder.TryPickUp(pickable);
     }
 
-    private bool IsHoldingScythe(Interactor interactor)
+    private bool IsHoldingTool(Interactor interactor)
     {
-        return interactor.GetComponentInChildren<Scythe>() != null;
+        return interactor.GetComponentInChildren<ToolItem>() != null;
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5531800550255816159}
   - component: {fileID: 5531800550255816152}
   - component: {fileID: 5337590245902379572}
+  - component: {fileID: 7886553868300031075}
   m_Layer: 0
   m_Name: Metal
   m_TagString: Untagged
@@ -95,6 +96,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7886553868300031075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3727109449611117426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionText: Water
+  GuaranteedDropPrefabs:
+  - {fileID: 8326855178942491626, guid: 54d6c41cc5426682887465d26e91f458, type: 3}
+  ChanceDropPrefabs: []
+  RequiredGameObjectLabel: bucket with water
+  DestroyAfterInteraction: 1
+  DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
+  InteractionsCount: 1
+  SpriteAfterInteraction: {fileID: 0}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3727109449910249227
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,3 +235,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29f476214ddbfb96a038ed9105eec31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OriginalRotation: {x: 0, y: 0, z: 0, w: 0}

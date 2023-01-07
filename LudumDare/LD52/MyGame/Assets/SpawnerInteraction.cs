@@ -19,6 +19,7 @@ public class SpawnerInteraction : Interaction
     public string RequiredGameObjectLabel = "";
     public bool DestroyAfterInteraction;
     public bool DestroyRequiredGameObjectAfterInteraction;
+    public GameObject DropToHand;
     public int InteractionsCount = 1;
     public Sprite SpriteAfterInteraction;
     public UnityEventGameObject OnInteraction;
@@ -78,6 +79,13 @@ public class SpawnerInteraction : Interaction
             var item = holder.Items.FirstOrDefault(item => item.GetComponent<Label>().Is(RequiredGameObjectLabel));
             holder.TryDrop(item.GetComponent<Pickable>());
             Destroy(item.gameObject);
+        }
+
+        if (DropToHand != null)
+        {
+            var drop = Instantiate(DropToHand, transform.position, Quaternion.identity);
+            drop.transform.rotation = Quaternion.identity;
+            drop.GetComponent<PickupInteraction>().Invoke(interactor, drop);
         }
     }
 }

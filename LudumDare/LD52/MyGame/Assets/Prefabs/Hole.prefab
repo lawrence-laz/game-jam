@@ -76,11 +76,11 @@ MonoBehaviour:
   InteractionText: Water
   GuaranteedDropPrefabs:
   - {fileID: 1144316297086594507, guid: e9b7eecfc622ffc649c2dfe486400d9d, type: 3}
-  - {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
   ChanceDropPrefabs: []
   RequiredGameObjectLabel: bucket with water
   DestroyAfterInteraction: 0
   DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
   InteractionsCount: 1
   SpriteAfterInteraction: {fileID: 21300000, guid: dceb544653447b4c288361fa3c287081, type: 3}
   OnInteraction:

@@ -187,6 +187,7 @@ MonoBehaviour:
   RequiredGameObjectLabel: fertilizer
   DestroyAfterInteraction: 1
   DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 0}
   InteractionsCount: 1
   SpriteAfterInteraction: {fileID: 0}
   OnInteraction:
@@ -205,12 +206,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionText: Water
-  GuaranteedDropPrefabs:
-  - {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
+  GuaranteedDropPrefabs: []
   ChanceDropPrefabs: []
   RequiredGameObjectLabel: bucket with water
   DestroyAfterInteraction: 0
   DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
   InteractionsCount: 1
   SpriteAfterInteraction: {fileID: 0}
   OnInteraction:
