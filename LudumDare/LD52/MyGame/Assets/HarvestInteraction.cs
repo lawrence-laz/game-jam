@@ -8,7 +8,6 @@ public class HarvestInteraction : Interaction
 
     public override bool CanInvoke(Interactor interactor, GameObject target)
     {
-        Debug.Log(interactor?.transform.Find("ItemPrototype")?.GetComponentInChildren<Scythe>());
         return interactor?.GetComponentInChildren<Scythe>() != null
             && target?.GetComponent<Harvestable>() != null;
     }

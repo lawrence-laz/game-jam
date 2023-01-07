@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -15,22 +16,46 @@ public class InteractionLabel : MonoBehaviour
     {
         if (InteractionArea.Target == null)
         {
-            InteractionText.text = string.Empty;
-            VisualRootObject.SetActive(false);
+            var holder = Interactor.GetComponentInChildren<Holder>();
+            var interactiveItem = holder.Items
+                .FirstOrDefault(item => item.GetInvokableInteraction(Interactor) != null);
+            if (interactiveItem == null)
+            {
+                ShowText(string.Empty, Vector2.zero);
+            }
+            else
+            {
+                var interaction = interactiveItem.GetInvokableInteraction(Interactor);
+                var labelText = GetLabelText(interaction, null);
+                ShowText(labelText, Interactor.transform.position + (Vector3)PositionOffsetFromTarget);
+            }
         }
         else
         {
-            var labelText = InteractionArea.Target.Text;
             var interaction = InteractionArea.Target.GetComponent<Interaction>();
-            if (interaction != null && interaction.CanInvoke(Interactor, InteractionArea?.Target.gameObject))
-            {
-                labelText = $"{interaction.Text} {labelText}";
-            }
-            InteractionText.text = labelText;
-            VisualRootObject.SetActive(true);
-
+            var labelText = GetLabelText(interaction, InteractionArea.Target);
             var targetPosition = (Vector2)InteractionArea.Target.transform.position + PositionOffsetFromTarget;
-            transform.position = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
+            ShowText(labelText, targetPosition);
         }
+    }
+
+    private void ShowText(string text, Vector2 position)
+    {
+        InteractionText.text = text;
+        VisualRootObject.SetActive(text == string.Empty ? false : true);
+        transform.position = new Vector3(position.x, position.y, transform.position.z);
+    }
+
+    private string GetLabelText(Interaction interaction, Label target)
+    {
+        var labelText = target?.Text ?? "string.Empty";
+        if (interaction != null)
+        {
+            labelText = interaction.Text.Contains("{held}")
+                ? interaction.Text.Replace("{held}", TextTerm.Get("{held}"))
+                : $"{interaction.Text} {labelText}";
+        }
+
+        return labelText;
     }
 }

@@ -31,6 +31,20 @@ public class Holder : MonoBehaviour
         return true;
     }
 
+    public bool TryDrop(Pickable pickable)
+    {
+        CurrentSlots -= pickable.Slots;
+        Items.Remove(pickable.gameObject);
+        Restore(pickable.gameObject);
+        for (var i = 0; i < Items.Count; ++i)
+        {
+            var item = Items[i];
+            item.transform.localPosition = i * PositionOffsetBetweenItems;
+        }
+
+        return true;
+    }
+
     public bool TryDropAll()
     {
         if (Items.Count == 0)
@@ -42,17 +56,22 @@ public class Holder : MonoBehaviour
 
         foreach (var item in Items)
         {
-            var pickableBody = item.GetComponent<Rigidbody2D>();
-            if (pickableBody != null)
-            {
-                pickableBody.isKinematic = false;
-            }
-            item.gameObject.EnableAllComponentsInChildren<Collider2D>();
-            item.transform.SetParent(null, worldPositionStays: true);
+            Restore(item);
         }
 
         Items.Clear();
 
         return true;
+    }
+
+    private void Restore(GameObject item)
+    {
+        var pickableBody = item.GetComponent<Rigidbody2D>();
+        if (pickableBody != null)
+        {
+            pickableBody.isKinematic = false;
+        }
+        item.gameObject.EnableAllComponentsInChildren<Collider2D>();
+        item.transform.SetParent(null, worldPositionStays: true);
     }
 }

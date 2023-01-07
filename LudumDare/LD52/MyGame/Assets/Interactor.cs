@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class Interactor : MonoBehaviour
@@ -6,22 +7,28 @@ public class Interactor : MonoBehaviour
 
     public bool TryInteract()
     {
-        if (InteractionArea.Target == null)
+        var interactionGameObject = InteractionArea.Target?.gameObject;
+        if (interactionGameObject == null)
         {
-            return false;
+            var holder = GetComponentInChildren<Holder>();
+            var interactiveItem = holder.Items
+                .FirstOrDefault(item => item.GetInvokableInteraction(this) != null);
+            if (interactiveItem == null)
+            {
+                return false;
+            }
+            else
+            {
+                interactionGameObject = interactiveItem;
+            }
         }
-        var interaction = InteractionArea.Target.GetComponent<Interaction>();
+        var interaction = interactionGameObject.GetInvokableInteraction(this, InteractionArea.Target?.gameObject);
         if (interaction == null)
         {
             return false;
         }
 
-        if (!interaction.CanInvoke(this, InteractionArea.Target.gameObject))
-        {
-            return false;
-        }
-
-        interaction.Invoke(this, InteractionArea.Target.gameObject);
+        interaction.Invoke(this, InteractionArea.Target?.gameObject);
 
         return true;
     }
