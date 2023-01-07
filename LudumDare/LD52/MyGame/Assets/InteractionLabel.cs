@@ -4,6 +4,7 @@ using UnityEngine;
 public class InteractionLabel : MonoBehaviour
 {
     public InteractionArea InteractionArea;
+    public Interactor Interactor;
     public Vector2 PositionOffsetFromTarget = Vector2.one;
 
     [Header("Visuals")]
@@ -21,7 +22,7 @@ public class InteractionLabel : MonoBehaviour
         {
             var labelText = InteractionArea.Target.Text;
             var interaction = InteractionArea.Target.GetComponent<Interaction>();
-            if (interaction != null)
+            if (interaction != null && interaction.CanInvoke(Interactor, InteractionArea?.Target.gameObject))
             {
                 labelText = $"{interaction.Text} {labelText}";
             }

@@ -16,6 +16,11 @@ public class Interactor : MonoBehaviour
             return false;
         }
 
+        if (!interaction.CanInvoke(this, InteractionArea.Target.gameObject))
+        {
+            return false;
+        }
+
         interaction.Invoke(this, InteractionArea.Target.gameObject);
 
         return true;

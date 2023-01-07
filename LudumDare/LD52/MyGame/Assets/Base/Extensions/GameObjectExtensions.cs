@@ -21,6 +21,26 @@ namespace Libs.Base.Extensions
             foreach (var component in gameObject.GetComponents<T>()) Object.Destroy(component);
         }
 
+        public static void DisableAllComponents<T>(this GameObject gameObject) where T : Behaviour
+        {
+            foreach (var behavior in gameObject.GetComponents<T>()) behavior.enabled = false;
+        }
+
+        public static void EnableAllComponents<T>(this GameObject gameObject) where T : Behaviour
+        {
+            foreach (var behavior in gameObject.GetComponents<T>()) behavior.enabled = true;
+        }
+
+        public static void DisableAllComponentsInChildren<T>(this GameObject gameObject) where T : Behaviour
+        {
+            foreach (var behavior in gameObject.GetComponentsInChildren<T>()) behavior.enabled = false;
+        }
+
+        public static void EnableAllComponentsInChildren<T>(this GameObject gameObject) where T : Behaviour
+        {
+            foreach (var behavior in gameObject.GetComponentsInChildren<T>()) behavior.enabled = true;
+        }
+
         public static Component GetComponentInChildrenOrParent(this GameObject gameObject, Type type)
         {
             var component = gameObject.GetComponentInChildren(type);

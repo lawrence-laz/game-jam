@@ -20,7 +20,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Interactor.TryInteract();
+            if (!Interactor.TryInteract())
+            {
+                Interactor.GetComponentInChildren<Holder>().TryDropAll();
+            }
         }
     }
 

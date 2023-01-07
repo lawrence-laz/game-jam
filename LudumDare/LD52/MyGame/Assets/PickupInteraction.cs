@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class PickupInteraction : Interaction
 {
-    public int Size = 1;
-
     public override string Text => "Pick up";
+
+    public override bool CanInvoke(Interactor interactor, GameObject target)
+    {
+        return target?.GetComponent<Pickable>() != null;
+    }
 
     public override void Invoke(Interactor interactor, GameObject target)
     {
