@@ -25,7 +25,7 @@ public class ProcessInteraction : Interaction
             return false;
         }
 
-        var recipe = FindObjectOfType<Recipes>()
+        var recipe = GetComponent<Recipes>()
             .ProcessRecipes
             .FirstOrDefault(recipe => holder
                 .Items.Any(item => item.GetComponent<Label>()?.Text == recipe.LabelName));
@@ -47,7 +47,7 @@ public class ProcessInteraction : Interaction
             return;
         }
 
-        var recipe = FindObjectOfType<Recipes>()
+        var recipe = GetComponent<Recipes>()
             .ProcessRecipes
             .FirstOrDefault(recipe => holder
                 .Items.Any(item => item.GetComponent<Label>()?.Text == recipe.LabelName));
