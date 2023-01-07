@@ -26,12 +26,6 @@ public class InteractionArea : MonoBehaviour
 
     private void RefocusTarget()
     {
-        Debug.Log(string.Join(
-            "\n",
-            _colliders
-                .OrderBy(collider => Vector2.Distance(collider.transform.parent.position, transform.position))
-                .Select(collider => $"item: {collider.transform.parent.gameObject.name} distance: {Vector2.Distance(collider.transform.parent.position, transform.position)}")));
-
         var other = _colliders
             .OrderBy(collider => Vector2.Distance(collider.transform.parent.position, transform.position))
             .FirstOrDefault();

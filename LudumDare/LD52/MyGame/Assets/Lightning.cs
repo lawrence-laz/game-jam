@@ -1,0 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
+using UnityEngine;
+
+public class Lightning : MonoBehaviour
+{
+    public ScreenFade ScreenFlashEffect;
+    public GameObject FlamePrefab;
+
+    private Sequence _animation;
+    private SpriteRenderer _spriteRenderer;
+
+    private void Start()
+    {
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer.enabled = false;
+    }
+
+    [ContextMenu("Strike")]
+    public void Strike()
+    {
+
+        var target = FindObjectsOfType<Label>()
+            .FirstOrDefault(label => label.Text == "dirt");
+
+        if (target == null)
+        {
+            target = FindObjectsOfType<Label>()
+            .FirstOrDefault(label => label.Text == "wheat");
+        }
+
+        transform.position = target.transform.position;
+        Destroy(target.gameObject);
+        var flame = Instantiate(FlamePrefab);
+        flame.transform.position = transform.position;
+
+        _animation?.Kill();
+        _animation = DOTween.Sequence()
+            .AppendCallback(() =>
+            {
+                _spriteRenderer.enabled = true;
+                var color = _spriteRenderer.color;
+                color.a = 1;
+                _spriteRenderer.color = color;
+                ScreenFlashEffect.Flash();
+            })
+            .Append(_spriteRenderer.DOFade(0, 0.7f))
+            .AppendCallback(() =>
+            {
+                _spriteRenderer.enabled = false;
+            })
+            .Play();
+    }
+}

@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 5538497475476864814}
   - component: {fileID: 5538497475476864809}
   - component: {fileID: 5335282704783325381}
+  - component: {fileID: 2192219974139951370}
   m_Layer: 0
   m_Name: Fertilizer
   m_TagString: Untagged
@@ -209,3 +210,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2192219974139951370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720271374320554371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8ef7cfffd09401bad9020ab9e1dc64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OtherLabels:
+  - wheat
+  - seed
+  MaxCount: 2147483647

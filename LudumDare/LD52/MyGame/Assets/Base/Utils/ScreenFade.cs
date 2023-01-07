@@ -6,6 +6,7 @@ public class ScreenFade : Singleton<ScreenFade>
     [SerializeField]
     private Color fadeColor = Color.black;
     [SerializeField] float defaultDuration = 1;
+    public bool AutoFadeIn = true;
 
     private Texture2D fadeTexture;
     private float startTime;
@@ -14,7 +15,14 @@ public class ScreenFade : Singleton<ScreenFade>
 
     private void Start()
     {
-        FadeIn(defaultDuration);
+        if (AutoFadeIn)
+        {
+            FadeIn(defaultDuration);
+        }
+        else
+        {
+            FadeIn(0);
+        }
     }
 
     public void FadeOut()
@@ -33,6 +41,65 @@ public class ScreenFade : Singleton<ScreenFade>
         StartCoroutine(FadeAlpha(0, 1));
     }
 
+    [ContextMenu("Flash")]
+    public void Flash()
+    {
+        StartCoroutine(FlashCoroutine());
+    }
+
+    private IEnumerator FlashCoroutine()
+    {
+        isFading = true;
+        Color fromColor = fadeColor;
+        fromColor.a = 0;
+        fadeTexture.SetPixel(0, 0, fromColor);
+        fadeTexture.Apply();
+        startTime = Time.time;
+
+        yield return new WaitForEndOfFrame();
+
+        while (Time.time - startTime < 0.04f)
+        {
+            Color newColor = fadeColor;
+            newColor.a = Mathf.Lerp(0, 1, (Time.time - startTime) / duration);
+            fadeTexture.SetPixel(0, 0, newColor);
+            fadeTexture.Apply();
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        Color toColor = fadeColor;
+        toColor.a = 0;
+        fadeTexture.SetPixel(0, 0, toColor);
+        fadeTexture.Apply();
+
+        fromColor = fadeColor;
+        fromColor.a = 1;
+        fadeTexture.SetPixel(0, 0, fromColor);
+        fadeTexture.Apply();
+        startTime = Time.time;
+
+        yield return new WaitForEndOfFrame();
+
+        while (Time.time - startTime < 0.04f)
+        {
+            Color newColor = fadeColor;
+            newColor.a = Mathf.Lerp(1, 0, (Time.time - startTime) / duration);
+            fadeTexture.SetPixel(0, 0, newColor);
+            fadeTexture.Apply();
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        toColor = fadeColor;
+        toColor.a = 0;
+        fadeTexture.SetPixel(0, 0, toColor);
+        fadeTexture.Apply();
+
+        isFading = false;
+        yield break;
+    }
+
     public IEnumerator FadeOutCoroutine(float duration)
     {
         this.duration = duration;
@@ -41,6 +108,11 @@ public class ScreenFade : Singleton<ScreenFade>
 
     public void FadeIn(float duration)
     {
+        if (fadeTexture == null)
+        {
+            fadeTexture = GetTextureByColor(fadeColor);
+        }
+
 #if UNITY_EDITOR
         if (fadeTexture.GetPixel(0, 0) != fadeColor)
             fadeTexture = GetTextureByColor(fadeColor);
@@ -57,11 +129,19 @@ public class ScreenFade : Singleton<ScreenFade>
 
     private void OnEnable()
     {
-        fadeTexture = GetTextureByColor(fadeColor);
+        if (AutoFadeIn)
+        {
+            fadeTexture = GetTextureByColor(fadeColor);
+        }
     }
 
     private void OnGUI()
     {
+        if (fadeTexture == null)
+        {
+            return;
+        }
+
         if (isFading || fadeTexture.GetPixel(0, 0).a != 0)
         {
             GUI.DrawTexture(new Rect(Vector2.zero, new Vector2(Screen.width, Screen.height)), fadeTexture);

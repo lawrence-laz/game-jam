@@ -32,9 +32,10 @@ public class SmearTomatoesInteraction : Interaction
         {
             Sprites.RemoveAt(0);
         }
-        else
+        
+        if (Sprites.Count == 0)
         {
-            Debug.Log("AAAAAAAAAAAAAAAAAA");
+            FindObjectOfType<Lightning>().Strike();
         }
     }
 }
