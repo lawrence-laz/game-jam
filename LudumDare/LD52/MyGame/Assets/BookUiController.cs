@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BookUiController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OpenBook()
     {
-        
+        Camera.main.transform.Find("Canvas/BookBackground").gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.Q))
+        {
+            Camera.main.transform.Find("Canvas/BookBackground").gameObject.SetActive(false);
+        }
     }
 }

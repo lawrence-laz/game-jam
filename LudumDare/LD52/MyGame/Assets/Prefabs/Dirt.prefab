@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4736542838568250751
+--- !u!1 &5573031194465859874
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,82 +8,80 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4736542838568250750}
-  - component: {fileID: 3266626676655864332}
-  - component: {fileID: 4523348623535866834}
-  - component: {fileID: 4523348623535866837}
-  - component: {fileID: 4039765000666776633}
-  - component: {fileID: 7896326500644474068}
-  - component: {fileID: 7896326500644474069}
+  - component: {fileID: 5573031194465859875}
+  - component: {fileID: 2430137723758718545}
+  - component: {fileID: 3614947248641841039}
+  - component: {fileID: 3614947248641841032}
+  - component: {fileID: 3818161984831328356}
   m_Layer: 0
-  m_Name: TheBook
+  m_Name: Dirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4736542838568250750
+--- !u!4 &5573031194465859875
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838568250751}
+  m_GameObject: {fileID: 5573031194465859874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0115877, y: -0.3467858, z: 3.9817767}
+  m_LocalPosition: {x: -3.6953673, y: 0.107824355, z: 3.9817767}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4736542838961178885}
+  - {fileID: 5573031194858790232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3266626676655864332
+--- !u!114 &2430137723758718545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838568250751}
+  m_GameObject: {fileID: 5573031194465859874}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 823595f2c8c637eef9a69f22925d1935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Slots: 1
---- !u!114 &4523348623535866834
+--- !u!114 &3614947248641841039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838568250751}
+  m_GameObject: {fileID: 5573031194465859874}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c4378269324a6d649a4af3478f1646b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4523348623535866837
+--- !u!114 &3614947248641841032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838568250751}
+  m_GameObject: {fileID: 5573031194465859874}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f63dfe28ab42eac74b89086126366f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: a old book
---- !u!50 &4039765000666776633
+  Text: Dirt
+--- !u!50 &3818161984831328356
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838568250751}
+  m_GameObject: {fileID: 5573031194465859874}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -96,54 +94,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &7896326500644474068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838568250751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractionText: Open
-  GuaranteedDropPrefabs: []
-  ChanceDropPrefabs: []
-  RequiredGameObjectLabel: 
-  DestroyAfterInteraction: 0
-  InteractionsCount: 2147483647
-  SpriteAfterInteraction: {fileID: 0}
-  OnInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7896326500644474069}
-        m_TargetAssemblyTypeName: BookUiController, Assembly-CSharp
-        m_MethodName: OpenBook
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7896326500644474069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838568250751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ef8c3a27523e79c8884eb7245e36419, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &4736542838961178886
+  m_Constraints: 4
+--- !u!1 &5573031194858790235
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,9 +103,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4736542838961178885}
-  - component: {fileID: 4736542838961178883}
-  - component: {fileID: 4736542838961178884}
+  - component: {fileID: 5573031194858790232}
+  - component: {fileID: 5573031194858790238}
+  - component: {fileID: 5573031194858790233}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -161,28 +113,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4736542838961178885
+--- !u!4 &5573031194858790232
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838961178886}
+  m_GameObject: {fileID: 5573031194858790235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4736542838568250750}
+  m_Father: {fileID: 5573031194465859875}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4736542838961178883
+--- !u!212 &5573031194858790238
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838961178886}
+  m_GameObject: {fileID: 5573031194858790235}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -217,7 +169,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e255d83e318c51cf2b3663d113cf2c61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1ff4459c7ccbb06fabb02e6f08a28840, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -228,19 +180,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4736542838961178884
+--- !u!58 &5573031194858790233
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4736542838961178886}
+  m_GameObject: {fileID: 5573031194858790235}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0024210215, y: 0}
+  m_Offset: {x: 0.009157389, y: 0}
   serializedVersion: 2
-  m_Radius: 0.09411085
+  m_Radius: 0.07674329

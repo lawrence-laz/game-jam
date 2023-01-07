@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2749603302111857958}
   - component: {fileID: 2749603302111857957}
   - component: {fileID: 132240362}
+  - component: {fileID: 132240363}
   m_Layer: 0
   m_Name: Shovel
   m_TagString: Untagged
@@ -108,6 +109,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422cffb7c7e7f3cb6badb9f14d5de02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &132240363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2749603302111857955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionText: Dig a hole
+  GuaranteedDropPrefabs:
+  - {fileID: 7657740384320590947, guid: b8eb19feb4a484bedad2e63b489db66b, type: 3}
+  ChanceDropPrefabs:
+  - Chance: 0.05
+    Prefab: {fileID: 5396344576512713671, guid: b17df32d285df5840bdeca024419a8ee, type: 3}
+  - Chance: 0.1
+    Prefab: {fileID: 5573031194465859874, guid: db09cc8110214b16bb1f8829f57d7e4a, type: 3}
+  RequiredGameObjectLabel: 
+  DestroyAfterInteraction: 0
+  DestroyRequiredGameObjectAfterInteraction: 0
+  InteractionsCount: 2147483647
+  SpriteAfterInteraction: {fileID: 0}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2749603303696388040
 GameObject:
   m_ObjectHideFlags: 0

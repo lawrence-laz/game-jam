@@ -18,6 +18,7 @@ public class SpawnerInteraction : Interaction
     public ChanceDrop[] ChanceDropPrefabs;
     public string RequiredGameObjectLabel = "";
     public bool DestroyAfterInteraction;
+    public bool DestroyRequiredGameObjectAfterInteraction;
     public int InteractionsCount = 1;
     public Sprite SpriteAfterInteraction;
     public UnityEventGameObject OnInteraction;
@@ -70,6 +71,13 @@ public class SpawnerInteraction : Interaction
         if (DestroyAfterInteraction)
         {
             Destroy(gameObject);
+        }
+        if (!string.IsNullOrEmpty(RequiredGameObjectLabel) && DestroyRequiredGameObjectAfterInteraction)
+        {
+            var holder = interactor.GetComponentInChildren<Holder>();
+            var item = holder.Items.FirstOrDefault(item => item.GetComponent<Label>().Text == RequiredGameObjectLabel);
+            holder.TryDrop(item.GetComponent<Pickable>());
+            Destroy(item.gameObject);
         }
     }
 }
