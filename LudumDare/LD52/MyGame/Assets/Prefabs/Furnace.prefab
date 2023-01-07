@@ -112,9 +112,10 @@ MonoBehaviour:
   InteractionText: Light
   GuaranteedDropPrefabs: []
   ChanceDropPrefabs: []
-  RequiredGameObjectLabel: a flame
+  RequiredGameObjectLabel: flame
   DestroyAfterInteraction: 0
   DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 0}
   InteractionsCount: 1
   SpriteAfterInteraction: {fileID: 0}
   OnInteraction:
@@ -160,6 +161,9 @@ MonoBehaviour:
   FurnaceRecipes:
   - LabelName: Dirt
     ResultPrefab: {fileID: 3727109449611117426, guid: f75a57cb2cb723e9983dcd2f53d40ebe, type: 3}
+    Counts: {x: 1, y: 1}
+  - LabelName: mud
+    ResultPrefab: {fileID: 5573031194465859874, guid: 0057442a63b7a0f9a9c0ccf69007351b, type: 3}
     Counts: {x: 1, y: 1}
 --- !u!1 &4235592780925503806
 GameObject:

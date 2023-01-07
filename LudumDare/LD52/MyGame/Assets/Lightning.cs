@@ -14,16 +14,19 @@ public class Lightning : MonoBehaviour
 
     private void Start()
     {
+        ScreenFlashEffect = Camera.main.GetComponentInChildren<ScreenFade>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        _spriteRenderer.enabled = false;
+        // _spriteRenderer.enabled = false;
+        Strike();
     }
 
     [ContextMenu("Strike")]
     public void Strike()
     {
-
         var target = FindObjectsOfType<Label>().FirstOrDefault(label => label.Is("dirt"))
             ?? FindObjectsOfType<Label>().FirstOrDefault(label => label.Is("wheat"))
+            ?? FindObjectsOfType<Label>().FirstOrDefault(label => label.Is("sand"))
+            ?? FindObjectsOfType<Label>().FirstOrDefault(label => label.Is("hole"))
             ?? FindObjectsOfType<Label>().FirstOrDefault(label => label.Is("chest"));
 
         transform.position = target.transform.position;
@@ -45,6 +48,7 @@ public class Lightning : MonoBehaviour
             .AppendCallback(() =>
             {
                 _spriteRenderer.enabled = false;
+                Destroy(gameObject, 0.1f);
             })
             .Play();
     }

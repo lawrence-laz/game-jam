@@ -54,9 +54,16 @@ public class InteractionLabel : MonoBehaviour
         var labelText = target?.Text ?? string.Empty;
         if (interaction != null)
         {
-            labelText = interaction.Text.Contains("{held}")
-                ? interaction.Text.Replace("{held}", TextTerm.Get("{held}"))
-                : $"{interaction.Text} {labelText}";
+            if (interaction.Text.Contains("{"))
+            {
+                labelText = interaction.Text
+                    .Replace("{held}", TextTerm.Get("{held}"))
+                    .Replace("{verb}", TextTerm.Get("{verb}"));
+            }
+            else
+            {
+                labelText = $"{interaction.Text} {labelText}";
+            }
         }
 
         return labelText;

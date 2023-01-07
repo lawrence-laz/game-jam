@@ -16,12 +16,12 @@ public class PopulationControl : MonoBehaviour
         _label = GetComponent<Label>().Text;
 
         var count = GameObject.FindObjectsOfType<PopulationControl>()
-            .Count(obj => !obj._isBeingDestroyed && obj.GetComponent<Label>().Text == _label);
+            .Count(obj => !obj._isBeingDestroyed && obj.GetComponent<Label>().Is(_label));
 
         if (OtherLabels.Length > 0)
         {
             var otherLabelsCount = GameObject.FindObjectsOfType<Label>()
-                .Count(label => OtherLabels.Any(otherLabel => otherLabel == label.Text));
+                .Count(label => OtherLabels.Any(otherLabel => label.Is(otherLabel)));
             if (otherLabelsCount <= count)
             {
                 DestroyThis();

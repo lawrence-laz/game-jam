@@ -38,7 +38,7 @@ public class PlantInteraction : Interaction
             return false;
         }
 
-        seed = holder.Items.FirstOrDefault(item => item.GetComponent<Label>().Text == "seed");
+        seed = holder.Items.FirstOrDefault(item => item.GetComponent<Label>().Is("seed"));
         if (seed != null)
         {
             TextTerm.Set("{held}", "seed");

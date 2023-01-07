@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SmearTomatoesInteraction : Interaction
 {
     public List<Sprite> Sprites = new();
     public SpriteRenderer WorkbenchSpriteRenderer;
+    public UnityEvent OnFinish;
+    public ProcessRecipe[] AlchemyRecipes;
+    public GameObject LightningPrefab;
 
     public override string Text => "Smear";
 
     public override bool CanInvoke(Interactor interactor, GameObject target)
     {
         return Sprites.Count > 0
-            && interactor.GetComponentInChildren<Holder>().Items.Any(item => item.GetComponent<Label>().Text == "tomatoe");
+            && interactor.GetComponentInChildren<Holder>().Items.Any(item => item.GetComponent<Label>().Is("tomatoe"));
     }
 
     public override void Invoke(Interactor interactor, GameObject target)
@@ -24,7 +28,7 @@ public class SmearTomatoesInteraction : Interaction
         }
 
         var holder = interactor.GetComponentInChildren<Holder>();
-        var tomatoe = holder.Items.FirstOrDefault(item => item.GetComponent<Label>().Text == "tomatoe");
+        var tomatoe = holder.Items.FirstOrDefault(item => item.GetComponent<Label>().Is("tomatoe"));
         holder.TryDrop(tomatoe.GetComponent<Pickable>());
         Destroy(tomatoe.gameObject);
         WorkbenchSpriteRenderer.sprite = Sprites.First();
@@ -32,10 +36,15 @@ public class SmearTomatoesInteraction : Interaction
         {
             Sprites.RemoveAt(0);
         }
-        
+
         if (Sprites.Count == 0)
         {
-            FindObjectOfType<Lightning>().Strike();
+            Instantiate(LightningPrefab);
+            OnFinish.Invoke();
+            GetComponent<Recipes>().ProcessRecipes = GetComponent<Recipes>()
+                .ProcessRecipes
+                .Concat(AlchemyRecipes)
+                .ToArray();
         }
     }
 }

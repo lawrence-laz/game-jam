@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 3614947248641841039}
   - component: {fileID: 3614947248641841032}
   - component: {fileID: 3818161984831328356}
-  - component: {fileID: 7394783505783133635}
   m_Layer: 0
-  m_Name: Dirt
+  m_Name: Brick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63dfe28ab42eac74b89086126366f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: Dirt
+  Text: brick
 --- !u!50 &3818161984831328356
 Rigidbody2D:
   serializedVersion: 4
@@ -96,31 +95,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7394783505783133635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5573031194465859874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractionText: water
-  GuaranteedDropPrefabs:
-  - {fileID: 5573031194465859874, guid: 83020875b96087fd5a8ce049b5e4316d, type: 3}
-  ChanceDropPrefabs: []
-  RequiredGameObjectLabel: bucket with water
-  DestroyAfterInteraction: 1
-  DestroyRequiredGameObjectAfterInteraction: 1
-  DropToHand: {fileID: 1151545034218378748, guid: d2791866718afba72a2ea070f1236e1c, type: 3}
-  InteractionsCount: 1
-  SpriteAfterInteraction: {fileID: 0}
-  OnInteraction:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &5573031194858790235
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1ff4459c7ccbb06fabb02e6f08a28840, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef2bbb2c4d513bb509a752d6de0217a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
