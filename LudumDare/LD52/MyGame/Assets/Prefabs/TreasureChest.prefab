@@ -83,6 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractionText: Open
   GuaranteedDropPrefabs:
+  - {fileID: 4736542838568250751, guid: c60e9e7d513f9f894b202a86fa794bfb, type: 3}
   - {fileID: 3720271374320554371, guid: 2c27fe6b2a9614df7a825819b4a6e1a6, type: 3}
   - {fileID: 3720271374320554371, guid: 2c27fe6b2a9614df7a825819b4a6e1a6, type: 3}
   - {fileID: 3720271374320554371, guid: 2c27fe6b2a9614df7a825819b4a6e1a6, type: 3}
@@ -91,6 +92,8 @@ MonoBehaviour:
   ChanceDropPrefabs: []
   RequiredGameObjectLabel: 
   DestroyAfterInteraction: 0
+  DestroyRequiredGameObjectAfterInteraction: 0
+  DropToHand: {fileID: 0}
   InteractionsCount: 1
   SpriteAfterInteraction: {fileID: 21300000, guid: f424e7fcf5864fcfb8ee20526f8eb5f8, type: 3}
   OnInteraction:

@@ -37,7 +37,10 @@ public class InteractionLabel : MonoBehaviour
             // Debug.Log($"InteractionArea.Target: {InteractionArea.Target.gameObject.name}", InteractionArea.Target);
             var interaction = InteractionArea.Target.gameObject.GetInvokableInteraction(Interactor, InteractionArea.Target.gameObject);
             var labelText = GetLabelText(interaction, InteractionArea.Target);
-            var targetPosition = (Vector2)InteractionArea.Target.transform.position + PositionOffsetFromTarget;
+            var targetPosition = (Vector2)InteractionArea.Target.transform.position 
+                + PositionOffsetFromTarget
+                // + (Vector2)Interactor.transform.DirectionTo(InteractionArea.Target.transform) * PositionOffsetFromTarget.magnitude
+                ;
             ShowText(labelText, targetPosition);
         }
     }

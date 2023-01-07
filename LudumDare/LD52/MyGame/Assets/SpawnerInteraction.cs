@@ -47,7 +47,7 @@ public class SpawnerInteraction : Interaction
         foreach (var dropPrefab in GuaranteedDropPrefabs)
         {
             var drop = Instantiate(dropPrefab);
-            drop.transform.position = transform.position;
+            drop.transform.position = transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * 0.2f;
         }
 
         foreach (var chanceDrop in ChanceDropPrefabs)
