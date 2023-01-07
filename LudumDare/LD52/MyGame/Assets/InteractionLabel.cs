@@ -51,7 +51,7 @@ public class InteractionLabel : MonoBehaviour
 
     private string GetLabelText(Interaction interaction, Label target)
     {
-        var labelText = target?.Text ?? "string.Empty";
+        var labelText = target?.Text ?? string.Empty;
         if (interaction != null)
         {
             labelText = interaction.Text.Contains("{held}")
