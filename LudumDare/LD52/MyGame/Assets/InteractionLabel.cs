@@ -15,7 +15,7 @@ public class InteractionLabel : MonoBehaviour
 
     private void Update()
     {
-        if (InteractionArea.Target == null)
+        if (InteractionArea.Target == null || InteractionArea.Target.gameObject.GetInvokableInteraction(Interactor, InteractionArea.Target.gameObject) == null)
         {
             var holder = Interactor.GetComponentInChildren<Holder>();
             var interactiveItem = holder.Items
@@ -23,6 +23,10 @@ public class InteractionLabel : MonoBehaviour
             if (interactiveItem == null)
             {
                 ShowText(string.Empty, Vector2.zero);
+                if (InteractionArea.Target == null)
+                {
+                    return;
+                }
             }
             else
             {
@@ -30,19 +34,17 @@ public class InteractionLabel : MonoBehaviour
                 var interaction = interactiveItem.GetInvokableInteraction(Interactor);
                 var labelText = GetLabelText(interaction, null);
                 ShowText(labelText, Interactor.transform.position + (Vector3)PositionOffsetFromTarget);
+                return;
             }
         }
-        else
-        {
-            // Debug.Log($"InteractionArea.Target: {InteractionArea.Target.gameObject.name}", InteractionArea.Target);
-            var interaction = InteractionArea.Target.gameObject.GetInvokableInteraction(Interactor, InteractionArea.Target.gameObject);
-            var labelText = GetLabelText(interaction, InteractionArea.Target);
-            var targetPosition = (Vector2)InteractionArea.Target.transform.position 
-                + PositionOffsetFromTarget
-                // + (Vector2)Interactor.transform.DirectionTo(InteractionArea.Target.transform) * PositionOffsetFromTarget.magnitude
-                ;
-            ShowText(labelText, targetPosition);
-        }
+        // Debug.Log($"InteractionArea.Target: {InteractionArea.Target.gameObject.name}", InteractionArea.Target);
+        var interactionn = InteractionArea.Target.gameObject.GetInvokableInteraction(Interactor, InteractionArea.Target.gameObject);
+        var labelTextt = GetLabelText(interactionn, InteractionArea.Target);
+        var targetPosition = (Vector2)InteractionArea.Target.transform.position
+            + PositionOffsetFromTarget
+            // + (Vector2)Interactor.transform.DirectionTo(InteractionArea.Target.transform) * PositionOffsetFromTarget.magnitude
+            ;
+        ShowText(labelTextt, targetPosition);
     }
 
     private void ShowText(string text, Vector2 position)

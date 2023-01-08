@@ -12,14 +12,17 @@ public class Interactor : MonoBehaviour
     public bool TryInteract()
     {
         var interactionGameObject = InteractionArea.Target?.gameObject;
-        if (interactionGameObject == null)
+        if (interactionGameObject == null || interactionGameObject.GetInvokableInteraction(this, InteractionArea.Target?.gameObject) == null)
         {
             var holder = GetComponentInChildren<Holder>();
             var interactiveItem = holder.Items
                 .FirstOrDefault(item => item.GetInvokableInteraction(this) != null);
             if (interactiveItem == null)
             {
-                return false;
+                if (interactionGameObject == null)
+                {
+                    return false;
+                }
             }
             else
             {
