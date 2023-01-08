@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Libs.Base.Extensions;
 using UnityEngine;
 
@@ -15,16 +16,19 @@ public class DigHoleInteraction : Interaction
         return true;
     }
 
-    public override void Invoke(Interactor interactor, GameObject target)
+    public override Sequence Invoke(Interactor interactor, GameObject target)
     {
         var holder = interactor.GetComponentInChildren<Holder>();
         if (holder == null)
         {
-            return;
+            return null;
         }
 
         var result = Instantiate(HolePrefab);
         result.transform.position = transform.position;
         result.EnableAllComponentsInChildren<Collider2D>();
+        return DOTween.Sequence()
+            .AppendInterval(2)
+            .Play();
     }
 }

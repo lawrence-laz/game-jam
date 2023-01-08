@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 [Serializable]
@@ -23,6 +24,7 @@ public class SpawnerInteraction : Interaction
     public int InteractionsCount = 1;
     public Sprite SpriteAfterInteraction;
     public UnityEventGameObject OnInteraction;
+    public TweenAnimation TweenAnimation;
 
     public override string Text => InteractionText;
 
@@ -42,12 +44,29 @@ public class SpawnerInteraction : Interaction
         return true;
     }
 
-    public override void Invoke(Interactor interactor, GameObject target)
+    public override Sequence Invoke(Interactor interactor, GameObject target)
+    {
+        if (TweenAnimation != null)
+        {
+            return TweenAnimation?.Run(() => Invocationlogic(interactor));
+        }
+        else
+        {
+            Invocationlogic(interactor);
+            return null;
+        }
+    }
+
+    private void Invocationlogic(Interactor interactor)
     {
         foreach (var dropPrefab in GuaranteedDropPrefabs)
         {
             var drop = Instantiate(dropPrefab);
-            drop.transform.position = transform.position + (Vector3)UnityEngine.Random.insideUnitCircle * 0.2f;
+            drop.transform.position = transform.position;
+            if (GuaranteedDropPrefabs.Length > 1)
+            {
+                drop.transform.position += (Vector3)UnityEngine.Random.insideUnitCircle * 0.2f;
+            }
         }
 
         foreach (var chanceDrop in ChanceDropPrefabs)

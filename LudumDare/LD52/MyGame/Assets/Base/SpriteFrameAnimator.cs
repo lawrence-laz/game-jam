@@ -11,10 +11,12 @@ public class SpriteFrameAnimator : MonoBehaviour
 
     private Sequence _animation;
     private SpriteRenderer _spriteRenderer;
+    private Sprite _idleSprite;
 
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _idleSprite = _spriteRenderer.sprite;
         if (StartImmediately)
         {
             StartAnimation();
@@ -23,6 +25,11 @@ public class SpriteFrameAnimator : MonoBehaviour
 
     public void StartAnimation()
     {
+        if (_animation != null)
+        {
+            return;
+        }
+
         _animation = DOTween.Sequence()
             .AppendCallback(() => _spriteRenderer.sprite = Frames[0])
             .AppendInterval(FrameDuration)
@@ -32,7 +39,14 @@ public class SpriteFrameAnimator : MonoBehaviour
 
     public void StopAnimation()
     {
+        if (_animation == null)
+        {
+            return;
+        }
+
         _animation?.Kill();
+        _animation = null;
+        _spriteRenderer.sprite = _idleSprite;
     }
 
     private void OnDestroy() {

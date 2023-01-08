@@ -11,6 +11,11 @@ public class InteractionArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (LayerMask.LayerToName(other.gameObject.layer) == "TriggerArea")
+        {
+            // Don't trigger on other creatures trigger zone
+            return;
+        }
         _colliders.Add(other);
     }
 

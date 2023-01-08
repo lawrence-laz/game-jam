@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class PickupInteraction : Interaction
@@ -9,16 +10,17 @@ public class PickupInteraction : Interaction
         return target?.GetComponent<Pickable>() != null && !IsHoldingTool(interactor);
     }
 
-    public override void Invoke(Interactor interactor, GameObject target)
+    public override Sequence Invoke(Interactor interactor, GameObject target)
     {
         if (IsHoldingTool(interactor))
         {
-            return;
+            return null;
         }
 
         var holder = interactor.GetComponentInChildren<Holder>();
         var pickable = target.GetComponent<Pickable>();
         holder.TryPickUp(pickable);
+        return null;
     }
 
     private bool IsHoldingTool(Interactor interactor)

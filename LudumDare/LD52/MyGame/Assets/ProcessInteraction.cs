@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Libs.Base.Extensions;
 using UnityEngine;
 
@@ -41,12 +42,12 @@ public class ProcessInteraction : Interaction
         return true;
     }
 
-    public override void Invoke(Interactor interactor, GameObject target)
+    public override Sequence Invoke(Interactor interactor, GameObject target)
     {
         var holder = interactor.GetComponentInChildren<Holder>();
         if (holder == null)
         {
-            return;
+            return null;
         }
 
         var recipe = GetComponent<Recipes>()
@@ -55,7 +56,7 @@ public class ProcessInteraction : Interaction
                 .Items.Any(item => item.GetComponent<Label>()?.Is(recipe.LabelName) ?? false));
         if (recipe == null)
         {
-            return;
+            return null;
         }
 
         var item = holder.Items.First(item => item.GetComponent<Label>()?.Is(recipe.LabelName) ?? false);
@@ -71,5 +72,6 @@ public class ProcessInteraction : Interaction
 
         holder.TryDrop(item.GetComponent<Pickable>());
         Destroy(item);
+        return null;
     }
 }

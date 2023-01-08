@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,11 +21,11 @@ public class SmearTomatoesInteraction : Interaction
             && interactor.GetComponentInChildren<Holder>().Items.Any(item => item.GetComponent<Label>().Is("tomatoe"));
     }
 
-    public override void Invoke(Interactor interactor, GameObject target)
+    public override Sequence Invoke(Interactor interactor, GameObject target)
     {
         if (Sprites.Count == 0)
         {
-            return;
+            return null;
         }
 
         var holder = interactor.GetComponentInChildren<Holder>();
@@ -46,5 +47,6 @@ public class SmearTomatoesInteraction : Interaction
                 .Concat(AlchemyRecipes)
                 .ToArray();
         }
+        return null;
     }
 }

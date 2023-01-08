@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5540981596403682538}
   - component: {fileID: 5540981596403682537}
   - component: {fileID: 3250799419930439483}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 5540981597316180064}
   - component: {fileID: 5540981597316180065}
   - component: {fileID: 6145614596599403894}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Well
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,6 +243,7 @@ MonoBehaviour:
   RequiredGameObjectLabel: 
   DestroyAfterInteraction: 0
   DestroyRequiredGameObjectAfterInteraction: 0
+  DropToHand: {fileID: 0}
   InteractionsCount: 1
   SpriteAfterInteraction: {fileID: 0}
   OnInteraction:

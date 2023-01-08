@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6452863835440261607}
   - component: {fileID: 6452863835440261606}
   - component: {fileID: 6452863835440261605}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Workbench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   - LabelName: wheat
     ResultPrefab: {fileID: 193905718812520442, guid: aa93087eaff7f7800a12242f49683df9, type: 3}
     Counts: {x: 1, y: 2}
+    CustomVerb: 
 --- !u!114 &6452863835440261605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +119,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e342650677acd9a38987c80e9876b8a4, type: 3}
   - {fileID: 21300000, guid: 23dcd2b9252673f449f98fccd2e1e5dd, type: 3}
   WorkbenchSpriteRenderer: {fileID: 6452863836138376557}
+  OnFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  AlchemyRecipes: []
+  LightningPrefab: {fileID: 0}
 --- !u!1 &6452863836138376552
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +135,7 @@ GameObject:
   - component: {fileID: 6452863836138376559}
   - component: {fileID: 6452863836138376557}
   - component: {fileID: 6452863836138376558}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

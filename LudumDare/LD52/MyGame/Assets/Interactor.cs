@@ -1,9 +1,13 @@
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
     public InteractionArea InteractionArea;
+    public bool IsBusy => _currentSequence != null;
+
+    private Sequence _currentSequence;
 
     public bool TryInteract()
     {
@@ -31,15 +35,31 @@ public class Interactor : MonoBehaviour
         if (InteractionArea.Target != null && InteractionArea.Target?.gameObject != null)
         {
             Debug.Log($"What is this? {gameObject} -> {InteractionArea?.Target?.gameObject}", InteractionArea?.Target?.gameObject);
-            interaction.Invoke(
-                this, 
+            var sequence = interaction.Invoke(
+                this,
                 InteractionArea?.Target?.gameObject);
+            if (sequence != null)
+            {
+                _currentSequence = sequence;
+            }
         }
         else
         {
-            interaction.Invoke(this, null);
+            var sequence = interaction.Invoke(this, null);
+            if (sequence != null)
+            {
+                _currentSequence = sequence;
+            }
         }
 
         return true;
+    }
+
+    private void Update()
+    {
+        if (_currentSequence != null && (!_currentSequence.IsActive() || _currentSequence.IsComplete()))
+        {
+            _currentSequence = null;
+        }
     }
 }

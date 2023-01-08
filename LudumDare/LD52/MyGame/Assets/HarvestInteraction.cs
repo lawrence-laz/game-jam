@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class HarvestInteraction : Interaction
@@ -12,8 +13,9 @@ public class HarvestInteraction : Interaction
             && target?.GetComponent<Harvestable>() != null;
     }
 
-    public override void Invoke(Interactor interactor, GameObject target)
+    public override Sequence Invoke(Interactor interactor, GameObject target)
     {
         target.GetComponent<Harvestable>().Harvest();
+        return null;
     }
 }

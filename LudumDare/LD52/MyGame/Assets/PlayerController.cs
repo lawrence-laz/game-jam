@@ -11,6 +11,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (Interactor.IsBusy)
+        {
+            ControlledObject.GetComponent<Movement>().Direction = Vector2.zero;
+            return;
+        }
+
         _axisInput = new Vector2(
             (Input.GetAxisRaw("Horizontal") + Input.GetAxis("Horizontal")) / 2,
             (Input.GetAxisRaw("Vertical") + Input.GetAxis("Vertical")) / 2
@@ -33,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private void ControlMovement()
     {
         var movement = ControlledObject.GetComponent<Movement>();
-        movement.Direction = Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0
+        movement.Direction = (Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0) || Interactor.IsBusy
             ? Vector2.zero
             : movement.Direction = _axisInput;
     }

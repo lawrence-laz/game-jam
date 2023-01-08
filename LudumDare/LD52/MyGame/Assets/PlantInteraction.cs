@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Libs.Base.Extensions;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class PlantInteraction : Interaction
         return TryGetSeed(interactor, out var _);
     }
 
-    public override void Invoke(Interactor interactor, GameObject target)
+    public override Sequence Invoke(Interactor interactor, GameObject target)
     {
         TryGetSeed(interactor, out var item);
 
@@ -27,6 +28,7 @@ public class PlantInteraction : Interaction
         Destroy(item);
 
         Destroy(gameObject);
+        return null;
     }
 
     private bool TryGetSeed(Interactor interactor, out GameObject seed)

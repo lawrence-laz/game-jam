@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4235592779710442928}
   - component: {fileID: 3731860805793901235}
   - component: {fileID: 5969336466422007383}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Furnace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,9 +162,11 @@ MonoBehaviour:
   - LabelName: Dirt
     ResultPrefab: {fileID: 3727109449611117426, guid: f75a57cb2cb723e9983dcd2f53d40ebe, type: 3}
     Counts: {x: 1, y: 1}
+    CustomVerb: 
   - LabelName: mud
     ResultPrefab: {fileID: 5573031194465859874, guid: 0057442a63b7a0f9a9c0ccf69007351b, type: 3}
     Counts: {x: 1, y: 1}
+    CustomVerb: 
 --- !u!1 &4235592780925503806
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +179,7 @@ GameObject:
   - component: {fileID: 4235592780925503803}
   - component: {fileID: 4235592780925503800}
   - component: {fileID: 6575102141535857386}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

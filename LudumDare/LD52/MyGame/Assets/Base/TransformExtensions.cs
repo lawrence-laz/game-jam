@@ -22,9 +22,19 @@ public static class TransformExtensions
         return (a.position - b.position).magnitude;
     }
 
+    public static float DistanceTo2D(this Transform a, Transform b)
+    {
+        return ((Vector2)(a.position - b.position)).magnitude;
+    }
+
     public static Vector3 DirectionTo(this Transform from, Transform to)
     {
         return (to.position - from.position).normalized;
+    }
+
+    public static Vector3 DirectionTo2D(this Transform from, Transform to)
+    {
+        return ((Vector2)(to.position - from.position)).normalized;
     }
 
     public static Transform SetLocalScaleY(this Transform transform, float y)
