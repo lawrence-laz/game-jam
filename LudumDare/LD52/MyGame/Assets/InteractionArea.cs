@@ -31,11 +31,23 @@ public class InteractionArea : MonoBehaviour
 
     private void RefocusTarget()
     {
-        var other = _colliders
-            .OrderBy(collider => collider.transform.parent == null
+        var interactor = GetComponentInParent<Interactor>();
+        var ordered = _colliders
+            .Select(x => x.transform.parent ?? x.transform)
+            .OrderBy(collider =>
+            {
+                var canInteract = collider
+                    .GetComponentsInChildren<Interaction>()
+                    .Any(interaction => interaction != null && interaction.CanInvoke(interactor, collider.gameObject));
+                return canInteract ? 0 : 1;
+            })
+            .ThenBy(collider => collider.transform.parent == null
                 ? Vector2.Distance(collider.transform.position, transform.position)
                 : Vector2.Distance(collider.transform.parent.position, transform.position))
-            .FirstOrDefault();
+            .ToList();
+
+        // Debug.Log(string.Join(", ", ordered.Select(x => x.gameObject.name)));
+        var other = ordered.FirstOrDefault();
 
         if (other == null)
         {
@@ -50,9 +62,11 @@ public class InteractionArea : MonoBehaviour
             return;
         }
 
-        var interaction = label.GetComponent<Interaction>();
-        var interactor = GetComponentInParent<Interactor>();
-        var canInteract = interaction != null && interaction.CanInvoke(interactor, label.gameObject);
+        var canInteract = label
+                    .GetComponentsInChildren<Interaction>()
+                    .Any(interaction => interaction != null && interaction.CanInvoke(interactor, label.gameObject));
+        // var interaction = label.GetComponent<Interaction>();
+        // var canInteract = interaction != null && interaction.CanInvoke(interactor, label.gameObject);
         var currentInteractiveAndNewIsNot = TargetCanInteract && !canInteract;
         if (currentInteractiveAndNewIsNot)
         {

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f790d15b9b4097045b9164dfa318ff5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BadgeName: 18
 --- !u!1 &3727109449910249227
 GameObject:
   m_ObjectHideFlags: 0

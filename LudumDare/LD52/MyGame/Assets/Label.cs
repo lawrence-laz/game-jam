@@ -13,6 +13,8 @@ public class Label : MonoBehaviour
             : Text.StartsWith("an ")
             ? Text[3..]
             : Text;
+        
+        // Debug.Log($"{thisText} =?= {text}");
 
         return string.Equals(thisText, text, System.StringComparison.InvariantCultureIgnoreCase);
     }

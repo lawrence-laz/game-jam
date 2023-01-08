@@ -25,6 +25,7 @@ public class SpawnerInteraction : Interaction
     public Sprite SpriteAfterInteraction;
     public UnityEventGameObject OnInteraction;
     public TweenAnimation TweenAnimation;
+    public Badges BadgeGive = Badges.None;
 
     public override string Text => InteractionText;
 
@@ -38,6 +39,7 @@ public class SpawnerInteraction : Interaction
         if (!string.IsNullOrEmpty(RequiredGameObjectLabel))
         {
             var holder = interactor.GetComponentInChildren<Holder>();
+            // Debug.Log($"Spawner, {RequiredGameObjectLabel}, items: {string.Join(", ", holder.Items.Select(x => x.gameObject.name))}. {holder.Items.Any(item => item.GetComponent<Label>().Is(RequiredGameObjectLabel))}");
             return holder.Items.Any(item => item.GetComponent<Label>().Is(RequiredGameObjectLabel));
         }
 
@@ -106,5 +108,7 @@ public class SpawnerInteraction : Interaction
             drop.transform.rotation = Quaternion.identity;
             drop.GetComponent<PickupInteraction>().Invoke(interactor, drop);
         }
+
+        Badge.Set(BadgeGive);
     }
 }

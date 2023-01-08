@@ -8,22 +8,24 @@ public enum Badges
     None,
     Pentagram, // TODO
     Fire,
-    Tomatoes, // TODO
-    Bricks, // TODO
-    Mud, // TODO
-    Metal, // TODO
-    Rust, // TODO
-    DeadCrow, // TODO
-    Worm, // TODO
+    Tomatoes,
+    Bricks, 
+    Mud, 
+    Metal, 
+    Rust, 
+    DeadCrow,
+    Worm, 
     Wheat50, // TODO
-    Anvil, // TODO
+    Anvil, 
     Hammer, // TODO
     Sand, // TODO
     Glass, // TODO
-    Bread, // TODO
+    Bread,
     Lightbulb, // TODO
     Steam, // TODO water+fire
-    Electricity, // TODO water+fire
+    Electricity,
+    LavaBucket,
+    LavaHole,
 }
 
 public class Badge : MonoBehaviour

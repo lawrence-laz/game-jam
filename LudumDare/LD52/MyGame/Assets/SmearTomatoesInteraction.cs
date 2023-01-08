@@ -46,6 +46,7 @@ public class SmearTomatoesInteraction : Interaction
                 .ProcessRecipes
                 .Concat(AlchemyRecipes)
                 .ToArray();
+            Badge.Set(Badges.Pentagram);
         }
         return null;
     }

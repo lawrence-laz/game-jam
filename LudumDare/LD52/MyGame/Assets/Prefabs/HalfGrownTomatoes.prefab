@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8068982684606159796}
   - component: {fileID: 8068982684606159794}
   - component: {fileID: 8436718598400907496}
+  - component: {fileID: -9055219962731418338}
   m_Layer: 0
   m_Name: HalfGrownTomatoes
   m_TagString: Untagged
@@ -83,7 +84,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetPrefabs:
   - {fileID: 8068982684606159798, guid: ee2f1322ae21b9084acd763c787c292c, type: 3}
-  DurationRange: {x: 1, y: 2}
+  DurationRange: {x: 15, y: 30}
+--- !u!114 &-9055219962731418338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8068982684606159798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionText: Water
+  GuaranteedDropPrefabs: []
+  ChanceDropPrefabs: []
+  RequiredGameObjectLabel: bucket with water
+  DestroyAfterInteraction: 0
+  DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
+  InteractionsCount: 1
+  SpriteAfterInteraction: {fileID: 0}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8436718598400907496}
+        m_TargetAssemblyTypeName: Growth, Assembly-CSharp
+        m_MethodName: Grow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0
 --- !u!1 &8068982686219865799
 GameObject:
   m_ObjectHideFlags: 0

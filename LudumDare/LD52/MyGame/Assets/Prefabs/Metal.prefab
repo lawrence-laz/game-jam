@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5531800550255816152}
   - component: {fileID: 5337590245902379572}
   - component: {fileID: 7886553868300031075}
+  - component: {fileID: -8980886816274077271}
   m_Layer: 0
   m_Name: Metal
   m_TagString: Untagged
@@ -121,6 +122,20 @@ MonoBehaviour:
   OnInteraction:
     m_PersistentCalls:
       m_Calls: []
+  TweenAnimation: {fileID: 0}
+--- !u!114 &-8980886816274077271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3727109449611117426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f790d15b9b4097045b9164dfa318ff5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BadgeName: 6
 --- !u!1 &3727109449910249227
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,17 @@ using UnityEngine;
 public class ProcessRecipe
 {
     public string LabelName;
+    public string OtherLabelName;
     public GameObject ResultPrefab;
     public Vector2Int Counts;
     public string CustomVerb;
+    public Badges Badge = Badges.None;
+
+    public bool HasIngredients(Holder holder)
+    {
+        return holder.Items.Any(item => item.GetComponent<Label>()?.Is(LabelName) ?? false)
+            && (string.IsNullOrEmpty(OtherLabelName) || holder.Items.Any(item => item.GetComponent<Label>()?.Is(OtherLabelName) ?? false));
+    }
 }
 
 public class ProcessInteraction : Interaction
@@ -29,10 +37,14 @@ public class ProcessInteraction : Interaction
 
         var recipe = GetComponent<Recipes>()
             .ProcessRecipes
-            .FirstOrDefault(recipe => holder
-                .Items.Any(item => item.GetComponent<Label>()?.Is(recipe.LabelName) ?? false));
+            .FirstOrDefault(recipe =>
+            {
+                // Debug.Log($"recipe label: {recipe.LabelName}, items:{string.Join(", ", holder.Items.Select(x => x.GetComponent<Label>().Text))}");
+                return recipe.HasIngredients(holder);
+            });
         if (recipe == null)
         {
+            // Debug.Log("recipe not found");
             return false;
         }
 
@@ -52,14 +64,14 @@ public class ProcessInteraction : Interaction
 
         var recipe = GetComponent<Recipes>()
             .ProcessRecipes
-            .FirstOrDefault(recipe => holder
-                .Items.Any(item => item.GetComponent<Label>()?.Is(recipe.LabelName) ?? false));
+            .FirstOrDefault(recipe => recipe.HasIngredients(holder));
         if (recipe == null)
         {
             return null;
         }
 
         var item = holder.Items.First(item => item.GetComponent<Label>()?.Is(recipe.LabelName) ?? false);
+        var otherItem = holder.Items.FirstOrDefault(item => item.GetComponent<Label>()?.Is(recipe.OtherLabelName) ?? false);
 
         var count = UnityEngine.Random.Range(recipe.Counts.x, recipe.Counts.y + 1);
         for (var i = 0; i < count; ++i)
@@ -72,6 +84,15 @@ public class ProcessInteraction : Interaction
 
         holder.TryDrop(item.GetComponent<Pickable>());
         Destroy(item);
+
+        if (otherItem != null)
+        {
+            holder.TryDrop(otherItem.GetComponent<Pickable>());
+            Destroy(otherItem);
+        }
+
+        Badge.Set(recipe.Badge);
+
         return null;
     }
 }

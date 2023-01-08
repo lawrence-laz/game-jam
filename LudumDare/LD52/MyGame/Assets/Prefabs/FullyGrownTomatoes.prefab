@@ -83,6 +83,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DropPrefab: {fileID: 4852166008863105400, guid: 8eec57f3a3cf148c6810a3b86cc9dc72, type: 3}
+  MorePrefabs:
+  - Chance: 1
+    Prefab: {fileID: 193905718812520442, guid: aa93087eaff7f7800a12242f49683df9, type: 3}
+  - Chance: 0.8
+    Prefab: {fileID: 193905718812520442, guid: aa93087eaff7f7800a12242f49683df9, type: 3}
 --- !u!114 &1563299316
 MonoBehaviour:
   m_ObjectHideFlags: 0

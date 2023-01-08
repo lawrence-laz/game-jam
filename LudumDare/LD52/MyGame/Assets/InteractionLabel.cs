@@ -15,6 +15,7 @@ public class InteractionLabel : MonoBehaviour
 
     private void Update()
     {
+        // Debug.Log($"Target {InteractionArea.Target?.gameObject.name} (invokable {InteractionArea.Target?.gameObject.GetInvokableInteraction(Interactor, InteractionArea.Target.gameObject) != null})");
         if (InteractionArea.Target == null || InteractionArea.Target.gameObject.GetInvokableInteraction(Interactor, InteractionArea.Target.gameObject) == null)
         {
             var holder = Interactor.GetComponentInChildren<Holder>();
