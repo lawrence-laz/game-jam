@@ -27,6 +27,21 @@ public static class TransformExtensions
         return ((Vector2)(a.position - b.position)).magnitude;
     }
 
+    public static float DistanceTo2D(this Transform a, Vector3 b)
+    {
+        return ((Vector2)(a.position - b)).magnitude;
+    }
+
+    public static float DistanceTo2D(this Vector3 a, Transform b)
+    {
+        return ((Vector2)(a - b.position)).magnitude;
+    }
+
+    public static float DistanceTo2D(this Vector3 a, Vector3 b)
+    {
+        return ((Vector2)(a - b)).magnitude;
+    }
+
     public static Vector3 DirectionTo(this Transform from, Transform to)
     {
         return (to.position - from.position).normalized;
