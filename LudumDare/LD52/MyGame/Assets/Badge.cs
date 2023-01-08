@@ -7,7 +7,7 @@ public enum Badges
 {
     None,
     Pentagram, // TODO
-    Fire, // TODO
+    Fire,
     Tomatoes, // TODO
     Bricks, // TODO
     Mud, // TODO
@@ -23,6 +23,7 @@ public enum Badges
     Bread, // TODO
     Lightbulb, // TODO
     Steam, // TODO water+fire
+    Electricity, // TODO water+fire
 }
 
 public class Badge : MonoBehaviour
