@@ -8,6 +8,9 @@ public class BadgeGiver : MonoBehaviour
 
     private void Start()
     {
-        Badge.Set(BadgeName);
+        if (Badge.Set(BadgeName))
+        {
+            FindObjectOfType<AchievementEffectSpawner>().SpawnEffect(transform.position);
+        }
     }
 }

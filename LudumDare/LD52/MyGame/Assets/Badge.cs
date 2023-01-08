@@ -48,9 +48,15 @@ public class Badge : MonoBehaviour
             : Color.black;
     }
 
-    public static void Set(Badges badge)
+    public static bool Set(Badges badge)
     {
+        if (Get(badge))
+        {
+            return false;
+        }
+
         PlayerPrefs.SetInt($"Badge_{badge}", 1);
+        return true;
     }
 
     public static bool Get(Badges badge)
