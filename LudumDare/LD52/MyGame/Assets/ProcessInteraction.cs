@@ -15,6 +15,7 @@ public class ProcessRecipe
     public Vector2Int Counts;
     public string CustomVerb;
     public Badges Badge = Badges.None;
+    public AudioClip Sound;
 
     public bool HasIngredients(Holder holder)
     {
@@ -92,6 +93,11 @@ public class ProcessInteraction : Interaction
         }
 
         Badge.Set(recipe.Badge);
+
+        if (recipe.Sound != null)
+        {
+            GetComponent<AudioSource>().PlayOneShot(recipe.Sound);
+        }
 
         return null;
     }

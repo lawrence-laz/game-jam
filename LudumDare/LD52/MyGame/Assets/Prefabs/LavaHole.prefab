@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7443398125741624813}
   - component: {fileID: -8919661824124202844}
   - component: {fileID: 4099433513270321596}
+  - component: {fileID: -6029547551268840731}
   m_Layer: 0
   m_Name: LavaHole
   m_TagString: Untagged
@@ -229,6 +230,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6029547551268840731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009201378703757801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 0}
+  InteractionText: build
+  GuaranteedDropPrefabs:
+  - {fileID: 1411179474890892795, guid: 9788ac494c82867b6ab2b48449781ab0, type: 3}
+  ChanceDropPrefabs: []
+  RequiredGameObjectLabel: dirt
+  DestroyAfterInteraction: 1
+  DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 0}
+  InteractionsCount: 1
+  SpriteAfterInteraction: {fileID: 0}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0
 --- !u!1 &2009201379771443196
 GameObject:
   m_ObjectHideFlags: 0
