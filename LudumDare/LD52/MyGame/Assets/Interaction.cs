@@ -13,20 +13,20 @@ public abstract class Interaction : MonoBehaviour
     public Sequence Invoke(Interactor interactor, GameObject target)
     {
         var sequence = InnerInvoke(interactor, target);
-        PlaySound();
+        PlaySound(interactor);
         return sequence;
     }
 
     public abstract Sequence InnerInvoke(Interactor interactor, GameObject target);
 
-    public void PlaySound()
+    public void PlaySound(Interactor interactor)
     {
         if (AudioClip == null)
         {
             return;
         }
 
-        var audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
+        var audioSource = interactor.GetComponent<AudioSource>();
         audioSource.PlayOneShot(AudioClip);
     }
 }

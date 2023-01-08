@@ -62,7 +62,7 @@ public class Lightning : MonoBehaviour
             .AppendCallback(() =>
             {
                 _spriteRenderer.enabled = false;
-                Destroy(gameObject, 0.1f);
+                // Destroy(gameObject, 0.1f);
             })
             .Play();
     }

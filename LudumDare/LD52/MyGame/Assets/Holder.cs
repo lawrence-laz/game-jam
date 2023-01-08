@@ -8,6 +8,7 @@ public class Holder : MonoBehaviour
     public int CurrentSlots = 0;
     public Vector3 PositionOffsetBetweenItems = new(0f, 0.05f, -0.1f);
     public List<GameObject> Items = new();
+    public AudioClip DropSound;
 
     public bool TryPickUp(Pickable pickable)
     {
@@ -65,6 +66,11 @@ public class Holder : MonoBehaviour
         foreach (var item in Items)
         {
             Restore(item);
+
+            if (item.GetComponent<ToolItem>())
+            {
+                GetComponent<AudioSource>().PlayOneShot(DropSound);
+            }
         }
 
         Items.Clear();

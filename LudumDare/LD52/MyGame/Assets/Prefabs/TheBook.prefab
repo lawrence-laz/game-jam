@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4039765000666776633}
   - component: {fileID: 7896326500644474068}
   - component: {fileID: 7896326500644474069}
+  - component: {fileID: 1571311338}
+  - component: {fileID: 1571311337}
   m_Layer: 0
   m_Name: TheBook
   m_TagString: Untagged
@@ -63,6 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4378269324a6d649a4af3478f1646b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip: {fileID: 0}
 --- !u!114 &4523348623535866837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,11 +112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: c3f256b62908a464c972eb37f7515045, type: 3}
   InteractionText: Open
   GuaranteedDropPrefabs: []
   ChanceDropPrefabs: []
   RequiredGameObjectLabel: 
   DestroyAfterInteraction: 0
+  DestroyRequiredGameObjectAfterInteraction: 0
+  DropToHand: {fileID: 0}
   InteractionsCount: 2147483647
   SpriteAfterInteraction: {fileID: 0}
   OnInteraction:
@@ -131,6 +137,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0
 --- !u!114 &7896326500644474069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +151,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef8c3a27523e79c8884eb7245e36419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PageCloseSound: {fileID: 8300000, guid: 2818ed22ba47d081fa2f0109e0da9280, type: 3}
+--- !u!82 &1571311338
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736542838568250751}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2818ed22ba47d081fa2f0109e0da9280, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1571311337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736542838568250751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b996332f9dbf126de80bc3348ba9d47e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PutDownSound: {fileID: 0}
 --- !u!1 &4736542838961178886
 GameObject:
   m_ObjectHideFlags: 0

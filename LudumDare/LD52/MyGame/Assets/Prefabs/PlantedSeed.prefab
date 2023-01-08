@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip: {fileID: 0}
   InteractionText: Fertilize
   GuaranteedDropPrefabs:
   - {fileID: 8068982684606159798, guid: 2c3123a6551f668269a1b49dc07b952f, type: 3}
@@ -204,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 8c2a4d918e459a2ccbeaea9c27370445, type: 3}
   InteractionText: Water
   GuaranteedDropPrefabs: []
   ChanceDropPrefabs: []

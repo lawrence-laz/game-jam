@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BookUiController : MonoBehaviour
 {
+    public AudioClip PageCloseSound;
+
     private bool _isBeingDestroyed = false;
 
     private void Start()
@@ -26,6 +28,7 @@ public class BookUiController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.Q))
         {
             Camera.main.transform.Find("Canvas/BookBackground").gameObject.SetActive(false);
+            GetComponent<AudioSource>().PlayOneShot(PageCloseSound);
         }
     }
 }
