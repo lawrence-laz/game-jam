@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4378269324a6d649a4af3478f1646b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 6dde29ecb5f244232bbdb99fd8d78c32, type: 3}
 --- !u!114 &3614947248641841032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip: {fileID: 0}
   InteractionText: water
   GuaranteedDropPrefabs:
   - {fileID: 5573031194465859874, guid: 83020875b96087fd5a8ce049b5e4316d, type: 3}
@@ -121,6 +123,8 @@ MonoBehaviour:
   OnInteraction:
     m_PersistentCalls:
       m_Calls: []
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0
 --- !u!1 &5573031194858790235
 GameObject:
   m_ObjectHideFlags: 0

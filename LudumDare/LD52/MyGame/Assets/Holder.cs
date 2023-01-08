@@ -10,6 +10,8 @@ public class Holder : MonoBehaviour
     public List<GameObject> Items = new();
     public AudioClip DropSound;
     public AudioClip BucketDropSound;
+    public AudioClip RigidDropSound;
+    public AudioClip GenericDropSound;
 
     public bool TryPickUp(Pickable pickable)
     {
@@ -64,18 +66,32 @@ public class Holder : MonoBehaviour
 
         CurrentSlots = 0;
 
+        var soundPlayed = false;
+
         foreach (var item in Items)
         {
             Restore(item);
 
             if (item.GetComponent<ToolItem>())
             {
+                soundPlayed = true;
                 GetComponent<AudioSource>().PlayOneShot(DropSound);
             }
             else if (item.GetComponent<Bucket>())
             {
+                soundPlayed = true;
                 GetComponent<AudioSource>().PlayOneShot(BucketDropSound);
             }
+            else if (item.GetComponent<Label>().Is("glass"))
+            {
+                soundPlayed = true;
+                GetComponent<AudioSource>().PlayOneShot(RigidDropSound);
+            }
+        }
+
+        if (!soundPlayed)
+        {
+            GetComponent<AudioSource>().PlayOneShot(GenericDropSound);
         }
 
         Items.Clear();

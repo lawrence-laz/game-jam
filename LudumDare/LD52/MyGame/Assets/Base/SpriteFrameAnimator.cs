@@ -12,6 +12,7 @@ public class SpriteFrameAnimator : MonoBehaviour
     private Sequence _animation;
     private SpriteRenderer _spriteRenderer;
     private Sprite _idleSprite;
+    private int _frameIndex;
 
     void Start()
     {
@@ -21,6 +22,12 @@ public class SpriteFrameAnimator : MonoBehaviour
         {
             StartAnimation();
         }
+    }
+
+    public void NextFrame()
+    {
+        _spriteRenderer.sprite = Frames[_frameIndex];
+        _frameIndex = (_frameIndex + 1) % Frames.Length;
     }
 
     public void StartAnimation()
@@ -39,6 +46,8 @@ public class SpriteFrameAnimator : MonoBehaviour
 
     public void StopAnimation()
     {
+        _spriteRenderer.sprite = _idleSprite;
+
         if (_animation == null)
         {
             return;
@@ -46,7 +55,6 @@ public class SpriteFrameAnimator : MonoBehaviour
 
         _animation?.Kill();
         _animation = null;
-        _spriteRenderer.sprite = _idleSprite;
     }
 
     private void OnDestroy() {
