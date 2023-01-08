@@ -15,7 +15,7 @@ public class PlantInteraction : Interaction
         return TryGetSeed(interactor, out var _);
     }
 
-    public override Sequence Invoke(Interactor interactor, GameObject target)
+    public override Sequence InnerInvoke(Interactor interactor, GameObject target)
     {
         TryGetSeed(interactor, out var item);
 

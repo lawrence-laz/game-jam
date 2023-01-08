@@ -37,7 +37,7 @@ public class Interactor : MonoBehaviour
 
         if (InteractionArea.Target != null && InteractionArea.Target?.gameObject != null)
         {
-            Debug.Log($"What is this? {gameObject} -> {InteractionArea?.Target?.gameObject}", InteractionArea?.Target?.gameObject);
+            // Debug.Log($"What is this? {gameObject} -> {InteractionArea?.Target?.gameObject}", InteractionArea?.Target?.gameObject);
             var sequence = interaction.Invoke(
                 this,
                 InteractionArea?.Target?.gameObject);

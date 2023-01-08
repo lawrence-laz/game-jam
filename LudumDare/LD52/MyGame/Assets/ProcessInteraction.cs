@@ -54,7 +54,7 @@ public class ProcessInteraction : Interaction
         return true;
     }
 
-    public override Sequence Invoke(Interactor interactor, GameObject target)
+    public override Sequence InnerInvoke(Interactor interactor, GameObject target)
     {
         var holder = interactor.GetComponentInChildren<Holder>();
         if (holder == null)

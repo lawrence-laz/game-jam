@@ -26,6 +26,8 @@ public enum Badges
     Electricity,
     LavaBucket,
     LavaHole,
+    Volcano,
+    Dust,
 }
 
 public class Badge : MonoBehaviour
@@ -36,6 +38,7 @@ public class Badge : MonoBehaviour
 
     private void Start() {
         _image = GetComponent<Image>();
+        Update();
     }
 
     private void Update()

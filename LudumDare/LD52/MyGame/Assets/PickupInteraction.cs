@@ -10,7 +10,7 @@ public class PickupInteraction : Interaction
         return target?.GetComponent<Pickable>() != null && !IsHoldingTool(interactor);
     }
 
-    public override Sequence Invoke(Interactor interactor, GameObject target)
+    public override Sequence InnerInvoke(Interactor interactor, GameObject target)
     {
         if (IsHoldingTool(interactor))
         {

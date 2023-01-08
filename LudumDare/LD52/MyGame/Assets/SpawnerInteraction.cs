@@ -46,7 +46,7 @@ public class SpawnerInteraction : Interaction
         return true;
     }
 
-    public override Sequence Invoke(Interactor interactor, GameObject target)
+    public override Sequence InnerInvoke(Interactor interactor, GameObject target)
     {
         if (TweenAnimation != null)
         {

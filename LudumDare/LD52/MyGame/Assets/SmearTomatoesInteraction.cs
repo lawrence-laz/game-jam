@@ -21,7 +21,7 @@ public class SmearTomatoesInteraction : Interaction
             && interactor.GetComponentInChildren<Holder>().Items.Any(item => item.GetComponent<Label>().Is("tomatoe"));
     }
 
-    public override Sequence Invoke(Interactor interactor, GameObject target)
+    public override Sequence InnerInvoke(Interactor interactor, GameObject target)
     {
         if (Sprites.Count == 0)
         {

@@ -13,7 +13,7 @@ public class HarvestInteraction : Interaction
             && target?.GetComponent<Harvestable>() != null;
     }
 
-    public override Sequence Invoke(Interactor interactor, GameObject target)
+    public override Sequence InnerInvoke(Interactor interactor, GameObject target)
     {
         target.GetComponent<Harvestable>().Harvest();
         return null;
