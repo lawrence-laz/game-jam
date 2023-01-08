@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd16abf95a43f377bdbf82700c5da7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: e4fe3d48fbefc86b99cf371308525771, type: 3}
   PlantedSeedPrefab: {fileID: 7218401978377357513, guid: 66cda3ba237c8fec7a259297e8bfb199, type: 3}
 --- !u!114 &2126165369205469328
 MonoBehaviour:
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: 728ddb19d3586533aa1f5913c1264f50, type: 3}
   InteractionText: light
   GuaranteedDropPrefabs:
   - {fileID: 2009201378703757801, guid: eb11ec6eb7bd81cff89d5ec85b1dec63, type: 3}

@@ -124,7 +124,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.569
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -292,6 +292,7 @@ MonoBehaviour:
   PositionOffsetBetweenItems: {x: 0, y: 0.05, z: -0.1}
   Items: []
   DropSound: {fileID: 8300000, guid: eaa3dad8b77b50aabb5910c05184dcbd, type: 3}
+  BucketDropSound: {fileID: 8300000, guid: ad44624f97c29cd39afec0cddade5a59, type: 3}
 --- !u!82 &1682479522
 AudioSource:
   m_ObjectHideFlags: 0
