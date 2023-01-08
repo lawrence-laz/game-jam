@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 6923185967194352806}
   - component: {fileID: 575540102}
   - component: {fileID: 575540109}
+  - component: {fileID: -4192075007191970653}
   m_Layer: 8
   m_Name: Crow
   m_TagString: Untagged
@@ -310,7 +311,7 @@ MonoBehaviour:
   State: 0
   IsHumanNearby: 0
   Target: {fileID: 0}
-  SafeDistance: 1.1
+  SafeDistance: 1.5
 --- !u!114 &575540109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,3 +327,16 @@ MonoBehaviour:
   MaxSpeed: 5
   Acceleration: 20
   Direction: {x: 0, y: 0}
+--- !u!114 &-4192075007191970653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855391462676350432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29f476214ddbfb96a038ed9105eec31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OriginalRotation: {x: 0, y: 0, z: 0, w: 0}

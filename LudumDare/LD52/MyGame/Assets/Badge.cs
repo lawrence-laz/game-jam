@@ -5,8 +5,24 @@ using UnityEngine.UI;
 
 public enum Badges
 {
-    Pentagram,
-    Fire
+    None,
+    Pentagram, // TODO
+    Fire, // TODO
+    Tomatoes, // TODO
+    Bricks, // TODO
+    Mud, // TODO
+    Metal, // TODO
+    Rust, // TODO
+    DeadCrow, // TODO
+    Worm, // TODO
+    Wheat50, // TODO
+    Anvil, // TODO
+    Hammer, // TODO
+    Sand, // TODO
+    Glass, // TODO
+    Bread, // TODO
+    Lightbulb, // TODO
+    Steam, // TODO water+fire
 }
 
 public class Badge : MonoBehaviour

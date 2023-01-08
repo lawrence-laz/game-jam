@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5531800550255816159}
   - component: {fileID: 5531800550255816152}
   - component: {fileID: 5337590245902379572}
+  - component: {fileID: -1484255932034164454}
   m_Layer: 0
   m_Name: Electricity
   m_TagString: Untagged
@@ -95,6 +96,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1484255932034164454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3727109449611117426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f790d15b9b4097045b9164dfa318ff5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3727109449910249227
 GameObject:
   m_ObjectHideFlags: 0
