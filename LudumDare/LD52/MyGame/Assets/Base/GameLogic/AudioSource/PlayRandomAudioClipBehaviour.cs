@@ -7,6 +7,15 @@ namespace Libs.Base.GameLogic.AudioSource
     {
         [SerializeField] UnityEngine.AudioSource audioSource = null;
         [SerializeField] AudioClip[] audioClips = null;
+        public bool PlayOnAwake = true;
+
+        private void Start()
+        {
+            if (PlayOnAwake)
+            {
+                PlayRandomAudioClip();
+            }
+        }
 
         [ContextMenu("PlayRandomAudioClip")]
         public void PlayRandomAudioClip()

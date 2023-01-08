@@ -27,8 +27,11 @@ public class BookUiController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.Q))
         {
+            if (Camera.main.transform.Find("Canvas/BookBackground").gameObject.activeSelf)
+            {
+                GetComponent<AudioSource>().PlayOneShot(PageCloseSound);
+            }
             Camera.main.transform.Find("Canvas/BookBackground").gameObject.SetActive(false);
-            GetComponent<AudioSource>().PlayOneShot(PageCloseSound);
         }
     }
 }

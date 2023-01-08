@@ -1975,6 +1975,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2064,6 +2065,20 @@ MonoBehaviour:
   fadeColor: {r: 1, g: 1, b: 1, a: 1}
   defaultDuration: 0.01
   AutoFadeIn: 0
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42cd8dcae69d178488f5efa28e7c7e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 021f74a6bc502364ea09233306e2eac2, type: 3}
+  BlockCount: 315
 --- !u!1001 &1074569245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5129,7 +5144,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2487959386042769591
 PrefabInstance:
@@ -5866,7 +5881,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2182977845538857008, guid: aa1b6102452a41797a1a411e17699389, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2182977845538857008, guid: aa1b6102452a41797a1a411e17699389, type: 3}
       propertyPath: m_LocalPosition.x
