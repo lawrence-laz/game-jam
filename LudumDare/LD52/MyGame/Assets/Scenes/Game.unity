@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -301,6 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -915,6 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -1136,6 +1139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -1267,6 +1271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -1398,6 +1403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -1529,6 +1535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -1761,6 +1768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -2083,6 +2091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -2214,6 +2223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -3073,6 +3083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -3485,6 +3496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -3616,6 +3628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -3747,6 +3760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -3878,6 +3892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -4009,6 +4024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -4230,6 +4246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -4361,6 +4378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -4492,6 +4510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -5145,6 +5164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -5366,6 +5386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -5703,6 +5724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -5834,6 +5856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -5965,6 +5988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -6186,6 +6210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -6317,6 +6342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -6448,6 +6474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -6756,6 +6783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -7025,6 +7053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -7156,6 +7185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -7287,6 +7317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -7760,6 +7791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -7891,6 +7923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -8022,6 +8055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -8349,6 +8383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -8772,6 +8807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -8856,6 +8892,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1718251358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1889671284, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+  m_PrefabInstance: {fileID: 2487959386042769591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1764047822
 GameObject:
   m_ObjectHideFlags: 0
@@ -8903,6 +8950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -9214,6 +9262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -9631,6 +9680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -9762,6 +9812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -10141,6 +10192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -10704,6 +10756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -11081,6 +11134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 0}
+  IsEnabled: 1
   InteractionText: Dig
   GuaranteedDropPrefabs:
   - {fileID: 5534004955690309818, guid: 39fcbb529156a1eb296bd6aaafb32c85, type: 3}
@@ -11376,6 +11430,38 @@ PrefabInstance:
     - target: {fileID: 1378969903, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
       propertyPath: m_Volume
       value: 0.583
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889671284, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: IsEnabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731860805793901235, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731860805793901235, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731860805793901235, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1718251358}
+    - target: {fileID: 3731860805793901235, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731860805793901235, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: EnableInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731860805793901235, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SpawnerInteraction, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731860805793901235, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: OnInteraction.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4235592779710442824, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
       propertyPath: m_Name
@@ -11803,6 +11889,10 @@ PrefabInstance:
     - target: {fileID: 5540981597316180121, guid: 928cb02a5a603775fac90c7546151190, type: 3}
       propertyPath: m_Name
       value: Well
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145614596599403894, guid: 928cb02a5a603775fac90c7546151190, type: 3}
+      propertyPath: InteractionText
+      value: Scoop water from
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 928cb02a5a603775fac90c7546151190, type: 3}

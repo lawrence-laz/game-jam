@@ -15,6 +15,7 @@ public class ChanceDrop
 
 public class SpawnerInteraction : Interaction
 {
+    public bool IsEnabled = true;
     public string InteractionText = "Open";
     public GameObject[] GuaranteedDropPrefabs;
     public ChanceDrop[] ChanceDropPrefabs;
@@ -33,6 +34,11 @@ public class SpawnerInteraction : Interaction
 
     public override bool CanInvoke(Interactor interactor, GameObject target)
     {
+        if (!IsEnabled)
+        {
+            return false;
+        }
+
         if (InteractionsCount < 1)
         {
             return false;
@@ -48,8 +54,18 @@ public class SpawnerInteraction : Interaction
         return true;
     }
 
+    public void EnableInteraction()
+    {
+        IsEnabled = true;
+    }
+
     public override Sequence InnerInvoke(Interactor interactor, GameObject target)
     {
+        if (!IsEnabled)
+        {
+            return null;
+        }
+
         if (TweenAnimation != null)
         {
             return TweenAnimation?.Run(() => Invocationlogic(interactor));
