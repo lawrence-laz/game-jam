@@ -35,6 +35,7 @@ public enum Badges
     Geiser,
     Seaweed,
     Sushi,
+    Eel,
 }
 
 public class Badge : MonoBehaviour
