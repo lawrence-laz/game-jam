@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0020775795, y: -0.16318673}
+  m_Offset: {x: 0.00007498264, y: -0.05982934}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47242522, y: 0.4415127}
+  m_Size: {x: 0.3082149, y: 0.3037859}
   m_EdgeRadius: 0
 --- !u!114 &3250799419930439483
 MonoBehaviour:
@@ -143,6 +143,8 @@ GameObject:
   - component: {fileID: 5540981597316180064}
   - component: {fileID: 5540981597316180065}
   - component: {fileID: 6145614596599403894}
+  - component: {fileID: 1350364152}
+  - component: {fileID: 1350364159}
   m_Layer: 7
   m_Name: Well
   m_TagString: Untagged
@@ -157,7 +159,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5540981597316180121}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.346, y: 1.171, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -178,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63dfe28ab42eac74b89086126366f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: furnace
+  Text: well
 --- !u!50 &5540981597316180069
 Rigidbody2D:
   serializedVersion: 4
@@ -212,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bbd3873b4fc893b1a133eed80da04b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip: {fileID: 0}
 --- !u!114 &5540981597316180065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,15 +240,142 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 0d95e38eb2e58b06e83cbdcd440e75b8, type: 3}
   InteractionText: Fill
   GuaranteedDropPrefabs: []
   ChanceDropPrefabs: []
-  RequiredGameObjectLabel: 
+  RequiredGameObjectLabel: bucket
   DestroyAfterInteraction: 0
-  DestroyRequiredGameObjectAfterInteraction: 0
-  DropToHand: {fileID: 0}
-  InteractionsCount: 1
+  DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 1151545034218378748, guid: d2791866718afba72a2ea070f1236e1c, type: 3}
+  InteractionsCount: 999999999
   SpriteAfterInteraction: {fileID: 0}
   OnInteraction:
     m_PersistentCalls:
       m_Calls: []
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0
+--- !u!82 &1350364152
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540981597316180121}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1350364159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540981597316180121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 728ddb19d3586533aa1f5913c1264f50, type: 3}
+  InteractionText: pour
+  GuaranteedDropPrefabs:
+  - {fileID: 5573031194465859874, guid: f2b74bb9b1f7d8ed4b4f648d93bd29d3, type: 3}
+  ChanceDropPrefabs: []
+  RequiredGameObjectLabel: bucket with lava
+  DestroyAfterInteraction: 0
+  DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
+  InteractionsCount: 999999999
+  SpriteAfterInteraction: {fileID: 0}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0

@@ -28,6 +28,7 @@ public enum Badges
     LavaHole,
     Volcano,
     Dust,
+    Obsidian,
 }
 
 public class Badge : MonoBehaviour
