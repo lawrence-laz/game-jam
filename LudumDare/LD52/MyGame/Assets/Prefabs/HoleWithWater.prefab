@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 8300000, guid: e4fe3d48fbefc86b99cf371308525771, type: 3}
-  PlantedSeedPrefab: {fileID: 7218401978377357513, guid: 66cda3ba237c8fec7a259297e8bfb199, type: 3}
+  PlantedSeedPrefab: {fileID: 897421409087927017, guid: b841e837c5c76e334ba1846ef0e845cd, type: 3}
 --- !u!114 &8122453618821033721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +91,7 @@ MonoBehaviour:
       m_Calls: []
   TweenAnimation: {fileID: 0}
   BadgeGive: 0
+  SpawnOffset: {x: 0, y: 0}
 --- !u!82 &-6565061110184325292
 AudioSource:
   m_ObjectHideFlags: 0
