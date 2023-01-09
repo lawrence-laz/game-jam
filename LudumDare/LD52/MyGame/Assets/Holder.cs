@@ -6,7 +6,8 @@ public class Holder : MonoBehaviour
 {
     public int MaxSlots = 5;
     public int CurrentSlots = 0;
-    public Vector3 PositionOffsetBetweenItems = new(0f, 0.05f, -0.1f);
+    public Vector3 PositionOffsetBetweenItems = new(0f, 0.05f, 0);
+    public float ZOffsetBetweenItems = -0.1f;
     public List<GameObject> Items = new();
     public AudioClip DropSound;
     public AudioClip BucketDropSound;
@@ -44,6 +45,15 @@ public class Holder : MonoBehaviour
         pickable.transform.SetParent(transform);
         pickable.transform.localPosition = (Items.Count - 1) * PositionOffsetBetweenItems;
         pickable.transform.localRotation = Quaternion.identity;
+        var zOffset = (Items.Count - 1) * ZOffsetBetweenItems;
+        var ySorter = pickable.GetComponentInChildren<YSorter>();
+        if (ySorter != null)
+        {
+            ySorter.enabled = false;
+            var spriteLocalPosition = ySorter.transform.localPosition;
+            spriteLocalPosition.z = zOffset;
+            ySorter.transform.localPosition = spriteLocalPosition;
+        }
 
         return true;
     }
@@ -119,5 +129,10 @@ public class Holder : MonoBehaviour
         }
         item.gameObject.EnableAllComponentsInChildren<Collider2D>();
         item.transform.SetParent(null, worldPositionStays: true);
+        var ySorter = item.GetComponentInChildren<YSorter>();
+        if (ySorter != null)
+        {
+            ySorter.enabled = true;
+        }
     }
 }

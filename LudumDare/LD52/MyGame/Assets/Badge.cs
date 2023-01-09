@@ -32,6 +32,7 @@ public enum Badges
     Gunpowder,
     Lake,
     Fish,
+    Geiser,
 }
 
 public class Badge : MonoBehaviour

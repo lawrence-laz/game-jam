@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63dfe28ab42eac74b89086126366f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: a old book
+  Text: a book
 --- !u!50 &4039765000666776633
 Rigidbody2D:
   serializedVersion: 4

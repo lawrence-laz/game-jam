@@ -78,7 +78,7 @@ public class ProcessInteraction : Interaction
         for (var i = 0; i < count; ++i)
         {
             var result = Instantiate(recipe.ResultPrefab);
-            var positionOffset = interactor.transform.DirectionTo(transform) * 0.5f + new Vector3(0, 0.05f, -0.1f) * i;
+            var positionOffset = interactor.transform.DirectionTo(transform) * 0.5f + new Vector3(0, 0.05f, 0f) * i;
             result.transform.position = transform.position + positionOffset;
             result.EnableAllComponentsInChildren<Collider2D>();
         }

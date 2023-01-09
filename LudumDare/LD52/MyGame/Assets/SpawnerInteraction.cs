@@ -10,6 +10,7 @@ public class ChanceDrop
 {
     public float Chance = 1;
     public GameObject Prefab;
+    public Vector2 SpawnOffset = Vector2.zero;
 }
 
 public class SpawnerInteraction : Interaction
@@ -26,6 +27,7 @@ public class SpawnerInteraction : Interaction
     public UnityEventGameObject OnInteraction;
     public TweenAnimation TweenAnimation;
     public Badges BadgeGive = Badges.None;
+    public Vector2 SpawnOffset = Vector2.zero;
 
     public override string Text => InteractionText;
 
@@ -64,7 +66,7 @@ public class SpawnerInteraction : Interaction
         foreach (var dropPrefab in GuaranteedDropPrefabs)
         {
             var drop = Instantiate(dropPrefab);
-            drop.transform.position = transform.position;
+            drop.transform.position = transform.position + (Vector3)SpawnOffset;
             if (GuaranteedDropPrefabs.Length > 1)
             {
                 drop.transform.position += (Vector3)UnityEngine.Random.insideUnitCircle * 0.2f;
@@ -76,7 +78,7 @@ public class SpawnerInteraction : Interaction
             if (UnityEngine.Random.Range(0f, 1f) <= chanceDrop.Chance)
             {
                 var drop = Instantiate(chanceDrop.Prefab);
-                drop.transform.position = transform.position;
+                drop.transform.position = transform.position + (Vector3)chanceDrop.SpawnOffset;
                 break;
             }
         }

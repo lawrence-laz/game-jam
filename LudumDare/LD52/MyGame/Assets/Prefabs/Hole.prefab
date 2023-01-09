@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2126165369205469328}
   - component: {fileID: 8122453618821033721}
   - component: {fileID: -6565061110184325292}
+  - component: {fileID: -4671317021361459779}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Untagged
@@ -217,6 +218,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-4671317021361459779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657740384320590947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 0}
+  InteractionText: pressurize
+  GuaranteedDropPrefabs:
+  - {fileID: 165711899441524456, guid: e6f44b3b99ef48da2be2aeeab60ffaa9, type: 3}
+  ChanceDropPrefabs: []
+  RequiredGameObjectLabel: steam
+  DestroyAfterInteraction: 1
+  DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 0}
+  InteractionsCount: 1
+  SpriteAfterInteraction: {fileID: 0}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0
 --- !u!1 &7657740385397711478
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +257,7 @@ GameObject:
   - component: {fileID: 7657740385397711479}
   - component: {fileID: 7657740385397711477}
   - component: {fileID: 7657740385397711476}
+  - component: {fileID: 6590947568890127469}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -318,3 +348,15 @@ CircleCollider2D:
   m_Offset: {x: 0.005514264, y: 0}
   serializedVersion: 2
   m_Radius: 0.061586738
+--- !u!114 &6590947568890127469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657740385397711478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900092bdc2791a557a881aa628aa648c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
