@@ -111,14 +111,14 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.06559646, y: 0.17115235}
-      - {x: -0.13931513, y: 0.19408463}
-      - {x: -0.31451154, y: -0.09413573}
-      - {x: -0.31451178, y: -0.17263529}
-      - {x: -0.22865605, y: -0.21460994}
-      - {x: 0.32747018, y: -0.21618882}
-      - {x: 0.34608912, y: -0.1486248}
-      - {x: 0.14557242, y: 0.1913126}
-      - {x: 0.099516034, y: 0.1719804}
+      - {x: -0.09372234, y: 0.17888708}
+      - {x: -0.25372124, y: -0.0738723}
+      - {x: -0.23852396, y: -0.15743771}
+      - {x: -0.102009535, y: -0.20954406}
+      - {x: 0.17549443, y: -0.19592538}
+      - {x: 0.2802329, y: -0.13849306}
+      - {x: 0.115177274, y: 0.18118088}
+      - {x: 0.04379165, y: 0.1719804}
 --- !u!1 &1411179474890892795
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 8015239019150326271}
   - component: {fileID: 883097602057020598}
   - component: {fileID: 3782398418278955371}
+  - component: {fileID: -2503522579995293501}
   m_Layer: 0
   m_Name: Volcano
   m_TagString: Untagged
@@ -147,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411179474890892795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9267795, y: 0.0795455, z: 0}
+  m_LocalPosition: {x: -1.9267795, y: 0.0795455, z: -2.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: 728ddb19d3586533aa1f5913c1264f50, type: 3}
   InteractionText: water
   GuaranteedDropPrefabs:
   - {fileID: 7903754914561750977, guid: bbd30c05da1387a918229b9c0d95c597, type: 3}
@@ -305,3 +306,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2503522579995293501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411179474890892795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 51daa9e435c4aa9bcac116b3954367f9, type: 3}
+  InteractionText: Scoop
+  GuaranteedDropPrefabs: []
+  ChanceDropPrefabs: []
+  RequiredGameObjectLabel: bucket
+  DestroyAfterInteraction: 0
+  DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 6611928990312228207, guid: 125118e64c160c4bb94256002e3ec515, type: 3}
+  InteractionsCount: 1
+  SpriteAfterInteraction: {fileID: 0}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0

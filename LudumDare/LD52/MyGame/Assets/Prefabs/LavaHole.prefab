@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: 51daa9e435c4aa9bcac116b3954367f9, type: 3}
   InteractionText: Scoop
   GuaranteedDropPrefabs: []
   ChanceDropPrefabs: []
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClip: {fileID: 0}
+  AudioClip: {fileID: 8300000, guid: 728ddb19d3586533aa1f5913c1264f50, type: 3}
   InteractionText: water
   GuaranteedDropPrefabs:
   - {fileID: 7903754914561750977, guid: bbd30c05da1387a918229b9c0d95c597, type: 3}
