@@ -46,6 +46,11 @@ public class SpriteFrameAnimator : MonoBehaviour
 
     public void StopAnimation()
     {
+        if (_spriteRenderer == null)
+        {
+            return;
+        }
+
         _spriteRenderer.sprite = _idleSprite;
 
         if (_animation == null)

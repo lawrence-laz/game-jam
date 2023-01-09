@@ -30,6 +30,8 @@ public enum Badges
     Dust,
     Obsidian,
     Gunpowder,
+    Lake,
+    Fish,
 }
 
 public class Badge : MonoBehaviour

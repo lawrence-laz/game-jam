@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &403138070
 Transform:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f422bb1a3cf125e139416dccea78fd3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50797fa672a4dbc3380564e79c67300d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855391462001844633}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d333e75074a1eb4cfa661fb51280f1dc, type: 3}
   m_Name: 
@@ -208,11 +208,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 17bef948e419148069f95e35c11adc52, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8c2a4d918e459a2ccbeaea9c27370445, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -307,11 +307,11 @@ GameObject:
   - component: {fileID: 7404500196996000589}
   - component: {fileID: 7404500196996000586}
   - component: {fileID: 6923185967194352806}
-  - component: {fileID: 575540102}
   - component: {fileID: 575540109}
   - component: {fileID: -4192075007191970653}
+  - component: {fileID: 7469903628300582458}
   m_Layer: 8
-  m_Name: Crow
+  m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4378269324a6d649a4af3478f1646b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClip: {fileID: 8300000, guid: 77d9790346939b29f80d53fe6a6f5ebe, type: 3}
+  AudioClip: {fileID: 8300000, guid: 6dde29ecb5f244232bbdb99fd8d78c32, type: 3}
 --- !u!114 &7404500196996000586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63dfe28ab42eac74b89086126366f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text: a crow
+  Text: a fish
 --- !u!50 &6923185967194352806
 Rigidbody2D:
   serializedVersion: 4
@@ -394,22 +394,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &575540102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855391462676350432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00547f466d3494cfb1021bab5a55de4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  State: 0
-  IsHumanNearby: 0
-  Target: {fileID: 0}
-  SafeDistance: 1.5
 --- !u!114 &575540109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +401,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855391462676350432}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 208be521dbb01d8358d135c66536459f, type: 3}
   m_Name: 
@@ -438,3 +422,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OriginalRotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7469903628300582458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855391462676350432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f790d15b9b4097045b9164dfa318ff5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BadgeName: 26

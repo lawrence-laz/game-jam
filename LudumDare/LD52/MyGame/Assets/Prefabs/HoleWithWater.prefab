@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 7657740384320590951}
   - component: {fileID: 7657740384320590950}
   - component: {fileID: 759765544597076774}
-  - component: {fileID: 2126165369205469328}
   - component: {fileID: 8122453618821033721}
   - component: {fileID: -6565061110184325292}
   m_Layer: 0
-  m_Name: Hole
+  m_Name: HoleWithWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,35 +63,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioClip: {fileID: 8300000, guid: e4fe3d48fbefc86b99cf371308525771, type: 3}
   PlantedSeedPrefab: {fileID: 7218401978377357513, guid: 66cda3ba237c8fec7a259297e8bfb199, type: 3}
---- !u!114 &2126165369205469328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7657740384320590947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioClip: {fileID: 8300000, guid: 8c2a4d918e459a2ccbeaea9c27370445, type: 3}
-  InteractionText: Water
-  GuaranteedDropPrefabs:
-  - {fileID: 1144316297086594507, guid: e9b7eecfc622ffc649c2dfe486400d9d, type: 3}
-  - {fileID: 7657740384320590947, guid: 1c486bfbf019642b6ba3c41a437c2e0b, type: 3}
-  ChanceDropPrefabs: []
-  RequiredGameObjectLabel: bucket with water
-  DestroyAfterInteraction: 1
-  DestroyRequiredGameObjectAfterInteraction: 1
-  DropToHand: {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
-  InteractionsCount: 1
-  SpriteAfterInteraction: {fileID: 0}
-  OnInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  TweenAnimation: {fileID: 0}
-  BadgeGive: 0
 --- !u!114 &8122453618821033721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,15 +75,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioClip: {fileID: 8300000, guid: 728ddb19d3586533aa1f5913c1264f50, type: 3}
-  InteractionText: light
+  AudioClip: {fileID: 8300000, guid: 0d95e38eb2e58b06e83cbdcd440e75b8, type: 3}
+  InteractionText: 'pour water in '
   GuaranteedDropPrefabs:
-  - {fileID: 2009201378703757801, guid: eb11ec6eb7bd81cff89d5ec85b1dec63, type: 3}
+  - {fileID: 7657740384320590947, guid: b651fab0f55cf4f3e96cbd898a23e840, type: 3}
   ChanceDropPrefabs: []
-  RequiredGameObjectLabel: flame
+  RequiredGameObjectLabel: bucket with water
   DestroyAfterInteraction: 1
   DestroyRequiredGameObjectAfterInteraction: 1
-  DropToHand: {fileID: 0}
+  DropToHand: {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
   InteractionsCount: 1
   SpriteAfterInteraction: {fileID: 0}
   OnInteraction:
@@ -291,7 +261,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 18efa50ca0889de8d8fbb980b6a85a2e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dceb544653447b4c288361fa3c287081, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

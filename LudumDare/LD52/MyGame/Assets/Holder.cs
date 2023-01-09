@@ -64,6 +64,7 @@ public class Holder : MonoBehaviour
         {
             var item = Items[i];
             item.transform.localPosition = i * PositionOffsetBetweenItems;
+            item.transform.localRotation = Quaternion.identity;
         }
     }
 
