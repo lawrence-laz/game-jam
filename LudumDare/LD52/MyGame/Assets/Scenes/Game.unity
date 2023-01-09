@@ -11441,6 +11441,30 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.035280347
       objectReference: {fileID: 0}
+    - target: {fileID: 5969336466422007383, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: FurnaceRecipes.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5969336466422007383, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: FurnaceRecipes.Array.data[6].Counts.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5969336466422007383, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: FurnaceRecipes.Array.data[6].Counts.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5969336466422007383, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: FurnaceRecipes.Array.data[6].LabelName
+      value: seed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5969336466422007383, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: FurnaceRecipes.Array.data[6].CustomVerb
+      value: burn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5969336466422007383, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
+      propertyPath: FurnaceRecipes.Array.data[6].ResultPrefab
+      value: 
+      objectReference: {fileID: 2393517016862875584, guid: fc248f53714d1ac97965f5bba9717346, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6869b3daa8fcea67c9f8e79e5d6656a6, type: 3}
 --- !u!1001 &2749603301992406720
@@ -11847,7 +11871,7 @@ PrefabInstance:
       objectReference: {fileID: 8150255720389458576, guid: 65441c9ab70e1a784975e76c8339180a, type: 3}
     - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
       propertyPath: AlchemyRecipes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
       propertyPath: AlchemyRecipes.Array.data[0].Badge
@@ -11855,6 +11879,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
       propertyPath: AlchemyRecipes.Array.data[0].Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: fdfdafd7eed13637f9b0e5aed8fd34cf, type: 3}
+    - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
+      propertyPath: AlchemyRecipes.Array.data[1].Badge
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
+      propertyPath: AlchemyRecipes.Array.data[1].Sound
       value: 
       objectReference: {fileID: 8300000, guid: fdfdafd7eed13637f9b0e5aed8fd34cf, type: 3}
     - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
@@ -11866,15 +11898,35 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
+      propertyPath: AlchemyRecipes.Array.data[1].Counts.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
+      propertyPath: AlchemyRecipes.Array.data[1].Counts.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
       propertyPath: AlchemyRecipes.Array.data[0].LabelName
       value: crow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
+      propertyPath: AlchemyRecipes.Array.data[1].LabelName
+      value: eel
       objectReference: {fileID: 0}
     - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
       propertyPath: AlchemyRecipes.Array.data[0].CustomVerb
       value: sacrifice
       objectReference: {fileID: 0}
     - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
+      propertyPath: AlchemyRecipes.Array.data[1].CustomVerb
+      value: sacrifice
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
       propertyPath: AlchemyRecipes.Array.data[0].ResultPrefab
+      value: 
+      objectReference: {fileID: 8150255720389458576, guid: 65441c9ab70e1a784975e76c8339180a, type: 3}
+    - target: {fileID: 6452863835440261605, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
+      propertyPath: AlchemyRecipes.Array.data[1].ResultPrefab
       value: 
       objectReference: {fileID: 8150255720389458576, guid: 65441c9ab70e1a784975e76c8339180a, type: 3}
     - target: {fileID: 6452863835440261606, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
@@ -12001,6 +12053,10 @@ PrefabInstance:
       propertyPath: ProcessRecipes.Array.data[5].OtherLabelName
       value: seaweed
       objectReference: {fileID: 0}
+    - target: {fileID: 6452863835440261607, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
+      propertyPath: AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f78dd6a7e9e10496f8a152e4392216e2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17e89d72f86c682bb8115d0b75b3ad48, type: 3}
 --- !u!1001 &7178159483746610527

@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8122453618821033721}
   - component: {fileID: -6565061110184325292}
   - component: {fileID: -4671317021361459779}
+  - component: {fileID: -9080235237534283718}
+  - component: {fileID: 5387517221433260536}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Untagged
@@ -94,6 +96,7 @@ MonoBehaviour:
       m_Calls: []
   TweenAnimation: {fileID: 0}
   BadgeGive: 0
+  SpawnOffset: {x: 0, y: 0}
 --- !u!114 &8122453618821033721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +125,7 @@ MonoBehaviour:
       m_Calls: []
   TweenAnimation: {fileID: 0}
   BadgeGive: 0
+  SpawnOffset: {x: 0, y: 0}
 --- !u!82 &-6565061110184325292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,6 +250,63 @@ MonoBehaviour:
       m_Calls: []
   TweenAnimation: {fileID: 0}
   BadgeGive: 0
+  SpawnOffset: {x: 0, y: 0}
+--- !u!114 &-9080235237534283718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657740384320590947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: f78dd6a7e9e10496f8a152e4392216e2, type: 3}
+  InteractionText: fill
+  GuaranteedDropPrefabs: []
+  ChanceDropPrefabs: []
+  RequiredGameObjectLabel: dirt
+  DestroyAfterInteraction: 1
+  DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 0}
+  InteractionsCount: 1
+  SpriteAfterInteraction: {fileID: 0}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0
+  SpawnOffset: {x: 0, y: 0}
+--- !u!114 &5387517221433260536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7657740384320590947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a37eb2636574f47b89167e1a87c115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: f78dd6a7e9e10496f8a152e4392216e2, type: 3}
+  InteractionText: fill
+  GuaranteedDropPrefabs: []
+  ChanceDropPrefabs: []
+  RequiredGameObjectLabel: sand
+  DestroyAfterInteraction: 1
+  DestroyRequiredGameObjectAfterInteraction: 1
+  DropToHand: {fileID: 0}
+  InteractionsCount: 1
+  SpriteAfterInteraction: {fileID: 0}
+  OnInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+  TweenAnimation: {fileID: 0}
+  BadgeGive: 0
+  SpawnOffset: {x: 0, y: 0}
 --- !u!1 &7657740385397711478
 GameObject:
   m_ObjectHideFlags: 0
