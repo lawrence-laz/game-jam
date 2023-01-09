@@ -57,6 +57,7 @@ public class Lightning : MonoBehaviour
                 color.a = 1;
                 _spriteRenderer.color = color;
                 ScreenFlashEffect.Flash();
+                FindObjectOfType<ScreenShake>().MediumShake();
             })
             .Append(_spriteRenderer.DOFade(0, 0.7f))
             .AppendCallback(() =>

@@ -86,7 +86,7 @@ MonoBehaviour:
   DestroyAfterInteraction: 0
   DestroyRequiredGameObjectAfterInteraction: 1
   DropToHand: {fileID: 6611928990312228207, guid: 125118e64c160c4bb94256002e3ec515, type: 3}
-  InteractionsCount: 1
+  InteractionsCount: 9999
   SpriteAfterInteraction: {fileID: 0}
   OnInteraction:
     m_PersistentCalls:
@@ -127,7 +127,7 @@ MonoBehaviour:
   DestroyAfterInteraction: 0
   DestroyRequiredGameObjectAfterInteraction: 1
   DropToHand: {fileID: 6875554897224147948, guid: aa1b6102452a41797a1a411e17699389, type: 3}
-  InteractionsCount: 1
+  InteractionsCount: 99999
   SpriteAfterInteraction: {fileID: 0}
   OnInteraction:
     m_PersistentCalls:
@@ -146,7 +146,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a0df1403accc3fe4992b8cd0aa1172f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.463
   m_Pitch: 1
   Loop: 1
   Mute: 0

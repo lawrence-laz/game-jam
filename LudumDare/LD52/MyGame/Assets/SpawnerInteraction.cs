@@ -106,7 +106,7 @@ public class SpawnerInteraction : Interaction
         {
             var drop = Instantiate(DropToHand, transform.position, Quaternion.identity);
             drop.transform.rotation = Quaternion.identity;
-            drop.GetComponent<PickupInteraction>().Invoke(interactor, drop);
+            drop.GetComponent<PickupInteraction>().Invoke(interactor, drop, silent: true);
         }
 
         Badge.Set(BadgeGive);

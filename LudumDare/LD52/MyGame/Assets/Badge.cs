@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public enum Badges
 {
     None,
-    Pentagram, // TODO
+    Pentagram, 
     Fire,
     Tomatoes,
     Bricks, 
@@ -18,17 +18,18 @@ public enum Badges
     Wheat50, // TODO
     Anvil, 
     Hammer, // TODO
-    Sand, // TODO
-    Glass, // TODO
+    Sand, 
+    Glass, 
     Bread,
-    Lightbulb, // TODO
-    Steam, // TODO water+fire
+    Lightbulb, 
+    Steam, 
     Electricity,
     LavaBucket,
     LavaHole,
     Volcano,
     Dust,
     Obsidian,
+    Gunpowder,
 }
 
 public class Badge : MonoBehaviour

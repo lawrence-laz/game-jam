@@ -13,6 +13,11 @@ public class Holder : MonoBehaviour
     public AudioClip RigidDropSound;
     public AudioClip GenericDropSound;
 
+    private void Update()
+    {
+        SynchronizeHeldItemsPosition();
+    }
+
     public bool TryPickUp(Pickable pickable)
     {
         var pickingUpBiggerItem = pickable.Slots > 1;
@@ -48,13 +53,18 @@ public class Holder : MonoBehaviour
         CurrentSlots -= pickable.Slots;
         Items.Remove(pickable.gameObject);
         Restore(pickable.gameObject);
+        SynchronizeHeldItemsPosition();
+
+        return true;
+    }
+
+    public void SynchronizeHeldItemsPosition()
+    {
         for (var i = 0; i < Items.Count; ++i)
         {
             var item = Items[i];
             item.transform.localPosition = i * PositionOffsetBetweenItems;
         }
-
-        return true;
     }
 
     public bool TryDropAll()

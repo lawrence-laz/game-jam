@@ -10,10 +10,13 @@ public abstract class Interaction : MonoBehaviour
 
     public abstract bool CanInvoke(Interactor interactor, GameObject target);
 
-    public Sequence Invoke(Interactor interactor, GameObject target)
+    public Sequence Invoke(Interactor interactor, GameObject target, bool silent = false)
     {
         var sequence = InnerInvoke(interactor, target);
-        PlaySound(interactor);
+        if (!silent)
+        {
+            PlaySound(interactor);
+        }
         return sequence;
     }
 
